@@ -196,6 +196,30 @@ td{padding:8px 12px;vertical-align:middle}
 .opener-card [hidden]{display:none!important}.opener-card td{white-space:normal;overflow-wrap:anywhere}
 @media(max-width:600px){.opener-card{padding:10px}.opener-toolbar{gap:8px}.opener-toolbar select{flex-basis:100%}.opener-sequence{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}}
 
+
+.train-launch{margin:18px 0;padding:14px 20px;border:1px solid #c6a452;border-radius:10px;background:#30291b;color:#f4d990;font:inherit;font-weight:700;cursor:pointer}
+#train-dialog{width:min(1080px,96vw);max-width:96vw;max-height:92vh;padding:0;background:#111522;color:#e8edf6;border:1px solid #52617d;border-radius:16px;box-shadow:0 20px 80px #0009}
+#train-dialog::backdrop{background:#000b;backdrop-filter:blur(4px)}
+#train-dialog button,#train-dialog input,#train-dialog select{font:inherit;color:#e8edf6;background:#202a3e;border:1px solid #52617d;border-radius:7px;padding:9px}
+#train-dialog button{cursor:pointer}#train-dialog button:disabled,#train-dialog input:disabled,#train-dialog select:disabled{opacity:.5;cursor:default}#train-dialog [hidden]{display:none!important}
+#train-dialog :focus-visible{outline:3px solid #f6d888;outline-offset:3px}
+.train-header{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 24px;border-bottom:1px solid #344057;background:#181f30}.train-header h2{font-size:21px;margin:4px 0}.train-header small{color:#b2bdd3}
+.train-body{padding:22px}#train-modes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}#train-modes button{text-align:left;padding:14px}#train-modes small{display:block;color:#b2bdd3;font-size:12px;margin-top:6px}#train-modes .active{border-color:#edcc7c;background:#373024}
+#train-description,.train-help,#train-editor-wrap p{line-height:1.7;color:#b9c7dc;font-size:13px;margin:14px 0}#train-record{font-size:12px;color:#c5ac78;margin:12px 0}
+#train-settings{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:12px 0}#train-settings label{display:flex;gap:8px;align-items:center;font-size:13px}#train-settings input[type=number]{width:82px}#train-settings input[type=checkbox]{accent-color:#e4c476}
+#train-editor-wrap details{border:1px solid #344057;border-radius:9px;padding:12px;margin:10px 0}#train-dialog summary{cursor:pointer;font-size:14px;font-weight:600}
+.train-table-scroll{overflow:auto}.train-editor{width:100%;min-width:750px}.train-editor td{padding:7px}.train-editor input{width:100%;min-width:70px;box-sizing:border-box}.train-editor td:nth-child(2){width:30%}.train-editor td:nth-child(3){width:20%}.train-editor small{display:block;margin-top:5px;color:#aab7cd;font-size:11px}.train-editor td:last-child{white-space:nowrap}.train-editor td:last-child button{padding:5px 9px}.train-edit-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.train-edit-actions select{max-width:100%;flex:1}
+.train-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}#train-start,#train-resume{background:#d1b570!important;color:#171a23!important;font-weight:700!important}
+#train-stage{border:1px solid #3d4d69;border-radius:12px;padding:22px;background:radial-gradient(ellipse at top,#263149,#151b29 70%);text-align:center;outline:none}#train-stage:focus{border-color:#e4c476;box-shadow:0 0 0 2px #e4c47644}
+#train-score{color:#a9b9d1;font-size:13px}#train-target{min-height:170px;padding:18px 0 8px}#train-target h3{font-size:25px;margin:7px 0}#train-target p{font-size:12px;color:#9eaec8;margin:6px 0}#train-target small{display:block;color:#b4c3db}.train-icon{width:44px;height:44px;border-radius:7px;margin-bottom:8px}.train-key{display:inline-block;margin:8px 0;padding:8px 23px;border:1px solid #e4c476;border-bottom-width:4px;border-radius:8px;font-size:28px;color:#ffe4a3;min-width:80px}
+#train-next{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0;font-size:12px}#train-next span{padding:6px;background:#27324a;border-radius:5px}#train-next i{align-self:center;color:#95a9c7}#train-next b{color:#f0d79d}
+#train-status{min-height:28px;color:#f1d992;font-size:14px;line-height:1.6}#train-timing{font-variant-numeric:tabular-nums;color:#c9dcff;min-height:24px;font-weight:600}#train-meter{width:min(450px,100%);height:12px;accent-color:#e4c476}
+#train-pad{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:7px;margin-top:14px}#train-pad button{padding:10px 2px;font-size:12px}#train-pad .expected{background:#51432a;border-color:#f0d79d;color:#ffe4a3}
+#train-history{font-size:13px;line-height:1.8;padding-left:22px}.hit{color:#9dd4ba}.bad{color:#ffaaaa}
+@media(max-width:650px){.train-body{padding:12px}.train-header{padding:14px}.train-header h2{font-size:17px}#train-modes{gap:5px}#train-modes button{padding:9px;font-size:12px}#train-modes small{font-size:10px}#train-stage{padding:14px 10px}#train-target h3{font-size:21px}#train-pad{grid-template-columns:repeat(6,minmax(0,1fr))}#train-dialog{max-height:95vh}#train-settings label{flex-wrap:wrap}.train-controls button{flex:1}}
+
+#train-dialog{margin:auto}
+
 </style>
 </head>
 <body>
@@ -214,6 +238,20 @@ td{padding:8px 12px;vertical-align:middle}
   <div class="sidebar" id="sidebar"></div>
   <div class="content" id="content"></div>
 </div>
+
+
+<dialog id="train-dialog" aria-labelledby="train-title">
+ <header class="train-header"><div><small>민주님의 키셋으로 연습하기</small><h2 id="train-title">키보드 연습</h2></div><button type="button" aria-label="연습 창 닫기" onclick="trainClose()">닫기 ×</button></header>
+ <div class="train-body"><nav id="train-modes" aria-label="연습 단계"></nav><p id="train-description"></p><p id="train-record"></p>
+ <div id="train-settings"></div>
+ <div id="train-editor-wrap"><details id="train-editor-details"><summary>오프너 순서·키 편집</summary><p>빈 키는 실제 게임의 배치대로 채우세요. 한 기술에 여러 입력이 필요하면 <b>Q W E 6</b>처럼 공백으로 구분합니다. 인술·무도·분기 기술은 실제 입력 순서에 맞게 편집해야 합니다. 이 설정은 연습용이며 게임의 키 설정은 바꾸지 않습니다.</p><p>3단계 자동 간격: GCD는 설정한 주기, oGCD는 앞 입력 뒤 0.7초, 같은 행의 추가 키는 0.5초입니다. 기술별 실제 시간에 맞추려면 행을 나누고 ‘이전 입력 뒤 초’를 지정하세요.</p>
+ <div class="train-table-scroll"><table class="train-editor"><thead><tr><th>#</th><th>기술명</th><th>키 입력 순서</th><th>유형</th><th>이전 입력 뒤 초</th><th>순서</th></tr></thead><tbody id="train-editor-rows"></tbody></table></div>
+ <div class="train-edit-actions"><select id="train-add-skill" aria-label="추가할 기술"></select><button type="button" onclick="trainAdd()">기술 추가</button><button type="button" onclick="trainSave()">편집 저장</button><button type="button" onclick="trainReset()">기본 순서 복원</button></div><p id="train-edit-message" role="status"></p></details></div>
+ <div class="train-controls"><button type="button" id="train-start" onclick="trainStart()">연습 시작</button><button type="button" id="train-pause" onclick="trainPause()" hidden>일시정지</button><button type="button" id="train-resume" onclick="trainResume()" hidden>계속하기</button><button type="button" id="train-stop" onclick="trainStop()" hidden>종료</button></div>
+ <div id="train-stage" tabindex="0" aria-label="키 입력 연습 영역"><div id="train-score"></div><div id="train-target"></div><div id="train-timing"></div><progress id="train-meter" max="1" value="0" aria-label="다음 입력 시점" hidden></progress><div id="train-next"></div><p id="train-status" role="status" aria-live="polite"></p><div id="train-pad" aria-label="화면 키보드"></div></div>
+ <p class="train-help">Esc: 일시정지 · 창이나 탭을 벗어나면 자동 일시정지 · 길게 눌러도 1회 입력 · 화면 키를 눌러서도 연습 가능</p><details><summary>최근 입력 내역</summary><ol id="train-history"></ol></details>
+ </div>
+</dialog>
 
 <script>
 // ─────────────── Category Config ───────────────
@@ -3082,6 +3120,8 @@ function renderJob() {
     html += `</div>`;
   }
 
+  html += `<button type="button" class="train-launch" onclick="trainOpen()">⌨ 키보드 연습 · 1 → 2 → 3단계</button>`;
+
   // 키보드 레이아웃
   html += `<div class="kbd-section"><div class="section-title">단축키 레이아웃</div>${renderKeyboard(job)}</div>`;
 
@@ -3142,6 +3182,79 @@ function filterOpenerTerms(input) {
  const query=input.value.trim().toLowerCase();
  input.closest('details').querySelectorAll('[data-opener-term]').forEach(row=>row.hidden=!row.dataset.openerTerm.includes(query));
 }
+
+
+// Keyboard practice: local settings only; no gameplay automation.
+const TRAIN_KEYS=['1','2','3','4','5','6','Q','W','E','R','T','A','D','S','F1','F2','F3','F4','S1','S2','S3','S4'];
+const TRAIN_STORE='ffxiv-practice-v1';
+let trainSaved={};try{trainSaved=JSON.parse(localStorage.getItem(TRAIN_STORE)||'{}')||{};}catch{}
+const trainer={job:null,mode:1,status:'idle',events:[],pos:0,correct:0,wrong:0,miss:0,early:0,offsets:[],history:[],timer:null,start:0,pauseAt:0,feedback:'연습 시작을 누르면 이 영역에서 키를 입력할 수 있어요.',hide:false};
+function trainPersist(){try{localStorage.setItem(TRAIN_STORE,JSON.stringify(trainSaved));return true;}catch{return false;}}
+function trainLabel(k){return /^S[1-4]$/.test(k)?'Shift+'+k.slice(1):k;}
+function trainKey(event){if(event.ctrlKey||event.altKey||event.metaKey)return null;let k='';if(/^Digit[0-9]$/.test(event.code))k=event.code.slice(5);else if(/^Key[A-Z]$/.test(event.code))k=event.code.slice(3);else if(/^F[1-4]$/.test(event.code))k=event.code;if(event.shiftKey){if(/^[1-4]$/.test(k))return 'S'+k;return k?'Shift+'+k:null;}return k||null;}
+function trainParse(value){return value.toUpperCase().replace(/SHIFT\s*\+\s*([1-4])/g,'S$1').trim().split(/[\s,→]+/).filter(Boolean);}
+function trainIcon(name){let icons=SKILL_ICONS[name];if(!icons)icons=Object.values(SKILL_ICONS).flat().filter(x=>x.name===name);return icons&&icons[0]?'<img class="train-icon" alt="" src="'+escIconText(icons[0].src)+'">':'';}
+function trainKeyFor(job,name){const exact=job.skills.find(s=>s.name===name);if(exact)return exact.key;const match=job.skills.filter(s=>(SKILL_ICONS[s.name]||[]).some(i=>i.name===name));return match.length===1?match[0].key:'';}
+function trainPreset(job){return (OPENER_GUIDES[job.id]?.sequence||[]).map(name=>({name,keys:trainKeyFor(job,name),kind:'G',gap:''}));}
+function trainRows(){const saved=trainSaved[trainer.job.id];return Array.isArray(saved?.rows)?saved.rows:trainPreset(trainer.job);}
+function trainOpen(){trainStop(false);trainer.job=currentJob;trainer.mode=1;trainer.status='idle';trainer.feedback='연습 시작을 누르면 이 영역에서 키를 입력할 수 있어요.';document.getElementById('train-title').textContent=trainer.job.kr+' · 키보드 연습';const modal=document.getElementById('train-dialog');modal.showModal();trainRender();}
+function trainClose(){trainStop(false);document.getElementById('train-dialog').close();document.querySelector('.train-launch')?.focus();}
+function trainStop(render=true){clearInterval(trainer.timer);trainer.timer=null;trainer.status='idle';trainer.events=[];trainer.pos=0;trainer.correct=trainer.wrong=trainer.miss=trainer.early=0;trainer.offsets=[];trainer.history=[];if(render)trainRender();}
+function trainMode(mode){if(trainer.mode!==1)trainSaveRows();trainStop(false);trainer.mode=Number(mode);trainer.feedback='설정을 확인하고 연습을 시작하세요.';trainRender();}
+function trainRender(){const t=trainer,e=escIconText;document.getElementById('train-modes').innerHTML=[['키 위치 익히기','시간 제한 없이 정확하게'],['오프너 암기','도표 순서 · 키 안내 숨기기'],['타이밍 연습','GCD 간격 · oGCD 끼워넣기']].map((a,i)=>'<button type="button" class="'+(t.mode===i+1?'active':'')+'" aria-pressed="'+(t.mode===i+1)+'" onclick="trainMode('+(i+1)+')"><b>'+(i+1)+'. '+a[0]+'</b><small>'+a[1]+'</small></button>').join('');
+const record=trainSaved[t.job.id]?.records?.[t.mode];document.getElementById('train-record').textContent=record?'최근 완료: 정확도 '+record.accuracy+'% · 정답 '+record.correct+' · 오입력 '+record.wrong+' · 놓침 '+record.miss:'아직 완료한 기록이 없어요.';
+let settings='<label><input id="train-hide" type="checkbox" '+(t.hide?'checked':'')+' onchange="trainer.hide=this.checked;trainPaint()"> 키 안내 숨기기</label>';
+if(t.mode===1)settings+='<label>출제 범위 <select id="train-scope"><option value="all">등록된 모든 키</option><option value="main">숫자 1~6</option><option value="letters">Q/W/E/R/T/A/D/S</option><option value="shift">Shift+숫자</option><option value="function">F1~F4</option></select></label><label>문제 수 <select id="train-count"><option>20</option><option>10</option><option>40</option></select></label>';
+if(t.mode===3)settings+='<label>연습 내용 <select id="train-source"><option value="rhythm">기본 리듬 · GCD + oGCD</option><option value="opener">편집한 오프너</option></select></label><label>GCD 간격(초) <input id="train-gcd" type="number" min="1.5" max="4" step="0.01" value="2.50"></label><label>진행 속도 <select id="train-speed"><option value="0.6">60%</option><option value="0.8">80%</option><option value="1" selected>100%</option></select></label><label>판정 여유 <select id="train-window"><option value="0.3">±0.30초</option><option value="0.15">±0.15초</option></select></label>';
+document.getElementById('train-settings').innerHTML=settings;
+document.getElementById('train-description').textContent=t.mode===1?'현재 가이드에 등록된 키를 무작위로 연습합니다. 틀려도 다음 문제로 넘어가지 않아요.':t.mode===2?'기본 목록은 원본 도표의 큰 GCD 아이콘 순서입니다. 전체 오프너를 연습하려면 준비 기술과 oGCD도 편집기에 추가하세요.':'기본 리듬은 손가락 타이밍을 위한 반복 훈련이며 실제 추천 딜사이클이 아닙니다. 시전 시간·자원·기술 쿨다운·애니메이션 잠금은 계산하지 않습니다.';
+document.getElementById('train-editor-wrap').hidden=t.mode===1;trainEditor();trainPaint();}
+function trainEditor(){const e=escIconText;document.getElementById('train-editor-rows').innerHTML=trainRows().map((r,i)=>'<tr><td>'+(i+1)+'</td><td><input aria-label="'+(i+1)+'번 기술명" data-field="name" value="'+e(r.name)+'"><small>'+e(openerName(r.name))+'</small></td><td><input aria-label="'+(i+1)+'번 키" data-field="keys" value="'+e(r.keys)+'" placeholder="예: Q W E 6"></td><td><select aria-label="'+(i+1)+'번 유형" data-field="kind"><option value="G" '+(r.kind==='G'?'selected':'')+'>GCD</option><option value="o" '+(r.kind==='o'?'selected':'')+'>oGCD</option></select></td><td><input aria-label="'+(i+1)+'번 간격" data-field="gap" type="number" min="0.1" max="30" step="0.1" value="'+e(r.gap||'')+'" placeholder="자동"></td><td><button type="button" aria-label="'+(i+1)+'번 위로" onclick="trainMove('+i+',-1)">↑</button><button type="button" aria-label="'+(i+1)+'번 아래로" onclick="trainMove('+i+',1)">↓</button><button type="button" aria-label="'+(i+1)+'번 삭제" onclick="trainRemove('+i+')">×</button></td></tr>').join('');
+document.getElementById('train-add-skill').innerHTML=tUnique([...trainer.job.skills.map(s=>s.name),...(OPENER_GUIDES[trainer.job.id]?.glossary||[])]).map(n=>'<option value="'+e(n)+'">'+e(openerName(n))+' · '+e(n)+'</option>').join('');}
+function tUnique(a){return [...new Set(a)];}
+function trainReadRows(){return [...document.querySelectorAll('#train-editor-rows tr')].map(row=>Object.fromEntries([...row.querySelectorAll('[data-field]')].map(el=>[el.dataset.field,el.value.trim()])));}
+function trainSaveRows(){trainSaved[trainer.job.id]??={};trainSaved[trainer.job.id].rows=trainReadRows();return trainPersist();}
+function trainSave(){const ok=trainSaveRows();document.getElementById('train-edit-message').textContent=ok?'이 브라우저에 저장했어요.':'저장 공간을 사용할 수 없어 이번 실행에서만 유지합니다.';}
+function trainMove(i,delta){trainSaveRows();const rows=trainRows(),next=i+delta;if(next<0||next>=rows.length)return;[rows[i],rows[next]]=[rows[next],rows[i]];trainPersist();trainEditor();}
+function trainRemove(i){trainSaveRows();trainRows().splice(i,1);trainPersist();trainEditor();}
+function trainAdd(){trainSaveRows();const name=document.getElementById('train-add-skill').value;const skill=trainer.job.skills.find(s=>s.name===name);trainRows().push({name,keys:trainKeyFor(trainer.job,name),kind:skill?.type==='G'?'G':'o',gap:''});trainPersist();trainEditor();}
+function trainReset(){trainSaved[trainer.job.id]??={};trainSaved[trainer.job.id].rows=trainPreset(trainer.job);trainPersist();trainEditor();document.getElementById('train-edit-message').textContent='도표의 GCD 순서로 복원했어요.';}
+function trainRhythm(){const skills=trainer.job.skills;const gcd=skills.filter(s=>s.type==='G'&&s.cat!=='aoe');const weave=skills.filter(s=>s.type==='o'&&['burst','buff','party','song'].includes(s.cat));if(!gcd.length)return [];let rows=[];for(let i=0;i<8;i++){const g=gcd[i%Math.min(3,gcd.length)];rows.push({name:g.name,keys:g.key,kind:'G',gap:''});if(weave.length&&i<7){const w=weave[i%weave.length];rows.push({name:w.name,keys:w.key,kind:'o',gap:''});}}return rows;}
+function trainValidate(rows){if(!rows.length)return '연습할 기술이 없어요. 기술을 추가하세요.';for(let i=0;i<rows.length;i++){const r=rows[i],keys=trainParse(r.keys);if(!r.name||/무도 순서 입력|우선순위 GCD/.test(r.name))return (i+1)+'번: 상황에 따라 달라지는 항목을 구체적인 기술과 키로 바꿔 주세요.';if(!keys.length||keys.some(k=>!TRAIN_KEYS.includes(k)))return (i+1)+'번 '+openerName(r.name)+': 실제 게임에서 사용하는 키를 입력하세요. 사용 가능: 1~6, Q/W/E/R/T/A/D/S, F1~F4, Shift+1~4.';if(r.gap!==''&&(!Number.isFinite(Number(r.gap))||Number(r.gap)<0.1||Number(r.gap)>30))return (i+1)+'번 간격은 0.1~30초로 입력하세요.';}return '';}
+function trainSchedule(rows,gcd){let events=[],anchor=null,last=-0.7,weaves=0;for(const row of rows){const keys=trainParse(row.keys);let at;if(row.gap!=='')at=last+Number(row.gap);else if(row.kind==='G'){at=anchor===null?Math.max(0,last+0.7):Math.max(anchor+gcd,last+0.7);anchor=at;weaves=0;}else{at=last+0.7;weaves++;}if(row.kind==='G')anchor=at;keys.forEach((key,i)=>{const time=at+i*0.5;events.push({name:row.name,key,kind:row.kind,at:time,part:i+1,parts:keys.length});last=time;});}const first=events[0]?.at||0;return events.map(e=>({...e,at:e.at-first}));}
+function trainStart(){trainStop(false);let rows=[],gcd=2.5;trainer.speed=1;trainer.window=0.3;
+if(trainer.mode===1){const scope=document.getElementById('train-scope').value;let pool=trainer.job.skills.filter(s=>TRAIN_KEYS.includes(s.key)).filter(s=>scope==='all'||scope==='main'&&/^[1-6]$/.test(s.key)||scope==='letters'&&/^[QWERTADS]$/.test(s.key)||scope==='shift'&&/^S[1-4]$/.test(s.key)||scope==='function'&&/^F[1-4]$/.test(s.key));if(!pool.length){trainer.feedback='이 범위에 등록된 키가 없어요. 다른 범위를 선택하세요.';trainPaint();return;}for(let i=0;i<Number(document.getElementById('train-count').value);i++){let choices=pool.filter(s=>s.key!==rows.at(-1)?.keys);if(!choices.length)choices=pool;const s=choices[Math.floor(Math.random()*choices.length)];rows.push({name:s.name,keys:s.key,kind:s.type==='G'?'G':'o',gap:''});}}
+else {trainSaveRows();rows=trainer.mode===3&&document.getElementById('train-source').value==='rhythm'?trainRhythm():trainRows();if(trainer.mode===3){gcd=Number(document.getElementById('train-gcd').value);if(!Number.isFinite(gcd)||gcd<1.5||gcd>4){trainer.feedback='GCD 간격은 1.50~4.00초로 입력하세요.';trainPaint();return;}trainer.speed=Number(document.getElementById('train-speed').value);trainer.window=Number(document.getElementById('train-window').value);}}
+const invalid=trainValidate(rows);if(invalid){trainer.feedback=invalid;document.getElementById('train-editor-details').open=true;trainPaint();return;}
+trainer.events=trainSchedule(rows,gcd);trainer.correct=trainer.wrong=trainer.miss=trainer.early=trainer.pos=0;trainer.offsets=[];trainer.history=[];trainer.status='running';trainer.start=performance.now()+(trainer.mode===3?3000:0);trainer.feedback=trainer.mode===3?'3초 뒤 시작합니다. 첫 기술을 준비하세요.':'첫 기술의 키를 누르세요.';document.getElementById('train-editor-details').open=false;trainPaint();document.getElementById('train-stage').focus({preventScroll:true});if(trainer.mode===3)trainer.timer=setInterval(trainTick,40);}
+function trainTime(){return ((trainer.status==='paused'?trainer.pauseAt:performance.now())-trainer.start)/1000*trainer.speed;}
+function trainTick(){if(trainer.status!=='running')return;const t=trainTime();while(trainer.pos<trainer.events.length&&t>trainer.events[trainer.pos].at+trainer.window*trainer.speed){const event=trainer.events[trainer.pos];trainer.miss++;trainer.history.push({name:event.name,key:event.key,result:'놓침'});trainer.pos++;trainer.feedback=openerName(event.name)+' 입력을 놓쳤어요.';}if(trainer.pos>=trainer.events.length){trainFinish();return;}trainPaint();}
+function trainInput(key){const t=trainer;if(t.status!=='running')return;const event=t.events[t.pos];if(!event)return;if(t.mode===3){trainTick();if(t.status!=='running')return;}const target=t.events[t.pos],now=trainTime();if(t.mode===3&&now<0)return;if(key!==target.key){t.wrong++;t.feedback='다른 키예요: '+trainLabel(key)+(t.hide?'':' · 정답 '+trainLabel(target.key));t.history.push({name:target.name,key,result:'오입력'});trainPaint();return;}
+if(t.mode===3&&now<target.at-t.window*t.speed){t.early++;t.feedback='아직 일러요. 목표 시점에 다시 눌러 주세요.';trainPaint();return;}
+t.correct++;if(t.mode===3)t.offsets.push(Math.round((now-target.at)/t.speed*1000));t.history.push({name:target.name,key,result:'정답'});t.pos++;t.feedback='정답 · '+openerName(target.name);if(t.pos>=t.events.length)trainFinish();else trainPaint();}
+function trainPause(){if(trainer.status!=='running')return;trainer.pauseAt=performance.now();trainer.status='paused';trainer.feedback='일시정지했어요. 계속하기를 누르세요.';trainPaint();}
+function trainResume(){if(trainer.status!=='paused')return;trainer.start+=performance.now()-trainer.pauseAt;trainer.status='running';trainPaint();document.getElementById('train-stage').focus({preventScroll:true});}
+function trainFinish(){clearInterval(trainer.timer);trainer.timer=null;trainer.status='done';const total=trainer.correct+trainer.wrong+trainer.miss+trainer.early;const accuracy=total?Math.round(100*trainer.correct/total):0;trainSaved[trainer.job.id]??={};trainSaved[trainer.job.id].records??={};trainSaved[trainer.job.id].records[trainer.mode]={accuracy,correct:trainer.correct,wrong:trainer.wrong,miss:trainer.miss,early:trainer.early,date:new Date().toISOString()};const saved=trainPersist();trainer.feedback='연습 완료! 정확도 '+accuracy+'%'+(saved?' · 기록을 저장했어요.':' · 기록은 이번 실행에서만 유지됩니다.');document.getElementById('train-record').textContent=trainer.feedback;trainPaint();}
+function trainPaint(){const t=trainer,e=escIconText,busy=t.status==='running'||t.status==='paused';document.getElementById('train-settings').querySelectorAll('input,select').forEach(el=>el.disabled=busy);document.getElementById('train-editor-wrap').querySelectorAll('input,select,button').forEach(el=>el.disabled=busy);document.getElementById('train-start').textContent=t.status==='done'?'다시 연습':'연습 시작';document.getElementById('train-start').disabled=busy;document.getElementById('train-pause').hidden=t.status!=='running';document.getElementById('train-resume').hidden=t.status!=='paused';document.getElementById('train-stop').hidden=!busy;document.getElementById('train-status').textContent=t.feedback;
+document.getElementById('train-score').textContent='진행 '+t.pos+'/'+t.events.length+' · 정답 '+t.correct+' · 오입력 '+t.wrong+(t.mode===3?' · 놓침 '+t.miss+' · 빠른 입력 '+t.early:'');
+const target=t.events[t.pos];trainSet("train-target",target&&busy?trainIcon(target.name)+'<small>다음 기술 · '+(target.kind==='G'?'GCD':'oGCD')+(target.parts>1?' · 입력 '+target.part+'/'+target.parts:'')+'</small><h3>'+e(openerName(target.name))+'</h3><p>'+e(target.name)+'</p><strong class="train-key">'+(t.hide?'?':e(trainLabel(target.key)))+'</strong>':'<h3>'+(t.status==='done'?'연습 완료':'손에 익히는 나만의 키셋')+'</h3><p>시작 후 이 영역에 키보드 포커스가 있을 때만 입력을 받습니다.</p>');
+const next=t.events.slice(t.pos+1,t.pos+5);trainSet("train-next",busy?next.map(ev=>'<span>'+e(openerName(ev.name))+(t.hide?'':' <b>'+e(trainLabel(ev.key))+'</b>')+'</span>').join('<i>→</i>'):'');
+let remaining=0;if(t.mode===3&&busy&&target){remaining=(target.at-trainTime())/t.speed;document.getElementById('train-timing').textContent=trainTime()<0?'준비 '+Math.ceil(-trainTime()/t.speed)+'초':remaining>0?'목표까지 '+remaining.toFixed(2)+'초':'지금 입력하세요';document.getElementById('train-meter').value=Math.max(0,Math.min(1,1-Math.max(0,remaining)/2.5));}else document.getElementById('train-timing').textContent=t.mode===3&&t.offsets.length?'평균 절대 오차 '+Math.round(t.offsets.reduce((a,b)=>a+Math.abs(b),0)/t.offsets.length)+'ms':'';
+document.getElementById('train-meter').hidden=!(t.mode===3&&busy);
+trainSet('train-pad',TRAIN_KEYS.map(k=>'<button type="button" tabindex="-1" class="'+(!t.hide&&busy&&target?.key===k?'expected':'')+'" onpointerdown="event.preventDefault()" onclick="trainTap(\''+k+'\')">'+e(trainLabel(k))+'</button>').join(''));
+trainSet("train-history",t.history.slice(-10).reverse().map(h=>'<li class="'+(h.result==='정답'?'hit':'bad')+'">'+e(h.result)+' · '+e(openerName(h.name))+' · '+e(trainLabel(h.key))+'</li>').join(''));}
+
+function trainSet(id,html){const el=document.getElementById(id);if(el._trainHtml!==html){el.innerHTML=html;el._trainHtml=html;}}
+
+function trainTap(key){document.getElementById("train-stage").focus({preventScroll:true});trainInput(key);}
+
+
+const trainStage=document.getElementById('train-stage');
+trainStage.addEventListener('keydown',event=>{const key=trainKey(event);if(trainer.status==='running'&&key){event.preventDefault();if(!event.repeat)trainInput(key);}});
+trainStage.addEventListener('focusout',event=>{if(trainer.status==='running'&&!trainStage.contains(event.relatedTarget))trainPause();});
+window.addEventListener('blur',()=>trainPause());
+document.addEventListener('visibilitychange',()=>{if(document.hidden)trainPause();});
+document.getElementById('train-dialog').addEventListener('cancel',event=>{event.preventDefault();if(trainer.status==='running')trainPause();else trainClose();});
 
 // Init
 document.querySelectorAll('.tab').forEach(t => {
