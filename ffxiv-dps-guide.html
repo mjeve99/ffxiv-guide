@@ -237,6 +237,7 @@ const JOBS = {
         s('S3','만상투기권','G','aoe','AOE 카우클 광선'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['R(홍련의 극의) + T(도원결의) 동시 발동 → A(발중보법) 돌진','Q(진각) → Opo/랩터/카우클 폼 × 3 → 6(필살기) [Odd Claw]','2회차 Q(진각) → 6(필살기) [Rising Phoenix] → E(음양투기참)','W(질풍의 극의) 쿨마다 유지, Fury 구슬 관리 시작']},
         {phase:'일반 루프', steps:['Fury 구슬 확인: 있으면 Spender(1/2/3), 없으면 Gainer(4/5/T)',
           'R(Riddle of Fire) + W(Riddle of Wind) 쿨마다 켜기','E(Forbidden Chakra) 차크라 5개 쌓이면 즉시 사용']},
         {phase:'2분 버스트', steps:['T(Brotherhood) + R(Riddle of Fire) 동시 발동',
@@ -274,6 +275,7 @@ const JOBS = {
         s('S3','Coerthan Torment','G','aoe','AOE 피니셔'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['R(필사의 각오) + T(전투 기도) 동시','1(직선찌르기) → 2(사선찌르기) → 3(꽃잎폭풍) [DoT 루트]','S(생명력 쇄도) weave → 4(겹찌르기) → 5(올려찌르기)','Q(점프) → 환영강타 → E(게이르스코굴) → W(나스트론드) → D(화룡강타)']},
         {phase:'일반 루프 (콤보 교대)', steps:['1→2→3 (DoT 루트: Disembowel→Chaotic Spring)',
           '1→4→5 (데미지 루트: Vorpal→Heavens\')',
           '사이사이 Q(점프), W(나스트론드) 끼워넣기']},
@@ -319,6 +321,7 @@ const JOBS = {
         s('S2','Hakke Mujinsatsu','G','aoe','AOE 피니셔'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['개전 전: 수둔술(Q→W→E) 준비 → T(속임수 공격) 즉시 발동','R(분신술) → 뇌둔술(W→Q) × 2~3 빠른 소비','수둔술 재시전 → T(속임수 공격) → 6(육도윤회) 닌키 소비','1→2→3(칼날선풍) 콤보 + 뇌둔술 삽입']},
         {phase:'인술 루틴', steps:['Q→W→E (Suiton) → T(Kunai\'s Bane) 즉시 발동',
           'W→Q (Raiton 뇌둔) 반복 삽입','1→2→3(or 4) 기본 콤보 반복, 6(육도윤회) 닌키 소비']},
         {phase:'2분 버스트', steps:['R(분신술) 발동 → T(Kunai\'s Bane) 동시 타이밍',
@@ -354,6 +357,7 @@ const JOBS = {
         s('S3','천하오검','G','aoe','2 Sen AOE 이아이기리'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['W(명경지수) → 2(설풍)+4(월광)+6(화차) 콤보 없이 Sen 3개 즉시','거합술 → 난설월화 → R(가에시:난설월화)','E(Ikishoten) + T(Ogi Namikiri) → Q(필살검:진천) 켄키 소비','두번째 W(명경지수) → Sen 3개 → 버스트 연장']},
         {phase:'기본 루프 (Sen 순환)', steps:['1(Gyofu) → 2(Yukikaze) [雪]',
           '1(Gyofu) → 3(Jinpu) → 4(Gekko) [月, 후면]',
           '1(Gyofu) → 5(Shifu) → 6(Kasha) [花, 측면]',
@@ -394,6 +398,7 @@ const JOBS = {
         s('S4','Grim Reaping','G','aoe','슈라우드 AOE'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['5(Shadow of Death) DoT 선부여','T(Arcane Circle) + W(Gluttony) 동시 → R(Plentiful Harvest) 빠른 소비','E(Enshroud) 진입 → 레무어 5연타 + Communio','Q(Soul Slice) × 2 소울 재적립 → 다음 E(Enshroud) 준비']},
         {phase:'기본 루프', steps:['5(Shadow of Death) DoT 항상 유지',
           '1→2→3 콤보 + Q(Soul Slice) × 2 소울 적립',
           '4(Gibbet) / 6(Gallows) 번갈아 소비 (슈라우드 적립)','E(Enshroud) 50 시 진입 → 5연타 + Communio']},
@@ -428,6 +433,7 @@ const JOBS = {
         s('S3','Hunter\'s/Swiftskin\'s Bite','G','aoe','AOE 피니셔'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['R(정비) → 5(드릴) 크리 확정 강타','T(소이탄) → Q(열기 조절) → 4(냉각) × 5 소이탄 안에 포함','W(가우스탄) + E(도탄 사격) 냉각 사이에 삽입','6(에어 앙커) → S3(체인소) → 배터리 80+ 시 오토마톤 퀸 소환']},
         {phase:'기본 루프', steps:['1(Steel Fangs) → 3 → 2(Reaving Fangs) → 3 교대',
           '4(Flanksting/Hindsting) 포지셔닝 피니셔','Q(Vicewinder) → W(Hunter\'s Coil) / E(Swiftskin\'s Coil) 코일 사용']},
         {phase:'2분 버스트', steps:['R(Serpent\'s Ire) + Q(Vicewinder) 동시 진입',
@@ -465,6 +471,7 @@ const JOBS = {
         s('S4','빛나는 피날레','o','party','노래 수에 따른 파티 버프 (120초)'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['S1(여행신의 무곡) 시작 → 5(폭풍화살) + 6(맹독화살) DoT 적용','R(강렬한사격) + T(전장의노래) + S4(빛나는피날레) 동시 발동','W(천상의화살) → Q(절대음감) 레퍼토리 소비','4(Apex Arrow) 소울 소비 → 남은 시상 Q(절대음감)으로 소진']},
         {phase:'기본 (노래 순환)', steps:['노래 S1(여행신의무곡)→S2(군신의찬가)→S3(현자의담시곡) 45초씩 끊임없이 유지',
           '5(Stormbite) + 6(Caustic Bite) DoT 갱신, 3(굳은 결의)로 묶어서 갱신',
           '1(Burst Shot) 반복 + 2(Refulgent Arrow) 프록 시 즉시 사용','W(천상의 화살) 쿨마다 사용']},
@@ -501,6 +508,7 @@ const JOBS = {
         s('S4','배럴 스태빌라이저','o','buff','히트 50 즉시 충전'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['S3(Technical Step) → 4스텝 완료 → Technical Finish','T(Devilment) 동시 → E(Flourish) 즉시','Q(Fan Dance I) + W(Fan Dance III) + S4(Fan Dance IV) 프록 즉시 소비','4(Saber Dance) 에스프리 50+ 소비']},
         {phase:'기본 루프', steps:['1→2→3 콤보로 히트/배터리 적립',
           '5(드릴) / 6(에어 앙커) / S3(체인소) 쿨마다 최우선 사용',
           'Q(열기 조절) → 4(냉각) × 5 → W/E 사이에 끼워넣기','배터리 80+ 시 오토마톤 퀸 소환']},
@@ -537,6 +545,7 @@ const JOBS = {
         s('S4','Fan Dance IV','o','aoe','Flourish 후 AOE 강타'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['R(Serpent's Ire) → Q(Vicewinder) 동시','W(Hunter's Coil) + E(Swiftskin's Coil) 코일 소비','6(Reawaken) 게이지 버스트 → Generation × 5 → Ouroboros','코일 재충전 후 2분 버스트까지 기본 1→2→3 콤보 유지']},
         {phase:'기본 루프', steps:['1(Cascade) → 2(Fountain) 반복, 프록 발생 시 3(Reverse Cascade/Fountainfall) 즉시',
           'R(Standard Step) 30초마다 댄스 → Standard Finish','Q(Fan Dance I) 깃털 생성 즉시, W(Fan Dance III) 프록 즉시','에스프리 50+ 시 4(Saber Dance)']},
         {phase:'2분 버스트', steps:['S3(Technical Step) → Technical Finish → T(Devilment)',
@@ -577,6 +586,7 @@ const JOBS = {
         s('S4','플레어','G','aoe','AOE 피니셔 (마나 전소)'),
       ],
       rotation:[
+        {phase:'개전 오프너 (5+7)', steps:['개전 4초 전: 2(파이가) 선제시전 (보스 착지와 동시에 히트)','파이쟈(1) × 5 → 5(Flare Star) → [R(흑마법 문양) + W(삼연속 마법) weave]','T(Manafont) → 파이쟈(1) × 7 → 5(Flare Star) → 4(Despair)','3(블리자가) → 6(블리자쟈) → Q(Xenoglossy) 즉시기 소비 → 2(파이가) 재진입']},
         {phase:'불꽃 페이즈 (AF3)', steps:['2(파이가) → 1(파이쟈) × 3~4 → 5(Flare Star) → 4(Despair)',
           'Q(Xenoglossy) 즉시기 합산 삽입','3(블리자가)으로 냉기 전환']},
         {phase:'냉기 페이즈 (UI3)', steps:['6(블리자쟈) → 마나 회복 대기',
@@ -613,6 +623,7 @@ const JOBS = {
         s('S2','Astral Flare','G','aoe','AOE Astral Flow (소환 중)'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['3(가루다 소환) → 2(Astral Flow) × 4 에메랄드 소비','T(Searing Light) + R(바하무트 소환) 동시 발동','E(바하무트 점화) → 1(루인가) + Q(Mountain Buster) weave','4(이프리트 소환) → 루비 아케아나 × 2 → 5(티탄 소환) → 토파즈 × 4']},
         {phase:'소환 순환 루프', steps:['3(Garuda) → 2(Astral Flow) × 4개 에메랄드 소비',
           '4(Ifrit) → 2(Astral Flow) × 2개 루비 소비','5(Titan) → 2(Astral Flow) × 4개 토파즈 소비 + Q(Mountain Buster)','1(Ruin III) + 6(Ruin IV 프록) 사이에 채우기']},
         {phase:'2분 버스트', steps:['T(Searing Light) + R(바하무트 소환) 동시',
@@ -650,6 +661,7 @@ const JOBS = {
         s('S4','Resolution','G','burst','마나 스택 최종 피니셔'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['2(버선더) → 3(버에어로) 마나 충전','R(마나 증량) + T(성원) 동시 → 100 마나 진입','인리포스트(4) → 인츠베르크하우(5) → 인르두블망(6) → 버홀리/버플레어 → Scorch → Resolution','A(코르아코르) + Q(플레슈) + W(콩트르식스트) oGCD 즉시 소비']},
         {phase:'기본 루프 (마나 충전)', steps:['2(Verthunder) + 3(Veraero) 번갈아 마나 충전',
           'E(Verstone/Vercure) 프록 즉시 삽입','Q(플레슈) + W(콩트르 식스트) 쿨마다 소비',
           '80+ 마나 시 인리포스트→인츠베르크하우→인르두블망 근접 콤보 → S3 → S3 → S4 피니셔']},
@@ -687,6 +699,7 @@ const JOBS = {
         s('S4','Hammer Stamp','G','burst','해머 3연타 시리즈 1타'),
       ],
       rotation:[
+        {phase:'개전 오프너', steps:['전투 전 R(Creature Motif) 미리 그리기','T(Starry Muse) 발동 → Q(Living Muse) 소환 즉시','W(Striking Muse) 해머 소환 → S4(Hammer Stamp) × 3 연타','S2(Star Prism) + S3(Rainbow Drip) 버스트 중 소비']},
         {phase:'기본 루프', steps:['1→2→3 기본 콤보로 팔레트 적립','R(Creature Motif) 미리 그려두기',
           '4(Holy in White) + 6(Comet in Black) 팔레트 소비 삽입','W(Striking Muse) → Hammer Stamp 시리즈 사용']},
         {phase:'2분 버스트 (Starry Muse)', steps:['E(Scenic Muse) 선행 → T(Starry Muse) 파티 버프',
