@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>⚔️ FFXIV DPS 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080a12;--bg2:#10131e;--bg3:#181b2a;--bg4:#1e2236;
+  --border:#252840;--border2:#3a3f60;
+  --gold:#c8a64f;--gold2:#e8d070;--gold3:#8a6a20;
+  --text:#cdd0e4;--text2:#8890b0;--text3:#555d80;
+  --melee:#d64040;--melee2:#ff7070;--melee3:#3a1010;
+  --ranged:#35a870;--ranged2:#60d890;--ranged3:#0a3020;
+  --caster:#8855d0;--caster2:#bb88ff;--caster3:#22103a;
+  --gcd:#2d6eb0;--ogcd:#b07020;--role:#406040;
+  --combo:#2d6eb0;--buff:#286040;--party:#206070;
+  --dot:#803030;--move:#205878;--survival:#7a3020;
+  --aoe:#5a3090;--burst:#805020;--util:#404870;
+}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden}
+
+/* Header */
+.header{background:linear-gradient(180deg,#0a0c18 0%,var(--bg2) 100%);border-bottom:2px solid var(--gold3);padding:20px 24px 16px;text-align:center;position:relative}
+.header::after{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:200px;height:2px;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.header-title{font-family:'Cinzel',serif;font-size:28px;color:var(--gold);letter-spacing:3px;text-shadow:0 0 20px rgba(200,166,79,.4)}
+.header-sub{color:var(--text2);font-size:13px;margin-top:6px;letter-spacing:1px}
+
+/* Tabs */
+.tabs{display:flex;border-bottom:1px solid var(--border);background:var(--bg2);position:sticky;top:0;z-index:100}
+.tab{flex:1;padding:14px 0;text-align:center;cursor:pointer;font-size:14px;font-weight:500;border-bottom:3px solid transparent;transition:all .2s;color:var(--text2);letter-spacing:.5px}
+.tab:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.tab.active.melee{border-color:var(--melee);color:var(--melee2)}
+.tab.active.ranged{border-color:var(--ranged);color:var(--ranged2)}
+.tab.active.caster{border-color:var(--caster);color:var(--caster2)}
+
+/* Layout */
+.main{display:flex;height:calc(100vh - 116px);overflow:hidden}
+.sidebar{width:200px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--border);overflow-y:auto;padding:12px 0}
+.content{flex:1;overflow-y:auto;padding:20px}
+
+/* Job Buttons */
+.job-group{display:none}
+.job-group.active{display:block}
+.job-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 16px;background:none;border:none;color:var(--text2);cursor:pointer;font-size:13px;font-family:'Noto Sans KR',sans-serif;transition:all .15s;border-left:3px solid transparent}
+.job-btn:hover{background:rgba(255,255,255,.04);color:var(--text)}
+.job-btn.active{background:rgba(255,255,255,.06);color:var(--text);border-left-color:var(--job-color)}
+.job-abbr{font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--bg3);padding:2px 6px;border-radius:3px;letter-spacing:1px}
+
+/* Job Detail */
+.job-panel{display:none}
+.job-panel.active{display:block}
+.job-header{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.job-name-big{font-family:'Cinzel',serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.job-desc{color:var(--text2);font-size:13px;line-height:1.6;max-width:480px}
+.job-meta{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:12px;font-size:11px;font-weight:500;letter-spacing:.5px}
+.difficulty-stars{color:var(--gold);font-size:12px}
+.guide-link{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--bg4);border:1px solid var(--border2);border-radius:6px;color:var(--gold);font-size:12px;text-decoration:none;transition:all .15s;flex-shrink:0;white-space:nowrap}
+.guide-link:hover{background:rgba(200,166,79,.1);border-color:var(--gold)}
+
+/* Mechanics */
+.section-title{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.mechanics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:20px}
+.mechanic-card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 14px}
+.mechanic-name{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.mechanic-desc{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* Keyboard Layout */
+.kbd-section{margin-bottom:20px}
+.kbd-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto}
+.kbd-row{display:flex;gap:5px;margin-bottom:5px;flex-wrap:nowrap}
+.kbd-key{position:relative;min-width:66px;height:72px;background:var(--bg4);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s;flex-shrink:0}
+.kbd-key:hover{border-color:var(--gold3);background:rgba(200,166,79,.05)}
+.kbd-key.has-skill{border-color:var(--skill-border)}
+.kbd-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);font-weight:500}
+.kbd-skill{font-size:8.5px;color:var(--text);line-height:1.2;word-break:break-word;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center}
+.kbd-cat{width:100%;height:3px;border-radius:2px;margin-top:2px}
+.kbd-key.wide{min-width:80px}
+.kbd-key.empty{opacity:.3;cursor:default}
+.kbd-key.empty:hover{border-color:var(--border2);background:var(--bg4)}
+
+/* Skills Table */
+.skills-table-wrap{margin-bottom:20px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{background:var(--bg4);padding:8px 12px;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;position:sticky;top:0;border-bottom:1px solid var(--border)}
+tbody tr{border-bottom:1px solid rgba(37,40,64,.7)}
+tbody tr:hover{background:rgba(255,255,255,.025)}
+td{padding:8px 12px;vertical-align:middle}
+.key-chip{display:inline-block;background:var(--bg4);border:1px solid var(--border2);border-radius:4px;padding:2px 7px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);min-width:32px;text-align:center}
+.cat-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;letter-spacing:.5px}
+.skill-link{color:var(--text);text-decoration:none;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:6px}
+.skill-link:hover{color:var(--gold)}
+.skill-link .emo{font-size:14px}
+.skill-note{color:var(--text2);font-size:11px}
+.type-gcd{background:rgba(45,110,176,.25);color:#70aaee;border:1px solid rgba(45,110,176,.4)}
+.type-ogcd{background:rgba(176,112,32,.25);color:#e8b050;border:1px solid rgba(176,112,32,.4)}
+.type-role{background:rgba(64,96,64,.25);color:#80b080;border:1px solid rgba(64,96,64,.4)}
+
+/* Category Colors */
+.cat-combo{background:rgba(45,110,176,.2);color:#80b8f0;border:1px solid rgba(45,110,176,.3)}
+.cat-burst{background:rgba(128,80,32,.2);color:#e8a040;border:1px solid rgba(128,80,32,.3)}
+.cat-buff{background:rgba(40,96,64,.2);color:#70d090;border:1px solid rgba(40,96,64,.3)}
+.cat-party{background:rgba(32,96,112,.2);color:#60c8d8;border:1px solid rgba(32,96,112,.3)}
+.cat-dot{background:rgba(128,48,48,.2);color:#f08080;border:1px solid rgba(128,48,48,.3)}
+.cat-move{background:rgba(32,88,120,.2);color:#70aad8;border:1px solid rgba(32,88,120,.3)}
+.cat-survival{background:rgba(122,48,32,.2);color:#f09070;border:1px solid rgba(122,48,32,.3)}
+.cat-aoe{background:rgba(90,48,144,.2);color:#c090ff;border:1px solid rgba(90,48,144,.3)}
+.cat-util{background:rgba(64,72,112,.2);color:#a0a8d8;border:1px solid rgba(64,72,112,.3)}
+.cat-song{background:rgba(80,50,110,.2);color:#d080f0;border:1px solid rgba(80,50,110,.3)}
+
+/* Rotation */
+.rotation-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:20px}
+.rotation-phase{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:14px 16px}
+.rotation-phase-name{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;text-transform:uppercase}
+.rotation-steps{list-style:none;display:flex;flex-direction:column;gap:6px}
+.rotation-step{font-size:12px;color:var(--text2);padding-left:14px;position:relative;line-height:1.5}
+.rotation-step::before{content:'▶';position:absolute;left:0;color:var(--gold3);font-size:8px;top:4px}
+
+/* Ninja Mudra */
+.mudra-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:20px}
+.mudra-card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.mudra-combo{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--bg4);padding:3px 8px;border-radius:4px;color:var(--gold);letter-spacing:2px;white-space:nowrap}
+.mudra-name{font-size:12px;color:var(--text);font-weight:500}
+.mudra-note{font-size:10px;color:var(--text2);margin-top:2px}
+
+/* Notice */
+.notice{background:rgba(200,166,79,.08);border:1px solid rgba(200,166,79,.25);border-radius:6px;padding:10px 14px;font-size:12px;color:var(--text2);margin-bottom:16px;display:flex;align-items:flex-start;gap:8px}
+.notice .icon{color:var(--gold);flex-shrink:0;margin-top:1px}
+
+/* Skill Icons */
+.skill-icon{width:28px;height:28px;border-radius:4px;vertical-align:middle;object-fit:cover;background:var(--bg4);flex-shrink:0}
+.icon-wrap{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.icon-loading{width:28px;height:28px;border-radius:4px;background:var(--bg4);animation:shimmer 1.2s infinite;flex-shrink:0}
+@keyframes shimmer{0%,100%{opacity:.4}50%{opacity:.8}}
+.kbd-icon{width:22px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;display:block;margin:0 auto 2px}
+.kbd-icon-placeholder{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 2px;font-size:14px}
+
+/* Scrollbars */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold3)}
+
+/* Mobile */
+@media(max-width:700px){
+  .main{flex-direction:column;height:auto}
+  .sidebar{width:100%;height:auto;border-right:none;border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap;padding:8px}
+  .job-group.active{display:flex;gap:6px;padding:4px}
+  .job-btn{white-space:nowrap;flex-shrink:0;border-left:none;border-bottom:2px solid transparent;padding:6px 12px}
+  .job-btn.active{border-bottom-color:var(--job-color)}
+  .content{padding:14px}
+}
+
+/* Cat line colors for keyboard */
+.line-combo{background:#3d6eb0}
+.line-burst{background:#a06020}
+.line-buff{background:#30804a}
+.line-party{background:#208060}
+.line-dot{background:#a03030}
+.line-move{background:#206888}
+.line-survival{background:#902a1a}
+.line-aoe{background:#703090}
+.line-util{background:#505878}
+.line-song{background:#70309a}
+.line-empty{background:transparent}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-title">⚔️ FFXIV DPS 가이드</div>
+  <div class="header-sub">Dawntrail 7.x · 딜러 13종 기술 & 단축키 레이아웃</div>
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active melee" data-role="melee">⚔️ 근거리 딜러</div>
+  <div class="tab ranged" data-role="ranged">🏹 원거리 물리</div>
+  <div class="tab caster" data-role="caster">🔮 마법 딜러</div>
+</div>
+
+<div class="main">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="content" id="content"></div>
+</div>
+
+<script>
+// ─────────────── Category Config ───────────────
+const CAT = {
+  combo:   { label:'콤보', emoji:'⚔️', css:'cat-combo',    line:'line-combo' },
+  burst:   { label:'버스트', emoji:'💥', css:'cat-burst',   line:'line-burst' },
+  buff:    { label:'버프', emoji:'✨', css:'cat-buff',     line:'line-buff' },
+  party:   { label:'파티버프', emoji:'👥', css:'cat-party',  line:'line-party' },
+  dot:     { label:'DoT', emoji:'☠️', css:'cat-dot',      line:'line-dot' },
+  move:    { label:'이동', emoji:'🏃', css:'cat-move',     line:'line-move' },
+  survival:{ label:'생존', emoji:'💊', css:'cat-survival', line:'line-survival' },
+  aoe:     { label:'범위', emoji:'🌀', css:'cat-aoe',      line:'line-aoe' },
+  util:    { label:'유틸', emoji:'🛡️', css:'cat-util',    line:'line-util' },
+  song:    { label:'노래', emoji:'🎵', css:'cat-song',     line:'line-song' },
+};
+
+const TYPE = {
+  G: { label:'GCD', css:'type-gcd' },
+  o: { label:'oGCD', css:'type-ogcd' },
+  R: { label:'Role', css:'type-role' },
+};
+
+function s(key, name, type, cat, note='') {
+  return { key, name, type, cat, note, gt: `https://garlandtools.org/db/#search/${encodeURIComponent(name)}` };
+}
+
+// ─────────────── Job Data ───────────────
+const JOBS = {
+  melee: [
+    { id:'mnk', name:'Monk', kr:'몽크', abbr:'MNK', emoji:'🥋', color:'#d64040',
+      desc:'3가지 폼(오포오포→랩터→카우클) 순환. Fury 스택을 Gainer로 쌓고 Spender로 소모. Perfect Balance로 Masterful Blitz 타입 결정.',
+      diff:4, guide:'https://na.finalfantasyxiv.com/jobguide/monk/',
+      mechanics:[
+        {name:'Gainer / Spender 쌍', desc:'Fury 구슬 있으면 Spender(1/2/3), 없으면 Gainer(4/5/T) 사용. 구슬 여부만 보면 됨.'},
+        {name:'Perfect Balance (Q)', desc:'폼 제약 없이 3번의 Beast Chakra 자유 선택 → Masterful Blitz 타입 결정 (2충전).'},
+        {name:'2분 버스트', desc:'Brotherhood(T) + Riddle of Fire(R) 동시 → Perfect Balance × 2 → Masterful Blitz × 2.'},
+      ],
+      skills:[
+        s('1','Leaping Opo','G','combo','오포오포 폼 Spender'),
+        s('2','Rising Raptor','G','combo','랩터 폼 Spender'),
+        s('3','Pouncing Coeurl','G','combo','카우클 폼 Spender (측면)'),
+        s('4','Dragon Kick','G','combo','오포오포 폼 Gainer (Opo-Fury 적립)'),
+        s('5','Twin Snakes','G','combo','랩터 폼 Gainer (Raptor-Fury 적립)'),
+        s('6','Masterful Blitz','G','burst','Perfect Balance 후 피니셔'),
+        s('Q','Perfect Balance','o','buff','폼 자유 3회 선택 (2충전)'),
+        s('W','Riddle of Wind','o','buff','자동공격 속도 버프 (90초)'),
+        s('E','The Forbidden Chakra','o','burst','차크라 5 소비 즉시 강타'),
+        s('R','Riddle of Fire','o','buff','개인 딜 버프 20초 (60초 쿨)'),
+        s('T','Brotherhood','o','party','파티 버프 + 명상 스택 (120초)'),
+        s('A','Thunderclap','o','move','돌진 이동기 (3충전)'),
+        s('S','Mantra','o','util','주변 힐량 증가 (15초)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Bloodbath','R','survival','공격 흡혈'),
+        s('F4','Feint','R','util','적 물리·마법방어 감소'),
+        s('S1','Shadow of the Destroyer','G','aoe','AOE 오포 폼 Spender'),
+        s('S2','Four-point Fury','G','aoe','AOE 랩터 폼 Spender'),
+        s('S3','Enlightenment','G','aoe','AOE 카우클 광선'),
+      ],
+      rotation:[
+        {phase:'일반 루프', steps:['Fury 구슬 확인: 있으면 Spender(1/2/3), 없으면 Gainer(4/5/T)',
+          'R(Riddle of Fire) + W(Riddle of Wind) 쿨마다 켜기','E(Forbidden Chakra) 차크라 5개 쌓이면 즉시 사용']},
+        {phase:'2분 버스트', steps:['T(Brotherhood) + R(Riddle of Fire) 동시 발동',
+          'Q(Perfect Balance) × 2 연속 → 6(Masterful Blitz) × 2','E(Forbidden Chakra) 차크라 모두 소비']},
+      ],
+    },
+    { id:'drg', name:'Dragoon', kr:'용기사', abbr:'DRG', emoji:'🐉', color:'#5050d0',
+      desc:'두 가지 GCD 콤보(데미지/DoT 루트)를 교대로 사용하며 점프 기술과 Life of the Dragon 게이지로 버스트.',
+      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/dragoon/',
+      mechanics:[
+        {name:'2종 콤보 교대', desc:'Raiden Thrust 시작 → Vorpal→Heavens\' Thrust(데미지) / Disembowel→Chaotic Spring(DoT+방어감소) 번갈아.'},
+        {name:'Life of the Dragon', desc:'Geirskogul(E) → Life 게이지 적립 → Nastrond(W) 소비 → Stardiver(D) 활성화.'},
+        {name:'2분 버스트', desc:'Lance Charge(R) + Battle Litany(T) 동시 → Life Surge + Heavens\' Thrust → 점프 기술 연속.'},
+      ],
+      skills:[
+        s('1','Raiden Thrust','G','combo','콤보 시작기 (프록 후 Raiden Thrust)'),
+        s('2','Disembowel','G','combo','DoT 루트 2단 (방어 감소 적용)'),
+        s('3','Chaotic Spring','G','dot','DoT 피니셔 (후면)'),
+        s('4','Vorpal Thrust','G','combo','데미지 루트 2단'),
+        s('5','Heavens\' Thrust','G','burst','데미지 피니셔'),
+        s('6','Wyrmwind Thrust','G','burst','Firstminds\' Focus × 2 소비 강타'),
+        s('Q','High Jump','o','burst','주력 점프 공격 (30초)'),
+        s('W','Nastrond','o','burst','Life 게이지 소비 광선'),
+        s('E','Geirskogul','o','buff','Life of the Dragon 게이지 적립'),
+        s('R','Lance Charge','o','buff','개인 딜 버프 (60초)'),
+        s('T','Battle Litany','o','party','파티 크리티컬 버프 (120초)'),
+        s('A','Spineshatter Dive','o','move','돌진 이동기'),
+        s('D','Dragonfire Dive','o','burst','범위 점프 / Stardiver'),
+        s('S','Life Surge','o','buff','다음 GCD 크리 보장 (2충전)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Bloodbath','R','survival','공격 흡혈'),
+        s('F4','Feint','R','util','적 방어 감소'),
+        s('S1','Doom Spike','G','aoe','AOE 콤보 1'),
+        s('S2','Sonic Thrust','G','aoe','AOE 콤보 2'),
+        s('S3','Coerthan Torment','G','aoe','AOE 피니셔'),
+      ],
+      rotation:[
+        {phase:'일반 루프 (콤보 교대)', steps:['1→2→3 (DoT 루트: Disembowel→Chaotic Spring)',
+          '1→4→5 (데미지 루트: Vorpal→Heavens\')',
+          '사이사이 Q(High Jump), W(Nastrond) 끼워넣기']},
+        {phase:'2분 버스트', steps:['R(Lance Charge) + T(Battle Litany) 동시',
+          'S(Life Surge) + 5(Heavens\') 크리 확정','Q(High Jump) → Mirage Dive → E(Geirskogul) → W(Nastrond) → D(Stardiver)',
+          '6(Wyrmwind) × 2 소비']},
+      ],
+    },
+    { id:'nin', name:'Ninja', kr:'닌자', abbr:'NIN', emoji:'🥷', color:'#505050',
+      desc:'무드라(Q=Ten / W=Chi / E=Jin) 3개 조합으로 인술 발동. Kunai\'s Bane으로 파티 딜 증가. 숙련도 최상위.',
+      diff:5, guide:'https://na.finalfantasyxiv.com/jobguide/ninja/',
+      mechanics:[
+        {name:'무드라 조합 (Q/W/E)', desc:'Ten(Q)·Chi(W)·Jin(E) 순서 조합으로 인술 결정. 뇌둔(W→Q), 수둔(Q→W→E) 주로 사용.'},
+        {name:'Kunai\'s Bane (T)', desc:'수둔(Suiton) 후 활성화. 적 취약 디버프 + 강타. 60초마다 반복.'},
+        {name:'2분 버스트', desc:'Bunshin(R) + Kunai\'s Bane(T) 동시 → 무드라 기술 집중 소모 → Bhavacakra(6) 닌키 소비.'},
+      ],
+      mudra:[
+        {combo:'Q',name:'Fuma Shuriken',note:'단타'},
+        {combo:'W→Q',name:'Raiton (뇌둔)',note:'주력 단타 ★'},
+        {combo:'Q→W→E',name:'Suiton (수둔)',note:'Kunai\'s Bane 선행 ★'},
+        {combo:'W→E',name:'Katon (화둔)',note:'범위 불꽃'},
+        {combo:'Q→E',name:'Huton',note:'무기속도 증가'},
+        {combo:'E',name:'Hyoton',note:'단타 + 빙결'},
+      ],
+      skills:[
+        s('1','Spinning Edge','G','combo','콤보 1'),
+        s('2','Gust Slash','G','combo','콤보 2'),
+        s('3','Aeolian Edge','G','combo','콤보 피니셔 (후면, 닌키 충전)'),
+        s('4','Armor Crush','G','combo','콤보 피니셔 (측면, 닌키 충전)'),
+        s('5','Raiju (프록 시)', 'G','burst','도태 후 활성화 즉시기'),
+        s('6','Bhavacakra','o','burst','닌키 게이지 소비 강타'),
+        s('Q','Ten (무드라 1)','o','util','인술 재료 ①'),
+        s('W','Chi (무드라 2)','o','util','인술 재료 ②'),
+        s('E','Jin (무드라 3)','o','util','인술 재료 ③'),
+        s('R','Bunshin','o','buff','그림자 소환 (90초)'),
+        s('T','Kunai\'s Bane','o','dot','취약 디버프 + 강타 (60초)'),
+        s('A','Shukuchi','o','move','텔레포트 이동기 (2충전)'),
+        s('S','Mug','o','util','닌키 충전 + 데미지'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Bloodbath','R','survival','공격 흡혈'),
+        s('F4','Feint','R','util','적 방어 감소'),
+        s('S1','Death Blossom','G','aoe','AOE 콤보 1'),
+        s('S2','Hakke Mujinsatsu','G','aoe','AOE 피니셔'),
+      ],
+      rotation:[
+        {phase:'인술 루틴', steps:['Q→W→E (Suiton) → T(Kunai\'s Bane) 즉시 발동',
+          'W→Q (Raiton 뇌둔) 반복 삽입','1→2→3(or 4) 기본 콤보 반복, 6(Bhavacakra) 닌키 소비']},
+        {phase:'2분 버스트', steps:['R(Bunshin) 발동 → T(Kunai\'s Bane) 동시 타이밍',
+          '무드라 기술 (Raiton × 가능한 만큼) + 기본 콤보','6(Bhavacakra) 닌키 최대 소비']},
+      ],
+    },
+    { id:'sam', name:'Samurai', kr:'사무라이', abbr:'SAM', emoji:'⛩️', color:'#d09030',
+      desc:'3가지 콤보로 Sen(雪/花/月) 수집 → Midare Setsugekka 최강기 발동. 파티 버프 없는 순수 딜러.',
+      diff:3, guide:'https://na.finalfantasyxiv.com/jobguide/samurai/',
+      mechanics:[
+        {name:'Sen 수집 3루트', desc:'Gyofu→Yukikaze(雪 2단), Gyofu→Jinpu→Gekko(月 후면), Gyofu→Shifu→Kasha(花 측면).'},
+        {name:'Iaijutsu (이아이기리)', desc:'1 Sen = Higanbana(DoT), 2 Sen = Tenka Goken(AOE), 3 Sen = Midare Setsugekka(최강단타).'},
+        {name:'Meikyo Shisui (W)', desc:'폼 없이 콤보 피니셔 3회 즉시 → Sen 3개 즉시 적립. 2충전.'},
+      ],
+      skills:[
+        s('1','Gyofu','G','combo','모든 콤보의 시작기 (매우 자주)'),
+        s('2','Yukikaze','G','combo','雪 Sen 획득 (2단 피니셔)'),
+        s('3','Jinpu','G','combo','月 루트 2단'),
+        s('4','Gekko','G','combo','月 피니셔 (후면)'),
+        s('5','Shifu','G','combo','花 루트 2단'),
+        s('6','Kasha','G','combo','花 피니셔 (측면)'),
+        s('Q','Hissatsu: Shinten','o','burst','켄키 25 소비 즉시 강타 (자주)'),
+        s('W','Meikyo Shisui','o','buff','Sen 3개 즉시 적립 (2충전)'),
+        s('E','Ikishoten','o','buff','켄키 50 즉시 충전 (60초)'),
+        s('R','Tsubame-gaeshi','G','burst','이아이기리 직후 즉시 추가 발동'),
+        s('T','Ogi Namikiri','G','burst','켄키 소비 범위 강타'),
+        s('S','Third Eye','o','util','단발 피해 감소'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Bloodbath','R','survival','공격 흡혈'),
+        s('F4','Feint','R','util','적 방어 감소'),
+        s('S1','Fuko','G','aoe','AOE 시작기'),
+        s('S2','Mangetsu','G','aoe','AOE 月 피니셔'),
+        s('S3','Tenka Goken','G','aoe','2 Sen AOE 이아이기리'),
+      ],
+      rotation:[
+        {phase:'기본 루프 (Sen 순환)', steps:['1(Gyofu) → 2(Yukikaze) [雪]',
+          '1(Gyofu) → 3(Jinpu) → 4(Gekko) [月, 후면]',
+          '1(Gyofu) → 5(Shifu) → 6(Kasha) [花, 측면]',
+          '3 Sen 완성 → Midare Setsugekka → R(Tsubame)','Q(Shinten) 켄키 소비 끼워넣기']},
+        {phase:'2분 버스트', steps:['E(Ikishoten) → W(Meikyo Shisui) → Sen 3개 즉시',
+          'Midare → R(Tsubame) → T(Ogi Namikiri)','Q(Shinten) × 최대 소비']},
+      ],
+    },
+    { id:'rpr', name:'Reaper', kr:'리퍼', abbr:'RPR', emoji:'💀', color:'#a030a0',
+      desc:'소울/슈라우드 게이지 순환. Death\'s Design DoT 유지 필수. Enshroud로 레무어 슈라우드 진입 → 5연타 + Communio 피니셔.',
+      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/reaper/',
+      mechanics:[
+        {name:'Death\'s Design (5)', desc:'Shadow of Death으로 적에게 취약 디버프. 항상 유지 필수. 30초 지속.'},
+        {name:'소울→슈라우드 순환', desc:'Soul Slice(Q)로 소울 +50 → Gibbet/Gallows(4/6)으로 소비 → 슈라우드 적립 → 50 시 Enshroud(E) 진입.'},
+        {name:'레무어 슈라우드', desc:'아바타와 합체. 5개의 Void/Cross Reaping 후 Communio 피니셔. 버스트 핵심.'},
+      ],
+      skills:[
+        s('1','Slice','G','combo','콤보 1'),
+        s('2','Waxing Slice','G','combo','콤보 2'),
+        s('3','Infernal Slice','G','combo','콤보 3 피니셔'),
+        s('4','Gibbet','G','burst','소울 25 소비 (측면)'),
+        s('5','Shadow of Death','G','dot','Death\'s Design DoT ★ 항상 유지'),
+        s('6','Gallows','G','burst','소울 25 소비 (후면)'),
+        s('Q','Soul Slice','G','buff','소울 게이지 +50 (2충전)'),
+        s('W','Gluttony','o','burst','소울 50 소비 강타 (60초)'),
+        s('E','Enshroud','o','buff','레무어 슈라우드 진입'),
+        s('R','Plentiful Harvest','G','burst','임모탈 스택 소비 강타'),
+        s('T','Arcane Circle','o','party','파티 버프 + 임모탈 스택 (120초)'),
+        s('A','Hell\'s Ingress','o','move','이동기 (전진)'),
+        s('D','Regress','o','move','이동기 (귀환)'),
+        s('S','Arcane Crest','o','survival','자신+파티 실드'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Bloodbath','R','survival','공격 흡혈'),
+        s('F4','Feint','R','util','적 방어 감소'),
+        s('S1','Spinning Scythe','G','aoe','AOE 콤보 1'),
+        s('S2','Nightmare Scythe','G','aoe','AOE 콤보 2'),
+        s('S3','Circle of Death','G','aoe','AOE DoT'),
+        s('S4','Grim Reaping','G','aoe','슈라우드 AOE'),
+      ],
+      rotation:[
+        {phase:'기본 루프', steps:['5(Shadow of Death) DoT 항상 유지',
+          '1→2→3 콤보 + Q(Soul Slice) × 2 소울 적립',
+          '4(Gibbet) / 6(Gallows) 번갈아 소비 (슈라우드 적립)','E(Enshroud) 50 시 진입 → 5연타 + Communio']},
+        {phase:'2분 버스트', steps:['T(Arcane Circle) → W(Gluttony) → R(Plentiful Harvest)',
+          'E(Enshroud) × 2 → 레무어 5연타 + Communio 반복']},
+      ],
+    },
+    { id:'vpr', name:'Viper', kr:'바이퍼', abbr:'VPR', emoji:'🐍', color:'#30a030',
+      desc:'Steel/Reaving Fangs 교대 2버튼 콤보 + Vicewinder 코일로 게이지 적립 → Reawaken 5연타 버스트. 7.0 신직업.',
+      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/viper/',
+      mechanics:[
+        {name:'교대 콤보 시스템', desc:'1(Steel Fangs)과 2(Reaving Fangs) 번갈아 시작. 피니셔 3이 자동 교대. 데미지 버프/속도 버프 유지.'},
+        {name:'Vicewinder 코일 (Q)', desc:'돌진 후 Hunter\'s Coil(W)/Swiftskin\'s Coil(E) 활성화. 게이지 적립.'},
+        {name:'Reawaken 버스트', desc:'Anguine Tribute 50 시 진입. Generation × 5 → Ouroboros 피니셔. R(Serpent\'s Ire) 동시 사용.'},
+      ],
+      skills:[
+        s('1','Steel Fangs','G','combo','콤보 시작 1 (Hunter\'s Sting 활성화)'),
+        s('2','Reaving Fangs','G','combo','콤보 시작 2 (Swiftskin\'s Sting 활성화)'),
+        s('3','Hunter\'s/Swiftskin\'s Sting','G','combo','피니셔 (자동 교대) — 데미지/속도 버프'),
+        s('4','Flanksting/Hindsting Strike','G','combo','추가 피니셔 (측면/후면 포지셔닝)'),
+        s('6','Reawaken','G','burst','게이지 50 버스트 진입'),
+        s('Q','Vicewinder','o','burst','돌진 + 코일 활성화'),
+        s('W','Hunter\'s Coil','G','burst','Vicewinder 후 측면 강타'),
+        s('E','Swiftskin\'s Coil','G','burst','Vicewinder 후 속도 강타'),
+        s('R','Serpent\'s Ire','o','buff','버스트 버프 (120초)'),
+        s('A','Slither','o','move','돌진 이동기 (3충전)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Bloodbath','R','survival','공격 흡혈'),
+        s('F4','Feint','R','util','적 방어 감소'),
+        s('S1','Steel Maw','G','aoe','AOE 콤보 1'),
+        s('S2','Reaving Maw','G','aoe','AOE 콤보 2'),
+        s('S3','Hunter\'s/Swiftskin\'s Bite','G','aoe','AOE 피니셔'),
+      ],
+      rotation:[
+        {phase:'기본 루프', steps:['1(Steel Fangs) → 3 → 2(Reaving Fangs) → 3 교대',
+          '4(Flanksting/Hindsting) 포지셔닝 피니셔','Q(Vicewinder) → W(Hunter\'s Coil) / E(Swiftskin\'s Coil) 코일 사용']},
+        {phase:'2분 버스트', steps:['R(Serpent\'s Ire) + Q(Vicewinder) 동시 진입',
+          '6(Reawaken) → Generation × 5 → Ouroboros 피니셔']},
+      ],
+    },
+  ],
+  ranged: [
+    { id:'brd', name:'Bard', kr:'음유시인', abbr:'BRD', emoji:'🎼', color:'#d0a030',
+      desc:'노래 3종(S1/S2/S3) 순환으로 파티 버프. DoT 2종(5/6) 유지. 레퍼토리 게이지로 Pitch Perfect(Q) 발동. 높은 이동 자유도.',
+      diff:3, guide:'https://na.finalfantasyxiv.com/jobguide/bard/',
+      mechanics:[
+        {name:'노래 3종 순환', desc:'Wanderer\'s Minuet(S1, 45초) → Mage\'s Ballad(S2) → Army\'s Paeon(S3) 순환. 항상 노래 유지.'},
+        {name:'DoT 2종 유지', desc:'Stormbite(5) + Caustic Bite(6) 두 DoT 항상 유지. Iron Jaws(3)로 한 번에 갱신.'},
+        {name:'2분 버스트', desc:'Raging Strikes(R) + Battle Voice(T) + Radiant Finale(S4) 동시 → Apex Arrow(4) → Blast Arrow 소비.'},
+      ],
+      skills:[
+        s('1','Burst Shot','G','combo','기본 GCD (Refulgent 프록 가능)'),
+        s('2','Refulgent Arrow','G','burst','프록 시 강화 GCD'),
+        s('3','Iron Jaws','G','dot','DoT 2종 즉시 갱신'),
+        s('4','Apex Arrow','G','burst','소울 게이지 소비 강타'),
+        s('5','Stormbite','G','dot','바람 DoT 적용'),
+        s('6','Caustic Bite','G','dot','독 DoT 적용'),
+        s('Q','Pitch Perfect','o','burst','레퍼토리 3 시 강타 (WM 중)'),
+        s('W','Empyreal Arrow','o','burst','15초 쿨 즉시 화살'),
+        s('E','Sidewinder','o','burst','DoT 있을 시 추가 데미지 단타'),
+        s('R','Raging Strikes','o','buff','개인 딜 버프 20초 (120초)'),
+        s('T','Battle Voice','o','party','파티 다이렉트히트 버프 (120초)'),
+        s('S','Troubadour','o','survival','파티 방어 버프 (90초)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F4','Head Graze','R','util','시전 차단'),
+        s('S1','The Wanderer\'s Minuet','o','song','노래 1 — 레퍼토리 게이지'),
+        s('S2','Mage\'s Ballad','o','song','노래 2 — MP 회복 지원'),
+        s('S3','Army\'s Paeon','o','song','노래 3 — 기술 속도 증가'),
+        s('S4','Radiant Finale','o','party','노래 수에 따른 파티 버프 (120초)'),
+      ],
+      rotation:[
+        {phase:'기본 (노래 순환)', steps:['노래 S1→S2→S3 45초씩 끊임없이 유지',
+          '5(Stormbite) + 6(Caustic Bite) DoT 갱신, 3(Iron Jaws)로 묶어서 갱신',
+          '1(Burst Shot) 반복 + 2(Refulgent Arrow) 프록 시 즉시 사용','W(Empyreal Arrow) 쿨마다 사용']},
+        {phase:'2분 버스트', steps:['R + T + S4 동시 발동','4(Apex Arrow) → Blast Arrow 소비',
+          'S1(WM) 중 Q(Pitch Perfect) × 가능한 만큼']},
+      ],
+    },
+    { id:'mch', name:'Machinist', kr:'기공사', abbr:'MCH', emoji:'🔧', color:'#50b0d0',
+      desc:'히트 게이지 → Hypercharge(Q) 과열 → Heat Blast(4) 5연타. Drill/Air Anchor/Chain Saw(5/6/S3) 강타 + 오토마톤 퀸 소환.',
+      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/machinist/',
+      mechanics:[
+        {name:'히트 게이지 → 과열', desc:'1→2→3 콤보로 히트 게이지 적립. 50 이상에서 Q(Hypercharge) → 과열 중 4(Heat Blast) 5연타.'},
+        {name:'도구 3종 (5/6/S3)', desc:'Drill(5, 20초) / Air Anchor(6, 40초) / Chain Saw(S3, 60초). 고데미지 GCD. 쿨마다 최우선.'},
+        {name:'2분 버스트', desc:'T(Wildfire) 발동 후 6 GCD 안에 피해 최대화. Q(Hypercharge) → Heat Blast × 5 안에 넣기.'},
+      ],
+      skills:[
+        s('1','Heated Split Shot','G','combo','콤보 1 (히트 적립)'),
+        s('2','Heated Slug Shot','G','combo','콤보 2'),
+        s('3','Heated Clean Shot','G','combo','콤보 3 (배터리 적립)'),
+        s('4','Heat Blast','G','burst','과열 중 연타 (1.5초 쿨)'),
+        s('5','Drill','G','burst','강타 (20초 쿨)'),
+        s('6','Air Anchor','G','burst','강타 + 배터리 (40초 쿨)'),
+        s('Q','Hypercharge','o','buff','과열 진입 (히트 50 소비)'),
+        s('W','Gauss Round','o','burst','단타 (2충전)'),
+        s('E','Ricochet','o','burst','범위 단타 (2충전)'),
+        s('R','Reassemble','o','buff','다음 GCD 크리+DH 보장'),
+        s('T','Wildfire','o','party','6 GCD 데미지 흡수 버스트 (120초)'),
+        s('S','Tactician','o','survival','파티 방어 버프 (90초)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F4','Leg Graze','R','util','이동 방해'),
+        s('S1','Scattergun','G','aoe','AOE 기본 (히트 적립)'),
+        s('S2','Auto Crossbow','G','aoe','과열 중 AOE 연타'),
+        s('S3','Chain Saw','G','burst','강타 + 배터리 (60초 쿨)'),
+        s('S4','Barrel Stabilizer','o','buff','히트 50 즉시 충전'),
+      ],
+      rotation:[
+        {phase:'기본 루프', steps:['1→2→3 콤보로 히트/배터리 적립',
+          '5(Drill) / 6(Air Anchor) / S3(Chain Saw) 쿨마다 최우선 사용',
+          'Q(Hypercharge) → 4(Heat Blast) × 5 → W/E 사이에 끼워넣기','배터리 80+ 시 오토마톤 퀸 소환']},
+        {phase:'2분 버스트', steps:['T(Wildfire) → 즉시 Q(Hypercharge) → 4(Heat Blast) × 5 (Wildfire 안에)',
+          'R(Reassemble) + 5(Drill) 크리 확정','S4(Barrel Stabilizer) 히트 충전']},
+      ],
+    },
+    { id:'dnc', name:'Dancer', kr:'무도가', abbr:'DNC', emoji:'💃', color:'#d050d0',
+      desc:'스텝 댄스(R=Standard/S3=Technical)로 파티 버프. 프록 공격 + 에스프리 게이지 → Saber Dance(4). 파트너 시스템.',
+      diff:1, guide:'https://na.finalfantasyxiv.com/jobguide/dancer/',
+      mechanics:[
+        {name:'스탠다드 / 테크니컬 스텝', desc:'R(Standard Step, 30초) 2스텝 → Standard Finish. S3(Technical Step, 120초) 4스텝 → 파티 전체 버프.'},
+        {name:'에스프리 게이지 → Saber Dance', desc:'기본 공격 + 파트너 공격으로 에스프리 적립. 50 이상 시 4(Saber Dance) 강타.'},
+        {name:'Flourish (E)', desc:'4가지 프록 즉시 활성화. E(Flourish) 사용 후 Q(Fan Dance III) + W(Fountainfall 등) 즉시 소비.'},
+      ],
+      skills:[
+        s('1','Cascade','G','combo','기본 GCD 1 (Fountain 프록 가능)'),
+        s('2','Fountain','G','combo','기본 GCD 2 (에스프리 생성)'),
+        s('3','Reverse Cascade / Fountainfall','G','burst','프록 강화 GCD (Feather 게이지 생성)'),
+        s('4','Saber Dance','G','burst','에스프리 50 소비 강타'),
+        s('Q','Fan Dance I','o','burst','깃털 1개 소비 단타 (Fan Dance III 프록)'),
+        s('W','Fan Dance III','o','burst','프록 시 범위 강타'),
+        s('E','Flourish','o','buff','4프록 즉시 활성화 (60초)'),
+        s('R','Standard Step','G','buff','2스텝 댄스 시작 (30초)'),
+        s('T','Devilment','o','party','개인+파트너 크리/DH 버프 (120초)'),
+        s('A','En Avant','o','move','돌진 이동기 (3충전)'),
+        s('S','Shield Samba','o','survival','파티 방어 버프 (90초)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Curing Waltz','o','survival','자신+파트너 힐'),
+        s('F4','Foot Graze','R','util','이동 방해'),
+        s('S1','Windmill','G','aoe','AOE 기본 1'),
+        s('S2','Rising Windmill / Bloodshower','G','aoe','AOE 프록 강화'),
+        s('S3','Technical Step','G','party','4스텝 댄스 → 파티 전체 버프 (120초)'),
+        s('S4','Fan Dance IV','o','aoe','Flourish 후 AOE 강타'),
+      ],
+      rotation:[
+        {phase:'기본 루프', steps:['1(Cascade) → 2(Fountain) 반복, 프록 발생 시 3(Reverse Cascade/Fountainfall) 즉시',
+          'R(Standard Step) 30초마다 댄스 → Standard Finish','Q(Fan Dance I) 깃털 생성 즉시, W(Fan Dance III) 프록 즉시','에스프리 50+ 시 4(Saber Dance)']},
+        {phase:'2분 버스트', steps:['S3(Technical Step) → Technical Finish → T(Devilment)',
+          'E(Flourish) → Q(Fan Dance I) + W(Fan Dance III) + S4(Fan Dance IV) 즉시 소비',
+          '4(Saber Dance) 에스프리 최대 소비']},
+      ],
+    },
+  ],
+  caster: [
+    { id:'blm', name:'Black Mage', kr:'흑마도사', abbr:'BLM', emoji:'🌑', color:'#6060e0',
+      desc:'AF3에서 Fire IV(1) 연발 → Despair(4) → Blizzard III(3)로 UI3 전환 → 마나 회복 → 반복. 이동 극도로 자제. 고보상 고숙련.',
+      diff:5, guide:'https://na.finalfantasyxiv.com/jobguide/blackmage/',
+      mechanics:[
+        {name:'AF/UI 루프', desc:'Fire III(2) → Fire IV(1) × 3~4 → Despair(4) (마나 소진) → Blizzard III(3) → Blizzard IV(6) → 마나 회복 → 반복.'},
+        {name:'폴리글롯 게이지 (Q)', desc:'30초마다 1개 적립 (최대 3). Xenoglossy(Q) = 즉시 시전 강타. 이동 중에 소비 가능.'},
+        {name:'2분 버스트', desc:'Ley Lines(R) + Amplifier(E) + Triplecast(W) 동시 → 불꽃 페이즈에서 Xenoglossy × 3 + Fire IV 추가.'},
+      ],
+      skills:[
+        s('1','Fire IV','G','combo','AF3 중 주력기 (가장 많이 사용)'),
+        s('2','Fire III','G','combo','AF3 진입기 (Flare Star 활성화)'),
+        s('3','Blizzard III','G','combo','UI3 진입기 (냉기 전환)'),
+        s('4','Despair','G','burst','AF3 마나 전부 소비 피니셔'),
+        s('5','Flare Star','G','burst','Astral Soul 6 소비 강타 (7.0 신기술)'),
+        s('6','Blizzard IV','G','buff','UI3 중 Umbral Heart × 3 적립'),
+        s('Q','Xenoglossy','G','burst','폴리글롯 소비 즉시 강타 ★'),
+        s('W','Triplecast','o','buff','다음 3 시전 즉시화 (이동 가능)'),
+        s('E','Amplifier','o','buff','폴리글롯 즉시 +1 (120초)'),
+        s('R','Ley Lines','o','buff','캐스팅 속도 장판 (120초)'),
+        s('T','Manafont','o','buff','마나 즉시 회복 (120초)'),
+        s('A','Aetherial Manipulation','o','move','아군에게 순간이동'),
+        s('D','Between the Lines','o','move','Ley Lines 위치로 귀환'),
+        s('S','Transpose','o','util','AF/UI 즉시 전환 (5초 쿨)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F4','Addle','R','util','적 마법 방어 감소'),
+        s('S1','Blizzard II','G','aoe','AOE 냉기 (UI 진입)'),
+        s('S2','High Fire II','G','aoe','AOE 불꽃 (AF 중)'),
+        s('S3','Foul','G','aoe','폴리글롯 소비 AOE 즉시'),
+        s('S4','Flare','G','aoe','AOE 피니셔 (마나 전소)'),
+      ],
+      rotation:[
+        {phase:'불꽃 페이즈 (AF3)', steps:['2(Fire III) → 1(Fire IV) × 3~4 → 5(Flare Star) → 4(Despair)',
+          'Q(Xenoglossy) 즉시기 합산 삽입','3(Blizzard III)으로 냉기 전환']},
+        {phase:'냉기 페이즈 (UI3)', steps:['6(Blizzard IV) → 마나 회복 대기',
+          'Q(Xenoglossy) / Thunder(변경 전 위치) 즉시기 소비',
+          '2(Fire III)로 다시 불꽃 진입']},
+        {phase:'2분 버스트', steps:['R(Ley Lines) + E(Amplifier) + W(Triplecast) 동시',
+          'T(Manafont)으로 마나 보충 → 추가 4(Despair)','Q(Xenoglossy) × 3 + 1(Fire IV) 반복']},
+      ],
+    },
+    { id:'smn', name:'Summoner', kr:'소환사', abbr:'SMN', emoji:'🌟', color:'#d0801a',
+      desc:'가루다/이프리트/티탄 소환 순환 → 바하무트/피닉스/솔라 바하무트 교대 대소환. 대부분 즉시 시전. 초보자 친화적.',
+      diff:1, guide:'https://na.finalfantasyxiv.com/jobguide/summoner/',
+      mechanics:[
+        {name:'소환 순환 (3~5번)', desc:'Garuda(3, 바람) → Ifrit(4, 불) → Titan(5, 대지) 순서로 소환. 각 소환 후 아케아나 기술 사용.'},
+        {name:'대소환 사이클 (R)', desc:'Bahamut → Phoenix → Solar Bahamut 교대 (각 2분 쿨). R 키 슬롯 교대로 활성화.'},
+        {name:'2분 버스트 (T)', desc:'T(Searing Light) + R(대소환) 동시 발동 → Enkindle(E) 사용 → 아케아나 기술 소비.'},
+      ],
+      skills:[
+        s('1','Ruin III','G','combo','기본 GCD (즉시 시전)'),
+        s('2','Astral Flow','G','burst','소환 상태별 특수기 (가루다=에메랄드, 이프리트=루비, 티탄=토파즈)'),
+        s('3','Summon Garuda II','G','buff','가루다 소환 → 에메랄드 아케아나 활성화'),
+        s('4','Summon Ifrit II','G','buff','이프리트 소환 → 루비 아케아나 활성화'),
+        s('5','Summon Titan II','G','buff','티탄 소환 → 토파즈 아케아나 활성화'),
+        s('6','Ruin IV','G','burst','프록 시 강화 즉시기'),
+        s('Q','Mountain Buster','o','burst','토파즈 아케아나 즉시 강타'),
+        s('W','Energie Drain','o','burst','아케아나 소비 즉시기'),
+        s('E','Enkindle Bahamut/Phoenix','o','burst','대소환 강화 공격'),
+        s('R','Summon Bahamut/Phoenix/Solar','o','buff','대소환 진입 (교대, 120초)'),
+        s('T','Searing Light','o','party','파티 마법 데미지 버프 (120초)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F2','Surecast','R','util','이동 중 시전 가능 (단발)'),
+        s('F4','Addle','R','util','적 마법 방어 감소'),
+        s('S1','Outburst','G','aoe','AOE 기본 GCD'),
+        s('S2','Astral Flare','G','aoe','AOE Astral Flow (소환 중)'),
+      ],
+      rotation:[
+        {phase:'소환 순환 루프', steps:['3(Garuda) → 2(Astral Flow) × 4개 에메랄드 소비',
+          '4(Ifrit) → 2(Astral Flow) × 2개 루비 소비','5(Titan) → 2(Astral Flow) × 4개 토파즈 소비 + Q(Mountain Buster)','1(Ruin III) + 6(Ruin IV 프록) 사이에 채우기']},
+        {phase:'2분 버스트', steps:['T(Searing Light) + R(Bahamut/Phoenix/Solar) 동시',
+          'E(Enkindle) → 대소환 강화 공격','아케아나 기술 + Ruin 반복']},
+      ],
+    },
+    { id:'rdm', name:'Red Mage', kr:'적마도사', abbr:'RDM', emoji:'🌹', color:'#c02040',
+      desc:'흰/검 마나 균형 유지 → 80+ 시 Enchanted Riposte(4)로 근접 콤보 진입 → Scorch(S3) → Resolution(S4) 피니셔.',
+      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/redmage/',
+      mechanics:[
+        {name:'마나 균형 (흰/검)', desc:'Verthunder(2)/Veraero(3) 번갈아 사용해 흰·검 마나 균형 유지 (차이 30 이내). 불균형 시 패널티.'},
+        {name:'근접 검결 (80+ 마나)', desc:'Riposte(4) → Zwerchhau(5) → Redoublement(6) 3콤보. 완료 시 마나 스택 3개 → Verholy/Verflare(S3) → Scorch(S3) → Resolution(S4).'},
+        {name:'2분 버스트', desc:'R(Manafication) → 마나 +50 → T(Embolden) 파티 버프 → 근접 검결 즉시 진입.'},
+      ],
+      skills:[
+        s('1','Jolt III','G','combo','기본 캐스팅 (마나 균형 보정)'),
+        s('2','Verthunder III','G','combo','검은 마나 +6'),
+        s('3','Veraero III','G','combo','흰 마나 +6'),
+        s('4','Enchanted Riposte','G','burst','근접 검결 1단 (80 마나 시 활성화)'),
+        s('5','Enchanted Zwerchhau','G','burst','근접 검결 2단'),
+        s('6','Enchanted Redoublement','G','burst','근접 검결 3단'),
+        s('Q','Fleche','o','burst','단타 oGCD (25초 쿨)'),
+        s('W','Contre Sixte','o','burst','범위 oGCD (45초 쿨)'),
+        s('E','Verstone / Vercure','G','combo','프록 즉시 시전 기술 (흰/검 교대)'),
+        s('R','Manafication','o','buff','마나 +50 (110초 쿨)'),
+        s('T','Embolden','o','party','파티 마법 데미지 버프 (120초)'),
+        s('A','Corps-a-corps','o','move','돌진 이동기 (2충전)'),
+        s('D','Displacement / Engagement','o','move','후퇴 이탈 (이동 없는 버전)'),
+        s('S','Magick Barrier','o','survival','파티 방어+클린즈 (120초)'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F4','Addle','R','util','적 마법 방어 감소'),
+        s('S1','Verthunder II','G','aoe','AOE 검은 마나'),
+        s('S2','Veraero II','G','aoe','AOE 흰 마나'),
+        s('S3','Verholy / Verflare → Scorch','G','burst','마나 스택 피니셔 1→2'),
+        s('S4','Resolution','G','burst','마나 스택 최종 피니셔'),
+      ],
+      rotation:[
+        {phase:'기본 루프 (마나 충전)', steps:['2(Verthunder) + 3(Veraero) 번갈아 마나 충전',
+          'E(Verstone/Vercure) 프록 즉시 삽입','Q(Fleche) + W(Contre Sixte) 쿨마다 소비',
+          '80+ 마나 시 4→5→6 근접 검결 → S3 → S3 → S4 피니셔']},
+        {phase:'2분 버스트', steps:['R(Manafication) → 마나 +50 즉시','T(Embolden) 파티 버프 동시',
+          '4→5→6 근접 검결 → S3(Verholy/Scorch) → S4(Resolution)','Q(Fleche) + W(Contre Sixte) 즉시 소비']},
+      ],
+    },
+    { id:'pct', name:'Pictomancer', kr:'픽토맨서', abbr:'PCT', emoji:'🎨', color:'#e060a0',
+      desc:'Fire/Aero/Water 3색 기본 콤보 + 크리처/해머/경관 모티프 그리기(R/W/E) → 소환·발동. Starry Muse(T) 파티 버프. 7.0 신직업.',
+      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/pictomancer/',
+      mechanics:[
+        {name:'모티프 3종 그리기', desc:'R(Creature Motif) → Q(Living Muse 소환), W(Hammer Motif) → S2(Striking Muse), E(Scenic Motif) → S3(Scenic Muse). 버스트 전에 미리 그려두기.'},
+        {name:'팔레트 게이지', desc:'1/2/3 기본 콤보로 팔레트 적립. 4(Holy in White) + 6(Comet in Black)으로 소비. 즉시 시전.'},
+        {name:'Starry Muse 버스트 (T)', desc:'T(Starry Muse, 120초) = 파티 버프 + Hyperphantasia 5회 가속 시전. Star Prism(S2) + Rainbow Drip(S3) 활성화.'},
+      ],
+      skills:[
+        s('1','Fire in Red','G','combo','기본 공격 1 (팔레트 적립)'),
+        s('2','Aero in Green','G','combo','기본 공격 2 (팔레트 적립)'),
+        s('3','Water in Blue','G','combo','기본 공격 3 (팔레트 적립)'),
+        s('4','Holy in White','G','burst','팔레트 소비 즉시 강타 (Canvas 활성화)'),
+        s('5','Thunder in Magenta','G','dot','번개 DoT 적용'),
+        s('6','Comet in Black','G','burst','팔레트 소비 강타 (Subtractive 콤보 후)'),
+        s('Q','Living Muse','o','burst','크리처 소환 (Creature Motif 후)'),
+        s('W','Striking Muse','o','buff','해머 소환 → Hammer Stamp 활성화'),
+        s('E','Scenic Muse','o','buff','경관 소환 → Starry Muse 선행'),
+        s('R','Creature Motif','G','buff','크리처 그리기 (긴 시전, 버스트 전 준비)'),
+        s('T','Starry Muse','o','party','파티 버프 + 가속 시전 5회 (120초) ★'),
+        s('A','Smudge','o','move','소폭 이동기'),
+        s('S','Tempera Coat','o','survival','자신 실드'),
+        s('F1','Second Wind','R','survival','셀프 힐'),
+        s('F4','Addle','R','util','적 마법 방어 감소'),
+        s('S1','Fire II in Red','G','aoe','AOE 기본 공격'),
+        s('S2','Star Prism','G','burst','Starry Muse 버스트 중 특수기 ★'),
+        s('S3','Rainbow Drip','G','burst','버스트 중 강타 ★'),
+        s('S4','Hammer Stamp','G','burst','해머 3연타 시리즈 1타'),
+      ],
+      rotation:[
+        {phase:'기본 루프', steps:['1→2→3 기본 콤보로 팔레트 적립','R(Creature Motif) 미리 그려두기',
+          '4(Holy in White) + 6(Comet in Black) 팔레트 소비 삽입','W(Striking Muse) → Hammer Stamp 시리즈 사용']},
+        {phase:'2분 버스트 (Starry Muse)', steps:['E(Scenic Muse) 선행 → T(Starry Muse) 파티 버프',
+          'Q(Living Muse) 크리처 소환','가속 시전 5회 → S2(Star Prism) + S3(Rainbow Drip) 발동',
+          'W(Striking Muse) → Hammer Stamp 3연타']},
+      ],
+    },
+  ],
+};
+
+// ─────────────── Render ───────────────
+const ALL_KEYS = ['1','2','3','4','5','6','Q','W','E','R','T','A','D','S','F1','F2','F3','F4','S1','S2','S3','S4'];
+const KEY_ROWS = [
+  ['1','2','3','4','5','6'],
+  ['Q','W','E','R','T'],
+  ['A','S','D'],
+  ['F1','F2','F3','F4','|','S1','S2','S3','S4'],
+];
+
+let currentRole = 'melee';
+let currentJob = null;
+
+function renderSidebar() {
+  const sb = document.getElementById('sidebar');
+  sb.innerHTML = '';
+  const keys = Object.keys(JOBS);
+  keys.forEach(role => {
+    const grp = document.createElement('div');
+    grp.className = `job-group${role===currentRole?' active':''}`;
+    grp.id = `jg-${role}`;
+    JOBS[role].forEach(job => {
+      const btn = document.createElement('button');
+      btn.className = `job-btn${currentJob&&currentJob.id===job.id?' active':''}`;
+      btn.style.setProperty('--job-color', job.color);
+      btn.innerHTML = `<span>${job.emoji}</span><span>${job.kr}</span><span class="job-abbr">${job.abbr}</span>`;
+      btn.onclick = () => selectJob(job);
+      grp.appendChild(btn);
+    });
+    sb.appendChild(grp);
+  });
+}
+
+function renderTabs() {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.role===currentRole);
+  });
+  renderSidebar();
+}
+
+function selectRole(role) {
+  currentRole = role;
+  currentJob = JOBS[role][0];
+  renderTabs();
+  renderJob();
+}
+
+function selectJob(job) {
+  currentJob = job;
+  renderSidebar();
+  renderJob();
+}
+
+function badge(type, cat) {
+  const t = TYPE[type]||TYPE.G;
+  const c = CAT[cat]||CAT.util;
+  return `<span class="cat-badge ${t.css}">${t.label}</span> <span class="cat-badge ${c.css}">${c.emoji} ${c.label}</span>`;
+}
+
+function renderKeyboard(job) {
+  const skillMap = {};
+  job.skills.forEach(sk => { skillMap[sk.key] = sk; });
+
+  let html = '<div class="kbd-wrap">';
+  KEY_ROWS.forEach(row => {
+    html += '<div class="kbd-row">';
+    row.forEach(k => {
+      if(k==='|'){html += '<div style="width:10px"></div>'; return;}
+      const sk = skillMap[k];
+      if(!sk){
+        html += `<div class="kbd-key empty"><div class="kbd-label">${k}</div><div class="kbd-skill"></div><div class="kbd-cat line-empty"></div></div>`;
+        return;
+      }
+      const cat = CAT[sk.cat]||CAT.util;
+      const short = sk.name.length>13 ? sk.name.substring(0,12)+'…' : sk.name;
+      html += `<div class="kbd-key has-skill" style="--skill-border:${job.color}44" title="${sk.name} — ${sk.note}">
+        <div class="kbd-label">${k}</div>
+        <div class="kbd-skill">
+          <img class="kbd-icon" data-skill-name="${sk.name}" src="" style="display:none" alt="" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex')">
+          <div class="kbd-icon-placeholder">${cat.emoji}</div>
+          <span style="font-size:8px;line-height:1.2;word-break:break-word">${short}</span>
+        </div>
+        <div class="kbd-cat ${cat.line}"></div>
+      </div>`;
+    });
+    html += '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderJob() {
+  const job = currentJob;
+  if(!job){document.getElementById('content').innerHTML='<p style="color:var(--text2);padding:40px;text-align:center">직업을 선택하세요</p>'; return;}
+
+  const stars = '★'.repeat(job.diff) + '☆'.repeat(5-job.diff);
+  let html = `
+  <div class="job-panel active">
+    <div class="job-header">
+      <div>
+        <div class="job-name-big" style="color:${job.color}">${job.emoji} ${job.kr} <span style="font-size:14px;color:var(--text2);font-family:'JetBrains Mono',monospace">${job.abbr}</span></div>
+        <div class="job-desc">${job.desc}</div>
+        <div class="job-meta">
+          <span class="badge" style="background:rgba(200,166,79,.15);color:var(--gold);border:1px solid var(--gold3)">난이도 <span class="difficulty-stars">${stars}</span></span>
+        </div>
+      </div>
+      <a class="guide-link" href="${job.guide}" target="_blank" rel="noopener">📖 공식 가이드 →</a>
+    </div>
+
+    <div class="notice"><span class="icon">🖼️</span>기술 아이콘은 <b>xivapi.com</b>에서 자동으로 불러옴. 처음 열면 잠깐 로딩 시간이 있어. 기술명 클릭 시 Garland Tools로 이동.</div>
+
+    <div class="section-title">핵심 메카닉</div>
+    <div class="mechanics-grid">`;
+
+  job.mechanics.forEach(m => {
+    html += `<div class="mechanic-card"><div class="mechanic-name">${m.name}</div><div class="mechanic-desc">${m.desc}</div></div>`;
+  });
+  html += `</div>`;
+
+  // 닌자 무드라 섹션
+  if(job.mudra){
+    html += `<div class="section-title">무드라 인술 조합 (Q=Ten / W=Chi / E=Jin)</div><div class="mudra-grid">`;
+    job.mudra.forEach(m => {
+      html += `<div class="mudra-card"><div class="mudra-combo">${m.combo}</div><div><div class="mudra-name">${m.name}</div><div class="mudra-note">${m.note}</div></div></div>`;
+    });
+    html += `</div>`;
+  }
+
+  // 키보드 레이아웃
+  html += `<div class="kbd-section"><div class="section-title">단축키 레이아웃</div>${renderKeyboard(job)}</div>`;
+
+  // 스킬 테이블
+  html += `<div class="section-title">기술 목록</div><div class="skills-table-wrap"><table>
+    <thead><tr><th>키</th><th>기술명</th><th>유형</th><th>설명</th></tr></thead><tbody>`;
+  job.skills.forEach(sk => {
+    const c = CAT[sk.cat]||CAT.util;
+    html += `<tr>
+      <td><span class="key-chip">${sk.key}</span></td>
+      <td><a class="skill-link" href="${sk.gt}" target="_blank" rel="noopener">
+        <span class="icon-wrap">
+          <img class="skill-icon" data-skill-name="${sk.name}" src="" style="display:none" alt="${sk.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='inline')">
+          <span class="icon-placeholder emo" style="display:inline">${c.emoji}</span>
+        </span>
+        ${sk.name}
+      </a></td>
+      <td>${badge(sk.type, sk.cat)}</td>
+      <td class="skill-note">${sk.note}</td>
+    </tr>`;
+  });
+  html += `</tbody></table></div>`;
+
+  // 로테이션
+  html += `<div class="section-title">로테이션 흐름</div><div class="rotation-wrap">`;
+  job.rotation.forEach(r => {
+    html += `<div class="rotation-phase"><div class="rotation-phase-name">${r.phase}</div><ul class="rotation-steps">`;
+    r.steps.forEach(step => { html += `<li class="rotation-step">${step}</li>`; });
+    html += `</ul></div>`;
+  });
+  html += `</div></div>`;
+
+  document.getElementById('content').innerHTML = html;
+}
+
+// Init
+document.querySelectorAll('.tab').forEach(t => {
+  t.onclick = () => selectRole(t.dataset.role);
+});
+selectRole('melee');
+
+// ─────────────── XIVAPI Icon Loader ───────────────
+// GitHub Pages / 로컬 파일에서 열 때만 동작
+// API: https://xivapi.com/search?indexes=Action&string=XXX&language=en&limit=1
+const iconCache = {};
+
+async function fetchIconUrl(skillName) {
+  const key = skillName.trim().toLowerCase();
+  if (iconCache[key] !== undefined) return iconCache[key];
+  iconCache[key] = null; // 로딩 중 표시
+  try {
+    const clean = skillName
+      .replace(/\s*\(.*?\)\s*/g,'')   // 괄호 제거
+      .replace(/\s*\/\s*.+$/,'')       // / 뒤 제거
+      .replace(/[★☆]/g,'')            // 특수문자 제거
+      .trim();
+    const url = `https://xivapi.com/search?indexes=Action&string=${encodeURIComponent(clean)}&language=en&limit=3`;
+    const res = await fetch(url, {signal: AbortSignal.timeout(6000)});
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data.Results && data.Results.length > 0) {
+      // 정확도 높은 결과 우선 (이름 일치 체크)
+      const exact = data.Results.find(r => r.Name && r.Name.toLowerCase() === clean.toLowerCase());
+      const best = exact || data.Results[0];
+      if (best.Icon) {
+        const imgUrl = 'https://xivapi.com' + best.Icon;
+        iconCache[key] = imgUrl;
+        return imgUrl;
+      }
+    }
+  } catch(e) {}
+  iconCache[key] = null;
+  return null;
+}
+
+// img 태그 업데이트 (data-skill-name 속성 기반)
+async function loadAllIcons() {
+  const imgs = document.querySelectorAll('img[data-skill-name]');
+  const promises = Array.from(imgs).map(async (img) => {
+    if (img.dataset.loaded) return;
+    const name = img.dataset.skillName;
+    const url = await fetchIconUrl(name);
+    if (url) {
+      img.src = url;
+      img.dataset.loaded = '1';
+      img.style.display = 'inline-block';
+      const placeholder = img.parentElement.querySelector('.icon-placeholder');
+      if (placeholder) placeholder.style.display = 'none';
+    } else {
+      const placeholder = img.parentElement.querySelector('.icon-placeholder');
+      if (placeholder) placeholder.style.display = 'inline';
+      img.style.display = 'none';
+    }
+  });
+  await Promise.all(promises);
+}
+
+// renderJob 후에 아이콘 로드 트리거
+const _origRenderJob = renderJob;
+window.renderJob = async function() {
+  _origRenderJob();
+  // 약간 딜레이 후 DOM 렌더링 완료되면 아이콘 로드
+  setTimeout(loadAllIcons, 100);
+};
+// 최초 실행 시에도 적용
+setTimeout(loadAllIcons, 300);
+</script>
+</body>
+</html>
