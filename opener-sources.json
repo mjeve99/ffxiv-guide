@@ -1,0 +1,931 @@
+{
+  "drg": {
+    "source": "https://www.thebalanceffxiv.com/jobs/melee/dragoon/openers/",
+    "patch": "7.5",
+    "imagePatch": "7.1",
+    "notes": [
+      "꽃잎 만발 뒤 전투 기도를 사용해 파티 버프를 맞춥니다. 게이르스코굴은 다른 버프가 적용된 뒤 사용합니다.",
+      "전투 전에 근접 사거리로 들어갈 수 없는 상황이라면 꿰뚫는 발톱으로 시작하는 대안을 참고하세요."
+    ],
+    "sequence": [
+      "True Thrust",
+      "Spiral Blow",
+      "Chaotic Spring",
+      "Wheeling Thrust",
+      "Drakesbane",
+      "Raiden Thrust",
+      "Lance Barrage",
+      "Heavens' Thrust",
+      "Fang and Claw",
+      "Drakesbane",
+      "Raiden Thrust"
+    ],
+    "glossary": [
+      "Raiden Thrust",
+      "Disembowel",
+      "Chaotic Spring",
+      "Vorpal Thrust",
+      "Heavens' Thrust",
+      "Wyrmwind Thrust",
+      "High Jump",
+      "Nastrond",
+      "Geirskogul",
+      "Lance Charge",
+      "Battle Litany",
+      "Spineshatter Dive",
+      "Dragonfire Dive",
+      "Life Surge",
+      "Second Wind",
+      "Bloodbath",
+      "Feint",
+      "Doom Spike",
+      "Sonic Thrust",
+      "Coerthan Torment",
+      "True Thrust",
+      "Spiral Blow",
+      "Wheeling Thrust",
+      "Drakesbane",
+      "Lance Barrage",
+      "Fang and Claw",
+      "Starcross",
+      "Rise of the Dragon",
+      "Mirage Dive",
+      "Piercing Talon",
+      "Stardiver"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/drg-1.png",
+        "original": "https://github.com/RhyTamok/XIVdrg/blob/main/DRG/Graphics/Openers/Dragoon_Standard_Opener_-_No_PT.png?raw=true",
+        "title": "표준 오프너 · 꿰뚫는 발톱 없이 시작"
+      },
+      {
+        "src": "assets/openers/drg-2.png",
+        "original": "https://github.com/RhyTamok/XIVdrg/blob/main/DRG/Graphics/Openers/Dragoon_Standard_Opener.png?raw=true",
+        "title": "대안 오프너 · 꿰뚫는 발톱으로 시작"
+      }
+    ]
+  },
+  "vpr": {
+    "source": "https://www.thebalanceffxiv.com/jobs/melee/viper/openers/",
+    "patch": "7.55",
+    "imagePatch": "7.5",
+    "notes": [
+      "원문이 제시하는 7.5 표준 오프너입니다. 조상령의 송곳니 사이에 대응하는 조상령의 뱀을 끼워 사용합니다.",
+      "그림의 첫 기술과 후반 피니셔는 두 가지 선택지가 표시되어 있습니다. 현재 콤보 상태에 맞는 기술을 선택합니다."
+    ],
+    "sequence": [
+      "Steel Fangs / Reaving Fangs",
+      "Swiftskin's Sting",
+      "Vicewinder",
+      "Hunter's Coil",
+      "Swiftskin's Coil",
+      "Reawaken",
+      "First Generation",
+      "Second Generation",
+      "Third Generation",
+      "Fourth Generation",
+      "Ouroboros",
+      "Uncoiled Fury",
+      "Uncoiled Fury",
+      "Hindsting Strike / Hindsbane Fang",
+      "Vicewinder",
+      "Hunter's Coil",
+      "Swiftskin's Coil"
+    ],
+    "glossary": [
+      "Steel Fangs",
+      "Reaving Fangs",
+      "Hunter's/Swiftskin's Sting",
+      "Flanksting/Hindsting Strike",
+      "Reawaken",
+      "Vicewinder",
+      "Hunter's Coil",
+      "Swiftskin's Coil",
+      "Serpent's Ire",
+      "Slither",
+      "Second Wind",
+      "Bloodbath",
+      "Feint",
+      "Steel Maw",
+      "Reaving Maw",
+      "Hunter's/Swiftskin's Bite",
+      "First Generation",
+      "Second Generation",
+      "Third Generation",
+      "Fourth Generation",
+      "First Legacy",
+      "Second Legacy",
+      "Third Legacy",
+      "Fourth Legacy",
+      "Ouroboros",
+      "Twinfang Bite",
+      "Twinblood Bite",
+      "Uncoiled Fury",
+      "Hindsbane Fang",
+      "Death Rattle",
+      "Uncoiled Twinfang",
+      "Uncoiled Twinblood",
+      "Steel Fangs / Reaving Fangs",
+      "Swiftskin's Sting",
+      "Hindsting Strike / Hindsbane Fang"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/vpr-1.png",
+        "original": "https://raw.githubusercontent.com/RhyTamok/XIVvpr/refs/heads/main/Opener/vpr_standard_opener.png",
+        "title": "표준 오프너 · 7.5"
+      }
+    ]
+  },
+  "rpr": {
+    "source": "https://www.thebalanceffxiv.com/jobs/melee/reaper/openers/",
+    "patch": "7.55",
+    "imagePatch": "7.0",
+    "notes": [
+      "전투 전에 영혼 심기를 준비하고, 약 1.7초 전에 갈고리낫을 시전합니다.",
+      "약물과 신비의 원은 다음 GCD를 늦추지 않는 범위에서 늦게 끼웁니다. 원본 그림과 본문은 두 번째 영혼 낫질 위치가 다릅니다. 여기서는 원본 그림을 보존했습니다."
+    ],
+    "sequence": [
+      "Shadow of Death",
+      "Soul Slice",
+      "Executioner's Gibbet",
+      "Executioner's Gallows",
+      "Soul Slice",
+      "Plentiful Harvest",
+      "Void Reaping",
+      "Cross Reaping",
+      "Void Reaping",
+      "Cross Reaping",
+      "Communio",
+      "Perfectio",
+      "Gibbet",
+      "Shadow of Death",
+      "Slice"
+    ],
+    "glossary": [
+      "Slice",
+      "Waxing Slice",
+      "Infernal Slice",
+      "Gibbet",
+      "Shadow of Death",
+      "Gallows",
+      "Soul Slice",
+      "Gluttony",
+      "Enshroud",
+      "Plentiful Harvest",
+      "Arcane Circle",
+      "Hell's Ingress",
+      "Regress",
+      "Arcane Crest",
+      "Second Wind",
+      "Bloodbath",
+      "Feint",
+      "Spinning Scythe",
+      "Nightmare Scythe",
+      "Circle of Death",
+      "Grim Reaping",
+      "Soulsow",
+      "Harpe",
+      "Executioner's Gibbet",
+      "Executioner's Gallows",
+      "Void Reaping",
+      "Cross Reaping",
+      "Sacrificium",
+      "Lemure's Slice",
+      "Communio",
+      "Perfectio",
+      "Unveiled Gibbet"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/rpr-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/rpr/second-gcd-ac.png",
+        "title": "표준 오프너 · 2번째 GCD 이후 신비의 원"
+      }
+    ]
+  },
+  "dnc": {
+    "source": "https://www.thebalanceffxiv.com/jobs/ranged/dancer/openers/",
+    "patch": "7.40",
+    "imagePatch": "7.0",
+    "notes": [
+      "전투 전에 마주서기와 정석 무도를 준비합니다. 시작과 함께 정석 마무리 뒤 기교 무도로 이어갑니다.",
+      "그림의 Step은 화면에 뜨는 무도 순서대로 입력합니다. Priority GCD는 발동 효과와 자원에 맞춰 우선순위가 높은 기술을 쓰는 구간입니다."
+    ],
+    "sequence": [
+      "Standard Finish",
+      "Technical Step",
+      "무도 순서 입력 1",
+      "무도 순서 입력 2",
+      "무도 순서 입력 3",
+      "무도 순서 입력 4",
+      "Technical Finish",
+      "Tillana",
+      "Dance of the Dawn",
+      "Last Dance",
+      "Finishing Move",
+      "Saber Dance / Starfall Dance",
+      "우선순위 GCD",
+      "우선순위 GCD",
+      "우선순위 GCD",
+      "우선순위 GCD"
+    ],
+    "glossary": [
+      "Cascade",
+      "Fountain",
+      "Reverse Cascade / Fountainfall",
+      "Saber Dance",
+      "Fan Dance I",
+      "Fan Dance III",
+      "Flourish",
+      "Standard Step",
+      "Devilment",
+      "En Avant",
+      "Shield Samba",
+      "Second Wind",
+      "Curing Waltz",
+      "Foot Graze",
+      "Windmill",
+      "Rising Windmill / Bloodshower",
+      "Technical Step",
+      "Fan Dance IV",
+      "Closed Position",
+      "Peloton",
+      "Standard Finish",
+      "Technical Finish",
+      "Tillana",
+      "Dance of the Dawn",
+      "Last Dance",
+      "Finishing Move",
+      "Starfall Dance",
+      "Saber Dance / Starfall Dance"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/dnc-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/dnc/dt_dnc_opener_full.png",
+        "title": "100레벨 표준 오프너"
+      }
+    ]
+  },
+  "mch": {
+    "source": "https://www.thebalanceffxiv.com/jobs/ranged/machinist/openers/",
+    "patch": "7.3",
+    "imagePatch": "7.0",
+    "notes": [
+      "전투 전에 정비를 사용하고 사슬닻으로 시작합니다. 두 번째 정비는 파티 버프 안의 굴삭기 또는 그 뒤의 드릴에 맞춥니다.",
+      "대안은 이후 2분 버스트와 비슷한 순서로 정리한 형태입니다. 열기와 충전 기술이 넘치지 않도록 확인합니다."
+    ],
+    "sequence": [
+      "Air Anchor",
+      "Drill",
+      "Chain Saw",
+      "Excavator",
+      "Drill",
+      "Full Metal Field",
+      "Blazing Shot",
+      "Blazing Shot",
+      "Blazing Shot",
+      "Blazing Shot",
+      "Blazing Shot",
+      "Drill",
+      "Heated Split Shot",
+      "Heated Slug Shot",
+      "Heated Clean Shot"
+    ],
+    "glossary": [
+      "Heated Split Shot",
+      "Heated Slug Shot",
+      "Heated Clean Shot",
+      "Heat Blast",
+      "Drill",
+      "Air Anchor",
+      "Hypercharge",
+      "Gauss Round",
+      "Ricochet",
+      "Reassemble",
+      "Wildfire",
+      "Tactician",
+      "Second Wind",
+      "Leg Graze",
+      "Scattergun",
+      "Auto Crossbow",
+      "Chain Saw",
+      "Barrel Stabilizer",
+      "Double Check",
+      "Checkmate",
+      "Automaton Queen",
+      "Excavator",
+      "Full Metal Field",
+      "Blazing Shot"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/mch-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mch/machinist-standard-opener-aa-6-.png",
+        "title": "표준 오프너 · 사슬닻 시작"
+      },
+      {
+        "src": "assets/openers/mch-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mch/machinist-alternative-opener-static-to-even-minute-bursts-.png",
+        "title": "대안 오프너 · 짝수 분 버스트와 같은 흐름"
+      }
+    ]
+  },
+  "brd": {
+    "source": "https://www.thebalanceffxiv.com/jobs/ranged/bard/openers/",
+    "patch": "7.4",
+    "imagePatch": "7.0",
+    "notes": [
+      "처음에는 폭풍 화살과 맹독 화살로 두 지속 피해를 먼저 적용합니다. 직선 사격 계열 발동 여부에 따라 파열 사격과 찬란한 화살의 사용이 달라집니다.",
+      "절대음감은 가능한 한 3중첩에서 사용하고, 그림에 표시되지 않은 발동 효과도 실제 상황에 맞춰 처리합니다."
+    ],
+    "sequence": [
+      "Stormbite",
+      "Caustic Bite",
+      "Burst Shot",
+      "Burst Shot",
+      "Refulgent Arrow",
+      "Radiant Encore",
+      "Resonant Arrow",
+      "Refulgent Arrow",
+      "Burst Shot",
+      "Iron Jaws",
+      "Burst Shot"
+    ],
+    "glossary": [
+      "Burst Shot",
+      "Refulgent Arrow",
+      "Iron Jaws",
+      "Apex Arrow",
+      "Stormbite",
+      "Caustic Bite",
+      "Pitch Perfect",
+      "Empyreal Arrow",
+      "Sidewinder",
+      "Raging Strikes",
+      "Battle Voice",
+      "Troubadour",
+      "Second Wind",
+      "Head Graze",
+      "The Wanderer's Minuet",
+      "Mage's Ballad",
+      "Army's Paeon",
+      "Radiant Finale",
+      "Heartbreak Shot",
+      "Barrage",
+      "Radiant Encore",
+      "Resonant Arrow"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/brd-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/brd/adjusted-standard-opener.png",
+        "title": "조정된 표준 오프너 · GCD 2.48초 기준"
+      },
+      {
+        "src": "assets/openers/brd-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/brd/standard249-opener-2.png",
+        "title": "표준 오프너 · GCD 2.49초"
+      },
+      {
+        "src": "assets/openers/brd-3.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/brd/369-opener-b.png",
+        "title": "3·6·9 오프너"
+      }
+    ]
+  },
+  "rdm": {
+    "source": "https://www.thebalanceffxiv.com/jobs/casters/red-mage/openers/",
+    "patch": "7.4",
+    "imagePatch": "7.0",
+    "notes": [
+      "표준은 버프 중 화력을 높이는 대신 이후 능력 기술의 재사용 시간 정렬이 엄격합니다.",
+      "콩트르 식스트 조기 사용형은 이동 대응에 여유를 주며, 약물 단독 사용형은 두 기술을 연달아 끼워 쓰기 어려울 때의 대안입니다."
+    ],
+    "sequence": [
+      "Verthunder III",
+      "Verthunder III",
+      "Verthunder III",
+      "Enchanted Riposte",
+      "Enchanted Zwerchhau",
+      "Enchanted Redoublement",
+      "Verholy",
+      "Scorch",
+      "Resolution",
+      "Grand Impact",
+      "Verfire",
+      "Grand Impact",
+      "Verthunder III",
+      "Veraero III",
+      "Verfire",
+      "Verthunder III",
+      "Verstone",
+      "Veraero III",
+      "Veraero III"
+    ],
+    "glossary": [
+      "Jolt III",
+      "Verthunder III",
+      "Veraero III",
+      "Enchanted Riposte",
+      "Enchanted Zwerchhau",
+      "Enchanted Redoublement",
+      "Fleche",
+      "Contre Sixte",
+      "Verstone / Vercure",
+      "Manafication",
+      "Embolden",
+      "Corps-a-corps",
+      "Displacement / Engagement",
+      "Magick Barrier",
+      "Second Wind",
+      "Addle",
+      "Verthunder II",
+      "Veraero II",
+      "Verholy / Verflare → Scorch",
+      "Resolution",
+      "Acceleration",
+      "Swiftcast",
+      "Grand Impact",
+      "Verfire",
+      "Vice of Thorns",
+      "Prefulgence",
+      "Verholy",
+      "Scorch",
+      "Verstone"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/rdm-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/rdm/rdm_dt_opener1.png",
+        "title": "표준 오프너 · 버프 안에 화력 집중"
+      },
+      {
+        "src": "assets/openers/rdm-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/rdm/rdm_dt_opener2.png",
+        "title": "대안 오프너 · 콩트르 식스트를 일찍 사용"
+      },
+      {
+        "src": "assets/openers/rdm-3.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/rdm/rdm_dt_opener3.png",
+        "title": "대안 오프너 · 약물 단독 끼워넣기"
+      }
+    ]
+  },
+  "nin": {
+    "source": "https://www.thebalanceffxiv.com/jobs/melee/ninja/openers/",
+    "patch": "7.1",
+    "imagePatch": "7.0",
+    "notes": [
+      "전투 약 6초 전부터 수둔을 준비하고 약 0.9초 전에 발동합니다.",
+      "4번째 GCD 버전과 3번째 GCD 버전은 백뢰총 사용 시점이 다릅니다. 원문은 GCD 2.10초에서 3번째 GCD 버전을 대안으로 소개합니다."
+    ],
+    "sequence": [
+      "Spinning Edge",
+      "Gust Slash",
+      "Phantom Kamaitachi",
+      "Armor Crush",
+      "Hyosho Ranryu",
+      "Raiton",
+      "Fuma Shuriken",
+      "Raiton",
+      "Suiton",
+      "Fleeting Raiju",
+      "Fleeting Raiju",
+      "Raiton",
+      "Fleeting Raiju"
+    ],
+    "glossary": [
+      "Spinning Edge",
+      "Gust Slash",
+      "Aeolian Edge",
+      "Armor Crush",
+      "Raiju (프록 시)",
+      "Bhavacakra",
+      "Ten (무드라 1)",
+      "Chi (무드라 2)",
+      "Jin (무드라 3)",
+      "Bunshin",
+      "Kunai's Bane",
+      "Shukuchi",
+      "Mug",
+      "Second Wind",
+      "Bloodbath",
+      "Feint",
+      "Death Blossom",
+      "Hakke Mujinsatsu",
+      "Kassatsu",
+      "Dokumori",
+      "Phantom Kamaitachi",
+      "Hyosho Ranryu",
+      "Dream Within a Dream",
+      "Ten Chi Jin",
+      "Meisui",
+      "Zesho Meppo",
+      "Tenri Jindo",
+      "Suiton",
+      "Raiton",
+      "Fuma Shuriken",
+      "Fleeting Raiju"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/nin-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/nin/standard4th-1-.png",
+        "title": "표준 오프너 · 4번째 GCD 이후 백뢰총"
+      },
+      {
+        "src": "assets/openers/nin-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/nin/standard3rd.png",
+        "title": "대안 오프너 · 3번째 GCD 이후 백뢰총"
+      }
+    ]
+  },
+  "pct": {
+    "source": "https://www.thebalanceffxiv.com/jobs/casters/pictomancer/openers/",
+    "patch": "7.4",
+    "imagePatch": "7.2",
+    "notes": [
+      "2번째 GCD 하늘 구현은 일반적인 선택입니다. 3번째 GCD 버전은 파티 버프 시점이나 지연 시간에 맞추는 대안입니다.",
+      "버스트 도표는 9회 마법 안에 필요한 기술을 배치하는 예시입니다. 망치와 색마법의 세부 순서는 이동 기믹에 맞춰 조정할 수 있습니다."
+    ],
+    "sequence": [
+      "Wing Motif",
+      "Hammer Stamp",
+      "Blizzard in Cyan",
+      "Stone in Yellow",
+      "Thunder in Magenta",
+      "Comet in Black",
+      "Star Prism",
+      "Hammer Brush",
+      "Polishing Hammer",
+      "Rainbow Drip",
+      "Fire in Red",
+      "Aero in Green"
+    ],
+    "glossary": [
+      "Fire in Red",
+      "Aero in Green",
+      "Water in Blue",
+      "Holy in White",
+      "Thunder in Magenta",
+      "Comet in Black",
+      "Living Muse",
+      "Striking Muse",
+      "Scenic Muse",
+      "Creature Motif",
+      "Starry Muse",
+      "Smudge",
+      "Tempera Coat",
+      "Second Wind",
+      "Addle",
+      "Fire II in Red",
+      "Star Prism",
+      "Rainbow Drip",
+      "Hammer Stamp",
+      "Wing Motif",
+      "Pom Muse",
+      "Winged Muse",
+      "Mog of the Ages",
+      "Blizzard in Cyan",
+      "Stone in Yellow",
+      "Hammer Brush",
+      "Polishing Hammer",
+      "Subtractive Palette",
+      "Swiftcast"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/pct-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/pct/pictomancer_2nd_gcd_starry_opener.png",
+        "title": "표준 오프너 · 2번째 GCD 하늘 구현"
+      },
+      {
+        "src": "assets/openers/pct-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/pct/pictomancer_3rd_gcd_starry_opener.png",
+        "title": "대안 오프너 · 3번째 GCD 하늘 구현"
+      },
+      {
+        "src": "assets/openers/pct-3.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/pct/1000091140.png",
+        "title": "2분 버스트 · 9회 마법 / 동물 구현 1회"
+      },
+      {
+        "src": "assets/openers/pct-4.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/pct/image_2025-05-03_225335312.png",
+        "title": "2분 버스트 · 망치 2·3타 포함"
+      },
+      {
+        "src": "assets/openers/pct-5.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/pct/1000048079.png",
+        "title": "2분 버스트 · 망치 3타 포함"
+      }
+    ]
+  },
+  "mnk": {
+    "source": "https://www.thebalanceffxiv.com/jobs/melee/monk/openers/",
+    "patch": "7.4",
+    "imagePatch": "7.0",
+    "notes": [
+      "기본 선택은 쌍룡각 시작입니다. 파티 버프가 시작되는 시점에 맞춰 5초 또는 7초 버전을 고릅니다.",
+      "양·음과 음·음의 선택은 전투 종료 시점에 따라 달라집니다. 짝수 분과 홀수 분 버스트 도표도 함께 볼 수 있습니다."
+    ],
+    "sequence": [
+      "Dragon Kick",
+      "Twin Snakes",
+      "Demolish",
+      "Leaping Opo",
+      "Rising Phoenix",
+      "Dragon Kick",
+      "Wind's Reply",
+      "Fire's Reply",
+      "Leaping Opo",
+      "Dragon Kick",
+      "Leaping Opo",
+      "Dragon Kick",
+      "Elixir Burst",
+      "Leaping Opo"
+    ],
+    "glossary": [
+      "Leaping Opo",
+      "Rising Raptor",
+      "Pouncing Coeurl",
+      "Dragon Kick",
+      "Twin Snakes",
+      "Masterful Blitz",
+      "Perfect Balance",
+      "Riddle of Wind",
+      "The Forbidden Chakra",
+      "Riddle of Fire",
+      "Brotherhood",
+      "Thunderclap",
+      "Mantra",
+      "Second Wind",
+      "Bloodbath",
+      "Feint",
+      "Shadow of the Destroyer",
+      "Four-point Fury",
+      "Enlightenment",
+      "Demolish",
+      "Rising Phoenix",
+      "Wind's Reply",
+      "Fire's Reply",
+      "Elixir Burst"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/mnk-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/sl5s-dk.png",
+        "title": "양·음 오프너 · 쌍룡각 시작 / 5초 버프"
+      },
+      {
+        "src": "assets/openers/mnk-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/sl7s-dk.png",
+        "title": "양·음 오프너 · 쌍룡각 시작 / 7초 버프"
+      },
+      {
+        "src": "assets/openers/mnk-3.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/sl7s-de.png",
+        "title": "양·음 오프너 · 파쇄권 시작 / 7초 버프"
+      },
+      {
+        "src": "assets/openers/mnk-4.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/ll5s-dk.png",
+        "title": "음·음 오프너 · 쌍룡각 시작 / 5초 버프"
+      },
+      {
+        "src": "assets/openers/mnk-5.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/ll7s-dk.png",
+        "title": "음·음 오프너 · 쌍룡각 시작 / 7초 버프"
+      },
+      {
+        "src": "assets/openers/mnk-6.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/ll7s-de.png",
+        "title": "음·음 오프너 · 파쇄권 시작 / 7초 버프"
+      },
+      {
+        "src": "assets/openers/mnk-7.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/info-even.png",
+        "title": "짝수 분 버스트"
+      },
+      {
+        "src": "assets/openers/mnk-8.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/mnk/info-odds.png",
+        "title": "홀수 분 버스트"
+      }
+    ]
+  },
+  "smn": {
+    "source": "https://www.thebalanceffxiv.com/jobs/casters/summoner/openers/",
+    "patch": "7.55",
+    "imagePatch": "7.5",
+    "notes": [
+      "100레벨 표준은 솔 바하무트 소환 이후 첫 야만신으로 타이탄을 사용하는 흐름입니다.",
+      "전투 전 루인가 시전을 생략하고 0초에 대소환으로 시작하는 선택도 있습니다. 90레벨 표는 레벨 조율 콘텐츠용입니다."
+    ],
+    "sequence": [
+      "Summon Solar Bahamut",
+      "Umbral Impulse",
+      "Umbral Impulse",
+      "Umbral Impulse",
+      "Umbral Impulse",
+      "Umbral Impulse",
+      "Umbral Impulse",
+      "Summon Titan II",
+      "Topaz Rite",
+      "Topaz Rite",
+      "Topaz Rite",
+      "Topaz Rite",
+      "Summon Garuda II",
+      "Slipstream"
+    ],
+    "glossary": [
+      "Ruin III",
+      "Astral Flow",
+      "Summon Garuda II",
+      "Summon Ifrit II",
+      "Summon Titan II",
+      "Ruin IV",
+      "Mountain Buster",
+      "Energie Drain",
+      "Enkindle Bahamut/Phoenix",
+      "Summon Bahamut/Phoenix/Solar",
+      "Searing Light",
+      "Second Wind",
+      "Surecast",
+      "Addle",
+      "Outburst",
+      "Astral Flare",
+      "Umbral Impulse",
+      "Enkindle Solar Bahamut",
+      "Necrotize",
+      "Sunflare",
+      "Searing Flash",
+      "Topaz Rite",
+      "Slipstream",
+      "Swiftcast",
+      "Summon Solar Bahamut"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/smn-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/smn/summoner-dawntrail-general-opener.png",
+        "title": "100레벨 표준 오프너"
+      },
+      {
+        "src": "assets/openers/smn-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/smn/summoner-endwalker-general-opener.png",
+        "title": "90레벨 오프너 · 레벨 조율용"
+      }
+    ]
+  },
+  "sam": {
+    "source": "https://www.thebalanceffxiv.com/jobs/melee/samurai/openers/",
+    "patch": "미표기",
+    "imagePatch": "7.05",
+    "notes": [
+      "대부분의 전투에서 쓰는 표준 오프너입니다. 보스 전환 시점에 따라 처음 두 기술의 순서를 화차→월광으로 조정할 수 있습니다.",
+      "오프너 다음 순환은 자신의 GCD에 맞는 2.14초 또는 2.07~2.08초 표를 선택하세요."
+    ],
+    "sequence": [
+      "Gekko",
+      "Kasha",
+      "Yukikaze",
+      "Tendo Setsugekka",
+      "Tendo Kaeshi Setsugekka",
+      "Gekko",
+      "Higanbana",
+      "Ogi Namikiri",
+      "Kaeshi Namikiri",
+      "Kasha",
+      "Gekko",
+      "Gyofu",
+      "Yukikaze",
+      "Tendo Setsugekka",
+      "Tendo Kaeshi Setsugekka"
+    ],
+    "glossary": [
+      "Gyofu",
+      "Yukikaze",
+      "Jinpu",
+      "Gekko",
+      "Shifu",
+      "Kasha",
+      "Hissatsu: Shinten",
+      "Meikyo Shisui",
+      "Ikishoten",
+      "Tsubame-gaeshi",
+      "Ogi Namikiri",
+      "Third Eye",
+      "Second Wind",
+      "Bloodbath",
+      "Feint",
+      "Fuko",
+      "Mangetsu",
+      "Tenka Goken",
+      "True North",
+      "Tendo Setsugekka",
+      "Tendo Kaeshi Setsugekka",
+      "Hissatsu: Senei",
+      "Zanshin",
+      "Shoha",
+      "Hissatsu: Gyoten",
+      "Kaeshi Namikiri",
+      "Higanbana"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/sam-1.jpg",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/sam/samurai-opener.jpeg",
+        "title": "표준 오프너"
+      },
+      {
+        "src": "assets/openers/sam-2.jpg",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/sam/sam_214_sheet.jpeg",
+        "title": "기본 순환표 · GCD 2.14초"
+      },
+      {
+        "src": "assets/openers/sam-3.jpg",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/sam/sam_208_sheet.jpeg",
+        "title": "기본 순환표 · GCD 2.07~2.08초"
+      }
+    ]
+  },
+  "blm": {
+    "source": "https://www.thebalanceffxiv.com/jobs/casters/black-mage/openers/",
+    "patch": "7.4",
+    "imagePatch": "7.2",
+    "notes": [
+      "5+7은 마나샘 전 파이쟈 5회, 이후 7회로 총 12회를 사용한다는 뜻입니다. 플레어 스타를 두 번 넣습니다.",
+      "단일 대상 플레어 대안은 자원과 이후 이동 대응을 다르게 설계한 순서입니다. 하이 선더 갱신은 파티 버프 종료 시점에 맞춰 조정합니다."
+    ],
+    "sequence": [
+      "Fire III",
+      "High Thunder",
+      "Fire IV",
+      "Fire IV",
+      "Fire IV",
+      "Fire IV",
+      "Fire IV",
+      "Xenoglossy",
+      "Fire IV",
+      "Flare Star",
+      "Fire IV",
+      "Fire IV",
+      "High Thunder",
+      "Fire IV",
+      "Fire IV",
+      "Fire IV",
+      "Fire IV",
+      "Flare Star",
+      "Despair",
+      "Blizzard III",
+      "Blizzard IV",
+      "Paradox",
+      "Paradox",
+      "Fire III (Firestarter)"
+    ],
+    "glossary": [
+      "Fire IV",
+      "Fire III",
+      "Blizzard III",
+      "Despair",
+      "Flare Star",
+      "Blizzard IV",
+      "Xenoglossy",
+      "Triplecast",
+      "Amplifier",
+      "Ley Lines",
+      "Manafont",
+      "Aetherial Manipulation",
+      "Between the Lines",
+      "Transpose",
+      "Second Wind",
+      "Addle",
+      "Blizzard II",
+      "High Fire II",
+      "Foul",
+      "Flare",
+      "High Thunder",
+      "Paradox",
+      "Swiftcast",
+      "Fire",
+      "Firestarter",
+      "Fire III (Firestarter)"
+    ],
+    "images": [
+      {
+        "src": "assets/openers/blm-1.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/blm/standard-5-7-opener.png",
+        "title": "표준 5+7 오프너"
+      },
+      {
+        "src": "assets/openers/blm-2.png",
+        "original": "https://www.thebalanceffxiv.com/img/jobs/blm/alternative-st-flare-opener.png",
+        "title": "대안 오프너 · 단일 대상 플레어"
+      }
+    ]
+  }
+}
