@@ -1,0 +1,1581 @@
+{
+  "source": "https://v2.xivapi.com",
+  "date": "2026-09-23",
+  "mapping": {
+    "Leaping Opo": [
+      {
+        "name": "Leaping Opo",
+        "id": 36945,
+        "src": "assets/icons/2982.png"
+      }
+    ],
+    "Rising Raptor": [
+      {
+        "name": "Rising Raptor",
+        "id": 36946,
+        "src": "assets/icons/2983.png"
+      }
+    ],
+    "Pouncing Coeurl": [
+      {
+        "name": "Pouncing Coeurl",
+        "id": 36947,
+        "src": "assets/icons/2984.png"
+      }
+    ],
+    "Dragon Kick": [
+      {
+        "name": "Dragon Kick",
+        "id": 74,
+        "src": "assets/icons/2528.png"
+      }
+    ],
+    "Twin Snakes": [
+      {
+        "name": "Twin Snakes",
+        "id": 61,
+        "src": "assets/icons/213.png"
+      }
+    ],
+    "Masterful Blitz": [
+      {
+        "name": "Masterful Blitz",
+        "id": 25764,
+        "src": "assets/icons/2976.png"
+      }
+    ],
+    "Perfect Balance": [
+      {
+        "name": "Perfect Balance",
+        "id": 69,
+        "src": "assets/icons/217.png"
+      }
+    ],
+    "Riddle of Wind": [
+      {
+        "name": "Riddle of Wind",
+        "id": 25766,
+        "src": "assets/icons/2978.png"
+      }
+    ],
+    "The Forbidden Chakra": [
+      {
+        "name": "the Forbidden Chakra",
+        "id": 3547,
+        "src": "assets/icons/2535.png"
+      }
+    ],
+    "Riddle of Fire": [
+      {
+        "name": "Riddle of Fire",
+        "id": 7395,
+        "src": "assets/icons/2541.png"
+      }
+    ],
+    "Brotherhood": [
+      {
+        "name": "Brotherhood",
+        "id": 7396,
+        "src": "assets/icons/2542.png"
+      }
+    ],
+    "Thunderclap": [
+      {
+        "name": "Thunderclap",
+        "id": 25762,
+        "src": "assets/icons/2975.png"
+      }
+    ],
+    "Mantra": [
+      {
+        "name": "Mantra",
+        "id": 65,
+        "src": "assets/icons/216.png"
+      }
+    ],
+    "Second Wind": [
+      {
+        "name": "Second Wind",
+        "id": 7541,
+        "src": "assets/icons/821.png"
+      }
+    ],
+    "Bloodbath": [
+      {
+        "name": "Bloodbath",
+        "id": 7542,
+        "src": "assets/icons/823.png"
+      }
+    ],
+    "Feint": [
+      {
+        "name": "Feint",
+        "id": 7549,
+        "src": "assets/icons/828.png"
+      }
+    ],
+    "Shadow of the Destroyer": [
+      {
+        "name": "Shadow of the Destroyer",
+        "id": 25767,
+        "src": "assets/icons/2979.png"
+      }
+    ],
+    "Four-point Fury": [
+      {
+        "name": "Four-point Fury",
+        "id": 16473,
+        "src": "assets/icons/2544.png"
+      }
+    ],
+    "Enlightenment": [
+      {
+        "name": "Enlightenment",
+        "id": 16474,
+        "src": "assets/icons/2545.png"
+      }
+    ],
+    "Raiden Thrust": [
+      {
+        "name": "Raiden Thrust",
+        "id": 16479,
+        "src": "assets/icons/2592.png"
+      }
+    ],
+    "Disembowel": [
+      {
+        "name": "Disembowel",
+        "id": 87,
+        "src": "assets/icons/317.png"
+      }
+    ],
+    "Chaotic Spring": [
+      {
+        "name": "Chaotic Spring",
+        "id": 25772,
+        "src": "assets/icons/2596.png"
+      }
+    ],
+    "Vorpal Thrust": [
+      {
+        "name": "Vorpal Thrust",
+        "id": 78,
+        "src": "assets/icons/312.png"
+      }
+    ],
+    "Heavens' Thrust": [
+      {
+        "name": "Heavens' Thrust",
+        "id": 25771,
+        "src": "assets/icons/2595.png"
+      }
+    ],
+    "Wyrmwind Thrust": [
+      {
+        "name": "Wyrmwind Thrust",
+        "id": 25773,
+        "src": "assets/icons/2597.png"
+      }
+    ],
+    "High Jump": [
+      {
+        "name": "High Jump",
+        "id": 16478,
+        "src": "assets/icons/2591.png"
+      }
+    ],
+    "Nastrond": [
+      {
+        "name": "Nastrond",
+        "id": 7400,
+        "src": "assets/icons/2589.png"
+      }
+    ],
+    "Geirskogul": [
+      {
+        "name": "Geirskogul",
+        "id": 3555,
+        "src": "assets/icons/2583.png"
+      }
+    ],
+    "Lance Charge": [
+      {
+        "name": "Lance Charge",
+        "id": 85,
+        "src": "assets/icons/309.png"
+      }
+    ],
+    "Battle Litany": [
+      {
+        "name": "Battle Litany",
+        "id": 3557,
+        "src": "assets/icons/2585.png"
+      }
+    ],
+    "Spineshatter Dive": [],
+    "Dragonfire Dive": [
+      {
+        "name": "Dragonfire Dive",
+        "id": 96,
+        "src": "assets/icons/2578.png"
+      }
+    ],
+    "Life Surge": [
+      {
+        "name": "Life Surge",
+        "id": 83,
+        "src": "assets/icons/304.png"
+      }
+    ],
+    "Doom Spike": [
+      {
+        "name": "Doom Spike",
+        "id": 86,
+        "src": "assets/icons/306.png"
+      }
+    ],
+    "Sonic Thrust": [
+      {
+        "name": "Sonic Thrust",
+        "id": 7397,
+        "src": "assets/icons/2586.png"
+      }
+    ],
+    "Coerthan Torment": [
+      {
+        "name": "Coerthan Torment",
+        "id": 16477,
+        "src": "assets/icons/2590.png"
+      }
+    ],
+    "Spinning Edge": [
+      {
+        "name": "Spinning Edge",
+        "id": 2240,
+        "src": "assets/icons/601.png"
+      }
+    ],
+    "Gust Slash": [
+      {
+        "name": "Gust Slash",
+        "id": 2242,
+        "src": "assets/icons/602.png"
+      }
+    ],
+    "Aeolian Edge": [
+      {
+        "name": "Aeolian Edge",
+        "id": 2255,
+        "src": "assets/icons/605.png"
+      }
+    ],
+    "Armor Crush": [
+      {
+        "name": "Armor Crush",
+        "id": 3563,
+        "src": "assets/icons/2915.png"
+      }
+    ],
+    "Raiju (프록 시)": [
+      {
+        "name": "Forked Raiju",
+        "id": 25777,
+        "src": "assets/icons/2931.png"
+      },
+      {
+        "name": "Fleeting Raiju",
+        "id": 25778,
+        "src": "assets/icons/2932.png"
+      }
+    ],
+    "Bhavacakra": [
+      {
+        "name": "Bhavacakra",
+        "id": 7402,
+        "src": "assets/icons/2921.png"
+      }
+    ],
+    "Ten (무드라 1)": [
+      {
+        "name": "Ten",
+        "id": 2259,
+        "src": "assets/icons/2901.png"
+      }
+    ],
+    "Chi (무드라 2)": [
+      {
+        "name": "Chi",
+        "id": 2261,
+        "src": "assets/icons/2902.png"
+      }
+    ],
+    "Jin (무드라 3)": [
+      {
+        "name": "Jin",
+        "id": 2263,
+        "src": "assets/icons/2903.png"
+      }
+    ],
+    "Bunshin": [
+      {
+        "name": "Bunshin",
+        "id": 16493,
+        "src": "assets/icons/2927.png"
+      }
+    ],
+    "Kunai's Bane": [
+      {
+        "name": "Kunai's Bane",
+        "id": 36958,
+        "src": "assets/icons/620.png"
+      }
+    ],
+    "Shukuchi": [
+      {
+        "name": "Shukuchi",
+        "id": 2262,
+        "src": "assets/icons/2905.png"
+      }
+    ],
+    "Mug": [
+      {
+        "name": "Mug",
+        "id": 2248,
+        "src": "assets/icons/613.png"
+      }
+    ],
+    "Death Blossom": [
+      {
+        "name": "Death Blossom",
+        "id": 2254,
+        "src": "assets/icons/615.png"
+      }
+    ],
+    "Hakke Mujinsatsu": [
+      {
+        "name": "Hakke Mujinsatsu",
+        "id": 16488,
+        "src": "assets/icons/2923.png"
+      }
+    ],
+    "Gyofu": [
+      {
+        "name": "Gyofu",
+        "id": 36963,
+        "src": "assets/icons/3191.png"
+      }
+    ],
+    "Yukikaze": [
+      {
+        "name": "Yukikaze",
+        "id": 7480,
+        "src": "assets/icons/3166.png"
+      }
+    ],
+    "Jinpu": [
+      {
+        "name": "Jinpu",
+        "id": 7478,
+        "src": "assets/icons/3152.png"
+      }
+    ],
+    "Gekko": [
+      {
+        "name": "Gekko",
+        "id": 7481,
+        "src": "assets/icons/3158.png"
+      }
+    ],
+    "Shifu": [
+      {
+        "name": "Shifu",
+        "id": 7479,
+        "src": "assets/icons/3156.png"
+      }
+    ],
+    "Kasha": [
+      {
+        "name": "Kasha",
+        "id": 7482,
+        "src": "assets/icons/3164.png"
+      }
+    ],
+    "Hissatsu: Shinten": [
+      {
+        "name": "Hissatsu: Shinten",
+        "id": 7490,
+        "src": "assets/icons/3173.png"
+      }
+    ],
+    "Meikyo Shisui": [
+      {
+        "name": "Meikyo Shisui",
+        "id": 7499,
+        "src": "assets/icons/3167.png"
+      }
+    ],
+    "Ikishoten": [
+      {
+        "name": "Ikishoten",
+        "id": 16482,
+        "src": "assets/icons/3179.png"
+      }
+    ],
+    "Tsubame-gaeshi": [
+      {
+        "name": "Tsubame-gaeshi",
+        "id": 16483,
+        "src": "assets/icons/3180.png"
+      }
+    ],
+    "Ogi Namikiri": [
+      {
+        "name": "Ogi Namikiri",
+        "id": 25781,
+        "src": "assets/icons/3187.png"
+      }
+    ],
+    "Third Eye": [
+      {
+        "name": "Third Eye",
+        "id": 7498,
+        "src": "assets/icons/3153.png"
+      }
+    ],
+    "Fuko": [
+      {
+        "name": "Fuko",
+        "id": 25780,
+        "src": "assets/icons/3189.png"
+      }
+    ],
+    "Mangetsu": [
+      {
+        "name": "Mangetsu",
+        "id": 7484,
+        "src": "assets/icons/3163.png"
+      }
+    ],
+    "Tenka Goken": [
+      {
+        "name": "Tenka Goken",
+        "id": 7488,
+        "src": "assets/icons/3161.png"
+      }
+    ],
+    "Slice": [
+      {
+        "name": "Slice",
+        "id": 24373,
+        "src": "assets/icons/3601.png"
+      }
+    ],
+    "Waxing Slice": [
+      {
+        "name": "Waxing Slice",
+        "id": 24374,
+        "src": "assets/icons/3602.png"
+      }
+    ],
+    "Infernal Slice": [
+      {
+        "name": "Infernal Slice",
+        "id": 24375,
+        "src": "assets/icons/3603.png"
+      }
+    ],
+    "Gibbet": [
+      {
+        "name": "Gibbet",
+        "id": 24382,
+        "src": "assets/icons/3610.png"
+      }
+    ],
+    "Shadow of Death": [
+      {
+        "name": "Shadow of Death",
+        "id": 24378,
+        "src": "assets/icons/3606.png"
+      }
+    ],
+    "Gallows": [
+      {
+        "name": "Gallows",
+        "id": 24383,
+        "src": "assets/icons/3611.png"
+      }
+    ],
+    "Soul Slice": [
+      {
+        "name": "Soul Slice",
+        "id": 24380,
+        "src": "assets/icons/3608.png"
+      }
+    ],
+    "Gluttony": [
+      {
+        "name": "Gluttony",
+        "id": 24393,
+        "src": "assets/icons/3621.png"
+      }
+    ],
+    "Enshroud": [
+      {
+        "name": "Enshroud",
+        "id": 24394,
+        "src": "assets/icons/3622.png"
+      }
+    ],
+    "Plentiful Harvest": [
+      {
+        "name": "Plentiful Harvest",
+        "id": 24385,
+        "src": "assets/icons/3613.png"
+      }
+    ],
+    "Arcane Circle": [
+      {
+        "name": "Arcane Circle",
+        "id": 24405,
+        "src": "assets/icons/3633.png"
+      }
+    ],
+    "Hell's Ingress": [
+      {
+        "name": "Hell's Ingress",
+        "id": 24401,
+        "src": "assets/icons/3629.png"
+      }
+    ],
+    "Regress": [
+      {
+        "name": "Regress",
+        "id": 24403,
+        "src": "assets/icons/3631.png"
+      }
+    ],
+    "Arcane Crest": [
+      {
+        "name": "Arcane Crest",
+        "id": 24404,
+        "src": "assets/icons/3632.png"
+      }
+    ],
+    "Spinning Scythe": [
+      {
+        "name": "Spinning Scythe",
+        "id": 24376,
+        "src": "assets/icons/3604.png"
+      }
+    ],
+    "Nightmare Scythe": [
+      {
+        "name": "Nightmare Scythe",
+        "id": 24377,
+        "src": "assets/icons/3605.png"
+      }
+    ],
+    "Circle of Death": [
+      {
+        "name": "Whorl of Death",
+        "id": 24379,
+        "src": "assets/icons/3607.png"
+      }
+    ],
+    "Grim Reaping": [
+      {
+        "name": "Grim Reaping",
+        "id": 24397,
+        "src": "assets/icons/3625.png"
+      }
+    ],
+    "Steel Fangs": [
+      {
+        "name": "Steel Fangs",
+        "id": 34606,
+        "src": "assets/icons/3701.png"
+      }
+    ],
+    "Reaving Fangs": [
+      {
+        "name": "Reaving Fangs",
+        "id": 34607,
+        "src": "assets/icons/3702.png"
+      }
+    ],
+    "Hunter's/Swiftskin's Sting": [
+      {
+        "name": "Hunter's Sting",
+        "id": 34608,
+        "src": "assets/icons/3703.png"
+      },
+      {
+        "name": "Swiftskin's Sting",
+        "id": 34609,
+        "src": "assets/icons/3704.png"
+      }
+    ],
+    "Flanksting/Hindsting Strike": [
+      {
+        "name": "Flanksting Strike",
+        "id": 34610,
+        "src": "assets/icons/3705.png"
+      },
+      {
+        "name": "Hindsting Strike",
+        "id": 34612,
+        "src": "assets/icons/3707.png"
+      }
+    ],
+    "Reawaken": [
+      {
+        "name": "Reawaken",
+        "id": 34626,
+        "src": "assets/icons/3721.png"
+      }
+    ],
+    "Vicewinder": [
+      {
+        "name": "Vicewinder",
+        "id": 34620,
+        "src": "assets/icons/3715.png"
+      }
+    ],
+    "Hunter's Coil": [
+      {
+        "name": "Hunter's Coil",
+        "id": 34621,
+        "src": "assets/icons/3716.png"
+      }
+    ],
+    "Swiftskin's Coil": [
+      {
+        "name": "Swiftskin's Coil",
+        "id": 34622,
+        "src": "assets/icons/3717.png"
+      }
+    ],
+    "Serpent's Ire": [
+      {
+        "name": "Serpent's Ire",
+        "id": 34647,
+        "src": "assets/icons/3742.png"
+      }
+    ],
+    "Slither": [
+      {
+        "name": "Slither",
+        "id": 34646,
+        "src": "assets/icons/3741.png"
+      }
+    ],
+    "Steel Maw": [
+      {
+        "name": "Steel Maw",
+        "id": 34614,
+        "src": "assets/icons/3709.png"
+      }
+    ],
+    "Reaving Maw": [
+      {
+        "name": "Reaving Maw",
+        "id": 34615,
+        "src": "assets/icons/3710.png"
+      }
+    ],
+    "Hunter's/Swiftskin's Bite": [
+      {
+        "name": "Hunter's Bite",
+        "id": 34616,
+        "src": "assets/icons/3711.png"
+      },
+      {
+        "name": "Swiftskin's Bite",
+        "id": 34617,
+        "src": "assets/icons/3712.png"
+      }
+    ],
+    "Burst Shot": [
+      {
+        "name": "Burst Shot",
+        "id": 16495,
+        "src": "assets/icons/2618.png"
+      }
+    ],
+    "Refulgent Arrow": [
+      {
+        "name": "Refulgent Arrow",
+        "id": 7409,
+        "src": "assets/icons/2616.png"
+      }
+    ],
+    "Iron Jaws": [
+      {
+        "name": "Iron Jaws",
+        "id": 3560,
+        "src": "assets/icons/2608.png"
+      }
+    ],
+    "Apex Arrow": [
+      {
+        "name": "Apex Arrow",
+        "id": 16496,
+        "src": "assets/icons/2619.png"
+      }
+    ],
+    "Stormbite": [
+      {
+        "name": "Stormbite",
+        "id": 7407,
+        "src": "assets/icons/2614.png"
+      }
+    ],
+    "Caustic Bite": [
+      {
+        "name": "Caustic Bite",
+        "id": 7406,
+        "src": "assets/icons/2613.png"
+      }
+    ],
+    "Pitch Perfect": [
+      {
+        "name": "Pitch Perfect",
+        "id": 7404,
+        "src": "assets/icons/2611.png"
+      }
+    ],
+    "Empyreal Arrow": [
+      {
+        "name": "Empyreal Arrow",
+        "id": 3558,
+        "src": "assets/icons/2606.png"
+      }
+    ],
+    "Sidewinder": [
+      {
+        "name": "Sidewinder",
+        "id": 3562,
+        "src": "assets/icons/2610.png"
+      }
+    ],
+    "Raging Strikes": [
+      {
+        "name": "Raging Strikes",
+        "id": 101,
+        "src": "assets/icons/352.png"
+      }
+    ],
+    "Battle Voice": [
+      {
+        "name": "Battle Voice",
+        "id": 118,
+        "src": "assets/icons/2601.png"
+      }
+    ],
+    "Troubadour": [
+      {
+        "name": "Troubadour",
+        "id": 7405,
+        "src": "assets/icons/2612.png"
+      }
+    ],
+    "Head Graze": [
+      {
+        "name": "Head Graze",
+        "id": 7551,
+        "src": "assets/icons/848.png"
+      }
+    ],
+    "The Wanderer's Minuet": [
+      {
+        "name": "the Wanderer's Minuet",
+        "id": 3559,
+        "src": "assets/icons/2607.png"
+      }
+    ],
+    "Mage's Ballad": [
+      {
+        "name": "Mage's Ballad",
+        "id": 114,
+        "src": "assets/icons/2602.png"
+      }
+    ],
+    "Army's Paeon": [
+      {
+        "name": "Army's Paeon",
+        "id": 116,
+        "src": "assets/icons/2603.png"
+      }
+    ],
+    "Radiant Finale": [
+      {
+        "name": "Radiant Finale",
+        "id": 25785,
+        "src": "assets/icons/2622.png"
+      }
+    ],
+    "Heated Split Shot": [
+      {
+        "name": "Heated Split Shot",
+        "id": 7411,
+        "src": "assets/icons/3031.png"
+      }
+    ],
+    "Heated Slug Shot": [
+      {
+        "name": "Heated Slug Shot",
+        "id": 7412,
+        "src": "assets/icons/3032.png"
+      }
+    ],
+    "Heated Clean Shot": [
+      {
+        "name": "Heated Clean Shot",
+        "id": 7413,
+        "src": "assets/icons/3033.png"
+      }
+    ],
+    "Heat Blast": [
+      {
+        "name": "Heat Blast",
+        "id": 7410,
+        "src": "assets/icons/3030.png"
+      }
+    ],
+    "Drill": [
+      {
+        "name": "Drill",
+        "id": 16498,
+        "src": "assets/icons/3043.png"
+      }
+    ],
+    "Air Anchor": [
+      {
+        "name": "Air Anchor",
+        "id": 16500,
+        "src": "assets/icons/3045.png"
+      }
+    ],
+    "Hypercharge": [
+      {
+        "name": "Hypercharge",
+        "id": 17209,
+        "src": "assets/icons/3041.png"
+      }
+    ],
+    "Gauss Round": [
+      {
+        "name": "Gauss Round",
+        "id": 2874,
+        "src": "assets/icons/3005.png"
+      }
+    ],
+    "Ricochet": [
+      {
+        "name": "Ricochet",
+        "id": 2890,
+        "src": "assets/icons/3017.png"
+      }
+    ],
+    "Reassemble": [
+      {
+        "name": "Reassemble",
+        "id": 2876,
+        "src": "assets/icons/3022.png"
+      }
+    ],
+    "Wildfire": [
+      {
+        "name": "Wildfire",
+        "id": 2878,
+        "src": "assets/icons/3018.png"
+      }
+    ],
+    "Tactician": [
+      {
+        "name": "Tactician",
+        "id": 16889,
+        "src": "assets/icons/3040.png"
+      }
+    ],
+    "Leg Graze": [
+      {
+        "name": "Leg Graze",
+        "id": 7554,
+        "src": "assets/icons/843.png"
+      }
+    ],
+    "Scattergun": [
+      {
+        "name": "Scattergun",
+        "id": 25786,
+        "src": "assets/icons/3046.png"
+      }
+    ],
+    "Auto Crossbow": [
+      {
+        "name": "Auto Crossbow",
+        "id": 16497,
+        "src": "assets/icons/3042.png"
+      }
+    ],
+    "Chain Saw": [
+      {
+        "name": "Chain Saw",
+        "id": 25788,
+        "src": "assets/icons/3048.png"
+      }
+    ],
+    "Barrel Stabilizer": [
+      {
+        "name": "Barrel Stabilizer",
+        "id": 7414,
+        "src": "assets/icons/3034.png"
+      }
+    ],
+    "Cascade": [
+      {
+        "name": "Cascade",
+        "id": 15989,
+        "src": "assets/icons/3451.png"
+      }
+    ],
+    "Fountain": [
+      {
+        "name": "Fountain",
+        "id": 15990,
+        "src": "assets/icons/3452.png"
+      }
+    ],
+    "Reverse Cascade / Fountainfall": [
+      {
+        "name": "Reverse Cascade",
+        "id": 15991,
+        "src": "assets/icons/3460.png"
+      },
+      {
+        "name": "Fountainfall",
+        "id": 15992,
+        "src": "assets/icons/3464.png"
+      }
+    ],
+    "Saber Dance": [
+      {
+        "name": "Saber Dance",
+        "id": 16005,
+        "src": "assets/icons/3476.png"
+      }
+    ],
+    "Fan Dance I": [
+      {
+        "name": "Fan Dance",
+        "id": 16007,
+        "src": "assets/icons/3462.png"
+      }
+    ],
+    "Fan Dance III": [
+      {
+        "name": "Fan Dance III",
+        "id": 16009,
+        "src": "assets/icons/3472.png"
+      }
+    ],
+    "Flourish": [
+      {
+        "name": "Flourish",
+        "id": 16013,
+        "src": "assets/icons/3475.png"
+      }
+    ],
+    "Standard Step": [
+      {
+        "name": "Standard Step",
+        "id": 15997,
+        "src": "assets/icons/3454.png"
+      }
+    ],
+    "Devilment": [
+      {
+        "name": "Devilment",
+        "id": 16011,
+        "src": "assets/icons/3471.png"
+      }
+    ],
+    "En Avant": [
+      {
+        "name": "En Avant",
+        "id": 16010,
+        "src": "assets/icons/3467.png"
+      }
+    ],
+    "Shield Samba": [
+      {
+        "name": "Shield Samba",
+        "id": 16012,
+        "src": "assets/icons/3469.png"
+      }
+    ],
+    "Curing Waltz": [
+      {
+        "name": "Curing Waltz",
+        "id": 16015,
+        "src": "assets/icons/3468.png"
+      }
+    ],
+    "Foot Graze": [
+      {
+        "name": "Foot Graze",
+        "id": 7553,
+        "src": "assets/icons/842.png"
+      }
+    ],
+    "Windmill": [
+      {
+        "name": "Windmill",
+        "id": 15993,
+        "src": "assets/icons/3453.png"
+      }
+    ],
+    "Rising Windmill / Bloodshower": [
+      {
+        "name": "Rising Windmill",
+        "id": 15995,
+        "src": "assets/icons/3463.png"
+      },
+      {
+        "name": "Bloodshower",
+        "id": 15996,
+        "src": "assets/icons/3465.png"
+      }
+    ],
+    "Technical Step": [
+      {
+        "name": "Technical Step",
+        "id": 15998,
+        "src": "assets/icons/3473.png"
+      }
+    ],
+    "Fan Dance IV": [
+      {
+        "name": "Fan Dance IV",
+        "id": 25791,
+        "src": "assets/icons/3481.png"
+      }
+    ],
+    "Fire IV": [
+      {
+        "name": "Fire IV",
+        "id": 3577,
+        "src": "assets/icons/2660.png"
+      }
+    ],
+    "Fire III": [
+      {
+        "name": "Fire III",
+        "id": 152,
+        "src": "assets/icons/453.png"
+      }
+    ],
+    "Blizzard III": [
+      {
+        "name": "Blizzard III",
+        "id": 154,
+        "src": "assets/icons/456.png"
+      }
+    ],
+    "Despair": [
+      {
+        "name": "Despair",
+        "id": 16505,
+        "src": "assets/icons/2665.png"
+      }
+    ],
+    "Flare Star": [
+      {
+        "name": "Flare Star",
+        "id": 36989,
+        "src": "assets/icons/2151.png"
+      }
+    ],
+    "Blizzard IV": [
+      {
+        "name": "Blizzard IV",
+        "id": 3576,
+        "src": "assets/icons/2659.png"
+      }
+    ],
+    "Xenoglossy": [
+      {
+        "name": "Xenoglossy",
+        "id": 16507,
+        "src": "assets/icons/2667.png"
+      }
+    ],
+    "Triplecast": [
+      {
+        "name": "Triplecast",
+        "id": 7421,
+        "src": "assets/icons/2663.png"
+      }
+    ],
+    "Amplifier": [
+      {
+        "name": "Amplifier",
+        "id": 25796,
+        "src": "assets/icons/2671.png"
+      }
+    ],
+    "Ley Lines": [
+      {
+        "name": "Ley Lines",
+        "id": 3573,
+        "src": "assets/icons/2656.png"
+      }
+    ],
+    "Manafont": [
+      {
+        "name": "Manafont",
+        "id": 158,
+        "src": "assets/icons/2651.png"
+      }
+    ],
+    "Aetherial Manipulation": [
+      {
+        "name": "Aetherial Manipulation",
+        "id": 155,
+        "src": "assets/icons/467.png"
+      }
+    ],
+    "Between the Lines": [
+      {
+        "name": "Between the Lines",
+        "id": 7419,
+        "src": "assets/icons/2661.png"
+      }
+    ],
+    "Transpose": [
+      {
+        "name": "Transpose",
+        "id": 149,
+        "src": "assets/icons/466.png"
+      }
+    ],
+    "Addle": [
+      {
+        "name": "Addle",
+        "id": 7560,
+        "src": "assets/icons/861.png"
+      }
+    ],
+    "Blizzard II": [
+      {
+        "name": "Blizzard II",
+        "id": 25793,
+        "src": "assets/icons/2668.png"
+      }
+    ],
+    "High Fire II": [
+      {
+        "name": "High Fire II",
+        "id": 25794,
+        "src": "assets/icons/2669.png"
+      }
+    ],
+    "Foul": [
+      {
+        "name": "Foul",
+        "id": 7422,
+        "src": "assets/icons/2664.png"
+      }
+    ],
+    "Flare": [
+      {
+        "name": "Flare",
+        "id": 162,
+        "src": "assets/icons/2652.png"
+      }
+    ],
+    "Ruin III": [
+      {
+        "name": "Ruin III",
+        "id": 3579,
+        "src": "assets/icons/2682.png"
+      }
+    ],
+    "Astral Flow": [
+      {
+        "name": "Astral Flow",
+        "id": 25822,
+        "src": "assets/icons/2759.png"
+      }
+    ],
+    "Summon Garuda II": [
+      {
+        "name": "Summon Garuda II",
+        "id": 25840,
+        "src": "assets/icons/2774.png"
+      }
+    ],
+    "Summon Ifrit II": [
+      {
+        "name": "Summon Ifrit II",
+        "id": 25838,
+        "src": "assets/icons/2772.png"
+      }
+    ],
+    "Summon Titan II": [
+      {
+        "name": "Summon Titan II",
+        "id": 25839,
+        "src": "assets/icons/2773.png"
+      }
+    ],
+    "Ruin IV": [
+      {
+        "name": "Ruin IV",
+        "id": 7426,
+        "src": "assets/icons/2686.png"
+      }
+    ],
+    "Mountain Buster": [
+      {
+        "name": "Mountain Buster",
+        "id": 25836,
+        "src": "assets/icons/2770.png"
+      }
+    ],
+    "Energie Drain": [
+      {
+        "name": "Energy Drain",
+        "id": 167,
+        "src": "assets/icons/514.png"
+      }
+    ],
+    "Enkindle Bahamut/Phoenix": [
+      {
+        "name": "Enkindle Bahamut",
+        "id": 7429,
+        "src": "assets/icons/2693.png"
+      },
+      {
+        "name": "Enkindle Phoenix",
+        "id": 16516,
+        "src": "assets/icons/2737.png"
+      }
+    ],
+    "Summon Bahamut/Phoenix/Solar": [
+      {
+        "name": "Summon Bahamut",
+        "id": 7427,
+        "src": "assets/icons/2691.png"
+      },
+      {
+        "name": "Summon Phoenix",
+        "id": 25831,
+        "src": "assets/icons/2765.png"
+      },
+      {
+        "name": "Summon Solar Bahamut",
+        "id": 36992,
+        "src": "assets/icons/2782.png"
+      }
+    ],
+    "Searing Light": [
+      {
+        "name": "Searing Light",
+        "id": 25801,
+        "src": "assets/icons/2780.png"
+      }
+    ],
+    "Surecast": [
+      {
+        "name": "Surecast",
+        "id": 7559,
+        "src": "assets/icons/869.png"
+      }
+    ],
+    "Outburst": [
+      {
+        "name": "Outburst",
+        "id": 16511,
+        "src": "assets/icons/2698.png"
+      }
+    ],
+    "Astral Flare": [
+      {
+        "name": "Astral Flare",
+        "id": 25821,
+        "src": "assets/icons/2758.png"
+      }
+    ],
+    "Jolt III": [
+      {
+        "name": "Jolt III",
+        "id": 37004,
+        "src": "assets/icons/3241.png"
+      }
+    ],
+    "Verthunder III": [
+      {
+        "name": "Verthunder III",
+        "id": 25855,
+        "src": "assets/icons/3235.png"
+      }
+    ],
+    "Veraero III": [
+      {
+        "name": "Veraero III",
+        "id": 25856,
+        "src": "assets/icons/3236.png"
+      }
+    ],
+    "Enchanted Riposte": [
+      {
+        "name": "Enchanted Riposte",
+        "id": 7527,
+        "src": "assets/icons/3225.png"
+      }
+    ],
+    "Enchanted Zwerchhau": [
+      {
+        "name": "Enchanted Zwerchhau",
+        "id": 7528,
+        "src": "assets/icons/3226.png"
+      }
+    ],
+    "Enchanted Redoublement": [
+      {
+        "name": "Enchanted Redoublement",
+        "id": 7529,
+        "src": "assets/icons/3227.png"
+      }
+    ],
+    "Fleche": [
+      {
+        "name": "Fleche",
+        "id": 7517,
+        "src": "assets/icons/3212.png"
+      }
+    ],
+    "Contre Sixte": [
+      {
+        "name": "Contre Sixte",
+        "id": 7519,
+        "src": "assets/icons/3217.png"
+      }
+    ],
+    "Verstone / Vercure": [
+      {
+        "name": "Verstone",
+        "id": 7511,
+        "src": "assets/icons/3209.png"
+      },
+      {
+        "name": "Vercure",
+        "id": 7514,
+        "src": "assets/icons/3216.png"
+      }
+    ],
+    "Manafication": [
+      {
+        "name": "Manafication",
+        "id": 7521,
+        "src": "assets/icons/3219.png"
+      }
+    ],
+    "Embolden": [
+      {
+        "name": "Embolden",
+        "id": 7520,
+        "src": "assets/icons/3218.png"
+      }
+    ],
+    "Corps-a-corps": [
+      {
+        "name": "Corps-a-corps",
+        "id": 7506,
+        "src": "assets/icons/3204.png"
+      }
+    ],
+    "Displacement / Engagement": [
+      {
+        "name": "Displacement",
+        "id": 7515,
+        "src": "assets/icons/3211.png"
+      },
+      {
+        "name": "Engagement",
+        "id": 16527,
+        "src": "assets/icons/3231.png"
+      }
+    ],
+    "Magick Barrier": [
+      {
+        "name": "Magick Barrier",
+        "id": 25857,
+        "src": "assets/icons/3237.png"
+      }
+    ],
+    "Verthunder II": [
+      {
+        "name": "Verthunder II",
+        "id": 16524,
+        "src": "assets/icons/3229.png"
+      }
+    ],
+    "Veraero II": [
+      {
+        "name": "Veraero II",
+        "id": 16525,
+        "src": "assets/icons/3230.png"
+      }
+    ],
+    "Verholy / Verflare → Scorch": [
+      {
+        "name": "Verholy",
+        "id": 7526,
+        "src": "assets/icons/3224.png"
+      },
+      {
+        "name": "Verflare",
+        "id": 7525,
+        "src": "assets/icons/3223.png"
+      },
+      {
+        "name": "Scorch",
+        "id": 16530,
+        "src": "assets/icons/3234.png"
+      }
+    ],
+    "Resolution": [
+      {
+        "name": "Resolution",
+        "id": 25858,
+        "src": "assets/icons/3238.png"
+      }
+    ],
+    "Fire in Red": [
+      {
+        "name": "Fire in Red",
+        "id": 34650,
+        "src": "assets/icons/3801.png"
+      }
+    ],
+    "Aero in Green": [
+      {
+        "name": "Aero in Green",
+        "id": 34651,
+        "src": "assets/icons/3802.png"
+      }
+    ],
+    "Water in Blue": [
+      {
+        "name": "Water in Blue",
+        "id": 34652,
+        "src": "assets/icons/3803.png"
+      }
+    ],
+    "Holy in White": [
+      {
+        "name": "Holy in White",
+        "id": 34662,
+        "src": "assets/icons/3813.png"
+      }
+    ],
+    "Thunder in Magenta": [
+      {
+        "name": "Thunder in Magenta",
+        "id": 34655,
+        "src": "assets/icons/3806.png"
+      }
+    ],
+    "Comet in Black": [
+      {
+        "name": "Comet in Black",
+        "id": 34663,
+        "src": "assets/icons/3814.png"
+      }
+    ],
+    "Living Muse": [
+      {
+        "name": "Living Muse",
+        "id": 35347,
+        "src": "assets/icons/3842.png"
+      }
+    ],
+    "Striking Muse": [
+      {
+        "name": "Striking Muse",
+        "id": 34674,
+        "src": "assets/icons/3825.png"
+      }
+    ],
+    "Scenic Muse": [
+      {
+        "name": "Scenic Muse",
+        "id": 35349,
+        "src": "assets/icons/3844.png"
+      }
+    ],
+    "Creature Motif": [
+      {
+        "name": "Creature Motif",
+        "id": 34689,
+        "src": "assets/icons/3839.png"
+      }
+    ],
+    "Starry Muse": [
+      {
+        "name": "Starry Muse",
+        "id": 34675,
+        "src": "assets/icons/3826.png"
+      }
+    ],
+    "Smudge": [
+      {
+        "name": "Smudge",
+        "id": 34684,
+        "src": "assets/icons/3834.png"
+      }
+    ],
+    "Tempera Coat": [
+      {
+        "name": "Tempera Coat",
+        "id": 34685,
+        "src": "assets/icons/3835.png"
+      }
+    ],
+    "Fire II in Red": [
+      {
+        "name": "Fire II in Red",
+        "id": 34656,
+        "src": "assets/icons/3807.png"
+      }
+    ],
+    "Star Prism": [
+      {
+        "name": "Star Prism",
+        "id": 34681,
+        "src": "assets/icons/3832.png"
+      }
+    ],
+    "Rainbow Drip": [
+      {
+        "name": "Rainbow Drip",
+        "id": 34688,
+        "src": "assets/icons/3838.png"
+      }
+    ],
+    "Hammer Stamp": [
+      {
+        "name": "Hammer Stamp",
+        "id": 34678,
+        "src": "assets/icons/3829.png"
+      }
+    ]
+  },
+  "notes": [
+    "Spineshatter Dive is a legacy entry; misleading generic icon removed",
+    "Korean names from Korean official job guides; original English names retained"
+  ]
+}

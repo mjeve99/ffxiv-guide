@@ -74,11 +74,11 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .kbd-section{margin-bottom:20px}
 .kbd-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto}
 .kbd-row{display:flex;gap:5px;margin-bottom:5px;flex-wrap:nowrap}
-.kbd-key{position:relative;min-width:66px;height:62px;background:var(--bg4);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s;flex-shrink:0}
+.kbd-key{position:relative;min-width:66px;height:72px;background:var(--bg4);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s;flex-shrink:0}
 .kbd-key:hover{border-color:var(--gold3);background:rgba(200,166,79,.05)}
 .kbd-key.has-skill{border-color:var(--skill-border)}
 .kbd-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);font-weight:500}
-.kbd-skill{font-size:8.5px;color:var(--text);line-height:1.2;word-break:break-word;overflow:hidden}
+.kbd-skill{font-size:8.5px;color:var(--text);line-height:1.2;word-break:break-word;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center}
 .kbd-cat{width:100%;height:3px;border-radius:2px;margin-top:2px}
 .kbd-key.wide{min-width:80px}
 .kbd-key.empty{opacity:.3;cursor:default}
@@ -132,6 +132,14 @@ td{padding:8px 12px;vertical-align:middle}
 .notice{background:rgba(200,166,79,.08);border:1px solid rgba(200,166,79,.25);border-radius:6px;padding:10px 14px;font-size:12px;color:var(--text2);margin-bottom:16px;display:flex;align-items:flex-start;gap:8px}
 .notice .icon{color:var(--gold);flex-shrink:0;margin-top:1px}
 
+/* Skill Icons */
+.skill-icon{width:28px;height:28px;border-radius:4px;vertical-align:middle;object-fit:cover;background:var(--bg4);flex-shrink:0}
+.icon-wrap{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.icon-loading{width:28px;height:28px;border-radius:4px;background:var(--bg4);animation:shimmer 1.2s infinite;flex-shrink:0}
+@keyframes shimmer{0%,100%{opacity:.4}50%{opacity:.8}}
+.kbd-icon{width:22px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;display:block;margin:0 auto 2px}
+.kbd-icon-placeholder{width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 2px;font-size:14px}
+
 /* Scrollbars */
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:var(--bg2)}
@@ -160,6 +168,18 @@ td{padding:8px 12px;vertical-align:middle}
 .line-util{background:#505878}
 .line-song{background:#70309a}
 .line-empty{background:transparent}
+/* Bundled action icons */
+.action-icons{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;vertical-align:middle}
+.local-action-icon{width:32px;height:32px;object-fit:contain;border-radius:4px;box-shadow:0 1px 4px #0008;flex-shrink:0}
+.local-action-icon[hidden]{display:none}
+.action-icons.compact .local-action-icon{width:22px;height:22px}
+.kbd-key{height:88px;min-width:76px;max-width:108px}
+.kbd-skill{gap:3px;min-height:51px;justify-content:center}
+.rotation-action{display:inline;line-height:1.9}
+.rotation-action .action-icons{margin:0 4px 2px 1px}
+.skill-link{flex-wrap:wrap}
+@media(max-width:600px){.local-action-icon{width:28px;height:28px}.action-icons.compact .local-action-icon{width:20px;height:20px}}
+.skill-names{display:flex;flex-direction:column;gap:3px}.skill-name-en{font-size:10px;color:var(--text2);font-weight:400}.kbd-key{max-width:120px}.kbd-skill{min-height:54px}
 </style>
 </head>
 <body>
@@ -206,509 +226,2718 @@ function s(key, name, type, cat, note='') {
 
 // ─────────────── Job Data ───────────────
 const JOBS = {
-  melee: [
-    { id:'mnk', name:'Monk', kr:'몽크', abbr:'MNK', emoji:'🥋', color:'#d64040',
-      desc:'3가지 폼(오포오포→랩터→카우클) 순환. Fury 스택을 Gainer로 쌓고 Spender로 소모. Perfect Balance로 Masterful Blitz 타입 결정.',
-      diff:4, guide:'https://na.finalfantasyxiv.com/jobguide/monk/',
-      mechanics:[
-        {name:'Gainer / Spender 쌍', desc:'Fury 구슬 있으면 Spender(1/2/3), 없으면 Gainer(4/5/T) 사용. 구슬 여부만 보면 됨.'},
-        {name:'Perfect Balance (Q)', desc:'폼 제약 없이 3번의 Beast Chakra 자유 선택 → Masterful Blitz 타입 결정 (2충전).'},
-        {name:'2분 버스트', desc:'Brotherhood(T) + Riddle of Fire(R) 동시 → Perfect Balance × 2 → Masterful Blitz × 2.'},
+  "melee": [
+    {
+      "id": "mnk",
+      "name": "Monk",
+      "kr": "몽크",
+      "abbr": "MNK",
+      "emoji": "🥋",
+      "color": "#d64040",
+      "desc": "3가지 폼(오포오포→랩터→카우클) 순환. Fury 스택을 Gainer로 쌓고 Spender로 소모. Perfect Balance로 Masterful Blitz 타입 결정.",
+      "diff": 4,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/monk/",
+      "mechanics": [
+        {
+          "name": "Gainer / Spender 쌍",
+          "desc": "Fury 구슬 있으면 Spender(1/2/3), 없으면 Gainer(4/5/T) 사용. 구슬 여부만 보면 됨."
+        },
+        {
+          "name": "Perfect Balance (Q)",
+          "desc": "폼 제약 없이 3번의 Beast Chakra 자유 선택 → Masterful Blitz 타입 결정 (2충전)."
+        },
+        {
+          "name": "2분 버스트",
+          "desc": "Brotherhood(T) + Riddle of Fire(R) 동시 → Perfect Balance × 2 → Masterful Blitz × 2."
+        }
       ],
-      skills:[
-        s('1','원무연격','G','combo','오포오포 폼 Spender'),
-        s('2','용함정권격','G','combo','랩터 폼 Spender'),
-        s('3','호습붕권','G','combo','카우클 폼 Spender (측면)'),
-        s('4','쌍룡각','G','combo','오포오포 폼 Gainer (Opo-Fury 적립)'),
-        s('5','쌍장타','G','combo','랩터 폼 Gainer (Raptor-Fury 적립)'),
-        s('6','필살기','G','burst','Perfect Balance 후 피니셔'),
-        s('Q','진각','o','buff','폼 자유 3회 선택 (2충전)'),
-        s('W','질풍의 극의','o','buff','자동공격 속도 버프 (90초)'),
-        s('E','음양투기참','o','burst','차크라 5 소비 즉시 강타'),
-        s('R','홍련의 극의','o','buff','개인 딜 버프 20초 (60초 쿨)'),
-        s('T','도원결의','o','party','파티 버프 + 명상 스택 (120초)'),
-        s('A','발중보법','o','move','돌진 이동기 (3충전)'),
-        s('S','만트라','o','util','주변 힐량 증가 (15초)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','피의 갈증','R','survival','공격 흡혈'),
-        s('F4','견제','R','util','적 물리·마법방어 감소'),
-        s('S1','Shadow of the Destroyer','G','aoe','AOE 오포 폼 Spender'),
-        s('S2','Four-point Fury','G','aoe','AOE 랩터 폼 Spender'),
-        s('S3','만상투기권','G','aoe','AOE 카우클 광선'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Leaping Opo",
+          "type": "G",
+          "cat": "combo",
+          "note": "오포오포 폼 Spender",
+          "gt": "https://garlandtools.org/db/#search/Leaping%20Opo"
+        },
+        {
+          "key": "2",
+          "name": "Rising Raptor",
+          "type": "G",
+          "cat": "combo",
+          "note": "랩터 폼 Spender",
+          "gt": "https://garlandtools.org/db/#search/Rising%20Raptor"
+        },
+        {
+          "key": "3",
+          "name": "Pouncing Coeurl",
+          "type": "G",
+          "cat": "combo",
+          "note": "카우클 폼 Spender (측면)",
+          "gt": "https://garlandtools.org/db/#search/Pouncing%20Coeurl"
+        },
+        {
+          "key": "4",
+          "name": "Dragon Kick",
+          "type": "G",
+          "cat": "combo",
+          "note": "오포오포 폼 Gainer (Opo-Fury 적립)",
+          "gt": "https://garlandtools.org/db/#search/Dragon%20Kick"
+        },
+        {
+          "key": "5",
+          "name": "Twin Snakes",
+          "type": "G",
+          "cat": "combo",
+          "note": "랩터 폼 Gainer (Raptor-Fury 적립)",
+          "gt": "https://garlandtools.org/db/#search/Twin%20Snakes"
+        },
+        {
+          "key": "6",
+          "name": "Masterful Blitz",
+          "type": "G",
+          "cat": "burst",
+          "note": "Perfect Balance 후 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Masterful%20Blitz"
+        },
+        {
+          "key": "Q",
+          "name": "Perfect Balance",
+          "type": "o",
+          "cat": "buff",
+          "note": "폼 자유 3회 선택 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Perfect%20Balance"
+        },
+        {
+          "key": "W",
+          "name": "Riddle of Wind",
+          "type": "o",
+          "cat": "buff",
+          "note": "자동공격 속도 버프 (90초)",
+          "gt": "https://garlandtools.org/db/#search/Riddle%20of%20Wind"
+        },
+        {
+          "key": "E",
+          "name": "The Forbidden Chakra",
+          "type": "o",
+          "cat": "burst",
+          "note": "차크라 5 소비 즉시 강타",
+          "gt": "https://garlandtools.org/db/#search/The%20Forbidden%20Chakra"
+        },
+        {
+          "key": "R",
+          "name": "Riddle of Fire",
+          "type": "o",
+          "cat": "buff",
+          "note": "개인 딜 버프 20초 (60초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Riddle%20of%20Fire"
+        },
+        {
+          "key": "T",
+          "name": "Brotherhood",
+          "type": "o",
+          "cat": "party",
+          "note": "파티 버프 + 명상 스택 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Brotherhood"
+        },
+        {
+          "key": "A",
+          "name": "Thunderclap",
+          "type": "o",
+          "cat": "move",
+          "note": "돌진 이동기 (3충전)",
+          "gt": "https://garlandtools.org/db/#search/Thunderclap"
+        },
+        {
+          "key": "S",
+          "name": "Mantra",
+          "type": "o",
+          "cat": "util",
+          "note": "주변 힐량 증가 (15초)",
+          "gt": "https://garlandtools.org/db/#search/Mantra"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Bloodbath",
+          "type": "R",
+          "cat": "survival",
+          "note": "공격 흡혈",
+          "gt": "https://garlandtools.org/db/#search/Bloodbath"
+        },
+        {
+          "key": "F4",
+          "name": "Feint",
+          "type": "R",
+          "cat": "util",
+          "note": "적 물리·마법방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Feint"
+        },
+        {
+          "key": "S1",
+          "name": "Shadow of the Destroyer",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 오포 폼 Spender",
+          "gt": "https://garlandtools.org/db/#search/Shadow%20of%20the%20Destroyer"
+        },
+        {
+          "key": "S2",
+          "name": "Four-point Fury",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 랩터 폼 Spender",
+          "gt": "https://garlandtools.org/db/#search/Four-point%20Fury"
+        },
+        {
+          "key": "S3",
+          "name": "Enlightenment",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 카우클 광선",
+          "gt": "https://garlandtools.org/db/#search/Enlightenment"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['R(홍련의 극의) + T(도원결의) 동시 → A(발중보법) 돌진','Q(진각) × 2 → 폼 × 3 → 6(필살기) 반복','E(음양투기참) 차크라 소비']},
-        {phase:'일반 루프', steps:['Fury 구슬 확인: 있으면 Spender(1/2/3), 없으면 Gainer(4/5/T)',
-          'R(Riddle of Fire) + W(Riddle of Wind) 쿨마다 켜기','E(Forbidden Chakra) 차크라 5개 쌓이면 즉시 사용']},
-        {phase:'2분 버스트', steps:['T(Brotherhood) + R(Riddle of Fire) 동시 발동',
-          'Q(Perfect Balance) × 2 연속 → 6(Masterful Blitz) × 2','E(Forbidden Chakra) 차크라 모두 소비']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "R(홍련의 극의) + T(도원결의) 동시 → A(발중보법) 돌진",
+            "Q(진각) × 2 → 폼 × 3 → 6(필살기) 반복",
+            "E(음양투기참) 차크라 소비"
+          ]
+        },
+        {
+          "phase": "일반 루프",
+          "steps": [
+            "Fury 구슬 확인: 있으면 Spender(1/2/3), 없으면 Gainer(4/5/T)",
+            "R(Riddle of Fire) + W(Riddle of Wind) 쿨마다 켜기",
+            "E(Forbidden Chakra) 차크라 5개 쌓이면 즉시 사용"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "T(Brotherhood) + R(Riddle of Fire) 동시 발동",
+            "Q(Perfect Balance) × 2 연속 → 6(Masterful Blitz) × 2",
+            "E(Forbidden Chakra) 차크라 모두 소비"
+          ]
+        }
+      ]
     },
-    { id:'drg', name:'Dragoon', kr:'용기사', abbr:'DRG', emoji:'🐉', color:'#5050d0',
-      desc:'두 가지 GCD 콤보(데미지/DoT 루트)를 교대로 사용하며 점프 기술과 Life of the Dragon 게이지로 버스트.',
-      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/dragoon/',
-      mechanics:[
-        {name:'2종 콤보 교대', desc:'Raiden Thrust 시작 → Vorpal→Heavens\' Thrust(데미지) / Disembowel→Chaotic Spring(DoT+방어감소) 번갈아.'},
-        {name:'Life of the Dragon', desc:'게이르스코굴(E) → Life 게이지 적립 → 나스트론드(W) 소비 → Stardiver(D) 활성화.'},
-        {name:'2분 버스트', desc:'필사의 각오(R) + 전투 기도(T) 동시 → 생명력 쇄도 + Heavens\' Thrust → 점프 기술 연속.'},
+    {
+      "id": "drg",
+      "name": "Dragoon",
+      "kr": "용기사",
+      "abbr": "DRG",
+      "emoji": "🐉",
+      "color": "#5050d0",
+      "desc": "두 가지 GCD 콤보(데미지/DoT 루트)를 교대로 사용하며 점프 기술과 Life of the Dragon 게이지로 버스트.",
+      "diff": 2,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/dragoon/",
+      "mechanics": [
+        {
+          "name": "2종 콤보 교대",
+          "desc": "Raiden Thrust 시작 → Vorpal→Heavens' Thrust(데미지) / Disembowel→Chaotic Spring(DoT+방어감소) 번갈아."
+        },
+        {
+          "name": "Life of the Dragon",
+          "desc": "Geirskogul(E) → Life 게이지 적립 → Nastrond(W) 소비 → Stardiver(D) 활성화."
+        },
+        {
+          "name": "2분 버스트",
+          "desc": "Lance Charge(R) + Battle Litany(T) 동시 → Life Surge + Heavens' Thrust → 점프 기술 연속."
+        }
       ],
-      skills:[
-        s('1','직선 찌르기','G','combo','콤보 시작기 (프록 후 Raiden Thrust)'),
-        s('2','사선 찌르기','G','combo','DoT 루트 2단 (방어 감소 적용)'),
-        s('3','꽃잎 폭풍','G','dot','DoT 피니셔 (후면)'),
-        s('4','겹찌르기','G','combo','데미지 루트 2단'),
-        s('5','올려 찌르기','G','burst','데미지 피니셔'),
-        s('6','Wyrmwind Thrust','G','burst','Firstminds\' Focus × 2 소비 강타'),
-        s('Q','점프','o','burst','주력 점프 공격 (30초)'),
-        s('W','나스트론드','o','burst','Life 게이지 소비 광선'),
-        s('E','게이르스코굴','o','buff','Life of the Dragon 게이지 적립'),
-        s('R','필사의 각오','o','buff','개인 딜 버프 (60초)'),
-        s('T','전투 기도','o','party','파티 크리티컬 버프 (120초)'),
-        s('A','척추 강타','o','move','돌진 이동기'),
-        s('D','화룡 강타','o','burst','범위 점프 / Stardiver'),
-        s('S','생명력 쇄도','o','buff','다음 GCD 크리 보장 (2충전)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','피의 갈증','R','survival','공격 흡혈'),
-        s('F4','견제','R','util','적 방어 감소'),
-        s('S1','악몽의 쐐기','G','aoe','AOE 콤보 1'),
-        s('S2','음속 찌르기','G','aoe','AOE 콤보 2'),
-        s('S3','Coerthan Torment','G','aoe','AOE 피니셔'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Raiden Thrust",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 시작기 (프록 후 Raiden Thrust)",
+          "gt": "https://garlandtools.org/db/#search/Raiden%20Thrust"
+        },
+        {
+          "key": "2",
+          "name": "Disembowel",
+          "type": "G",
+          "cat": "combo",
+          "note": "DoT 루트 2단 (방어 감소 적용)",
+          "gt": "https://garlandtools.org/db/#search/Disembowel"
+        },
+        {
+          "key": "3",
+          "name": "Chaotic Spring",
+          "type": "G",
+          "cat": "dot",
+          "note": "DoT 피니셔 (후면)",
+          "gt": "https://garlandtools.org/db/#search/Chaotic%20Spring"
+        },
+        {
+          "key": "4",
+          "name": "Vorpal Thrust",
+          "type": "G",
+          "cat": "combo",
+          "note": "데미지 루트 2단",
+          "gt": "https://garlandtools.org/db/#search/Vorpal%20Thrust"
+        },
+        {
+          "key": "5",
+          "name": "Heavens' Thrust",
+          "type": "G",
+          "cat": "burst",
+          "note": "데미지 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Heavens'%20Thrust"
+        },
+        {
+          "key": "6",
+          "name": "Wyrmwind Thrust",
+          "type": "G",
+          "cat": "burst",
+          "note": "Firstminds' Focus × 2 소비 강타",
+          "gt": "https://garlandtools.org/db/#search/Wyrmwind%20Thrust"
+        },
+        {
+          "key": "Q",
+          "name": "High Jump",
+          "type": "o",
+          "cat": "burst",
+          "note": "주력 점프 공격 (30초)",
+          "gt": "https://garlandtools.org/db/#search/High%20Jump"
+        },
+        {
+          "key": "W",
+          "name": "Nastrond",
+          "type": "o",
+          "cat": "burst",
+          "note": "Life 게이지 소비 광선",
+          "gt": "https://garlandtools.org/db/#search/Nastrond"
+        },
+        {
+          "key": "E",
+          "name": "Geirskogul",
+          "type": "o",
+          "cat": "buff",
+          "note": "Life of the Dragon 게이지 적립",
+          "gt": "https://garlandtools.org/db/#search/Geirskogul"
+        },
+        {
+          "key": "R",
+          "name": "Lance Charge",
+          "type": "o",
+          "cat": "buff",
+          "note": "개인 딜 버프 (60초)",
+          "gt": "https://garlandtools.org/db/#search/Lance%20Charge"
+        },
+        {
+          "key": "T",
+          "name": "Battle Litany",
+          "type": "o",
+          "cat": "party",
+          "note": "파티 크리티컬 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Battle%20Litany"
+        },
+        {
+          "key": "A",
+          "name": "Spineshatter Dive",
+          "type": "o",
+          "cat": "move",
+          "note": "돌진 이동기",
+          "gt": "https://garlandtools.org/db/#search/Spineshatter%20Dive"
+        },
+        {
+          "key": "D",
+          "name": "Dragonfire Dive",
+          "type": "o",
+          "cat": "burst",
+          "note": "범위 점프 / Stardiver",
+          "gt": "https://garlandtools.org/db/#search/Dragonfire%20Dive"
+        },
+        {
+          "key": "S",
+          "name": "Life Surge",
+          "type": "o",
+          "cat": "buff",
+          "note": "다음 GCD 크리 보장 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Life%20Surge"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Bloodbath",
+          "type": "R",
+          "cat": "survival",
+          "note": "공격 흡혈",
+          "gt": "https://garlandtools.org/db/#search/Bloodbath"
+        },
+        {
+          "key": "F4",
+          "name": "Feint",
+          "type": "R",
+          "cat": "util",
+          "note": "적 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Feint"
+        },
+        {
+          "key": "S1",
+          "name": "Doom Spike",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 콤보 1",
+          "gt": "https://garlandtools.org/db/#search/Doom%20Spike"
+        },
+        {
+          "key": "S2",
+          "name": "Sonic Thrust",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 콤보 2",
+          "gt": "https://garlandtools.org/db/#search/Sonic%20Thrust"
+        },
+        {
+          "key": "S3",
+          "name": "Coerthan Torment",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Coerthan%20Torment"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['R(필사의 각오) + T(전투 기도) 동시','1(직선찌르기) → 2(사선찌르기) → 3(꽃잎폭풍)','S(생명력 쇄도) → 4(겹찌르기) → 5(올려찌르기)','Q(점프) → 환영강타 → E(게이르스코굴) → W(나스트론드) → D(화룡강타)']},
-        {phase:'일반 루프 (콤보 교대)', steps:['1→2→3 (DoT 루트: Disembowel→Chaotic Spring)',
-          '1→4→5 (데미지 루트: Vorpal→Heavens\')',
-          '사이사이 Q(점프), W(나스트론드) 끼워넣기']},
-        {phase:'2분 버스트', steps:['R(필사의 각오) + T(전투 기도) 동시',
-          'S(생명력 쇄도) + 5(Heavens\') 크리 확정','Q(점프) → 환영 강타 → E(게이르스코굴) → W(나스트론드) → D(Stardiver)',
-          '6(Wyrmwind) × 2 소비']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "R(돌격하는 창) + T(전투 기도) 동시",
+            "1(직선찌르기) → 2(사선찌르기) → 3(꽃잎폭풍)",
+            "S(생명력 쇄도) → 4(사선 찌르기) → 5(올려찌르기)",
+            "Q(하이 점프) → 환영강타 → E(게이르스코굴) → W(나스트론드) → D(화룡강타)"
+          ]
+        },
+        {
+          "phase": "일반 루프 (콤보 교대)",
+          "steps": [
+            "1→2→3 (DoT 루트: Disembowel→Chaotic Spring)",
+            "1→4→5 (데미지 루트: Vorpal→Heavens')",
+            "사이사이 Q(하이 점프), W(나스트론드) 끼워넣기"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "R(돌격하는 창) + T(전투 기도) 동시",
+            "S(생명력 쇄도) + 5(Heavens') 크리 확정",
+            "Q(하이 점프) → 환영 강타 → E(게이르스코굴) → W(나스트론드) → D(Stardiver)",
+            "6(Wyrmwind) × 2 소비"
+          ]
+        }
+      ]
     },
-    { id:'nin', name:'Ninja', kr:'닌자', abbr:'NIN', emoji:'🥷', color:'#505050',
-      desc:'무드라(Q=Ten / W=Chi / E=Jin) 3개 조합으로 인술 발동. Kunai\'s Bane으로 파티 딜 증가. 숙련도 최상위.',
-      diff:5, guide:'https://na.finalfantasyxiv.com/jobguide/ninja/',
-      mechanics:[
-        {name:'무드라 조합 (Q/W/E)', desc:'Ten(Q)·Chi(W)·Jin(E) 순서 조합으로 인술 결정. 뇌둔(W→Q), 수둔(Q→W→E) 주로 사용.'},
-        {name:'Kunai\'s Bane (T)', desc:'수둔(Suiton) 후 활성화. 적 취약 디버프 + 강타. 60초마다 반복.'},
-        {name:'2분 버스트', desc:'분신술(R) + Kunai\'s Bane(T) 동시 → 무드라 기술 집중 소모 → Bhavacakra(6) 닌키 소비.'},
+    {
+      "id": "nin",
+      "name": "Ninja",
+      "kr": "닌자",
+      "abbr": "NIN",
+      "emoji": "🥷",
+      "color": "#505050",
+      "desc": "무드라(Q=하늘의 인 / W=땅의 인 / E=사람의 인) 3개 조합으로 인술 발동. Kunai's Bane으로 파티 딜 증가. 숙련도 최상위.",
+      "diff": 5,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/ninja/",
+      "mechanics": [
+        {
+          "name": "무드라 조합 (Q/W/E)",
+          "desc": "Ten(Q)·Chi(W)·Jin(E) 순서 조합으로 인술 결정. 뇌둔(W→Q), 수둔(Q→W→E) 주로 사용."
+        },
+        {
+          "name": "Kunai's Bane (T)",
+          "desc": "수둔(Suiton) 후 활성화. 적 취약 디버프 + 강타. 60초마다 반복."
+        },
+        {
+          "name": "2분 버스트",
+          "desc": "Bunshin(R) + Kunai's Bane(T) 동시 → 무드라 기술 집중 소모 → Bhavacakra(6) 닌키 소비."
+        }
       ],
-      mudra:[
-        {combo:'Q',name:'풍마의 수리검',note:'단타'},
-        {combo:'W→Q',name:'뇌둔술',note:'주력 단타 ★'},
-        {combo:'Q→W→E',name:'수둔술',note:'Kunai\'s Bane 선행 ★'},
-        {combo:'W→E',name:'화둔술',note:'범위 불꽃'},
-        {combo:'Q→E',name:'풍둔술',note:'무기속도 증가'},
-        {combo:'E',name:'빙둔술',note:'단타 + 빙결'},
+      "mudra": [
+        {
+          "combo": "Q",
+          "name": "Fuma Shuriken",
+          "note": "단타"
+        },
+        {
+          "combo": "W→Q",
+          "name": "Raiton (뇌둔)",
+          "note": "주력 단타 ★"
+        },
+        {
+          "combo": "Q→W→E",
+          "name": "Suiton (수둔)",
+          "note": "Kunai's Bane 선행 ★"
+        },
+        {
+          "combo": "W→E",
+          "name": "Katon (화둔)",
+          "note": "범위 불꽃"
+        },
+        {
+          "combo": "Q→E",
+          "name": "Huton",
+          "note": "무기속도 증가"
+        },
+        {
+          "combo": "E",
+          "name": "Hyoton",
+          "note": "단타 + 빙결"
+        }
       ],
-      skills:[
-        s('1','쌍검 회전베기','G','combo','콤보 1'),
-        s('2','돌풍베기','G','combo','콤보 2'),
-        s('3','칼날 선풍','G','combo','콤보 피니셔 (후면, 닌키 충전)'),
-        s('4','갑각파황격','G','combo','콤보 피니셔 (측면, 닌키 충전)'),
-        s('5','Raiju (프록 시)', 'G','burst','도태 후 활성화 즉시기'),
-        s('6','육도윤회','o','burst','닌키 게이지 소비 강타'),
-        s('Q','하늘의 인','o','util','인술 재료 ①'),
-        s('W','땅의 인','o','util','인술 재료 ②'),
-        s('E','사람의 인','o','util','인술 재료 ③'),
-        s('R','분신술','o','buff','그림자 소환 (90초)'),
-        s('T','속임수 공격','o','dot','취약 디버프 + 강타 (60초)'),
-        s('A','축지법','o','move','텔레포트 이동기 (2충전)'),
-        s('S','약탈','o','util','닌키 충전 + 데미지'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','피의 갈증','R','survival','공격 흡혈'),
-        s('F4','견제','R','util','적 방어 감소'),
-        s('S1','피의 비','G','aoe','AOE 콤보 1'),
-        s('S2','Hakke Mujinsatsu','G','aoe','AOE 피니셔'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Spinning Edge",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 1",
+          "gt": "https://garlandtools.org/db/#search/Spinning%20Edge"
+        },
+        {
+          "key": "2",
+          "name": "Gust Slash",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 2",
+          "gt": "https://garlandtools.org/db/#search/Gust%20Slash"
+        },
+        {
+          "key": "3",
+          "name": "Aeolian Edge",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 피니셔 (후면, 닌키 충전)",
+          "gt": "https://garlandtools.org/db/#search/Aeolian%20Edge"
+        },
+        {
+          "key": "4",
+          "name": "Armor Crush",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 피니셔 (측면, 닌키 충전)",
+          "gt": "https://garlandtools.org/db/#search/Armor%20Crush"
+        },
+        {
+          "key": "5",
+          "name": "Raiju (프록 시)",
+          "type": "G",
+          "cat": "burst",
+          "note": "도태 후 활성화 즉시기",
+          "gt": "https://garlandtools.org/db/#search/Raiju%20(%ED%94%84%EB%A1%9D%20%EC%8B%9C)"
+        },
+        {
+          "key": "6",
+          "name": "Bhavacakra",
+          "type": "o",
+          "cat": "burst",
+          "note": "닌키 게이지 소비 강타",
+          "gt": "https://garlandtools.org/db/#search/Bhavacakra"
+        },
+        {
+          "key": "Q",
+          "name": "Ten (무드라 1)",
+          "type": "o",
+          "cat": "util",
+          "note": "인술 재료 ①",
+          "gt": "https://garlandtools.org/db/#search/Ten%20(%EB%AC%B4%EB%93%9C%EB%9D%BC%201)"
+        },
+        {
+          "key": "W",
+          "name": "Chi (무드라 2)",
+          "type": "o",
+          "cat": "util",
+          "note": "인술 재료 ②",
+          "gt": "https://garlandtools.org/db/#search/Chi%20(%EB%AC%B4%EB%93%9C%EB%9D%BC%202)"
+        },
+        {
+          "key": "E",
+          "name": "Jin (무드라 3)",
+          "type": "o",
+          "cat": "util",
+          "note": "인술 재료 ③",
+          "gt": "https://garlandtools.org/db/#search/Jin%20(%EB%AC%B4%EB%93%9C%EB%9D%BC%203)"
+        },
+        {
+          "key": "R",
+          "name": "Bunshin",
+          "type": "o",
+          "cat": "buff",
+          "note": "그림자 소환 (90초)",
+          "gt": "https://garlandtools.org/db/#search/Bunshin"
+        },
+        {
+          "key": "T",
+          "name": "Kunai's Bane",
+          "type": "o",
+          "cat": "dot",
+          "note": "취약 디버프 + 강타 (60초)",
+          "gt": "https://garlandtools.org/db/#search/Kunai's%20Bane"
+        },
+        {
+          "key": "A",
+          "name": "Shukuchi",
+          "type": "o",
+          "cat": "move",
+          "note": "텔레포트 이동기 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Shukuchi"
+        },
+        {
+          "key": "S",
+          "name": "Mug",
+          "type": "o",
+          "cat": "util",
+          "note": "닌키 충전 + 데미지",
+          "gt": "https://garlandtools.org/db/#search/Mug"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Bloodbath",
+          "type": "R",
+          "cat": "survival",
+          "note": "공격 흡혈",
+          "gt": "https://garlandtools.org/db/#search/Bloodbath"
+        },
+        {
+          "key": "F4",
+          "name": "Feint",
+          "type": "R",
+          "cat": "util",
+          "note": "적 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Feint"
+        },
+        {
+          "key": "S1",
+          "name": "Death Blossom",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 콤보 1",
+          "gt": "https://garlandtools.org/db/#search/Death%20Blossom"
+        },
+        {
+          "key": "S2",
+          "name": "Hakke Mujinsatsu",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Hakke%20Mujinsatsu"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['개전 전 수둔술 준비 → T(속임수 공격) 즉시','R(분신술) 발동 → 뇌둔술(W→Q) × 2~3','1→2→3 콤보 + 6(육도윤회) 닌키 소비']},
-        {phase:'인술 루틴', steps:['Q→W→E (Suiton) → T(Kunai\'s Bane) 즉시 발동',
-          'W→Q (Raiton 뇌둔) 반복 삽입','1→2→3(or 4) 기본 콤보 반복, 6(육도윤회) 닌키 소비']},
-        {phase:'2분 버스트', steps:['R(분신술) 발동 → T(Kunai\'s Bane) 동시 타이밍',
-          '무드라 기술 (Raiton × 가능한 만큼) + 기본 콤보','6(육도윤회) 닌키 최대 소비']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "개전 전 수둔술 준비 → T(백뢰총) 즉시",
+            "R(분신술) 발동 → 뇌둔술(W→Q) × 2~3",
+            "1→2→3 콤보 + 6(육도윤회) 닌키 소비"
+          ]
+        },
+        {
+          "phase": "인술 루틴",
+          "steps": [
+            "Q→W→E (Suiton) → T(Kunai's Bane) 즉시 발동",
+            "W→Q (Raiton 뇌둔) 반복 삽입",
+            "1→2→3(or 4) 기본 콤보 반복, 6(육도윤회) 닌키 소비"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "R(분신술) 발동 → T(Kunai's Bane) 동시 타이밍",
+            "무드라 기술 (Raiton × 가능한 만큼) + 기본 콤보",
+            "6(육도윤회) 닌키 최대 소비"
+          ]
+        }
+      ]
     },
-    { id:'sam', name:'Samurai', kr:'사무라이', abbr:'SAM', emoji:'⛩️', color:'#d09030',
-      desc:'3가지 콤보로 Sen(雪/花/月) 수집 → 난설월화 최강기 발동. 파티 버프 없는 순수 딜러.',
-      diff:3, guide:'https://na.finalfantasyxiv.com/jobguide/samurai/',
-      mechanics:[
-        {name:'Sen 수집 3루트', desc:'Gyofu→Yukikaze(雪 2단), Gyofu→Jinpu→Gekko(月 후면), Gyofu→Shifu→Kasha(花 측면).'},
-        {name:'Iaijutsu (이아이기리)', desc:'1 Sen = 피안화(DoT), 2 Sen = 천하오검(AOE), 3 Sen = 난설월화(최강단타).'},
-        {name:'Meikyo Shisui (W)', desc:'폼 없이 콤보 피니셔 3회 즉시 → Sen 3개 즉시 적립. 2충전.'},
+    {
+      "id": "sam",
+      "name": "Samurai",
+      "kr": "사무라이",
+      "abbr": "SAM",
+      "emoji": "⛩️",
+      "color": "#d09030",
+      "desc": "3가지 콤보로 Sen(雪/花/月) 수집 → Midare Setsugekka 최강기 발동. 파티 버프 없는 순수 딜러.",
+      "diff": 3,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/samurai/",
+      "mechanics": [
+        {
+          "name": "Sen 수집 3루트",
+          "desc": "Gyofu→Yukikaze(雪 2단), Gyofu→Jinpu→Gekko(月 후면), Gyofu→Shifu→Kasha(花 측면)."
+        },
+        {
+          "name": "Iaijutsu (이아이기리)",
+          "desc": "1 Sen = Higanbana(DoT), 2 Sen = Tenka Goken(AOE), 3 Sen = Midare Setsugekka(최강단타)."
+        },
+        {
+          "name": "Meikyo Shisui (W)",
+          "desc": "폼 없이 콤보 피니셔 3회 즉시 → Sen 3개 즉시 적립. 2충전."
+        }
       ],
-      skills:[
-        s('1','검풍','G','combo','모든 콤보의 시작기 (매우 자주)'),
-        s('2','설풍','G','combo','雪 Sen 획득 (2단 피니셔)'),
-        s('3','진풍','G','combo','月 루트 2단'),
-        s('4','월광','G','combo','月 피니셔 (후면)'),
-        s('5','사풍','G','combo','花 루트 2단'),
-        s('6','화차','G','combo','花 피니셔 (측면)'),
-        s('Q','필살검:진천','o','burst','켄키 25 소비 즉시 강타 (자주)'),
-        s('W','명경지수','o','buff','Sen 3개 즉시 적립 (2충전)'),
-        s('E','Ikishoten','o','buff','켄키 50 즉시 충전 (60초)'),
-        s('R','가에시-gaeshi','G','burst','이아이기리 직후 즉시 추가 발동'),
-        s('T','Ogi Namikiri','G','burst','켄키 소비 범위 강타'),
-        s('S','심안','o','util','단발 피해 감소'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','피의 갈증','R','survival','공격 흡혈'),
-        s('F4','견제','R','util','적 방어 감소'),
-        s('S1','풍아','G','aoe','AOE 시작기'),
-        s('S2','만월','G','aoe','AOE 月 피니셔'),
-        s('S3','천하오검','G','aoe','2 Sen AOE 이아이기리'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Gyofu",
+          "type": "G",
+          "cat": "combo",
+          "note": "모든 콤보의 시작기 (매우 자주)",
+          "gt": "https://garlandtools.org/db/#search/Gyofu"
+        },
+        {
+          "key": "2",
+          "name": "Yukikaze",
+          "type": "G",
+          "cat": "combo",
+          "note": "雪 Sen 획득 (2단 피니셔)",
+          "gt": "https://garlandtools.org/db/#search/Yukikaze"
+        },
+        {
+          "key": "3",
+          "name": "Jinpu",
+          "type": "G",
+          "cat": "combo",
+          "note": "月 루트 2단",
+          "gt": "https://garlandtools.org/db/#search/Jinpu"
+        },
+        {
+          "key": "4",
+          "name": "Gekko",
+          "type": "G",
+          "cat": "combo",
+          "note": "月 피니셔 (후면)",
+          "gt": "https://garlandtools.org/db/#search/Gekko"
+        },
+        {
+          "key": "5",
+          "name": "Shifu",
+          "type": "G",
+          "cat": "combo",
+          "note": "花 루트 2단",
+          "gt": "https://garlandtools.org/db/#search/Shifu"
+        },
+        {
+          "key": "6",
+          "name": "Kasha",
+          "type": "G",
+          "cat": "combo",
+          "note": "花 피니셔 (측면)",
+          "gt": "https://garlandtools.org/db/#search/Kasha"
+        },
+        {
+          "key": "Q",
+          "name": "Hissatsu: Shinten",
+          "type": "o",
+          "cat": "burst",
+          "note": "켄키 25 소비 즉시 강타 (자주)",
+          "gt": "https://garlandtools.org/db/#search/Hissatsu%3A%20Shinten"
+        },
+        {
+          "key": "W",
+          "name": "Meikyo Shisui",
+          "type": "o",
+          "cat": "buff",
+          "note": "Sen 3개 즉시 적립 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Meikyo%20Shisui"
+        },
+        {
+          "key": "E",
+          "name": "Ikishoten",
+          "type": "o",
+          "cat": "buff",
+          "note": "켄키 50 즉시 충전 (60초)",
+          "gt": "https://garlandtools.org/db/#search/Ikishoten"
+        },
+        {
+          "key": "R",
+          "name": "Tsubame-gaeshi",
+          "type": "G",
+          "cat": "burst",
+          "note": "이아이기리 직후 즉시 추가 발동",
+          "gt": "https://garlandtools.org/db/#search/Tsubame-gaeshi"
+        },
+        {
+          "key": "T",
+          "name": "Ogi Namikiri",
+          "type": "G",
+          "cat": "burst",
+          "note": "켄키 소비 범위 강타",
+          "gt": "https://garlandtools.org/db/#search/Ogi%20Namikiri"
+        },
+        {
+          "key": "S",
+          "name": "Third Eye",
+          "type": "o",
+          "cat": "util",
+          "note": "단발 피해 감소",
+          "gt": "https://garlandtools.org/db/#search/Third%20Eye"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Bloodbath",
+          "type": "R",
+          "cat": "survival",
+          "note": "공격 흡혈",
+          "gt": "https://garlandtools.org/db/#search/Bloodbath"
+        },
+        {
+          "key": "F4",
+          "name": "Feint",
+          "type": "R",
+          "cat": "util",
+          "note": "적 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Feint"
+        },
+        {
+          "key": "S1",
+          "name": "Fuko",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 시작기",
+          "gt": "https://garlandtools.org/db/#search/Fuko"
+        },
+        {
+          "key": "S2",
+          "name": "Mangetsu",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 月 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Mangetsu"
+        },
+        {
+          "key": "S3",
+          "name": "Tenka Goken",
+          "type": "G",
+          "cat": "aoe",
+          "note": "2 Sen AOE 이아이기리",
+          "gt": "https://garlandtools.org/db/#search/Tenka%20Goken"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['W(명경지수) → 2(설풍)+4(월광)+6(화차) Sen 3개 즉시','거합술 → 난설월화 → R(가에시:난설월화)','E(Ikishoten) → T(Ogi Namikiri) → Q(필살검:진천)']},
-        {phase:'기본 루프 (Sen 순환)', steps:['1(Gyofu) → 2(Yukikaze) [雪]',
-          '1(Gyofu) → 3(Jinpu) → 4(Gekko) [月, 후면]',
-          '1(Gyofu) → 5(Shifu) → 6(Kasha) [花, 측면]',
-          '3 Sen 완성 → 난설월화 → R(가에시)','Q(필살검:진천) 켄키 소비 끼워넣기']},
-        {phase:'2분 버스트', steps:['E(Ikishoten) → W(명경지수) → Sen 3개 즉시',
-          'Midare → R(가에시) → T(Ogi Namikiri)','Q(필살검:진천) × 최대 소비']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "W(명경지수) → 2(설풍)+4(월광)+6(화차) Sen 3개 즉시",
+            "거합술 → 난설월화 → R(가에시:난설월화)",
+            "E(Ikishoten) → T(Ogi Namikiri) → Q(필살검: 진천)"
+          ]
+        },
+        {
+          "phase": "기본 루프 (Sen 순환)",
+          "steps": [
+            "1(Gyofu) → 2(Yukikaze) [雪]",
+            "1(Gyofu) → 3(Jinpu) → 4(Gekko) [月, 후면]",
+            "1(Gyofu) → 5(Shifu) → 6(Kasha) [花, 측면]",
+            "3 Sen 완성 → 난설월화 → R(가에시)",
+            "Q(필살검: 진천) 켄키 소비 끼워넣기"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "E(Ikishoten) → W(명경지수) → Sen 3개 즉시",
+            "Midare → R(가에시) → T(Ogi Namikiri)",
+            "Q(필살검: 진천) × 최대 소비"
+          ]
+        }
+      ]
     },
-    { id:'rpr', name:'Reaper', kr:'리퍼', abbr:'RPR', emoji:'💀', color:'#a030a0',
-      desc:'소울/슈라우드 게이지 순환. Death\'s Design DoT 유지 필수. Enshroud로 레무어 슈라우드 진입 → 5연타 + Communio 피니셔.',
-      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/reaper/',
-      mechanics:[
-        {name:'Death\'s Design (5)', desc:'Shadow of Death으로 적에게 취약 디버프. 항상 유지 필수. 30초 지속.'},
-        {name:'소울→슈라우드 순환', desc:'Soul Slice(Q)로 소울 +50 → Gibbet/Gallows(4/6)으로 소비 → 슈라우드 적립 → 50 시 Enshroud(E) 진입.'},
-        {name:'레무어 슈라우드', desc:'아바타와 합체. 5개의 Void/Cross Reaping 후 Communio 피니셔. 버스트 핵심.'},
+    {
+      "id": "rpr",
+      "name": "Reaper",
+      "kr": "리퍼",
+      "abbr": "RPR",
+      "emoji": "💀",
+      "color": "#a030a0",
+      "desc": "소울/슈라우드 게이지 순환. Death's Design DoT 유지 필수. Enshroud로 레무어 슈라우드 진입 → 5연타 + Communio 피니셔.",
+      "diff": 2,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/reaper/",
+      "mechanics": [
+        {
+          "name": "Death's Design (5)",
+          "desc": "Shadow of Death으로 적에게 취약 디버프. 항상 유지 필수. 30초 지속."
+        },
+        {
+          "name": "소울→슈라우드 순환",
+          "desc": "Soul Slice(Q)로 소울 +50 → Gibbet/Gallows(4/6)으로 소비 → 슈라우드 적립 → 50 시 Enshroud(E) 진입."
+        },
+        {
+          "name": "레무어 슈라우드",
+          "desc": "아바타와 합체. 5개의 Void/Cross Reaping 후 Communio 피니셔. 버스트 핵심."
+        }
       ],
-      skills:[
-        s('1','Slice','G','combo','콤보 1'),
-        s('2','Waxing Slice','G','combo','콤보 2'),
-        s('3','Infernal Slice','G','combo','콤보 3 피니셔'),
-        s('4','Gibbet','G','burst','소울 25 소비 (측면)'),
-        s('5','Shadow of Death','G','dot','Death\'s Design DoT ★ 항상 유지'),
-        s('6','Gallows','G','burst','소울 25 소비 (후면)'),
-        s('Q','Soul Slice','G','buff','소울 게이지 +50 (2충전)'),
-        s('W','Gluttony','o','burst','소울 50 소비 강타 (60초)'),
-        s('E','Enshroud','o','buff','레무어 슈라우드 진입'),
-        s('R','Plentiful Harvest','G','burst','임모탈 스택 소비 강타'),
-        s('T','Arcane Circle','o','party','파티 버프 + 임모탈 스택 (120초)'),
-        s('A','Hell\'s Ingress','o','move','이동기 (전진)'),
-        s('D','Regress','o','move','이동기 (귀환)'),
-        s('S','Arcane Crest','o','survival','자신+파티 실드'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','피의 갈증','R','survival','공격 흡혈'),
-        s('F4','견제','R','util','적 방어 감소'),
-        s('S1','Spinning Scythe','G','aoe','AOE 콤보 1'),
-        s('S2','Nightmare Scythe','G','aoe','AOE 콤보 2'),
-        s('S3','Circle of Death','G','aoe','AOE DoT'),
-        s('S4','Grim Reaping','G','aoe','슈라우드 AOE'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Slice",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 1",
+          "gt": "https://garlandtools.org/db/#search/Slice"
+        },
+        {
+          "key": "2",
+          "name": "Waxing Slice",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 2",
+          "gt": "https://garlandtools.org/db/#search/Waxing%20Slice"
+        },
+        {
+          "key": "3",
+          "name": "Infernal Slice",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 3 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Infernal%20Slice"
+        },
+        {
+          "key": "4",
+          "name": "Gibbet",
+          "type": "G",
+          "cat": "burst",
+          "note": "소울 25 소비 (측면)",
+          "gt": "https://garlandtools.org/db/#search/Gibbet"
+        },
+        {
+          "key": "5",
+          "name": "Shadow of Death",
+          "type": "G",
+          "cat": "dot",
+          "note": "Death's Design DoT ★ 항상 유지",
+          "gt": "https://garlandtools.org/db/#search/Shadow%20of%20Death"
+        },
+        {
+          "key": "6",
+          "name": "Gallows",
+          "type": "G",
+          "cat": "burst",
+          "note": "소울 25 소비 (후면)",
+          "gt": "https://garlandtools.org/db/#search/Gallows"
+        },
+        {
+          "key": "Q",
+          "name": "Soul Slice",
+          "type": "G",
+          "cat": "buff",
+          "note": "소울 게이지 +50 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Soul%20Slice"
+        },
+        {
+          "key": "W",
+          "name": "Gluttony",
+          "type": "o",
+          "cat": "burst",
+          "note": "소울 50 소비 강타 (60초)",
+          "gt": "https://garlandtools.org/db/#search/Gluttony"
+        },
+        {
+          "key": "E",
+          "name": "Enshroud",
+          "type": "o",
+          "cat": "buff",
+          "note": "레무어 슈라우드 진입",
+          "gt": "https://garlandtools.org/db/#search/Enshroud"
+        },
+        {
+          "key": "R",
+          "name": "Plentiful Harvest",
+          "type": "G",
+          "cat": "burst",
+          "note": "임모탈 스택 소비 강타",
+          "gt": "https://garlandtools.org/db/#search/Plentiful%20Harvest"
+        },
+        {
+          "key": "T",
+          "name": "Arcane Circle",
+          "type": "o",
+          "cat": "party",
+          "note": "파티 버프 + 임모탈 스택 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Arcane%20Circle"
+        },
+        {
+          "key": "A",
+          "name": "Hell's Ingress",
+          "type": "o",
+          "cat": "move",
+          "note": "이동기 (전진)",
+          "gt": "https://garlandtools.org/db/#search/Hell's%20Ingress"
+        },
+        {
+          "key": "D",
+          "name": "Regress",
+          "type": "o",
+          "cat": "move",
+          "note": "이동기 (귀환)",
+          "gt": "https://garlandtools.org/db/#search/Regress"
+        },
+        {
+          "key": "S",
+          "name": "Arcane Crest",
+          "type": "o",
+          "cat": "survival",
+          "note": "자신+파티 실드",
+          "gt": "https://garlandtools.org/db/#search/Arcane%20Crest"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Bloodbath",
+          "type": "R",
+          "cat": "survival",
+          "note": "공격 흡혈",
+          "gt": "https://garlandtools.org/db/#search/Bloodbath"
+        },
+        {
+          "key": "F4",
+          "name": "Feint",
+          "type": "R",
+          "cat": "util",
+          "note": "적 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Feint"
+        },
+        {
+          "key": "S1",
+          "name": "Spinning Scythe",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 콤보 1",
+          "gt": "https://garlandtools.org/db/#search/Spinning%20Scythe"
+        },
+        {
+          "key": "S2",
+          "name": "Nightmare Scythe",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 콤보 2",
+          "gt": "https://garlandtools.org/db/#search/Nightmare%20Scythe"
+        },
+        {
+          "key": "S3",
+          "name": "Circle of Death",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE DoT",
+          "gt": "https://garlandtools.org/db/#search/Circle%20of%20Death"
+        },
+        {
+          "key": "S4",
+          "name": "Grim Reaping",
+          "type": "G",
+          "cat": "aoe",
+          "note": "슈라우드 AOE",
+          "gt": "https://garlandtools.org/db/#search/Grim%20Reaping"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['5(Shadow of Death) DoT 선부여','T(Arcane Circle) + W(Gluttony) 동시 발동','E(Enshroud) 진입 → 레무어 5연타 + Communio','R(Plentiful Harvest) 즉시 사용']},
-        {phase:'기본 루프', steps:['5(Shadow of Death) DoT 항상 유지',
-          '1→2→3 콤보 + Q(Soul Slice) × 2 소울 적립',
-          '4(Gibbet) / 6(Gallows) 번갈아 소비 (슈라우드 적립)','E(Enshroud) 50 시 진입 → 5연타 + Communio']},
-        {phase:'2분 버스트', steps:['T(Arcane Circle) → W(Gluttony) → R(Plentiful Harvest)',
-          'E(Enshroud) × 2 → 레무어 5연타 + Communio 반복']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "5(Shadow of Death) DoT 선부여",
+            "T(Arcane Circle) + W(Gluttony) 동시 발동",
+            "E(Enshroud) 진입 → 레무어 5연타 + Communio",
+            "R(Plentiful Harvest) 즉시 사용"
+          ]
+        },
+        {
+          "phase": "기본 루프",
+          "steps": [
+            "5(Shadow of Death) DoT 항상 유지",
+            "1→2→3 콤보 + Q(Soul Slice) × 2 소울 적립",
+            "4(Gibbet) / 6(Gallows) 번갈아 소비 (슈라우드 적립)",
+            "E(Enshroud) 50 시 진입 → 5연타 + Communio"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "T(Arcane Circle) → W(Gluttony) → R(Plentiful Harvest)",
+            "E(Enshroud) × 2 → 레무어 5연타 + Communio 반복"
+          ]
+        }
+      ]
     },
-    { id:'vpr', name:'Viper', kr:'바이퍼', abbr:'VPR', emoji:'🐍', color:'#30a030',
-      desc:'Steel/Reaving Fangs 교대 2버튼 콤보 + Vicewinder 코일로 게이지 적립 → Reawaken 5연타 버스트. 7.0 신직업.',
-      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/viper/',
-      mechanics:[
-        {name:'교대 콤보 시스템', desc:'1(Steel Fangs)과 2(Reaving Fangs) 번갈아 시작. 피니셔 3이 자동 교대. 데미지 버프/속도 버프 유지.'},
-        {name:'Vicewinder 코일 (Q)', desc:'돌진 후 Hunter\'s Coil(W)/Swiftskin\'s Coil(E) 활성화. 게이지 적립.'},
-        {name:'Reawaken 버스트', desc:'Anguine Tribute 50 시 진입. Generation × 5 → Ouroboros 피니셔. R(Serpent\'s Ire) 동시 사용.'},
+    {
+      "id": "vpr",
+      "name": "Viper",
+      "kr": "바이퍼",
+      "abbr": "VPR",
+      "emoji": "🐍",
+      "color": "#30a030",
+      "desc": "Steel/Reaving Fangs 교대 2버튼 콤보 + Vicewinder 코일로 게이지 적립 → Reawaken 5연타 버스트. 7.0 신직업.",
+      "diff": 2,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/viper/",
+      "mechanics": [
+        {
+          "name": "교대 콤보 시스템",
+          "desc": "1(Steel Fangs)과 2(Reaving Fangs) 번갈아 시작. 피니셔 3이 자동 교대. 데미지 버프/속도 버프 유지."
+        },
+        {
+          "name": "Vicewinder 코일 (Q)",
+          "desc": "돌진 후 Hunter's Coil(W)/Swiftskin's Coil(E) 활성화. 게이지 적립."
+        },
+        {
+          "name": "Reawaken 버스트",
+          "desc": "Anguine Tribute 50 시 진입. Generation × 5 → Ouroboros 피니셔. R(Serpent's Ire) 동시 사용."
+        }
       ],
-      skills:[
-        s('1','Steel Fangs','G','combo','콤보 시작 1 (Hunter\'s Sting 활성화)'),
-        s('2','Reaving Fangs','G','combo','콤보 시작 2 (Swiftskin\'s Sting 활성화)'),
-        s('3','Hunter\'s/Swiftskin\'s Sting','G','combo','피니셔 (자동 교대) — 데미지/속도 버프'),
-        s('4','Flanksting/Hindsting Strike','G','combo','추가 피니셔 (측면/후면 포지셔닝)'),
-        s('6','Reawaken','G','burst','게이지 50 버스트 진입'),
-        s('Q','Vicewinder','o','burst','돌진 + 코일 활성화'),
-        s('W','Hunter\'s Coil','G','burst','Vicewinder 후 측면 강타'),
-        s('E','Swiftskin\'s Coil','G','burst','Vicewinder 후 속도 강타'),
-        s('R','Serpent\'s Ire','o','buff','버스트 버프 (120초)'),
-        s('A','Slither','o','move','돌진 이동기 (3충전)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','피의 갈증','R','survival','공격 흡혈'),
-        s('F4','견제','R','util','적 방어 감소'),
-        s('S1','Steel Maw','G','aoe','AOE 콤보 1'),
-        s('S2','Reaving Maw','G','aoe','AOE 콤보 2'),
-        s('S3','Hunter\'s/Swiftskin\'s Bite','G','aoe','AOE 피니셔'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Steel Fangs",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 시작 1 (Hunter's Sting 활성화)",
+          "gt": "https://garlandtools.org/db/#search/Steel%20Fangs"
+        },
+        {
+          "key": "2",
+          "name": "Reaving Fangs",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 시작 2 (Swiftskin's Sting 활성화)",
+          "gt": "https://garlandtools.org/db/#search/Reaving%20Fangs"
+        },
+        {
+          "key": "3",
+          "name": "Hunter's/Swiftskin's Sting",
+          "type": "G",
+          "cat": "combo",
+          "note": "피니셔 (자동 교대) — 데미지/속도 버프",
+          "gt": "https://garlandtools.org/db/#search/Hunter's%2FSwiftskin's%20Sting"
+        },
+        {
+          "key": "4",
+          "name": "Flanksting/Hindsting Strike",
+          "type": "G",
+          "cat": "combo",
+          "note": "추가 피니셔 (측면/후면 포지셔닝)",
+          "gt": "https://garlandtools.org/db/#search/Flanksting%2FHindsting%20Strike"
+        },
+        {
+          "key": "6",
+          "name": "Reawaken",
+          "type": "G",
+          "cat": "burst",
+          "note": "게이지 50 버스트 진입",
+          "gt": "https://garlandtools.org/db/#search/Reawaken"
+        },
+        {
+          "key": "Q",
+          "name": "Vicewinder",
+          "type": "o",
+          "cat": "burst",
+          "note": "돌진 + 코일 활성화",
+          "gt": "https://garlandtools.org/db/#search/Vicewinder"
+        },
+        {
+          "key": "W",
+          "name": "Hunter's Coil",
+          "type": "G",
+          "cat": "burst",
+          "note": "Vicewinder 후 측면 강타",
+          "gt": "https://garlandtools.org/db/#search/Hunter's%20Coil"
+        },
+        {
+          "key": "E",
+          "name": "Swiftskin's Coil",
+          "type": "G",
+          "cat": "burst",
+          "note": "Vicewinder 후 속도 강타",
+          "gt": "https://garlandtools.org/db/#search/Swiftskin's%20Coil"
+        },
+        {
+          "key": "R",
+          "name": "Serpent's Ire",
+          "type": "o",
+          "cat": "buff",
+          "note": "버스트 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Serpent's%20Ire"
+        },
+        {
+          "key": "A",
+          "name": "Slither",
+          "type": "o",
+          "cat": "move",
+          "note": "돌진 이동기 (3충전)",
+          "gt": "https://garlandtools.org/db/#search/Slither"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Bloodbath",
+          "type": "R",
+          "cat": "survival",
+          "note": "공격 흡혈",
+          "gt": "https://garlandtools.org/db/#search/Bloodbath"
+        },
+        {
+          "key": "F4",
+          "name": "Feint",
+          "type": "R",
+          "cat": "util",
+          "note": "적 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Feint"
+        },
+        {
+          "key": "S1",
+          "name": "Steel Maw",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 콤보 1",
+          "gt": "https://garlandtools.org/db/#search/Steel%20Maw"
+        },
+        {
+          "key": "S2",
+          "name": "Reaving Maw",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 콤보 2",
+          "gt": "https://garlandtools.org/db/#search/Reaving%20Maw"
+        },
+        {
+          "key": "S3",
+          "name": "Hunter's/Swiftskin's Bite",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Hunter's%2FSwiftskin's%20Bite"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['R(Serpent&#39;s Ire) + Q(Vicewinder) 동시','W(Hunter&#39;s Coil) + E(Swiftskin&#39;s Coil) 코일 소비','6(Reawaken) 버스트 → Generation × 5 → Ouroboros']},
-        {phase:'기본 루프', steps:['1(Steel Fangs) → 3 → 2(Reaving Fangs) → 3 교대',
-          '4(Flanksting/Hindsting) 포지셔닝 피니셔','Q(Vicewinder) → W(Hunter\'s Coil) / E(Swiftskin\'s Coil) 코일 사용']},
-        {phase:'2분 버스트', steps:['R(Serpent\'s Ire) + Q(Vicewinder) 동시 진입',
-          '6(Reawaken) → Generation × 5 → Ouroboros 피니셔']},
-      ],
-    },
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "R(Serpent&#39;s Ire) + Q(Vicewinder) 동시",
+            "W(Hunter&#39;s Coil) + E(Swiftskin&#39;s Coil) 코일 소비",
+            "6(Reawaken) 버스트 → Generation × 5 → Ouroboros"
+          ]
+        },
+        {
+          "phase": "기본 루프",
+          "steps": [
+            "1(Steel Fangs) → 3 → 2(Reaving Fangs) → 3 교대",
+            "4(Flanksting/Hindsting) 포지셔닝 피니셔",
+            "Q(Vicewinder) → W(Hunter's Coil) / E(Swiftskin's Coil) 코일 사용"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "R(Serpent's Ire) + Q(Vicewinder) 동시 진입",
+            "6(Reawaken) → Generation × 5 → Ouroboros 피니셔"
+          ]
+        }
+      ]
+    }
   ],
-  ranged: [
-    { id:'brd', name:'Bard', kr:'음유시인', abbr:'BRD', emoji:'🎼', color:'#d0a030',
-      desc:'노래 3종(S1/S2/S3) 순환으로 파티 버프. DoT 2종(5/6) 유지. 레퍼토리 게이지로 Pitch Perfect(Q) 발동. 높은 이동 자유도.',
-      diff:3, guide:'https://na.finalfantasyxiv.com/jobguide/bard/',
-      mechanics:[
-        {name:'노래 3종 순환', desc:'Wanderer\'s Minuet(S1, 45초) → Mage\'s Ballad(S2) → Army\'s Paeon(S3) 순환. 항상 노래 유지.'},
-        {name:'DoT 2종 유지', desc:'Stormbite(5) + Caustic Bite(6) 두 DoT 항상 유지. Iron Jaws(3)로 한 번에 갱신.'},
-        {name:'2분 버스트', desc:'Raging Strikes(R) + Battle Voice(T) + Radiant Finale(S4) 동시 → Apex Arrow(4) → Blast Arrow 소비.'},
+  "ranged": [
+    {
+      "id": "brd",
+      "name": "Bard",
+      "kr": "음유시인",
+      "abbr": "BRD",
+      "emoji": "🎼",
+      "color": "#d0a030",
+      "desc": "노래 3종(S1/S2/S3) 순환으로 파티 버프. DoT 2종(5/6) 유지. 레퍼토리 게이지로 Pitch Perfect(Q) 발동. 높은 이동 자유도.",
+      "diff": 3,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/bard/",
+      "mechanics": [
+        {
+          "name": "노래 3종 순환",
+          "desc": "Wanderer's Minuet(S1, 45초) → Mage's Ballad(S2) → Army's Paeon(S3) 순환. 항상 노래 유지."
+        },
+        {
+          "name": "DoT 2종 유지",
+          "desc": "Stormbite(5) + Caustic Bite(6) 두 DoT 항상 유지. Iron Jaws(3)로 한 번에 갱신."
+        },
+        {
+          "name": "2분 버스트",
+          "desc": "Raging Strikes(R) + Battle Voice(T) + Radiant Finale(S4) 동시 → Apex Arrow(4) → Blast Arrow 소비."
+        }
       ],
-      skills:[
-        s('1','육중한 사격','G','combo','기본 GCD (Refulgent 프록 가능)'),
-        s('2','찬란한 화살','G','burst','프록 시 강화 GCD'),
-        s('3','굳은 결의','G','dot','DoT 2종 즉시 갱신'),
-        s('4','Apex Arrow','G','burst','소울 게이지 소비 강타'),
-        s('5','폭풍 화살','G','dot','바람 DoT 적용'),
-        s('6','맹독 화살','G','dot','독 DoT 적용'),
-        s('Q','절대음감','o','burst','레퍼토리 3 시 강타 (WM 중)'),
-        s('W','천상의 화살','o','burst','15초 쿨 즉시 화살'),
-        s('E','독사 강습','o','burst','DoT 있을 시 추가 데미지 단타'),
-        s('R','강렬한 사격','o','buff','개인 딜 버프 20초 (120초)'),
-        s('T','전장의 노래','o','party','파티 다이렉트히트 버프 (120초)'),
-        s('S','방랑하는 음악가','o','survival','파티 방어 버프 (90초)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F4','머리 쏘기','R','util','시전 차단'),
-        s('S1','여행신의 무곡','o','song','노래 1 — 레퍼토리 게이지'),
-        s('S2','군신의 찬가','o','song','노래 2 — MP 회복 지원'),
-        s('S3','현자의 담시곡','o','song','노래 3 — 기술 속도 증가'),
-        s('S4','빛나는 피날레','o','party','노래 수에 따른 파티 버프 (120초)'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Burst Shot",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 GCD (Refulgent 프록 가능)",
+          "gt": "https://garlandtools.org/db/#search/Burst%20Shot"
+        },
+        {
+          "key": "2",
+          "name": "Refulgent Arrow",
+          "type": "G",
+          "cat": "burst",
+          "note": "프록 시 강화 GCD",
+          "gt": "https://garlandtools.org/db/#search/Refulgent%20Arrow"
+        },
+        {
+          "key": "3",
+          "name": "Iron Jaws",
+          "type": "G",
+          "cat": "dot",
+          "note": "DoT 2종 즉시 갱신",
+          "gt": "https://garlandtools.org/db/#search/Iron%20Jaws"
+        },
+        {
+          "key": "4",
+          "name": "Apex Arrow",
+          "type": "G",
+          "cat": "burst",
+          "note": "소울 게이지 소비 강타",
+          "gt": "https://garlandtools.org/db/#search/Apex%20Arrow"
+        },
+        {
+          "key": "5",
+          "name": "Stormbite",
+          "type": "G",
+          "cat": "dot",
+          "note": "바람 DoT 적용",
+          "gt": "https://garlandtools.org/db/#search/Stormbite"
+        },
+        {
+          "key": "6",
+          "name": "Caustic Bite",
+          "type": "G",
+          "cat": "dot",
+          "note": "독 DoT 적용",
+          "gt": "https://garlandtools.org/db/#search/Caustic%20Bite"
+        },
+        {
+          "key": "Q",
+          "name": "Pitch Perfect",
+          "type": "o",
+          "cat": "burst",
+          "note": "레퍼토리 3 시 강타 (WM 중)",
+          "gt": "https://garlandtools.org/db/#search/Pitch%20Perfect"
+        },
+        {
+          "key": "W",
+          "name": "Empyreal Arrow",
+          "type": "o",
+          "cat": "burst",
+          "note": "15초 쿨 즉시 화살",
+          "gt": "https://garlandtools.org/db/#search/Empyreal%20Arrow"
+        },
+        {
+          "key": "E",
+          "name": "Sidewinder",
+          "type": "o",
+          "cat": "burst",
+          "note": "DoT 있을 시 추가 데미지 단타",
+          "gt": "https://garlandtools.org/db/#search/Sidewinder"
+        },
+        {
+          "key": "R",
+          "name": "Raging Strikes",
+          "type": "o",
+          "cat": "buff",
+          "note": "개인 딜 버프 20초 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Raging%20Strikes"
+        },
+        {
+          "key": "T",
+          "name": "Battle Voice",
+          "type": "o",
+          "cat": "party",
+          "note": "파티 다이렉트히트 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Battle%20Voice"
+        },
+        {
+          "key": "S",
+          "name": "Troubadour",
+          "type": "o",
+          "cat": "survival",
+          "note": "파티 방어 버프 (90초)",
+          "gt": "https://garlandtools.org/db/#search/Troubadour"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F4",
+          "name": "Head Graze",
+          "type": "R",
+          "cat": "util",
+          "note": "시전 차단",
+          "gt": "https://garlandtools.org/db/#search/Head%20Graze"
+        },
+        {
+          "key": "S1",
+          "name": "The Wanderer's Minuet",
+          "type": "o",
+          "cat": "song",
+          "note": "노래 1 — 레퍼토리 게이지",
+          "gt": "https://garlandtools.org/db/#search/The%20Wanderer's%20Minuet"
+        },
+        {
+          "key": "S2",
+          "name": "Mage's Ballad",
+          "type": "o",
+          "cat": "song",
+          "note": "노래 2 — MP 회복 지원",
+          "gt": "https://garlandtools.org/db/#search/Mage's%20Ballad"
+        },
+        {
+          "key": "S3",
+          "name": "Army's Paeon",
+          "type": "o",
+          "cat": "song",
+          "note": "노래 3 — 기술 속도 증가",
+          "gt": "https://garlandtools.org/db/#search/Army's%20Paeon"
+        },
+        {
+          "key": "S4",
+          "name": "Radiant Finale",
+          "type": "o",
+          "cat": "party",
+          "note": "노래 수에 따른 파티 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Radiant%20Finale"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['S1(여행신의 무곡) 시작 → 5(폭풍화살)+6(맹독화살) DoT','R(강렬한사격) + T(전장의노래) + S4(빛나는피날레) 동시','W(천상의화살) → Q(절대음감) 레퍼토리 소비']},
-        {phase:'기본 (노래 순환)', steps:['노래 S1(여행신의무곡)→S2(군신의찬가)→S3(현자의담시곡) 45초씩 끊임없이 유지',
-          '5(Stormbite) + 6(Caustic Bite) DoT 갱신, 3(굳은 결의)로 묶어서 갱신',
-          '1(Burst Shot) 반복 + 2(Refulgent Arrow) 프록 시 즉시 사용','W(천상의 화살) 쿨마다 사용']},
-        {phase:'2분 버스트', steps:['R(강렬한사격) + T(전장의노래) + S4(빛나는피날레) 동시 발동','4(Apex Arrow) → Blast Arrow 소비',
-          'S1(WM) 중 Q(절대음감) × 가능한 만큼']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "S1(여행신의 무곡) 시작 → 5(폭풍화살)+6(맹독화살) DoT",
+            "R(강렬한사격) + T(전장의노래) + S4(빛나는피날레) 동시",
+            "W(천상의화살) → Q(절대음감) 레퍼토리 소비"
+          ]
+        },
+        {
+          "phase": "기본 (노래 순환)",
+          "steps": [
+            "노래 S1(여행신의무곡)→S2(군신의찬가)→S3(현자의담시곡) 45초씩 끊임없이 유지",
+            "5(Stormbite) + 6(Caustic Bite) DoT 갱신, 3(굳은 결의)로 묶어서 갱신",
+            "1(Burst Shot) 반복 + 2(Refulgent Arrow) 프록 시 즉시 사용",
+            "W(천상의 화살) 쿨마다 사용"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "R(강렬한사격) + T(전장의노래) + S4(빛나는피날레) 동시 발동",
+            "4(Apex Arrow) → Blast Arrow 소비",
+            "S1(WM) 중 Q(절대음감) × 가능한 만큼"
+          ]
+        }
+      ]
     },
-    { id:'mch', name:'Machinist', kr:'기공사', abbr:'MCH', emoji:'🔧', color:'#50b0d0',
-      desc:'히트 게이지 → Hypercharge(Q) 과열 → Heat Blast(4) 5연타. Drill/Air Anchor/Chain Saw(5/6/S3) 강타 + 오토마톤 퀸 소환.',
-      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/machinist/',
-      mechanics:[
-        {name:'히트 게이지 → 과열', desc:'1→2→3 콤보로 히트 게이지 적립. 50 이상에서 Q(열기 조절) → 과열 중 4(냉각) 5연타.'},
-        {name:'도구 3종 (5/6/S3)', desc:'Drill(5, 20초) / Air Anchor(6, 40초) / Chain Saw(S3, 60초). 고데미지 GCD. 쿨마다 최우선.'},
-        {name:'2분 버스트', desc:'T(소이탄) 발동 후 6 GCD 안에 피해 최대화. Q(열기 조절) → Heat Blast × 5 안에 넣기.'},
+    {
+      "id": "mch",
+      "name": "Machinist",
+      "kr": "기공사",
+      "abbr": "MCH",
+      "emoji": "🔧",
+      "color": "#50b0d0",
+      "desc": "히트 게이지 → Hypercharge(Q) 과열 → Heat Blast(4) 5연타. Drill/Air Anchor/Chain Saw(5/6/S3) 강타 + 오토마톤 퀸 소환.",
+      "diff": 2,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/machinist/",
+      "mechanics": [
+        {
+          "name": "히트 게이지 → 과열",
+          "desc": "1→2→3 콤보로 히트 게이지 적립. 50 이상에서 Q(Hypercharge) → 과열 중 4(Heat Blast) 5연타."
+        },
+        {
+          "name": "도구 3종 (5/6/S3)",
+          "desc": "Drill(5, 20초) / Air Anchor(6, 40초) / Chain Saw(S3, 60초). 고데미지 GCD. 쿨마다 최우선."
+        },
+        {
+          "name": "2분 버스트",
+          "desc": "T(Wildfire) 발동 후 6 GCD 안에 피해 최대화. Q(Hypercharge) → Heat Blast × 5 안에 넣기."
+        }
       ],
-      skills:[
-        s('1','열분열탄','G','combo','콤보 1 (히트 적립)'),
-        s('2','열슬러그탄','G','combo','콤보 2'),
-        s('3','열정밀탄','G','combo','콤보 3 (배터리 적립)'),
-        s('4','냉각','G','burst','과열 중 연타 (1.5초 쿨)'),
-        s('5','드릴','G','burst','강타 (20초 쿨)'),
-        s('6','에어 앙커','G','burst','강타 + 배터리 (40초 쿨)'),
-        s('Q','열기 조절','o','buff','과열 진입 (히트 50 소비)'),
-        s('W','가우스탄','o','burst','단타 (2충전)'),
-        s('E','도탄 사격','o','burst','범위 단타 (2충전)'),
-        s('R','정비','o','buff','다음 GCD 크리+DH 보장'),
-        s('T','소이탄','o','party','6 GCD 데미지 흡수 버스트 (120초)'),
-        s('S','전술가','o','survival','파티 방어 버프 (90초)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F4','다리 쏘기','R','util','이동 방해'),
-        s('S1','확산 사격','G','aoe','AOE 기본 (히트 적립)'),
-        s('S2','자동 석궁','G','aoe','과열 중 AOE 연타'),
-        s('S3','체인소','G','burst','강타 + 배터리 (60초 쿨)'),
-        s('S4','배럴 스태빌라이저','o','buff','히트 50 즉시 충전'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Heated Split Shot",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 1 (히트 적립)",
+          "gt": "https://garlandtools.org/db/#search/Heated%20Split%20Shot"
+        },
+        {
+          "key": "2",
+          "name": "Heated Slug Shot",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 2",
+          "gt": "https://garlandtools.org/db/#search/Heated%20Slug%20Shot"
+        },
+        {
+          "key": "3",
+          "name": "Heated Clean Shot",
+          "type": "G",
+          "cat": "combo",
+          "note": "콤보 3 (배터리 적립)",
+          "gt": "https://garlandtools.org/db/#search/Heated%20Clean%20Shot"
+        },
+        {
+          "key": "4",
+          "name": "Heat Blast",
+          "type": "G",
+          "cat": "burst",
+          "note": "과열 중 연타 (1.5초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Heat%20Blast"
+        },
+        {
+          "key": "5",
+          "name": "Drill",
+          "type": "G",
+          "cat": "burst",
+          "note": "강타 (20초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Drill"
+        },
+        {
+          "key": "6",
+          "name": "Air Anchor",
+          "type": "G",
+          "cat": "burst",
+          "note": "강타 + 배터리 (40초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Air%20Anchor"
+        },
+        {
+          "key": "Q",
+          "name": "Hypercharge",
+          "type": "o",
+          "cat": "buff",
+          "note": "과열 진입 (히트 50 소비)",
+          "gt": "https://garlandtools.org/db/#search/Hypercharge"
+        },
+        {
+          "key": "W",
+          "name": "Gauss Round",
+          "type": "o",
+          "cat": "burst",
+          "note": "단타 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Gauss%20Round"
+        },
+        {
+          "key": "E",
+          "name": "Ricochet",
+          "type": "o",
+          "cat": "burst",
+          "note": "범위 단타 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Ricochet"
+        },
+        {
+          "key": "R",
+          "name": "Reassemble",
+          "type": "o",
+          "cat": "buff",
+          "note": "다음 GCD 크리+DH 보장",
+          "gt": "https://garlandtools.org/db/#search/Reassemble"
+        },
+        {
+          "key": "T",
+          "name": "Wildfire",
+          "type": "o",
+          "cat": "party",
+          "note": "6 GCD 데미지 흡수 버스트 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Wildfire"
+        },
+        {
+          "key": "S",
+          "name": "Tactician",
+          "type": "o",
+          "cat": "survival",
+          "note": "파티 방어 버프 (90초)",
+          "gt": "https://garlandtools.org/db/#search/Tactician"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F4",
+          "name": "Leg Graze",
+          "type": "R",
+          "cat": "util",
+          "note": "이동 방해",
+          "gt": "https://garlandtools.org/db/#search/Leg%20Graze"
+        },
+        {
+          "key": "S1",
+          "name": "Scattergun",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 기본 (히트 적립)",
+          "gt": "https://garlandtools.org/db/#search/Scattergun"
+        },
+        {
+          "key": "S2",
+          "name": "Auto Crossbow",
+          "type": "G",
+          "cat": "aoe",
+          "note": "과열 중 AOE 연타",
+          "gt": "https://garlandtools.org/db/#search/Auto%20Crossbow"
+        },
+        {
+          "key": "S3",
+          "name": "Chain Saw",
+          "type": "G",
+          "cat": "burst",
+          "note": "강타 + 배터리 (60초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Chain%20Saw"
+        },
+        {
+          "key": "S4",
+          "name": "Barrel Stabilizer",
+          "type": "o",
+          "cat": "buff",
+          "note": "히트 50 즉시 충전",
+          "gt": "https://garlandtools.org/db/#search/Barrel%20Stabilizer"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['R(정비) → 5(드릴) 크리 확정 강타','T(소이탄) → Q(열기 조절) → 4(냉각) × 5 소이탄 안에 포함','W(가우스탄) + E(도탄 사격) 삽입 → 6(에어앙커) → S3(체인소)']},
-        {phase:'기본 루프', steps:['1→2→3 콤보로 히트/배터리 적립',
-          '5(드릴) / 6(에어 앙커) / S3(체인소) 쿨마다 최우선 사용',
-          'Q(열기 조절) → 4(냉각) × 5 → W/E 사이에 끼워넣기','배터리 80+ 시 오토마톤 퀸 소환']},
-        {phase:'2분 버스트', steps:['T(소이탄) → 즉시 Q(열기 조절) → 4(냉각) × 5 (Wildfire 안에)',
-          'R(정비) + 5(드릴) 크리 확정','S4(배럴 스태빌라이저) 히트 충전']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "R(정비) → 5(드릴) 크리 확정 강타",
+            "T(소이탄) → Q(과충전) → 4(열기 분사) × 5 소이탄 안에 포함",
+            "W(가우스탄) + E(도탄 사격) 삽입 → 6(에어앙커) → S3(회전톱)"
+          ]
+        },
+        {
+          "phase": "기본 루프",
+          "steps": [
+            "1→2→3 콤보로 히트/배터리 적립",
+            "5(드릴) / 6(사슬닻) / S3(회전톱) 쿨마다 최우선 사용",
+            "Q(과충전) → 4(열기 분사) × 5 → W/E 사이에 끼워넣기",
+            "배터리 80+ 시 오토마톤 퀸 소환"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "T(소이탄) → 즉시 Q(과충전) → 4(열기 분사) × 5 (Wildfire 안에)",
+            "R(정비) + 5(드릴) 크리 확정",
+            "S4(열기 조절) 히트 충전"
+          ]
+        }
+      ]
     },
-    { id:'dnc', name:'Dancer', kr:'무도가', abbr:'DNC', emoji:'💃', color:'#d050d0',
-      desc:'스텝 댄스(R=Standard/S3=Technical)로 파티 버프. 프록 공격 + 에스프리 게이지 → Saber Dance(4). 파트너 시스템.',
-      diff:1, guide:'https://na.finalfantasyxiv.com/jobguide/dancer/',
-      mechanics:[
-        {name:'스탠다드 / 테크니컬 스텝', desc:'R(Standard Step, 30초) 2스텝 → 정석 마무리. S3(Technical Step, 120초) 4스텝 → 파티 전체 버프.'},
-        {name:'에스프리 게이지 → Saber Dance', desc:'기본 공격 + 파트너 공격으로 에스프리 적립. 50 이상 시 4(Saber Dance) 강타.'},
-        {name:'Flourish (E)', desc:'4가지 프록 즉시 활성화. E(Flourish) 사용 후 Q(Fan Dance III) + W(파운틴 폴 등) 즉시 소비.'},
+    {
+      "id": "dnc",
+      "name": "Dancer",
+      "kr": "무도가",
+      "abbr": "DNC",
+      "emoji": "💃",
+      "color": "#d050d0",
+      "desc": "스텝 댄스(R=Standard/S3=Technical)로 파티 버프. 프록 공격 + 에스프리 게이지 → Saber Dance(4). 파트너 시스템.",
+      "diff": 1,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/dancer/",
+      "mechanics": [
+        {
+          "name": "스탠다드 / 테크니컬 스텝",
+          "desc": "R(Standard Step, 30초) 2스텝 → Standard Finish. S3(Technical Step, 120초) 4스텝 → 파티 전체 버프."
+        },
+        {
+          "name": "에스프리 게이지 → Saber Dance",
+          "desc": "기본 공격 + 파트너 공격으로 에스프리 적립. 50 이상 시 4(Saber Dance) 강타."
+        },
+        {
+          "name": "Flourish (E)",
+          "desc": "4가지 프록 즉시 활성화. E(Flourish) 사용 후 Q(Fan Dance III) + W(Fountainfall 등) 즉시 소비."
+        }
       ],
-      skills:[
-        s('1','캐스케이드','G','combo','기본 GCD 1 (Fountain 프록 가능)'),
-        s('2','파운틴','G','combo','기본 GCD 2 (에스프리 생성)'),
-        s('3','리버스 캐스케이드/파운틴 폴','G','burst','프록 강화 GCD (Feather 게이지 생성)'),
-        s('4','검무','G','burst','에스프리 50 소비 강타'),
-        s('Q','부채춤: 발단','o','burst','깃털 1개 소비 단타 (Fan Dance III 프록)'),
-        s('W','부채춤: 절정','o','burst','프록 시 범위 강타'),
-        s('E','플러리쉬','o','buff','4프록 즉시 활성화 (60초)'),
-        s('R','정석 무도','G','buff','2스텝 댄스 시작 (30초)'),
-        s('T','공세의 탱고','o','party','개인+파트너 크리/DH 버프 (120초)'),
-        s('A','앞걸음','o','move','돌진 이동기 (3충전)'),
-        s('S','수세의 삼바','o','survival','파티 방어 버프 (90초)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','치유의 왈츠','o','survival','자신+파트너 힐'),
-        s('F4','발 쏘기','R','util','이동 방해'),
-        s('S1','윈드밀','G','aoe','AOE 기본 1'),
-        s('S2','라이징윈드밀/블러드샤워','G','aoe','AOE 프록 강화'),
-        s('S3','기교 무도','G','party','4스텝 댄스 → 파티 전체 버프 (120초)'),
-        s('S4','부채춤: 결말','o','aoe','Flourish 후 AOE 강타'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Cascade",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 GCD 1 (Fountain 프록 가능)",
+          "gt": "https://garlandtools.org/db/#search/Cascade"
+        },
+        {
+          "key": "2",
+          "name": "Fountain",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 GCD 2 (에스프리 생성)",
+          "gt": "https://garlandtools.org/db/#search/Fountain"
+        },
+        {
+          "key": "3",
+          "name": "Reverse Cascade / Fountainfall",
+          "type": "G",
+          "cat": "burst",
+          "note": "프록 강화 GCD (Feather 게이지 생성)",
+          "gt": "https://garlandtools.org/db/#search/Reverse%20Cascade%20%2F%20Fountainfall"
+        },
+        {
+          "key": "4",
+          "name": "Saber Dance",
+          "type": "G",
+          "cat": "burst",
+          "note": "에스프리 50 소비 강타",
+          "gt": "https://garlandtools.org/db/#search/Saber%20Dance"
+        },
+        {
+          "key": "Q",
+          "name": "Fan Dance I",
+          "type": "o",
+          "cat": "burst",
+          "note": "깃털 1개 소비 단타 (Fan Dance III 프록)",
+          "gt": "https://garlandtools.org/db/#search/Fan%20Dance%20I"
+        },
+        {
+          "key": "W",
+          "name": "Fan Dance III",
+          "type": "o",
+          "cat": "burst",
+          "note": "프록 시 범위 강타",
+          "gt": "https://garlandtools.org/db/#search/Fan%20Dance%20III"
+        },
+        {
+          "key": "E",
+          "name": "Flourish",
+          "type": "o",
+          "cat": "buff",
+          "note": "4프록 즉시 활성화 (60초)",
+          "gt": "https://garlandtools.org/db/#search/Flourish"
+        },
+        {
+          "key": "R",
+          "name": "Standard Step",
+          "type": "G",
+          "cat": "buff",
+          "note": "2스텝 댄스 시작 (30초)",
+          "gt": "https://garlandtools.org/db/#search/Standard%20Step"
+        },
+        {
+          "key": "T",
+          "name": "Devilment",
+          "type": "o",
+          "cat": "party",
+          "note": "개인+파트너 크리/DH 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Devilment"
+        },
+        {
+          "key": "A",
+          "name": "En Avant",
+          "type": "o",
+          "cat": "move",
+          "note": "돌진 이동기 (3충전)",
+          "gt": "https://garlandtools.org/db/#search/En%20Avant"
+        },
+        {
+          "key": "S",
+          "name": "Shield Samba",
+          "type": "o",
+          "cat": "survival",
+          "note": "파티 방어 버프 (90초)",
+          "gt": "https://garlandtools.org/db/#search/Shield%20Samba"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Curing Waltz",
+          "type": "o",
+          "cat": "survival",
+          "note": "자신+파트너 힐",
+          "gt": "https://garlandtools.org/db/#search/Curing%20Waltz"
+        },
+        {
+          "key": "F4",
+          "name": "Foot Graze",
+          "type": "R",
+          "cat": "util",
+          "note": "이동 방해",
+          "gt": "https://garlandtools.org/db/#search/Foot%20Graze"
+        },
+        {
+          "key": "S1",
+          "name": "Windmill",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 기본 1",
+          "gt": "https://garlandtools.org/db/#search/Windmill"
+        },
+        {
+          "key": "S2",
+          "name": "Rising Windmill / Bloodshower",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 프록 강화",
+          "gt": "https://garlandtools.org/db/#search/Rising%20Windmill%20%2F%20Bloodshower"
+        },
+        {
+          "key": "S3",
+          "name": "Technical Step",
+          "type": "G",
+          "cat": "party",
+          "note": "4스텝 댄스 → 파티 전체 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Technical%20Step"
+        },
+        {
+          "key": "S4",
+          "name": "Fan Dance IV",
+          "type": "o",
+          "cat": "aoe",
+          "note": "Flourish 후 AOE 강타",
+          "gt": "https://garlandtools.org/db/#search/Fan%20Dance%20IV"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['S3(Technical Step) → 4스텝 → 기교 마무리','T(Devilment) 동시 → E(Flourish) 즉시','Q(Fan Dance I) + W(Fan Dance III) + S4(Fan Dance IV) 소비']},
-        {phase:'기본 루프', steps:['1(Cascade) → 2(Fountain) 반복, 프록 발생 시 3(Reverse Cascade/파운틴 폴) 즉시',
-          'R(Standard Step) 30초마다 댄스 → 정석 마무리','Q(Fan Dance I) 깃털 생성 즉시, W(Fan Dance III) 프록 즉시','에스프리 50+ 시 4(Saber Dance)']},
-        {phase:'2분 버스트', steps:['S3(Technical Step) → 기교 마무리 → T(Devilment)',
-          'E(Flourish) → Q(Fan Dance I) + W(Fan Dance III) + S4(Fan Dance IV) 즉시 소비',
-          '4(Saber Dance) 에스프리 최대 소비']},
-      ],
-    },
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "S3(Technical Step) → 4스텝 → 기교 마무리",
+            "T(Devilment) 동시 → E(Flourish) 즉시",
+            "Q(Fan Dance I) + W(Fan Dance III) + S4(Fan Dance IV) 소비"
+          ]
+        },
+        {
+          "phase": "기본 루프",
+          "steps": [
+            "1(Cascade) → 2(Fountain) 반복, 프록 발생 시 3(Reverse Cascade/파운틴 폴) 즉시",
+            "R(Standard Step) 30초마다 댄스 → 정석 마무리",
+            "Q(Fan Dance I) 깃털 생성 즉시, W(Fan Dance III) 프록 즉시",
+            "에스프리 50+ 시 4(Saber Dance)"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "S3(Technical Step) → 기교 마무리 → T(Devilment)",
+            "E(Flourish) → Q(Fan Dance I) + W(Fan Dance III) + S4(Fan Dance IV) 즉시 소비",
+            "4(Saber Dance) 에스프리 최대 소비"
+          ]
+        }
+      ]
+    }
   ],
-  caster: [
-    { id:'blm', name:'Black Mage', kr:'흑마도사', abbr:'BLM', emoji:'🌑', color:'#6060e0',
-      desc:'AF3에서 파이쟈(1) 연발 → Despair(4) → 블리자가(3)로 UI3 전환 → 마나 회복 → 반복. 이동 극도로 자제. 고보상 고숙련.',
-      diff:5, guide:'https://na.finalfantasyxiv.com/jobguide/blackmage/',
-      mechanics:[
-        {name:'AF/UI 루프', desc:'파이가(2) → 파이쟈(1) × 3~4 → Despair(4) (마나 소진) → 블리자가(3) → 블리자쟈(6) → 마나 회복 → 반복.'},
-        {name:'폴리글롯 게이지 (Q)', desc:'30초마다 1개 적립 (최대 3). Xenoglossy(Q) = 즉시 시전 강타. 이동 중에 소비 가능.'},
-        {name:'2분 버스트', desc:'흑마법 문양(R) + Amplifier(E) + 삼연속 마법(W) 동시 → 불꽃 페이즈에서 Xenoglossy × 3 + Fire IV 추가.'},
+  "caster": [
+    {
+      "id": "blm",
+      "name": "Black Mage",
+      "kr": "흑마도사",
+      "abbr": "BLM",
+      "emoji": "🌑",
+      "color": "#6060e0",
+      "desc": "AF3에서 Fire IV(1) 연발 → Despair(4) → Blizzard III(3)로 UI3 전환 → 마나 회복 → 반복. 이동 극도로 자제. 고보상 고숙련.",
+      "diff": 5,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/blackmage/",
+      "mechanics": [
+        {
+          "name": "AF/UI 루프",
+          "desc": "Fire III(2) → Fire IV(1) × 3~4 → Despair(4) (마나 소진) → Blizzard III(3) → Blizzard IV(6) → 마나 회복 → 반복."
+        },
+        {
+          "name": "폴리글롯 게이지 (Q)",
+          "desc": "30초마다 1개 적립 (최대 3). Xenoglossy(Q) = 즉시 시전 강타. 이동 중에 소비 가능."
+        },
+        {
+          "name": "2분 버스트",
+          "desc": "Ley Lines(R) + Amplifier(E) + Triplecast(W) 동시 → 불꽃 페이즈에서 Xenoglossy × 3 + Fire IV 추가."
+        }
       ],
-      skills:[
-        s('1','파이쟈','G','combo','AF3 중 주력기 (가장 많이 사용)'),
-        s('2','파이가','G','combo','AF3 진입기 (Flare Star 활성화)'),
-        s('3','블리자가','G','combo','UI3 진입기 (냉기 전환)'),
-        s('4','Despair','G','burst','AF3 마나 전부 소비 피니셔'),
-        s('5','Flare Star','G','burst','Astral Soul 6 소비 강타 (7.0 신기술)'),
-        s('6','블리자쟈','G','buff','UI3 중 Umbral Heart × 3 적립'),
-        s('Q','Xenoglossy','G','burst','폴리글롯 소비 즉시 강타 ★'),
-        s('W','삼연속 마법','o','buff','다음 3 시전 즉시화 (이동 가능)'),
-        s('E','Amplifier','o','buff','폴리글롯 즉시 +1 (120초)'),
-        s('R','흑마법 문양','o','buff','캐스팅 속도 장판 (120초)'),
-        s('T','Manafont','o','buff','마나 즉시 회복 (120초)'),
-        s('A','에테르 촉진','o','move','아군에게 순간이동'),
-        s('D','문양 도약','o','move','Ley Lines 위치로 귀환'),
-        s('S','속성 전환','o','util','AF/UI 즉시 전환 (5초 쿨)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F4','정신 교란','R','util','적 마법 방어 감소'),
-        s('S1','Blizzard II','G','aoe','AOE 냉기 (UI 진입)'),
-        s('S2','High Fire II','G','aoe','AOE 불꽃 (AF 중)'),
-        s('S3','금지된 언어','G','aoe','폴리글롯 소비 AOE 즉시'),
-        s('S4','플레어','G','aoe','AOE 피니셔 (마나 전소)'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Fire IV",
+          "type": "G",
+          "cat": "combo",
+          "note": "AF3 중 주력기 (가장 많이 사용)",
+          "gt": "https://garlandtools.org/db/#search/Fire%20IV"
+        },
+        {
+          "key": "2",
+          "name": "Fire III",
+          "type": "G",
+          "cat": "combo",
+          "note": "AF3 진입기 (Flare Star 활성화)",
+          "gt": "https://garlandtools.org/db/#search/Fire%20III"
+        },
+        {
+          "key": "3",
+          "name": "Blizzard III",
+          "type": "G",
+          "cat": "combo",
+          "note": "UI3 진입기 (냉기 전환)",
+          "gt": "https://garlandtools.org/db/#search/Blizzard%20III"
+        },
+        {
+          "key": "4",
+          "name": "Despair",
+          "type": "G",
+          "cat": "burst",
+          "note": "AF3 마나 전부 소비 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Despair"
+        },
+        {
+          "key": "5",
+          "name": "Flare Star",
+          "type": "G",
+          "cat": "burst",
+          "note": "Astral Soul 6 소비 강타 (7.0 신기술)",
+          "gt": "https://garlandtools.org/db/#search/Flare%20Star"
+        },
+        {
+          "key": "6",
+          "name": "Blizzard IV",
+          "type": "G",
+          "cat": "buff",
+          "note": "UI3 중 Umbral Heart × 3 적립",
+          "gt": "https://garlandtools.org/db/#search/Blizzard%20IV"
+        },
+        {
+          "key": "Q",
+          "name": "Xenoglossy",
+          "type": "G",
+          "cat": "burst",
+          "note": "폴리글롯 소비 즉시 강타 ★",
+          "gt": "https://garlandtools.org/db/#search/Xenoglossy"
+        },
+        {
+          "key": "W",
+          "name": "Triplecast",
+          "type": "o",
+          "cat": "buff",
+          "note": "다음 3 시전 즉시화 (이동 가능)",
+          "gt": "https://garlandtools.org/db/#search/Triplecast"
+        },
+        {
+          "key": "E",
+          "name": "Amplifier",
+          "type": "o",
+          "cat": "buff",
+          "note": "폴리글롯 즉시 +1 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Amplifier"
+        },
+        {
+          "key": "R",
+          "name": "Ley Lines",
+          "type": "o",
+          "cat": "buff",
+          "note": "캐스팅 속도 장판 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Ley%20Lines"
+        },
+        {
+          "key": "T",
+          "name": "Manafont",
+          "type": "o",
+          "cat": "buff",
+          "note": "마나 즉시 회복 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Manafont"
+        },
+        {
+          "key": "A",
+          "name": "Aetherial Manipulation",
+          "type": "o",
+          "cat": "move",
+          "note": "아군에게 순간이동",
+          "gt": "https://garlandtools.org/db/#search/Aetherial%20Manipulation"
+        },
+        {
+          "key": "D",
+          "name": "Between the Lines",
+          "type": "o",
+          "cat": "move",
+          "note": "Ley Lines 위치로 귀환",
+          "gt": "https://garlandtools.org/db/#search/Between%20the%20Lines"
+        },
+        {
+          "key": "S",
+          "name": "Transpose",
+          "type": "o",
+          "cat": "util",
+          "note": "AF/UI 즉시 전환 (5초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Transpose"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F4",
+          "name": "Addle",
+          "type": "R",
+          "cat": "util",
+          "note": "적 마법 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Addle"
+        },
+        {
+          "key": "S1",
+          "name": "Blizzard II",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 냉기 (UI 진입)",
+          "gt": "https://garlandtools.org/db/#search/Blizzard%20II"
+        },
+        {
+          "key": "S2",
+          "name": "High Fire II",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 불꽃 (AF 중)",
+          "gt": "https://garlandtools.org/db/#search/High%20Fire%20II"
+        },
+        {
+          "key": "S3",
+          "name": "Foul",
+          "type": "G",
+          "cat": "aoe",
+          "note": "폴리글롯 소비 AOE 즉시",
+          "gt": "https://garlandtools.org/db/#search/Foul"
+        },
+        {
+          "key": "S4",
+          "name": "Flare",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 피니셔 (마나 전소)",
+          "gt": "https://garlandtools.org/db/#search/Flare"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너 (5+7)', steps:['개전 4초 전: 2(파이가) 선제시전','파이쟈(1) × 5 → 5(Flare Star) → [R(흑마법문양)+W(삼연속마법) weave]','T(Manafont) → 파이쟈(1) × 7 → 5(Flare Star) → 4(Despair)','3(블리자가) → 6(블리자쟈) → Q(Xenoglossy) → 2(파이가) 재진입']},
-        {phase:'불꽃 페이즈 (AF3)', steps:['2(파이가) → 1(파이쟈) × 3~4 → 5(Flare Star) → 4(Despair)',
-          'Q(Xenoglossy) 즉시기 합산 삽입','3(블리자가)으로 냉기 전환']},
-        {phase:'냉기 페이즈 (UI3)', steps:['6(블리자쟈) → 마나 회복 대기',
-          'Q(Xenoglossy) / Thunder(변경 전 위치) 즉시기 소비',
-          '2(파이가)로 다시 불꽃 진입']},
-        {phase:'2분 버스트', steps:['R(흑마법 문양) + E(Amplifier) + W(삼연속 마법) 동시',
-          'T(Manafont)으로 마나 보충 → 추가 4(Despair)','Q(Xenoglossy) × 3 + 1(파이쟈) 반복']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너 (5+7)",
+          "steps": [
+            "개전 4초 전: 2(파이가) 선제시전",
+            "파이쟈(1) × 5 → 5(Flare Star) → [R(흑마법문양)+W(삼연속마법) weave]",
+            "T(Manafont) → 파이쟈(1) × 7 → 5(Flare Star) → 4(Despair)",
+            "3(블리자가) → 6(블리자쟈) → Q(Xenoglossy) → 2(파이가) 재진입"
+          ]
+        },
+        {
+          "phase": "불꽃 페이즈 (AF3)",
+          "steps": [
+            "2(파이가) → 1(파이쟈) × 3~4 → 5(Flare Star) → 4(Despair)",
+            "Q(Xenoglossy) 즉시기 합산 삽입",
+            "3(블리자가)으로 냉기 전환"
+          ]
+        },
+        {
+          "phase": "냉기 페이즈 (UI3)",
+          "steps": [
+            "6(블리자쟈) → 마나 회복 대기",
+            "Q(Xenoglossy) / Thunder(변경 전 위치) 즉시기 소비",
+            "2(파이가)로 다시 불꽃 진입"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "R(흑마법 문양) + E(Amplifier) + W(삼연속 마법) 동시",
+            "T(Manafont)으로 마나 보충 → 추가 4(Despair)",
+            "Q(Xenoglossy) × 3 + 1(파이쟈) 반복"
+          ]
+        }
+      ]
     },
-    { id:'smn', name:'Summoner', kr:'소환사', abbr:'SMN', emoji:'🌟', color:'#d0801a',
-      desc:'가루다/이프리트/티탄 소환 순환 → 바하무트/피닉스/솔라 바하무트 교대 대소환. 대부분 즉시 시전. 초보자 친화적.',
-      diff:1, guide:'https://na.finalfantasyxiv.com/jobguide/summoner/',
-      mechanics:[
-        {name:'소환 순환 (3~5번)', desc:'Garuda(3, 바람) → Ifrit(4, 불) → Titan(5, 대지) 순서로 소환. 각 소환 후 아케아나 기술 사용.'},
-        {name:'대소환 사이클 (R)', desc:'Bahamut → Phoenix → Solar Bahamut 교대 (각 2분 쿨). R 키 슬롯 교대로 활성화.'},
-        {name:'2분 버스트 (T)', desc:'T(Searing Light) + R(대소환) 동시 발동 → Enkindle(E) 사용 → 아케아나 기술 소비.'},
+    {
+      "id": "smn",
+      "name": "Summoner",
+      "kr": "소환사",
+      "abbr": "SMN",
+      "emoji": "🌟",
+      "color": "#d0801a",
+      "desc": "가루다/이프리트/티탄 소환 순환 → 바하무트/피닉스/솔라 바하무트 교대 대소환. 대부분 즉시 시전. 초보자 친화적.",
+      "diff": 1,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/summoner/",
+      "mechanics": [
+        {
+          "name": "소환 순환 (3~5번)",
+          "desc": "Garuda(3, 바람) → Ifrit(4, 불) → Titan(5, 대지) 순서로 소환. 각 소환 후 아케아나 기술 사용."
+        },
+        {
+          "name": "대소환 사이클 (R)",
+          "desc": "Bahamut → Phoenix → Solar Bahamut 교대 (각 2분 쿨). R 키 슬롯 교대로 활성화."
+        },
+        {
+          "name": "2분 버스트 (T)",
+          "desc": "T(Searing Light) + R(대소환) 동시 발동 → Enkindle(E) 사용 → 아케아나 기술 소비."
+        }
       ],
-      skills:[
-        s('1','루인가','G','combo','기본 GCD (즉시 시전)'),
-        s('2','Astral Flow','G','burst','소환 상태별 특수기 (가루다=에메랄드, 이프리트=루비, 티탄=토파즈)'),
-        s('3','Summon Garuda II','G','buff','가루다 소환 → 에메랄드 아케아나 활성화'),
-        s('4','Summon Ifrit II','G','buff','이프리트 소환 → 루비 아케아나 활성화'),
-        s('5','Summon Titan II','G','buff','티탄 소환 → 토파즈 아케아나 활성화'),
-        s('6','루인쟈','G','burst','프록 시 강화 즉시기'),
-        s('Q','Mountain Buster','o','burst','토파즈 아케아나 즉시 강타'),
-        s('W','Energie Drain','o','burst','아케아나 소비 즉시기'),
-        s('E','바하무트 점화','o','burst','대소환 강화 공격'),
-        s('R','바하무트 소환','o','buff','대소환 진입 (교대, 120초)'),
-        s('T','Searing Light','o','party','파티 마법 데미지 버프 (120초)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F2','Surecast','R','util','이동 중 시전 가능 (단발)'),
-        s('F4','정신 교란','R','util','적 마법 방어 감소'),
-        s('S1','쇠퇴','G','aoe','AOE 기본 GCD'),
-        s('S2','Astral Flare','G','aoe','AOE Astral Flow (소환 중)'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Ruin III",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 GCD (즉시 시전)",
+          "gt": "https://garlandtools.org/db/#search/Ruin%20III"
+        },
+        {
+          "key": "2",
+          "name": "Astral Flow",
+          "type": "G",
+          "cat": "burst",
+          "note": "소환 상태별 특수기 (가루다=에메랄드, 이프리트=루비, 티탄=토파즈)",
+          "gt": "https://garlandtools.org/db/#search/Astral%20Flow"
+        },
+        {
+          "key": "3",
+          "name": "Summon Garuda II",
+          "type": "G",
+          "cat": "buff",
+          "note": "가루다 소환 → 에메랄드 아케아나 활성화",
+          "gt": "https://garlandtools.org/db/#search/Summon%20Garuda%20II"
+        },
+        {
+          "key": "4",
+          "name": "Summon Ifrit II",
+          "type": "G",
+          "cat": "buff",
+          "note": "이프리트 소환 → 루비 아케아나 활성화",
+          "gt": "https://garlandtools.org/db/#search/Summon%20Ifrit%20II"
+        },
+        {
+          "key": "5",
+          "name": "Summon Titan II",
+          "type": "G",
+          "cat": "buff",
+          "note": "티탄 소환 → 토파즈 아케아나 활성화",
+          "gt": "https://garlandtools.org/db/#search/Summon%20Titan%20II"
+        },
+        {
+          "key": "6",
+          "name": "Ruin IV",
+          "type": "G",
+          "cat": "burst",
+          "note": "프록 시 강화 즉시기",
+          "gt": "https://garlandtools.org/db/#search/Ruin%20IV"
+        },
+        {
+          "key": "Q",
+          "name": "Mountain Buster",
+          "type": "o",
+          "cat": "burst",
+          "note": "토파즈 아케아나 즉시 강타",
+          "gt": "https://garlandtools.org/db/#search/Mountain%20Buster"
+        },
+        {
+          "key": "W",
+          "name": "Energie Drain",
+          "type": "o",
+          "cat": "burst",
+          "note": "아케아나 소비 즉시기",
+          "gt": "https://garlandtools.org/db/#search/Energie%20Drain"
+        },
+        {
+          "key": "E",
+          "name": "Enkindle Bahamut/Phoenix",
+          "type": "o",
+          "cat": "burst",
+          "note": "대소환 강화 공격",
+          "gt": "https://garlandtools.org/db/#search/Enkindle%20Bahamut%2FPhoenix"
+        },
+        {
+          "key": "R",
+          "name": "Summon Bahamut/Phoenix/Solar",
+          "type": "o",
+          "cat": "buff",
+          "note": "대소환 진입 (교대, 120초)",
+          "gt": "https://garlandtools.org/db/#search/Summon%20Bahamut%2FPhoenix%2FSolar"
+        },
+        {
+          "key": "T",
+          "name": "Searing Light",
+          "type": "o",
+          "cat": "party",
+          "note": "파티 마법 데미지 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Searing%20Light"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F2",
+          "name": "Surecast",
+          "type": "R",
+          "cat": "util",
+          "note": "이동 중 시전 가능 (단발)",
+          "gt": "https://garlandtools.org/db/#search/Surecast"
+        },
+        {
+          "key": "F4",
+          "name": "Addle",
+          "type": "R",
+          "cat": "util",
+          "note": "적 마법 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Addle"
+        },
+        {
+          "key": "S1",
+          "name": "Outburst",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 기본 GCD",
+          "gt": "https://garlandtools.org/db/#search/Outburst"
+        },
+        {
+          "key": "S2",
+          "name": "Astral Flare",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE Astral Flow (소환 중)",
+          "gt": "https://garlandtools.org/db/#search/Astral%20Flare"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['3(가루다 소환) → 2(Astral Flow) × 4 에메랄드 소비','T(Searing Light) + R(바하무트 소환) 동시','E(바하무트 점화) → 1(루인가) + Q(Mountain Buster)']},
-        {phase:'소환 순환 루프', steps:['3(Garuda) → 2(Astral Flow) × 4개 에메랄드 소비',
-          '4(Ifrit) → 2(Astral Flow) × 2개 루비 소비','5(Titan) → 2(Astral Flow) × 4개 토파즈 소비 + Q(Mountain Buster)','1(Ruin III) + 6(Ruin IV 프록) 사이에 채우기']},
-        {phase:'2분 버스트', steps:['T(Searing Light) + R(바하무트 소환) 동시',
-          'E(바하무트 점화) → 대소환 강화 공격','아케아나 기술 + Ruin 반복']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "3(가루다 소환) → 2(Astral Flow) × 4 에메랄드 소비",
+            "T(Searing Light) + R(바하무트 소환 / 피닉스 소환 / 솔 바하무트 소환) 동시",
+            "E(바하무트 점화 / 피닉스 점화) → 1(루인가) + Q(Mountain Buster)"
+          ]
+        },
+        {
+          "phase": "소환 순환 루프",
+          "steps": [
+            "3(Garuda) → 2(Astral Flow) × 4개 에메랄드 소비",
+            "4(Ifrit) → 2(Astral Flow) × 2개 루비 소비",
+            "5(Titan) → 2(Astral Flow) × 4개 토파즈 소비 + Q(Mountain Buster)",
+            "1(Ruin III) + 6(Ruin IV 프록) 사이에 채우기"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "T(Searing Light) + R(바하무트 소환 / 피닉스 소환 / 솔 바하무트 소환) 동시",
+            "E(바하무트 점화 / 피닉스 점화) → 대소환 강화 공격",
+            "아케아나 기술 + Ruin 반복"
+          ]
+        }
+      ]
     },
-    { id:'rdm', name:'Red Mage', kr:'적마도사', abbr:'RDM', emoji:'🌹', color:'#c02040',
-      desc:'흰/검 마나 균형 유지 → 80+ 시 Enchanted 인리포스트(4)로 근접 콤보 진입 → Scorch(S3) → Resolution(S4) 피니셔.',
-      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/redmage/',
-      mechanics:[
-        {name:'마나 균형 (흰/검)', desc:'버선더(2)/버에어로(3) 번갈아 사용해 흰·검 마나 균형 유지 (차이 30 이내). 불균형 시 패널티.'},
-        {name:'근접 검결 (80+ 마나)', desc:'인리포스트(4) → 인츠베르크하우(5) → 인르두블망(6) 3콤보. 완료 시 마나 스택 3개 → 버홀리/버플레어(S3) → Scorch(S3) → Resolution(S4).'},
-        {name:'2분 버스트', desc:'R(마나 증량) → 마나 +50 → T(성원) 파티 버프 → 근접 검결 즉시 진입.'},
+    {
+      "id": "rdm",
+      "name": "Red Mage",
+      "kr": "적마도사",
+      "abbr": "RDM",
+      "emoji": "🌹",
+      "color": "#c02040",
+      "desc": "흰/검 마나 균형 유지 → 80+ 시 Enchanted Riposte(4)로 근접 콤보 진입 → Scorch(S3) → Resolution(S4) 피니셔.",
+      "diff": 2,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/redmage/",
+      "mechanics": [
+        {
+          "name": "마나 균형 (흰/검)",
+          "desc": "Verthunder(2)/Veraero(3) 번갈아 사용해 흰·검 마나 균형 유지 (차이 30 이내). 불균형 시 패널티."
+        },
+        {
+          "name": "근접 검결 (80+ 마나)",
+          "desc": "Riposte(4) → Zwerchhau(5) → Redoublement(6) 3콤보. 완료 시 마나 스택 3개 → Verholy/Verflare(S3) → Scorch(S3) → Resolution(S4)."
+        },
+        {
+          "name": "2분 버스트",
+          "desc": "R(Manafication) → 마나 +50 → T(Embolden) 파티 버프 → 근접 검결 즉시 진입."
+        }
       ],
-      skills:[
-        s('1','졸트라','G','combo','기본 캐스팅 (마나 균형 보정)'),
-        s('2','버선더','G','combo','검은 마나 +6'),
-        s('3','버에어로','G','combo','흰 마나 +6'),
-        s('4','인리포스트','G','burst','근접 검결 1단 (80 마나 시 활성화)'),
-        s('5','인츠베르크하우','G','burst','근접 검결 2단'),
-        s('6','인르두블망','G','burst','근접 검결 3단'),
-        s('Q','플레슈','o','burst','단타 oGCD (25초 쿨)'),
-        s('W','콩트르 식스트','o','burst','범위 oGCD (45초 쿨)'),
-        s('E','버스톤/버케알','G','combo','프록 즉시 시전 기술 (흰/검 교대)'),
-        s('R','마나 증량','o','buff','마나 +50 (110초 쿨)'),
-        s('T','성원','o','party','파티 마법 데미지 버프 (120초)'),
-        s('A','코르 아 코르','o','move','돌진 이동기 (2충전)'),
-        s('D','데플라스망/겨루기','o','move','후퇴 이탈 (이동 없는 버전)'),
-        s('S','Magick Barrier','o','survival','파티 방어+클린즈 (120초)'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F4','정신 교란','R','util','적 마법 방어 감소'),
-        s('S1','버선더라','G','aoe','AOE 검은 마나'),
-        s('S2','버에어로라','G','aoe','AOE 흰 마나'),
-        s('S3','버홀리/버플레어→Scorch','G','burst','마나 스택 피니셔 1→2'),
-        s('S4','Resolution','G','burst','마나 스택 최종 피니셔'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Jolt III",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 캐스팅 (마나 균형 보정)",
+          "gt": "https://garlandtools.org/db/#search/Jolt%20III"
+        },
+        {
+          "key": "2",
+          "name": "Verthunder III",
+          "type": "G",
+          "cat": "combo",
+          "note": "검은 마나 +6",
+          "gt": "https://garlandtools.org/db/#search/Verthunder%20III"
+        },
+        {
+          "key": "3",
+          "name": "Veraero III",
+          "type": "G",
+          "cat": "combo",
+          "note": "흰 마나 +6",
+          "gt": "https://garlandtools.org/db/#search/Veraero%20III"
+        },
+        {
+          "key": "4",
+          "name": "Enchanted Riposte",
+          "type": "G",
+          "cat": "burst",
+          "note": "근접 검결 1단 (80 마나 시 활성화)",
+          "gt": "https://garlandtools.org/db/#search/Enchanted%20Riposte"
+        },
+        {
+          "key": "5",
+          "name": "Enchanted Zwerchhau",
+          "type": "G",
+          "cat": "burst",
+          "note": "근접 검결 2단",
+          "gt": "https://garlandtools.org/db/#search/Enchanted%20Zwerchhau"
+        },
+        {
+          "key": "6",
+          "name": "Enchanted Redoublement",
+          "type": "G",
+          "cat": "burst",
+          "note": "근접 검결 3단",
+          "gt": "https://garlandtools.org/db/#search/Enchanted%20Redoublement"
+        },
+        {
+          "key": "Q",
+          "name": "Fleche",
+          "type": "o",
+          "cat": "burst",
+          "note": "단타 oGCD (25초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Fleche"
+        },
+        {
+          "key": "W",
+          "name": "Contre Sixte",
+          "type": "o",
+          "cat": "burst",
+          "note": "범위 oGCD (45초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Contre%20Sixte"
+        },
+        {
+          "key": "E",
+          "name": "Verstone / Vercure",
+          "type": "G",
+          "cat": "combo",
+          "note": "프록 즉시 시전 기술 (흰/검 교대)",
+          "gt": "https://garlandtools.org/db/#search/Verstone%20%2F%20Vercure"
+        },
+        {
+          "key": "R",
+          "name": "Manafication",
+          "type": "o",
+          "cat": "buff",
+          "note": "마나 +50 (110초 쿨)",
+          "gt": "https://garlandtools.org/db/#search/Manafication"
+        },
+        {
+          "key": "T",
+          "name": "Embolden",
+          "type": "o",
+          "cat": "party",
+          "note": "파티 마법 데미지 버프 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Embolden"
+        },
+        {
+          "key": "A",
+          "name": "Corps-a-corps",
+          "type": "o",
+          "cat": "move",
+          "note": "돌진 이동기 (2충전)",
+          "gt": "https://garlandtools.org/db/#search/Corps-a-corps"
+        },
+        {
+          "key": "D",
+          "name": "Displacement / Engagement",
+          "type": "o",
+          "cat": "move",
+          "note": "후퇴 이탈 (이동 없는 버전)",
+          "gt": "https://garlandtools.org/db/#search/Displacement%20%2F%20Engagement"
+        },
+        {
+          "key": "S",
+          "name": "Magick Barrier",
+          "type": "o",
+          "cat": "survival",
+          "note": "파티 방어+클린즈 (120초)",
+          "gt": "https://garlandtools.org/db/#search/Magick%20Barrier"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F4",
+          "name": "Addle",
+          "type": "R",
+          "cat": "util",
+          "note": "적 마법 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Addle"
+        },
+        {
+          "key": "S1",
+          "name": "Verthunder II",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 검은 마나",
+          "gt": "https://garlandtools.org/db/#search/Verthunder%20II"
+        },
+        {
+          "key": "S2",
+          "name": "Veraero II",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 흰 마나",
+          "gt": "https://garlandtools.org/db/#search/Veraero%20II"
+        },
+        {
+          "key": "S3",
+          "name": "Verholy / Verflare → Scorch",
+          "type": "G",
+          "cat": "burst",
+          "note": "마나 스택 피니셔 1→2",
+          "gt": "https://garlandtools.org/db/#search/Verholy%20%2F%20Verflare%20%E2%86%92%20Scorch"
+        },
+        {
+          "key": "S4",
+          "name": "Resolution",
+          "type": "G",
+          "cat": "burst",
+          "note": "마나 스택 최종 피니셔",
+          "gt": "https://garlandtools.org/db/#search/Resolution"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['2(버선더) → 3(버에어로) 마나 충전','R(마나 증량) + T(성원) 동시 발동','인리포스트(4) → 인츠베르크하우(5) → 인르두블망(6) → 버홀리/버플레어 → Scorch → Resolution']},
-        {phase:'기본 루프 (마나 충전)', steps:['2(Verthunder) + 3(Veraero) 번갈아 마나 충전',
-          'E(Verstone/Vercure) 프록 즉시 삽입','Q(플레슈) + W(콩트르 식스트) 쿨마다 소비',
-          '80+ 마나 시 인리포스트→인츠베르크하우→인르두블망 근접 콤보 → S3 → S3 → S4 피니셔']},
-        {phase:'2분 버스트', steps:['R(마나 증량) → 마나 +50 즉시','T(성원) 파티 버프 동시',
-          '인리포스트→인츠베르크하우→인르두블망 근접 콤보 → S3(버홀리/Scorch) → S4(Resolution)','Q(플레슈) + W(콩트르 식스트) 즉시 소비']},
-      ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "2(버선더가) → 3(버에어로가) 마나 충전",
+            "R(마나 증량) + T(성원) 동시 발동",
+            "인리포스트(4) → 인츠베르크하우(5) → 인르두블망(6) → 버홀리/버플레어 → Scorch → Resolution"
+          ]
+        },
+        {
+          "phase": "기본 루프 (마나 충전)",
+          "steps": [
+            "2(Verthunder) + 3(Veraero) 번갈아 마나 충전",
+            "E(Verstone/Vercure) 프록 즉시 삽입",
+            "Q(플레슈) + W(콩트르 식스트) 쿨마다 소비",
+            "80+ 마나 시 인리포스트→인츠베르크하우→인르두블망 근접 콤보 → S3 → S3 → S4 피니셔"
+          ]
+        },
+        {
+          "phase": "2분 버스트",
+          "steps": [
+            "R(마나 증량) → 마나 +50 즉시",
+            "T(성원) 파티 버프 동시",
+            "인리포스트→인츠베르크하우→인르두블망 근접 콤보 → S3(버홀리/Scorch) → S4(Resolution)",
+            "Q(플레슈) + W(콩트르 식스트) 즉시 소비"
+          ]
+        }
+      ]
     },
-    { id:'pct', name:'Pictomancer', kr:'픽토맨서', abbr:'PCT', emoji:'🎨', color:'#e060a0',
-      desc:'Fire/Aero/Water 3색 기본 콤보 + 크리처/해머/경관 모티프 그리기(R/W/E) → 소환·발동. Starry Muse(T) 파티 버프. 7.0 신직업.',
-      diff:2, guide:'https://na.finalfantasyxiv.com/jobguide/pictomancer/',
-      mechanics:[
-        {name:'모티프 3종 그리기', desc:'R(동물 그림) → Q(Living Muse 소환), W(Hammer Motif) → S2(Striking Muse), E(Scenic Motif) → S3(Scenic Muse). 버스트 전에 미리 그려두기.'},
-        {name:'팔레트 게이지', desc:'1/2/3 기본 콤보로 팔레트 적립. 4(Holy in White) + 6(Comet in Black)으로 소비. 즉시 시전.'},
-        {name:'Starry Muse 버스트 (T)', desc:'T(Starry Muse, 120초) = 파티 버프 + Hyperphantasia 5회 가속 시전. Star Prism(S2) + Rainbow Drip(S3) 활성화.'},
+    {
+      "id": "pct",
+      "name": "Pictomancer",
+      "kr": "픽토맨서",
+      "abbr": "PCT",
+      "emoji": "🎨",
+      "color": "#e060a0",
+      "desc": "Fire/Aero/Water 3색 기본 콤보 + 크리처/해머/경관 모티프 그리기(R/W/E) → 소환·발동. Starry Muse(T) 파티 버프. 7.0 신직업.",
+      "diff": 2,
+      "guide": "https://na.finalfantasyxiv.com/jobguide/pictomancer/",
+      "mechanics": [
+        {
+          "name": "모티프 3종 그리기",
+          "desc": "R(Creature Motif) → Q(Living Muse 소환), W(Hammer Motif) → S2(Striking Muse), E(Scenic Motif) → S3(Scenic Muse). 버스트 전에 미리 그려두기."
+        },
+        {
+          "name": "팔레트 게이지",
+          "desc": "1/2/3 기본 콤보로 팔레트 적립. 4(Holy in White) + 6(Comet in Black)으로 소비. 즉시 시전."
+        },
+        {
+          "name": "Starry Muse 버스트 (T)",
+          "desc": "T(Starry Muse, 120초) = 파티 버프 + Hyperphantasia 5회 가속 시전. Star Prism(S2) + Rainbow Drip(S3) 활성화."
+        }
       ],
-      skills:[
-        s('1','Fire in Red','G','combo','기본 공격 1 (팔레트 적립)'),
-        s('2','Aero in Green','G','combo','기본 공격 2 (팔레트 적립)'),
-        s('3','Water in Blue','G','combo','기본 공격 3 (팔레트 적립)'),
-        s('4','Holy in White','G','burst','팔레트 소비 즉시 강타 (Canvas 활성화)'),
-        s('5','Thunder in Magenta','G','dot','번개 DoT 적용'),
-        s('6','Comet in Black','G','burst','팔레트 소비 강타 (Subtractive 콤보 후)'),
-        s('Q','생명 뮤즈','o','burst','크리처 소환 (동물 그림 후)'),
-        s('W','강타 뮤즈','o','buff','해머 소환 → Hammer Stamp 활성화'),
-        s('E','경치 뮤즈','o','buff','경관 소환 → Starry Muse 선행'),
-        s('R','동물 그림','G','buff','크리처 그리기 (긴 시전, 버스트 전 준비)'),
-        s('T','별빛 뮤즈','o','party','파티 버프 + 가속 시전 5회 (120초) ★'),
-        s('A','번짐','o','move','소폭 이동기'),
-        s('S','Tempera Coat','o','survival','자신 실드'),
-        s('F1','내단','R','survival','셀프 힐'),
-        s('F4','정신 교란','R','util','적 마법 방어 감소'),
-        s('S1','Fire II in Red','G','aoe','AOE 기본 공격'),
-        s('S2','Star Prism','G','burst','Starry Muse 버스트 중 특수기 ★'),
-        s('S3','Rainbow Drip','G','burst','버스트 중 강타 ★'),
-        s('S4','Hammer Stamp','G','burst','해머 3연타 시리즈 1타'),
+      "skills": [
+        {
+          "key": "1",
+          "name": "Fire in Red",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 공격 1 (팔레트 적립)",
+          "gt": "https://garlandtools.org/db/#search/Fire%20in%20Red"
+        },
+        {
+          "key": "2",
+          "name": "Aero in Green",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 공격 2 (팔레트 적립)",
+          "gt": "https://garlandtools.org/db/#search/Aero%20in%20Green"
+        },
+        {
+          "key": "3",
+          "name": "Water in Blue",
+          "type": "G",
+          "cat": "combo",
+          "note": "기본 공격 3 (팔레트 적립)",
+          "gt": "https://garlandtools.org/db/#search/Water%20in%20Blue"
+        },
+        {
+          "key": "4",
+          "name": "Holy in White",
+          "type": "G",
+          "cat": "burst",
+          "note": "팔레트 소비 즉시 강타 (Canvas 활성화)",
+          "gt": "https://garlandtools.org/db/#search/Holy%20in%20White"
+        },
+        {
+          "key": "5",
+          "name": "Thunder in Magenta",
+          "type": "G",
+          "cat": "dot",
+          "note": "번개 DoT 적용",
+          "gt": "https://garlandtools.org/db/#search/Thunder%20in%20Magenta"
+        },
+        {
+          "key": "6",
+          "name": "Comet in Black",
+          "type": "G",
+          "cat": "burst",
+          "note": "팔레트 소비 강타 (Subtractive 콤보 후)",
+          "gt": "https://garlandtools.org/db/#search/Comet%20in%20Black"
+        },
+        {
+          "key": "Q",
+          "name": "Living Muse",
+          "type": "o",
+          "cat": "burst",
+          "note": "크리처 소환 (Creature Motif 후)",
+          "gt": "https://garlandtools.org/db/#search/Living%20Muse"
+        },
+        {
+          "key": "W",
+          "name": "Striking Muse",
+          "type": "o",
+          "cat": "buff",
+          "note": "해머 소환 → Hammer Stamp 활성화",
+          "gt": "https://garlandtools.org/db/#search/Striking%20Muse"
+        },
+        {
+          "key": "E",
+          "name": "Scenic Muse",
+          "type": "o",
+          "cat": "buff",
+          "note": "경관 소환 → Starry Muse 선행",
+          "gt": "https://garlandtools.org/db/#search/Scenic%20Muse"
+        },
+        {
+          "key": "R",
+          "name": "Creature Motif",
+          "type": "G",
+          "cat": "buff",
+          "note": "크리처 그리기 (긴 시전, 버스트 전 준비)",
+          "gt": "https://garlandtools.org/db/#search/Creature%20Motif"
+        },
+        {
+          "key": "T",
+          "name": "Starry Muse",
+          "type": "o",
+          "cat": "party",
+          "note": "파티 버프 + 가속 시전 5회 (120초) ★",
+          "gt": "https://garlandtools.org/db/#search/Starry%20Muse"
+        },
+        {
+          "key": "A",
+          "name": "Smudge",
+          "type": "o",
+          "cat": "move",
+          "note": "소폭 이동기",
+          "gt": "https://garlandtools.org/db/#search/Smudge"
+        },
+        {
+          "key": "S",
+          "name": "Tempera Coat",
+          "type": "o",
+          "cat": "survival",
+          "note": "자신 실드",
+          "gt": "https://garlandtools.org/db/#search/Tempera%20Coat"
+        },
+        {
+          "key": "F1",
+          "name": "Second Wind",
+          "type": "R",
+          "cat": "survival",
+          "note": "셀프 힐",
+          "gt": "https://garlandtools.org/db/#search/Second%20Wind"
+        },
+        {
+          "key": "F4",
+          "name": "Addle",
+          "type": "R",
+          "cat": "util",
+          "note": "적 마법 방어 감소",
+          "gt": "https://garlandtools.org/db/#search/Addle"
+        },
+        {
+          "key": "S1",
+          "name": "Fire II in Red",
+          "type": "G",
+          "cat": "aoe",
+          "note": "AOE 기본 공격",
+          "gt": "https://garlandtools.org/db/#search/Fire%20II%20in%20Red"
+        },
+        {
+          "key": "S2",
+          "name": "Star Prism",
+          "type": "G",
+          "cat": "burst",
+          "note": "Starry Muse 버스트 중 특수기 ★",
+          "gt": "https://garlandtools.org/db/#search/Star%20Prism"
+        },
+        {
+          "key": "S3",
+          "name": "Rainbow Drip",
+          "type": "G",
+          "cat": "burst",
+          "note": "버스트 중 강타 ★",
+          "gt": "https://garlandtools.org/db/#search/Rainbow%20Drip"
+        },
+        {
+          "key": "S4",
+          "name": "Hammer Stamp",
+          "type": "G",
+          "cat": "burst",
+          "note": "해머 3연타 시리즈 1타",
+          "gt": "https://garlandtools.org/db/#search/Hammer%20Stamp"
+        }
       ],
-      rotation:[
-        {phase:'개전 오프너', steps:['전투 전 R(동물 그림) 미리 그리기','T(Starry Muse) 발동 → Q(Living Muse) 소환','S2(Star Prism) + S3(Rainbow Drip) + W(Striking Muse) 버스트 소비']},
-        {phase:'기본 루프', steps:['1→2→3 기본 콤보로 팔레트 적립','R(동물 그림) 미리 그려두기',
-          '4(Holy in White) + 6(Comet in Black) 팔레트 소비 삽입','W(Striking Muse) → Hammer Stamp 시리즈 사용']},
-        {phase:'2분 버스트 (Starry Muse)', steps:['E(Scenic Muse) 선행 → T(Starry Muse) 파티 버프',
-          'Q(Living Muse) 크리처 소환','가속 시전 5회 → S2(Star Prism) + S3(Rainbow Drip) 발동',
-          'W(Striking Muse) → Hammer Stamp 3연타']},
-      ],
-    },
-  ],
+      "rotation": [
+        {
+          "phase": "개전 오프너",
+          "steps": [
+            "전투 전 R(동물 그림) 미리 그리기",
+            "T(Starry Muse) 발동 → Q(Living Muse) 소환",
+            "S2(Star Prism) + S3(Rainbow Drip) + W(Striking Muse) 버스트 소비"
+          ]
+        },
+        {
+          "phase": "기본 루프",
+          "steps": [
+            "1→2→3 기본 콤보로 팔레트 적립",
+            "R(동물 그림) 미리 그려두기",
+            "4(Holy in White) + 6(Comet in Black) 팔레트 소비 삽입",
+            "W(Striking Muse) → Hammer Stamp 시리즈 사용"
+          ]
+        },
+        {
+          "phase": "2분 버스트 (Starry Muse)",
+          "steps": [
+            "E(Scenic Muse) 선행 → T(Starry Muse) 파티 버프",
+            "Q(Living Muse) 크리처 소환",
+            "가속 시전 5회 → S2(Star Prism) + S3(Rainbow Drip) 발동",
+            "W(Striking Muse) → Hammer Stamp 3연타"
+          ]
+        }
+      ]
+    }
+  ]
 };
+
+// Local game icons. See icon-manifest.json for Action IDs and sources.
+const SKILL_ICONS = {"Leaping Opo":[{"name":"Leaping Opo","id":36945,"src":"assets/icons/2982.png"}],"Rising Raptor":[{"name":"Rising Raptor","id":36946,"src":"assets/icons/2983.png"}],"Pouncing Coeurl":[{"name":"Pouncing Coeurl","id":36947,"src":"assets/icons/2984.png"}],"Dragon Kick":[{"name":"Dragon Kick","id":74,"src":"assets/icons/2528.png"}],"Twin Snakes":[{"name":"Twin Snakes","id":61,"src":"assets/icons/213.png"}],"Masterful Blitz":[{"name":"Masterful Blitz","id":25764,"src":"assets/icons/2976.png"}],"Perfect Balance":[{"name":"Perfect Balance","id":69,"src":"assets/icons/217.png"}],"Riddle of Wind":[{"name":"Riddle of Wind","id":25766,"src":"assets/icons/2978.png"}],"The Forbidden Chakra":[{"name":"the Forbidden Chakra","id":3547,"src":"assets/icons/2535.png"}],"Riddle of Fire":[{"name":"Riddle of Fire","id":7395,"src":"assets/icons/2541.png"}],"Brotherhood":[{"name":"Brotherhood","id":7396,"src":"assets/icons/2542.png"}],"Thunderclap":[{"name":"Thunderclap","id":25762,"src":"assets/icons/2975.png"}],"Mantra":[{"name":"Mantra","id":65,"src":"assets/icons/216.png"}],"Second Wind":[{"name":"Second Wind","id":7541,"src":"assets/icons/821.png"}],"Bloodbath":[{"name":"Bloodbath","id":7542,"src":"assets/icons/823.png"}],"Feint":[{"name":"Feint","id":7549,"src":"assets/icons/828.png"}],"Shadow of the Destroyer":[{"name":"Shadow of the Destroyer","id":25767,"src":"assets/icons/2979.png"}],"Four-point Fury":[{"name":"Four-point Fury","id":16473,"src":"assets/icons/2544.png"}],"Enlightenment":[{"name":"Enlightenment","id":16474,"src":"assets/icons/2545.png"}],"Raiden Thrust":[{"name":"Raiden Thrust","id":16479,"src":"assets/icons/2592.png"}],"Disembowel":[{"name":"Disembowel","id":87,"src":"assets/icons/317.png"}],"Chaotic Spring":[{"name":"Chaotic Spring","id":25772,"src":"assets/icons/2596.png"}],"Vorpal Thrust":[{"name":"Vorpal Thrust","id":78,"src":"assets/icons/312.png"}],"Heavens' Thrust":[{"name":"Heavens' Thrust","id":25771,"src":"assets/icons/2595.png"}],"Wyrmwind Thrust":[{"name":"Wyrmwind Thrust","id":25773,"src":"assets/icons/2597.png"}],"High Jump":[{"name":"High Jump","id":16478,"src":"assets/icons/2591.png"}],"Nastrond":[{"name":"Nastrond","id":7400,"src":"assets/icons/2589.png"}],"Geirskogul":[{"name":"Geirskogul","id":3555,"src":"assets/icons/2583.png"}],"Lance Charge":[{"name":"Lance Charge","id":85,"src":"assets/icons/309.png"}],"Battle Litany":[{"name":"Battle Litany","id":3557,"src":"assets/icons/2585.png"}],"Spineshatter Dive":[],"Dragonfire Dive":[{"name":"Dragonfire Dive","id":96,"src":"assets/icons/2578.png"}],"Life Surge":[{"name":"Life Surge","id":83,"src":"assets/icons/304.png"}],"Doom Spike":[{"name":"Doom Spike","id":86,"src":"assets/icons/306.png"}],"Sonic Thrust":[{"name":"Sonic Thrust","id":7397,"src":"assets/icons/2586.png"}],"Coerthan Torment":[{"name":"Coerthan Torment","id":16477,"src":"assets/icons/2590.png"}],"Spinning Edge":[{"name":"Spinning Edge","id":2240,"src":"assets/icons/601.png"}],"Gust Slash":[{"name":"Gust Slash","id":2242,"src":"assets/icons/602.png"}],"Aeolian Edge":[{"name":"Aeolian Edge","id":2255,"src":"assets/icons/605.png"}],"Armor Crush":[{"name":"Armor Crush","id":3563,"src":"assets/icons/2915.png"}],"Raiju (프록 시)":[{"name":"Forked Raiju","id":25777,"src":"assets/icons/2931.png"},{"name":"Fleeting Raiju","id":25778,"src":"assets/icons/2932.png"}],"Bhavacakra":[{"name":"Bhavacakra","id":7402,"src":"assets/icons/2921.png"}],"Ten (무드라 1)":[{"name":"Ten","id":2259,"src":"assets/icons/2901.png"}],"Chi (무드라 2)":[{"name":"Chi","id":2261,"src":"assets/icons/2902.png"}],"Jin (무드라 3)":[{"name":"Jin","id":2263,"src":"assets/icons/2903.png"}],"Bunshin":[{"name":"Bunshin","id":16493,"src":"assets/icons/2927.png"}],"Kunai's Bane":[{"name":"Kunai's Bane","id":36958,"src":"assets/icons/620.png"}],"Shukuchi":[{"name":"Shukuchi","id":2262,"src":"assets/icons/2905.png"}],"Mug":[{"name":"Mug","id":2248,"src":"assets/icons/613.png"}],"Death Blossom":[{"name":"Death Blossom","id":2254,"src":"assets/icons/615.png"}],"Hakke Mujinsatsu":[{"name":"Hakke Mujinsatsu","id":16488,"src":"assets/icons/2923.png"}],"Gyofu":[{"name":"Gyofu","id":36963,"src":"assets/icons/3191.png"}],"Yukikaze":[{"name":"Yukikaze","id":7480,"src":"assets/icons/3166.png"}],"Jinpu":[{"name":"Jinpu","id":7478,"src":"assets/icons/3152.png"}],"Gekko":[{"name":"Gekko","id":7481,"src":"assets/icons/3158.png"}],"Shifu":[{"name":"Shifu","id":7479,"src":"assets/icons/3156.png"}],"Kasha":[{"name":"Kasha","id":7482,"src":"assets/icons/3164.png"}],"Hissatsu: Shinten":[{"name":"Hissatsu: Shinten","id":7490,"src":"assets/icons/3173.png"}],"Meikyo Shisui":[{"name":"Meikyo Shisui","id":7499,"src":"assets/icons/3167.png"}],"Ikishoten":[{"name":"Ikishoten","id":16482,"src":"assets/icons/3179.png"}],"Tsubame-gaeshi":[{"name":"Tsubame-gaeshi","id":16483,"src":"assets/icons/3180.png"}],"Ogi Namikiri":[{"name":"Ogi Namikiri","id":25781,"src":"assets/icons/3187.png"}],"Third Eye":[{"name":"Third Eye","id":7498,"src":"assets/icons/3153.png"}],"Fuko":[{"name":"Fuko","id":25780,"src":"assets/icons/3189.png"}],"Mangetsu":[{"name":"Mangetsu","id":7484,"src":"assets/icons/3163.png"}],"Tenka Goken":[{"name":"Tenka Goken","id":7488,"src":"assets/icons/3161.png"}],"Slice":[{"name":"Slice","id":24373,"src":"assets/icons/3601.png"}],"Waxing Slice":[{"name":"Waxing Slice","id":24374,"src":"assets/icons/3602.png"}],"Infernal Slice":[{"name":"Infernal Slice","id":24375,"src":"assets/icons/3603.png"}],"Gibbet":[{"name":"Gibbet","id":24382,"src":"assets/icons/3610.png"}],"Shadow of Death":[{"name":"Shadow of Death","id":24378,"src":"assets/icons/3606.png"}],"Gallows":[{"name":"Gallows","id":24383,"src":"assets/icons/3611.png"}],"Soul Slice":[{"name":"Soul Slice","id":24380,"src":"assets/icons/3608.png"}],"Gluttony":[{"name":"Gluttony","id":24393,"src":"assets/icons/3621.png"}],"Enshroud":[{"name":"Enshroud","id":24394,"src":"assets/icons/3622.png"}],"Plentiful Harvest":[{"name":"Plentiful Harvest","id":24385,"src":"assets/icons/3613.png"}],"Arcane Circle":[{"name":"Arcane Circle","id":24405,"src":"assets/icons/3633.png"}],"Hell's Ingress":[{"name":"Hell's Ingress","id":24401,"src":"assets/icons/3629.png"}],"Regress":[{"name":"Regress","id":24403,"src":"assets/icons/3631.png"}],"Arcane Crest":[{"name":"Arcane Crest","id":24404,"src":"assets/icons/3632.png"}],"Spinning Scythe":[{"name":"Spinning Scythe","id":24376,"src":"assets/icons/3604.png"}],"Nightmare Scythe":[{"name":"Nightmare Scythe","id":24377,"src":"assets/icons/3605.png"}],"Circle of Death":[{"name":"Whorl of Death","id":24379,"src":"assets/icons/3607.png"}],"Grim Reaping":[{"name":"Grim Reaping","id":24397,"src":"assets/icons/3625.png"}],"Steel Fangs":[{"name":"Steel Fangs","id":34606,"src":"assets/icons/3701.png"}],"Reaving Fangs":[{"name":"Reaving Fangs","id":34607,"src":"assets/icons/3702.png"}],"Hunter's/Swiftskin's Sting":[{"name":"Hunter's Sting","id":34608,"src":"assets/icons/3703.png"},{"name":"Swiftskin's Sting","id":34609,"src":"assets/icons/3704.png"}],"Flanksting/Hindsting Strike":[{"name":"Flanksting Strike","id":34610,"src":"assets/icons/3705.png"},{"name":"Hindsting Strike","id":34612,"src":"assets/icons/3707.png"}],"Reawaken":[{"name":"Reawaken","id":34626,"src":"assets/icons/3721.png"}],"Vicewinder":[{"name":"Vicewinder","id":34620,"src":"assets/icons/3715.png"}],"Hunter's Coil":[{"name":"Hunter's Coil","id":34621,"src":"assets/icons/3716.png"}],"Swiftskin's Coil":[{"name":"Swiftskin's Coil","id":34622,"src":"assets/icons/3717.png"}],"Serpent's Ire":[{"name":"Serpent's Ire","id":34647,"src":"assets/icons/3742.png"}],"Slither":[{"name":"Slither","id":34646,"src":"assets/icons/3741.png"}],"Steel Maw":[{"name":"Steel Maw","id":34614,"src":"assets/icons/3709.png"}],"Reaving Maw":[{"name":"Reaving Maw","id":34615,"src":"assets/icons/3710.png"}],"Hunter's/Swiftskin's Bite":[{"name":"Hunter's Bite","id":34616,"src":"assets/icons/3711.png"},{"name":"Swiftskin's Bite","id":34617,"src":"assets/icons/3712.png"}],"Burst Shot":[{"name":"Burst Shot","id":16495,"src":"assets/icons/2618.png"}],"Refulgent Arrow":[{"name":"Refulgent Arrow","id":7409,"src":"assets/icons/2616.png"}],"Iron Jaws":[{"name":"Iron Jaws","id":3560,"src":"assets/icons/2608.png"}],"Apex Arrow":[{"name":"Apex Arrow","id":16496,"src":"assets/icons/2619.png"}],"Stormbite":[{"name":"Stormbite","id":7407,"src":"assets/icons/2614.png"}],"Caustic Bite":[{"name":"Caustic Bite","id":7406,"src":"assets/icons/2613.png"}],"Pitch Perfect":[{"name":"Pitch Perfect","id":7404,"src":"assets/icons/2611.png"}],"Empyreal Arrow":[{"name":"Empyreal Arrow","id":3558,"src":"assets/icons/2606.png"}],"Sidewinder":[{"name":"Sidewinder","id":3562,"src":"assets/icons/2610.png"}],"Raging Strikes":[{"name":"Raging Strikes","id":101,"src":"assets/icons/352.png"}],"Battle Voice":[{"name":"Battle Voice","id":118,"src":"assets/icons/2601.png"}],"Troubadour":[{"name":"Troubadour","id":7405,"src":"assets/icons/2612.png"}],"Head Graze":[{"name":"Head Graze","id":7551,"src":"assets/icons/848.png"}],"The Wanderer's Minuet":[{"name":"the Wanderer's Minuet","id":3559,"src":"assets/icons/2607.png"}],"Mage's Ballad":[{"name":"Mage's Ballad","id":114,"src":"assets/icons/2602.png"}],"Army's Paeon":[{"name":"Army's Paeon","id":116,"src":"assets/icons/2603.png"}],"Radiant Finale":[{"name":"Radiant Finale","id":25785,"src":"assets/icons/2622.png"}],"Heated Split Shot":[{"name":"Heated Split Shot","id":7411,"src":"assets/icons/3031.png"}],"Heated Slug Shot":[{"name":"Heated Slug Shot","id":7412,"src":"assets/icons/3032.png"}],"Heated Clean Shot":[{"name":"Heated Clean Shot","id":7413,"src":"assets/icons/3033.png"}],"Heat Blast":[{"name":"Heat Blast","id":7410,"src":"assets/icons/3030.png"}],"Drill":[{"name":"Drill","id":16498,"src":"assets/icons/3043.png"}],"Air Anchor":[{"name":"Air Anchor","id":16500,"src":"assets/icons/3045.png"}],"Hypercharge":[{"name":"Hypercharge","id":17209,"src":"assets/icons/3041.png"}],"Gauss Round":[{"name":"Gauss Round","id":2874,"src":"assets/icons/3005.png"}],"Ricochet":[{"name":"Ricochet","id":2890,"src":"assets/icons/3017.png"}],"Reassemble":[{"name":"Reassemble","id":2876,"src":"assets/icons/3022.png"}],"Wildfire":[{"name":"Wildfire","id":2878,"src":"assets/icons/3018.png"}],"Tactician":[{"name":"Tactician","id":16889,"src":"assets/icons/3040.png"}],"Leg Graze":[{"name":"Leg Graze","id":7554,"src":"assets/icons/843.png"}],"Scattergun":[{"name":"Scattergun","id":25786,"src":"assets/icons/3046.png"}],"Auto Crossbow":[{"name":"Auto Crossbow","id":16497,"src":"assets/icons/3042.png"}],"Chain Saw":[{"name":"Chain Saw","id":25788,"src":"assets/icons/3048.png"}],"Barrel Stabilizer":[{"name":"Barrel Stabilizer","id":7414,"src":"assets/icons/3034.png"}],"Cascade":[{"name":"Cascade","id":15989,"src":"assets/icons/3451.png"}],"Fountain":[{"name":"Fountain","id":15990,"src":"assets/icons/3452.png"}],"Reverse Cascade / Fountainfall":[{"name":"Reverse Cascade","id":15991,"src":"assets/icons/3460.png"},{"name":"Fountainfall","id":15992,"src":"assets/icons/3464.png"}],"Saber Dance":[{"name":"Saber Dance","id":16005,"src":"assets/icons/3476.png"}],"Fan Dance I":[{"name":"Fan Dance","id":16007,"src":"assets/icons/3462.png"}],"Fan Dance III":[{"name":"Fan Dance III","id":16009,"src":"assets/icons/3472.png"}],"Flourish":[{"name":"Flourish","id":16013,"src":"assets/icons/3475.png"}],"Standard Step":[{"name":"Standard Step","id":15997,"src":"assets/icons/3454.png"}],"Devilment":[{"name":"Devilment","id":16011,"src":"assets/icons/3471.png"}],"En Avant":[{"name":"En Avant","id":16010,"src":"assets/icons/3467.png"}],"Shield Samba":[{"name":"Shield Samba","id":16012,"src":"assets/icons/3469.png"}],"Curing Waltz":[{"name":"Curing Waltz","id":16015,"src":"assets/icons/3468.png"}],"Foot Graze":[{"name":"Foot Graze","id":7553,"src":"assets/icons/842.png"}],"Windmill":[{"name":"Windmill","id":15993,"src":"assets/icons/3453.png"}],"Rising Windmill / Bloodshower":[{"name":"Rising Windmill","id":15995,"src":"assets/icons/3463.png"},{"name":"Bloodshower","id":15996,"src":"assets/icons/3465.png"}],"Technical Step":[{"name":"Technical Step","id":15998,"src":"assets/icons/3473.png"}],"Fan Dance IV":[{"name":"Fan Dance IV","id":25791,"src":"assets/icons/3481.png"}],"Fire IV":[{"name":"Fire IV","id":3577,"src":"assets/icons/2660.png"}],"Fire III":[{"name":"Fire III","id":152,"src":"assets/icons/453.png"}],"Blizzard III":[{"name":"Blizzard III","id":154,"src":"assets/icons/456.png"}],"Despair":[{"name":"Despair","id":16505,"src":"assets/icons/2665.png"}],"Flare Star":[{"name":"Flare Star","id":36989,"src":"assets/icons/2151.png"}],"Blizzard IV":[{"name":"Blizzard IV","id":3576,"src":"assets/icons/2659.png"}],"Xenoglossy":[{"name":"Xenoglossy","id":16507,"src":"assets/icons/2667.png"}],"Triplecast":[{"name":"Triplecast","id":7421,"src":"assets/icons/2663.png"}],"Amplifier":[{"name":"Amplifier","id":25796,"src":"assets/icons/2671.png"}],"Ley Lines":[{"name":"Ley Lines","id":3573,"src":"assets/icons/2656.png"}],"Manafont":[{"name":"Manafont","id":158,"src":"assets/icons/2651.png"}],"Aetherial Manipulation":[{"name":"Aetherial Manipulation","id":155,"src":"assets/icons/467.png"}],"Between the Lines":[{"name":"Between the Lines","id":7419,"src":"assets/icons/2661.png"}],"Transpose":[{"name":"Transpose","id":149,"src":"assets/icons/466.png"}],"Addle":[{"name":"Addle","id":7560,"src":"assets/icons/861.png"}],"Blizzard II":[{"name":"Blizzard II","id":25793,"src":"assets/icons/2668.png"}],"High Fire II":[{"name":"High Fire II","id":25794,"src":"assets/icons/2669.png"}],"Foul":[{"name":"Foul","id":7422,"src":"assets/icons/2664.png"}],"Flare":[{"name":"Flare","id":162,"src":"assets/icons/2652.png"}],"Ruin III":[{"name":"Ruin III","id":3579,"src":"assets/icons/2682.png"}],"Astral Flow":[{"name":"Astral Flow","id":25822,"src":"assets/icons/2759.png"}],"Summon Garuda II":[{"name":"Summon Garuda II","id":25840,"src":"assets/icons/2774.png"}],"Summon Ifrit II":[{"name":"Summon Ifrit II","id":25838,"src":"assets/icons/2772.png"}],"Summon Titan II":[{"name":"Summon Titan II","id":25839,"src":"assets/icons/2773.png"}],"Ruin IV":[{"name":"Ruin IV","id":7426,"src":"assets/icons/2686.png"}],"Mountain Buster":[{"name":"Mountain Buster","id":25836,"src":"assets/icons/2770.png"}],"Energie Drain":[{"name":"Energy Drain","id":167,"src":"assets/icons/514.png"}],"Enkindle Bahamut/Phoenix":[{"name":"Enkindle Bahamut","id":7429,"src":"assets/icons/2693.png"},{"name":"Enkindle Phoenix","id":16516,"src":"assets/icons/2737.png"}],"Summon Bahamut/Phoenix/Solar":[{"name":"Summon Bahamut","id":7427,"src":"assets/icons/2691.png"},{"name":"Summon Phoenix","id":25831,"src":"assets/icons/2765.png"},{"name":"Summon Solar Bahamut","id":36992,"src":"assets/icons/2782.png"}],"Searing Light":[{"name":"Searing Light","id":25801,"src":"assets/icons/2780.png"}],"Surecast":[{"name":"Surecast","id":7559,"src":"assets/icons/869.png"}],"Outburst":[{"name":"Outburst","id":16511,"src":"assets/icons/2698.png"}],"Astral Flare":[{"name":"Astral Flare","id":25821,"src":"assets/icons/2758.png"}],"Jolt III":[{"name":"Jolt III","id":37004,"src":"assets/icons/3241.png"}],"Verthunder III":[{"name":"Verthunder III","id":25855,"src":"assets/icons/3235.png"}],"Veraero III":[{"name":"Veraero III","id":25856,"src":"assets/icons/3236.png"}],"Enchanted Riposte":[{"name":"Enchanted Riposte","id":7527,"src":"assets/icons/3225.png"}],"Enchanted Zwerchhau":[{"name":"Enchanted Zwerchhau","id":7528,"src":"assets/icons/3226.png"}],"Enchanted Redoublement":[{"name":"Enchanted Redoublement","id":7529,"src":"assets/icons/3227.png"}],"Fleche":[{"name":"Fleche","id":7517,"src":"assets/icons/3212.png"}],"Contre Sixte":[{"name":"Contre Sixte","id":7519,"src":"assets/icons/3217.png"}],"Verstone / Vercure":[{"name":"Verstone","id":7511,"src":"assets/icons/3209.png"},{"name":"Vercure","id":7514,"src":"assets/icons/3216.png"}],"Manafication":[{"name":"Manafication","id":7521,"src":"assets/icons/3219.png"}],"Embolden":[{"name":"Embolden","id":7520,"src":"assets/icons/3218.png"}],"Corps-a-corps":[{"name":"Corps-a-corps","id":7506,"src":"assets/icons/3204.png"}],"Displacement / Engagement":[{"name":"Displacement","id":7515,"src":"assets/icons/3211.png"},{"name":"Engagement","id":16527,"src":"assets/icons/3231.png"}],"Magick Barrier":[{"name":"Magick Barrier","id":25857,"src":"assets/icons/3237.png"}],"Verthunder II":[{"name":"Verthunder II","id":16524,"src":"assets/icons/3229.png"}],"Veraero II":[{"name":"Veraero II","id":16525,"src":"assets/icons/3230.png"}],"Verholy / Verflare → Scorch":[{"name":"Verholy","id":7526,"src":"assets/icons/3224.png"},{"name":"Verflare","id":7525,"src":"assets/icons/3223.png"},{"name":"Scorch","id":16530,"src":"assets/icons/3234.png"}],"Resolution":[{"name":"Resolution","id":25858,"src":"assets/icons/3238.png"}],"Fire in Red":[{"name":"Fire in Red","id":34650,"src":"assets/icons/3801.png"}],"Aero in Green":[{"name":"Aero in Green","id":34651,"src":"assets/icons/3802.png"}],"Water in Blue":[{"name":"Water in Blue","id":34652,"src":"assets/icons/3803.png"}],"Holy in White":[{"name":"Holy in White","id":34662,"src":"assets/icons/3813.png"}],"Thunder in Magenta":[{"name":"Thunder in Magenta","id":34655,"src":"assets/icons/3806.png"}],"Comet in Black":[{"name":"Comet in Black","id":34663,"src":"assets/icons/3814.png"}],"Living Muse":[{"name":"Living Muse","id":35347,"src":"assets/icons/3842.png"}],"Striking Muse":[{"name":"Striking Muse","id":34674,"src":"assets/icons/3825.png"}],"Scenic Muse":[{"name":"Scenic Muse","id":35349,"src":"assets/icons/3844.png"}],"Creature Motif":[{"name":"Creature Motif","id":34689,"src":"assets/icons/3839.png"}],"Starry Muse":[{"name":"Starry Muse","id":34675,"src":"assets/icons/3826.png"}],"Smudge":[{"name":"Smudge","id":34684,"src":"assets/icons/3834.png"}],"Tempera Coat":[{"name":"Tempera Coat","id":34685,"src":"assets/icons/3835.png"}],"Fire II in Red":[{"name":"Fire II in Red","id":34656,"src":"assets/icons/3807.png"}],"Star Prism":[{"name":"Star Prism","id":34681,"src":"assets/icons/3832.png"}],"Rainbow Drip":[{"name":"Rainbow Drip","id":34688,"src":"assets/icons/3838.png"}],"Hammer Stamp":[{"name":"Hammer Stamp","id":34678,"src":"assets/icons/3829.png"}]};
+
+const KOREAN_NAMES = {"Leaping Opo":"원무연격","Rising Raptor":"용함정권격","Pouncing Coeurl":"호습붕권","Dragon Kick":"쌍룡각","Twin Snakes":"쌍장타","Masterful Blitz":"필살기","Perfect Balance":"진각","Riddle of Wind":"질풍의 극의","Riddle of Fire":"홍련의 극의","Brotherhood":"도원결의","Thunderclap":"발중보법","Mantra":"만트라","Second Wind":"내단","Bloodbath":"피의 갈증","Feint":"견제","Shadow of the Destroyer":"파괴신각","Four-point Fury":"사면각","Enlightenment":"만상투기권","Raiden Thrust":"용안뇌전","Disembowel":"몸통 가르기","Chaotic Spring":"꽃잎 만발","Vorpal Thrust":"사선 찌르기","Heavens' Thrust":"하늘 찌르기","Wyrmwind Thrust":"천룡점정","High Jump":"하이 점프","Nastrond":"나스트론드","Geirskogul":"게이르스코굴","Lance Charge":"돌격하는 창","Battle Litany":"전투 기도","Dragonfire Dive":"화룡 강타","Life Surge":"생명력 쇄도","Doom Spike":"악몽의 쐐기","Sonic Thrust":"음속 찌르기","Coerthan Torment":"커르다스의 고통","Spinning Edge":"쌍검 회전베기","Gust Slash":"돌풍베기","Aeolian Edge":"칼날 선풍","Armor Crush":"강갑파점 찌르기","Forked Raiju":"월영뇌수조","Fleeting Raiju":"월영뇌수아","Bhavacakra":"육도윤회","Ten":"하늘의 인","Chi":"땅의 인","Jin":"사람의 인","Bunshin":"분신술","Kunai's Bane":"백뢰총","Shukuchi":"축지법","Mug":"약탈","Death Blossom":"피의 비","Hakke Mujinsatsu":"팔괘무인살","Gyofu":"효풍","Yukikaze":"설풍","Jinpu":"진풍","Gekko":"월광","Shifu":"사풍","Kasha":"화차","Hissatsu: Shinten":"필살검: 진천","Meikyo Shisui":"명경지수","Ikishoten":"의기충천","Tsubame-gaeshi":"제비반전","Ogi Namikiri":"오의파절","Third Eye":"심안","Fuko":"풍광","Mangetsu":"만월","Slice":"낫질","Waxing Slice":"반달 낫질","Infernal Slice":"지옥 낫질","Gibbet":"효수형","Shadow of Death":"죽음의 그림자","Gallows":"교수형","Soul Slice":"영혼 낫질","Gluttony":"탐식","Enshroud":"레무르 수의","Plentiful Harvest":"풍성한 수확","Arcane Circle":"신비의 원","Hell's Ingress":"지옥 입장","Regress":"회귀","Arcane Crest":"신비의 문장","Spinning Scythe":"회전 낫","Nightmare Scythe":"악몽의 낫","Whorl of Death":"죽음의 회오리","Circle of Death":"죽음의 회오리","Grim Reaping":"그림 리퍼","Steel Fangs":"송곳니 하나: 교상","Reaving Fangs":"송곳니 하나: 열상","Hunter's Sting":"송곳니 둘: 맹습","Swiftskin's Sting":"송곳니 둘: 질주","Flanksting Strike":"송곳니 셋: 측격","Hindsting Strike":"송곳니 셋: 후격","Reawaken":"조상령 빙의","Vicewinder":"뱀 하나: 분쇄","Hunter's Coil":"뱀 둘: 맹습","Swiftskin's Coil":"뱀 둘: 질주","Serpent's Ire":"뱀의 영기","Slither":"뱀걸음","Steel Maw":"큰송곳니 하나: 교상","Reaving Maw":"큰송곳니 하나: 열상","Hunter's Bite":"큰송곳니 둘: 맹습","Swiftskin's Bite":"큰송곳니 둘: 질주","Burst Shot":"파열 사격","Refulgent Arrow":"찬란한 화살","Iron Jaws":"굳은 결의","Apex Arrow":"정점의 화살","Stormbite":"폭풍 화살","Caustic Bite":"맹독 화살","Pitch Perfect":"절대음감","Empyreal Arrow":"천상의 화살","Sidewinder":"독사 강습","Raging Strikes":"용맹한 사격","Battle Voice":"전장의 노래","Troubadour":"방랑하는 음악가","Head Graze":"머리 쏘기","Mage's Ballad":"현인의 담시곡","Army's Paeon":"군신의 찬가","Radiant Finale":"빛신의 종곡","Heated Split Shot":"열분열탄","Heated Slug Shot":"열슬러그탄","Heated Clean Shot":"열정밀탄","Heat Blast":"열기 분사","Drill":"드릴","Air Anchor":"사슬닻","Hypercharge":"과충전","Gauss Round":"가우스탄","Ricochet":"도탄 사격","Reassemble":"정비","Wildfire":"소이탄","Tactician":"책략가","Leg Graze":"다리 쏘기","Scattergun":"산탄총","Auto Crossbow":"자동 석궁","Chain Saw":"회전톱","Barrel Stabilizer":"열기 조절","Cascade":"캐스케이드","Fountain":"파운틴","Reverse Cascade":"리버스 캐스케이드","Fountainfall":"파운틴 폴","Saber Dance":"검무","Fan Dance":"부채춤: 발단","Fan Dance I":"부채춤: 발단","Fan Dance III":"부채춤: 절정","Flourish":"플러리쉬","Standard Step":"정석 무도","Devilment":"공세의 탱고","En Avant":"앞걸음","Shield Samba":"수세의 삼바","Curing Waltz":"치유의 왈츠","Foot Graze":"발 쏘기","Windmill":"윈드밀","Rising Windmill":"라이징 윈드밀","Bloodshower":"블러드 샤워","Technical Step":"기교 무도","Fan Dance IV":"부채춤: 결말","Fire IV":"파이쟈","Fire III":"파이가","Blizzard III":"블리자가","Despair":"절망","Flare Star":"타오르는 별","Blizzard IV":"블리자쟈","Xenoglossy":"미지의 언어","Triplecast":"삼연속 마법","Amplifier":"언어 확장","Ley Lines":"흑마법 문양","Manafont":"마나샘","Aetherial Manipulation":"에테르 촉진","Between the Lines":"문양 도약","Transpose":"속성 전환","Addle":"정신 교란","Blizzard II":"블리자라","High Fire II":"하이 파이라","Foul":"금지된 언어","Flare":"플레어","Ruin III":"루인가","Astral Flow":"천상의 흐름","Summon Garuda II":"가루다 소환 2","Summon Ifrit II":"이프리트 소환 2","Summon Titan II":"타이탄 소환 2","Ruin IV":"루인쟈","Energy Drain":"생명력 흡수","Enkindle Bahamut":"바하무트 점화","Enkindle Phoenix":"피닉스 점화","Summon Bahamut":"바하무트 소환","Summon Phoenix":"피닉스 소환","Summon Solar Bahamut":"솔 바하무트 소환","Searing Light":"타오르는 빛","Surecast":"견고한 마법","Outburst":"발산","Astral Flare":"천상의 불길","Jolt III":"졸트가","Verthunder III":"버선더가","Veraero III":"버에어로가","Enchanted Riposte":"인리포스트","Enchanted Zwerchhau":"인츠베르크하우","Enchanted Redoublement":"인르두블망","Fleche":"플레슈","Contre Sixte":"콩트르 식스트","Verstone":"버스톤","Vercure":"버케알","Manafication":"마나 증량","Embolden":"성원","Corps-a-corps":"코르 아 코르","Displacement":"데플라스망","Engagement":"앙가주망","Magick Barrier":"바매직","Verthunder II":"버선더라","Veraero II":"버에어로라","Verholy":"버홀리","Verflare":"버플레어","Scorch":"작열화","Resolution":"단호한 결단","Fire in Red":"레드 파이어","Aero in Green":"그린 에어로","Water in Blue":"블루 워터","Holy in White":"화이트 홀리","Thunder in Magenta":"마젠타 선더","Comet in Black":"블랙 코멧","Living Muse":"동물 구현","Striking Muse":"망치 구현","Scenic Muse":"풍경 구현","Creature Motif":"동물 그림","Starry Muse":"하늘 구현","Smudge":"붓번짐","Tempera Coat":"템페라 밑칠","Fire II in Red":"레드 파이라","Star Prism":"별무리 프리즘","Rainbow Drip":"무지개 빛방울","Hammer Stamp":"망치 찍기","the Forbidden Chakra":"음양투기참","The Forbidden Chakra":"음양투기참","Tenka Goken":"천하오검","the Wanderer's Minuet":"여행신의 무곡","The Wanderer's Minuet":"여행신의 무곡","Mountain Buster":"산 쪼개기","Midare Setsugekka":"난설월화","Stardiver":"천체 강하","Standard Finish":"정석 마무리","Void Reaping":"보이드 리퍼","Cross Reaping":"크로스 리퍼","Suiton":"수둔술","Mirage Dive":"환영 강타","Blast Arrow":"돌풍 화살","Ouroboros":"조상령의 큰송곳니","Fuma Shuriken":"풍마의 수리검","Higanbana":"피안화","Communio":"합일","Raiton":"뇌둔술","Hammer Motif":"망치 그림","Iaijutsu":"거합술","Huton":"풍둔술","Katon":"화둔술","Hyoton":"빙둔술","Subtractive Palette":"색빼기","Technical Finish":"기교 마무리","Thunder":"선더","Spineshatter Dive":"척추 강타 (구 기술)","Forbidden Chakra":"음양투기참","Wanderer's Minuet":"여행신의 무곡","Vorpal":"사선 찌르기","Heavens'":"하늘 찌르기","Wyrmwind":"천룡점정","Tsubame":"제비반전","Shinten":"필살검: 진천","Midare":"난설월화","Flanksting":"송곳니 셋: 측격","Hindsting":"송곳니 셋: 후격","Verthunder":"버선더가","Veraero":"버에어로가","Riposte":"인리포스트","Zwerchhau":"인츠베르크하우","Redoublement":"인르두블망","Scenic Motif":"풍경 그림","Raiju (프록 시)":"월영뇌수조 / 월영뇌수아 (프록 시)","Ten (무드라 1)":"하늘의 인 (무드라 1)","Chi (무드라 2)":"땅의 인 (무드라 2)","Jin (무드라 3)":"사람의 인 (무드라 3)","Hunter's/Swiftskin's Sting":"송곳니 둘: 맹습 / 송곳니 둘: 질주","Flanksting/Hindsting Strike":"송곳니 셋: 측격 / 송곳니 셋: 후격","Hunter's/Swiftskin's Bite":"큰송곳니 둘: 맹습 / 큰송곳니 둘: 질주","Reverse Cascade / Fountainfall":"리버스 캐스케이드 / 파운틴 폴","Rising Windmill / Bloodshower":"라이징 윈드밀 / 블러드 샤워","Energie Drain":"생명력 흡수","Enkindle Bahamut/Phoenix":"바하무트 점화 / 피닉스 점화","Summon Bahamut/Phoenix/Solar":"바하무트 소환 / 피닉스 소환 / 솔 바하무트 소환","Verstone / Vercure":"버스톤 / 버케알","Displacement / Engagement":"데플라스망 / 앙가주망","Verholy / Verflare → Scorch":"버홀리 / 버플레어 → 작열화"};
+const KOREAN_TERMS = Object.keys(KOREAN_NAMES).sort((a,b)=>b.length-a.length);
+function koreanText(text) {
+  text = String(text); let out = '', pos = 0;
+  while(pos < text.length) {
+    const match = KOREAN_TERMS.find(name => text.startsWith(name,pos) && !/[A-Za-z]/.test(text[pos-1]||'') && !/[A-Za-z]/.test(text[pos+name.length]||''));
+    if(match) {out += KOREAN_NAMES[match]; pos += match.length;} else {out += text[pos++];}
+  }
+  return out;
+}
+function escIconText(value) { return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function skillIcons(name, compact = false) {
+  const icons = SKILL_ICONS[name] || [];
+  return '<span class="action-icons' + (compact ? ' compact' : '') + '">' + icons.map(icon => '<img class="local-action-icon" src="' + icon.src + '" width="32" height="32" alt="' + escIconText(koreanText(icon.name) + " / " + icon.name) + '" title="' + escIconText(koreanText(icon.name) + " / " + icon.name) + '" onerror="this.hidden=true">').join('') + '</span>';
+}
+function rotationWithIcons(step, job) {
+  step = koreanText(step);
+  const names = new Map();
+  job.skills.forEach(sk => {
+    names.set(koreanText(sk.name), sk.name);
+    (SKILL_ICONS[sk.name] || []).forEach(ic => names.set(koreanText(ic.name), sk.name));
+  });
+  const ordered = [...names.keys()].sort((a,b) => b.length-a.length);
+  let out = '', pos = 0;
+  while (pos < step.length) {
+    const match = ordered.find(name => step.startsWith(name, pos) && !/[A-Za-z]/.test(step[pos-1] || '') && !/[A-Za-z]/.test(step[pos+name.length] || ''));
+    if (match) { out += '<span class="rotation-action">' + skillIcons(names.get(match), true) + escIconText(match) + '</span>'; pos += match.length; }
+    else { out += escIconText(step[pos]); pos++; }
+  }
+  return out;
+}
 
 // ─────────────── Render ───────────────
 const ALL_KEYS = ['1','2','3','4','5','6','Q','W','E','R','T','A','D','S','F1','F2','F3','F4','S1','S2','S3','S4'];
@@ -783,10 +3012,14 @@ function renderKeyboard(job) {
         return;
       }
       const cat = CAT[sk.cat]||CAT.util;
-      const short = sk.name.length>14 ? sk.name.substring(0,13)+'…' : sk.name;
-      html += `<div class="kbd-key has-skill" style="--skill-border:${job.color}44" title="${sk.name} — ${sk.note}">
+      const localized = koreanText(sk.name);
+      const short = localized.length>17 ? localized.substring(0,16)+'…' : localized;
+      html += `<div class="kbd-key has-skill" style="--skill-border:${job.color}44" title="${escIconText(koreanText(sk.name))} / ${escIconText(sk.name)} — ${escIconText(koreanText(sk.note))}">
         <div class="kbd-label">${k}</div>
-        <div class="kbd-skill">${cat.emoji} ${short}</div>
+        <div class="kbd-skill">
+          ${skillIcons(sk.name, true)}
+          <span style="font-size:8px;line-height:1.2;word-break:break-word">${short}</span>
+        </div>
         <div class="kbd-cat ${cat.line}"></div>
       </div>`;
     });
@@ -806,21 +3039,21 @@ function renderJob() {
     <div class="job-header">
       <div>
         <div class="job-name-big" style="color:${job.color}">${job.emoji} ${job.kr} <span style="font-size:14px;color:var(--text2);font-family:'JetBrains Mono',monospace">${job.abbr}</span></div>
-        <div class="job-desc">${job.desc}</div>
+        <div class="job-desc">${escIconText(koreanText(job.desc))}</div>
         <div class="job-meta">
           <span class="badge" style="background:rgba(200,166,79,.15);color:var(--gold);border:1px solid var(--gold3)">난이도 <span class="difficulty-stars">${stars}</span></span>
         </div>
       </div>
-      <a class="guide-link" href="${job.guide}" target="_blank" rel="noopener">📖 공식 가이드 →</a>
+      <a class="guide-link" href="${'https://guide.ff14.co.kr/job/'+{"mnk":"Monk/8","drg":"Dragoon/9","nin":"Ninja/10","sam":"Samurai/11","rpr":"Reaper/20","vpr":"Viper/32","brd":"Bard/12","mch":"Machinist/13","dnc":"Dancer/14","blm":"BlackMage/15","smn":"Summoner/16","rdm":"RedMage/17","pct":"Pictomancer/33"}[job.id]+'?type=E'}" target="_blank" rel="noopener">📖 공식 가이드 →</a>
     </div>
 
-    <div class="notice"><span class="icon">💡</span>기술명을 클릭하면 Garland Tools에서 아이콘·설명을 볼 수 있어. 기술명은 영어 공식 표기 기준.</div>
+    <div class="notice"><span class="icon">🖼️</span>실제 기술 아이콘을 <b>로컬 이미지</b>로 표시합니다. 복합 기술은 아이콘을 함께 표시하며, 아이콘에 마우스를 올리면 기술명을 볼 수 있습니다. 기술명 클릭 시 Garland Tools로 이동.</div>
 
     <div class="section-title">핵심 메카닉</div>
     <div class="mechanics-grid">`;
 
   job.mechanics.forEach(m => {
-    html += `<div class="mechanic-card"><div class="mechanic-name">${m.name}</div><div class="mechanic-desc">${m.desc}</div></div>`;
+    html += `<div class="mechanic-card"><div class="mechanic-name">${escIconText(koreanText(m.name))}</div><div class="mechanic-desc">${escIconText(koreanText(m.desc))}</div></div>`;
   });
   html += `</div>`;
 
@@ -828,7 +3061,7 @@ function renderJob() {
   if(job.mudra){
     html += `<div class="section-title">무드라 인술 조합 (Q=Ten / W=Chi / E=Jin)</div><div class="mudra-grid">`;
     job.mudra.forEach(m => {
-      html += `<div class="mudra-card"><div class="mudra-combo">${m.combo}</div><div><div class="mudra-name">${m.name}</div><div class="mudra-note">${m.note}</div></div></div>`;
+      html += `<div class="mudra-card"><div class="mudra-combo">${m.combo}</div><div><div class="mudra-name">${escIconText(koreanText(m.name))}</div><div class="mudra-note">${escIconText(koreanText(m.note))}</div></div></div>`;
     });
     html += `</div>`;
   }
@@ -843,9 +3076,12 @@ function renderJob() {
     const c = CAT[sk.cat]||CAT.util;
     html += `<tr>
       <td><span class="key-chip">${sk.key}</span></td>
-      <td><a class="skill-link" href="${sk.gt}" target="_blank" rel="noopener"><span class="emo">${c.emoji}</span>${sk.name}</a></td>
+      <td><a class="skill-link" href="${sk.gt}" target="_blank" rel="noopener">
+        ${skillIcons(sk.name)}
+        <span class="skill-names"><span>${escIconText(koreanText(sk.name))}</span><small class="skill-name-en">${escIconText(sk.name)}</small></span>
+      </a></td>
       <td>${badge(sk.type, sk.cat)}</td>
-      <td class="skill-note">${sk.note}</td>
+      <td class="skill-note">${escIconText(koreanText(sk.note))}</td>
     </tr>`;
   });
   html += `</tbody></table></div>`;
@@ -853,8 +3089,8 @@ function renderJob() {
   // 로테이션
   html += `<div class="section-title">로테이션 흐름</div><div class="rotation-wrap">`;
   job.rotation.forEach(r => {
-    html += `<div class="rotation-phase"><div class="rotation-phase-name">${r.phase}</div><ul class="rotation-steps">`;
-    r.steps.forEach(step => { html += `<li class="rotation-step">${step}</li>`; });
+    html += `<div class="rotation-phase"><div class="rotation-phase-name">${escIconText(koreanText(r.phase))}</div><ul class="rotation-steps">`;
+    r.steps.forEach(step => { html += `<li class="rotation-step">${rotationWithIcons(step, job)}</li>`; });
     html += `</ul></div>`;
   });
   html += `</div></div>`;
@@ -867,6 +3103,7 @@ document.querySelectorAll('.tab').forEach(t => {
   t.onclick = () => selectRole(t.dataset.role);
 });
 selectRole('melee');
+
 </script>
 </body>
 </html>
