@@ -881,23 +881,24 @@ const iconCache = {};
 async function fetchIconUrl(skillName) {
   const key = skillName.trim().toLowerCase();
   if (iconCache[key] !== undefined) return iconCache[key];
-  iconCache[key] = null; // 로딩 중 표시
+  iconCache[key] = null;
   try {
     const clean = skillName
-      .replace(/\s*\(.*?\)\s*/g,'')   // 괄호 제거
-      .replace(/\s*\/\s*.+$/,'')       // / 뒤 제거
-      .replace(/[★☆]/g,'')            // 특수문자 제거
+      .replace(/\s*\(.*?\)\s*/g,'')
+      .replace(/\s*\/\s*.+$/,'')
+      .replace(/[★☆→]/g,'')
       .trim();
-    const url = `https://xivapi.com/search?indexes=Action&string=${encodeURIComponent(clean)}&language=en&limit=3`;
-    const res = await fetch(url, {signal: AbortSignal.timeout(6000)});
+    // xivapi v2 API 사용
+    const searchUrl = `https://v2.xivapi.com/api/1/search?query=Name~%22${encodeURIComponent(clean)}%22&sheets=Action&fields=Name,Icon&limit=5`;
+    const res = await fetch(searchUrl, {signal: AbortSignal.timeout(8000)});
     if (!res.ok) return null;
     const data = await res.json();
-    if (data.Results && data.Results.length > 0) {
-      // 정확도 높은 결과 우선 (이름 일치 체크)
-      const exact = data.Results.find(r => r.Name && r.Name.toLowerCase() === clean.toLowerCase());
-      const best = exact || data.Results[0];
-      if (best.Icon) {
-        const imgUrl = 'https://xivapi.com' + best.Icon;
+    if (data.results && data.results.length > 0) {
+      const exact = data.results.find(r => r.fields?.Name?.toLowerCase() === clean.toLowerCase());
+      const best = exact || data.results[0];
+      const iconPath = best.fields?.Icon?.path_hr1 || best.fields?.Icon?.path;
+      if (iconPath) {
+        const imgUrl = `https://v2.xivapi.com/api/1/asset?path=${encodeURIComponent(iconPath)}&format=png`;
         iconCache[key] = imgUrl;
         return imgUrl;
       }
