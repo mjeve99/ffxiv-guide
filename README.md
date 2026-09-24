@@ -21,3 +21,9 @@ GitHub Pages 활성화 시: https://mjeve99.github.io/ffxiv-guide/ffxiv-dps-guid
 - 기술 목록 (xivapi 아이콘 자동 로드)
 - 2분 버스트 로테이션 흐름
 - 기술명 클릭 → Garland Tools 연결
+
+## 2026-09-24 기공사 배치
+
+마우스 양쪽 버튼 이동 기준으로 123 기본 콤보, QWER 도구, ASD 준비 기술을 배치했습니다. G·Shift+G·Ctrl+L 및 추가 기능키를 연습기에서 사용할 수 있습니다. 변화 기술도 같은 입력 키에 연결됩니다. 다른 12직업의 기술 배치는 유지했습니다.
+
+바로 열기: https://mjeve99.github.io/ffxiv-guide/ffxiv-dps-guide.html#mch

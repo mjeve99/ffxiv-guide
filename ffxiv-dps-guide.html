@@ -220,6 +220,8 @@ td{padding:8px 12px;vertical-align:middle}
 
 #train-dialog{margin:auto}
 
+
+.mouse-layout{padding:18px;margin:20px 0;border:1px solid #50b0d066;border-radius:12px;background:#50b0d00d;line-height:1.8}.mouse-layout h3{margin:0 0 10px;color:#78cce5}.mouse-layout p{font-size:13px}.mouse-layout summary{cursor:pointer;font-weight:600}.kbd-key .kbd-label{white-space:nowrap}.kbd-row{flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -1738,21 +1740,21 @@ const JOBS = {
       "abbr": "MCH",
       "emoji": "🔧",
       "color": "#50b0d0",
-      "desc": "히트 게이지 → Hypercharge(Q) 과열 → Heat Blast(4) 5연타. Drill/Air Anchor/Chain Saw(5/6/S3) 강타 + 오토마톤 퀸 소환.",
+      "desc": "마우스 양쪽 버튼으로 이동 · 123 기본 콤보 / QWER 도구 / ASD 집중 공격 준비. 현재 저장 설정을 바탕으로 다시 배우기 쉽게 정리한 배치입니다.",
       "diff": 2,
       "guide": "https://na.finalfantasyxiv.com/jobguide/machinist/",
       "mechanics": [
         {
-          "name": "히트 게이지 → 과열",
-          "desc": "1→2→3 콤보로 히트 게이지 적립. 50 이상에서 Q(Hypercharge) → 과열 중 4(Heat Blast) 5연타."
+          "name": "먼저 1 → 2 → 3",
+          "desc": "기본 콤보부터 반복합니다. 4는 과열 중 공격, 5·6은 추가 공격입니다. 사용 가능 상태를 보고 누르세요."
         },
         {
-          "name": "도구 3종 (5/6/S3)",
-          "desc": "Drill(5, 20초) / Air Anchor(6, 40초) / Chain Saw(S3, 60초). 고데미지 GCD. 쿨마다 최우선."
+          "name": "QWER 도구 / ASD 준비",
+          "desc": "Q→W는 정비 후 드릴. A·S·D는 집중 공격을 준비하는 묶음입니다. 모든 키를 매번 차례로 누르는 고정 딜사이클은 아닙니다."
         },
         {
-          "name": "2분 버스트",
-          "desc": "T(Wildfire) 발동 후 6 GCD 안에 피해 최대화. Q(Hypercharge) → Heat Blast × 5 안에 넣기."
+          "name": "변화해도 같은 키",
+          "desc": "R 회전톱→굴삭기, S 소이탄→기폭. 기폭은 별도 키로 배치하지 않습니다. 미습득 기술 자리는 비워 두세요."
         }
       ],
       "skills": [
@@ -1761,7 +1763,8 @@ const JOBS = {
           "name": "Heated Split Shot",
           "type": "G",
           "cat": "combo",
-          "note": "콤보 1 (히트 적립)",
+          "note": "콤보 1 · 낮은 레벨에서는 분열탄",
+          "aliases": [],
           "gt": "https://garlandtools.org/db/#search/Heated%20Split%20Shot"
         },
         {
@@ -1769,7 +1772,8 @@ const JOBS = {
           "name": "Heated Slug Shot",
           "type": "G",
           "cat": "combo",
-          "note": "콤보 2",
+          "note": "콤보 2 · 낮은 레벨에서는 슬러그탄",
+          "aliases": [],
           "gt": "https://garlandtools.org/db/#search/Heated%20Slug%20Shot"
         },
         {
@@ -1777,156 +1781,332 @@ const JOBS = {
           "name": "Heated Clean Shot",
           "type": "G",
           "cat": "combo",
-          "note": "콤보 3 (배터리 적립)",
+          "note": "콤보 3 · 낮은 레벨에서는 정밀탄",
+          "aliases": [],
           "gt": "https://garlandtools.org/db/#search/Heated%20Clean%20Shot"
         },
         {
           "key": "4",
-          "name": "Heat Blast",
+          "name": "Blazing Shot",
           "type": "G",
           "cat": "burst",
-          "note": "과열 중 연타 (1.5초 쿨)",
-          "gt": "https://garlandtools.org/db/#search/Heat%20Blast"
+          "note": "과열 중 반복 공격 · 습득 전에는 열기 분사",
+          "aliases": [
+            "Heat Blast"
+          ],
+          "gt": "https://garlandtools.org/db/#search/Blazing%20Shot"
         },
         {
           "key": "5",
-          "name": "Drill",
-          "type": "G",
+          "name": "Double Check",
+          "type": "o",
           "cat": "burst",
-          "note": "강타 (20초 쿨)",
-          "gt": "https://garlandtools.org/db/#search/Drill"
+          "note": "추가 공격 1 · 습득 전에는 가우스탄",
+          "aliases": [
+            "Gauss Round"
+          ],
+          "gt": "https://garlandtools.org/db/#search/Double%20Check"
         },
         {
           "key": "6",
-          "name": "Air Anchor",
-          "type": "G",
+          "name": "Checkmate",
+          "type": "o",
           "cat": "burst",
-          "note": "강타 + 배터리 (40초 쿨)",
-          "gt": "https://garlandtools.org/db/#search/Air%20Anchor"
+          "note": "추가 공격 2 · 습득 전에는 도탄 사격",
+          "aliases": [
+            "Ricochet"
+          ],
+          "gt": "https://garlandtools.org/db/#search/Checkmate"
         },
         {
           "key": "Q",
-          "name": "Hypercharge",
-          "type": "o",
-          "cat": "buff",
-          "note": "과열 진입 (히트 50 소비)",
-          "gt": "https://garlandtools.org/db/#search/Hypercharge"
-        },
-        {
-          "key": "W",
-          "name": "Gauss Round",
-          "type": "o",
-          "cat": "burst",
-          "note": "단타 (2충전)",
-          "gt": "https://garlandtools.org/db/#search/Gauss%20Round"
-        },
-        {
-          "key": "E",
-          "name": "Ricochet",
-          "type": "o",
-          "cat": "burst",
-          "note": "범위 단타 (2충전)",
-          "gt": "https://garlandtools.org/db/#search/Ricochet"
-        },
-        {
-          "key": "R",
           "name": "Reassemble",
           "type": "o",
           "cat": "buff",
-          "note": "다음 GCD 크리+DH 보장",
+          "note": "정비 후 W 드릴 등 강화할 무기 기술 사용",
+          "aliases": [],
           "gt": "https://garlandtools.org/db/#search/Reassemble"
         },
         {
-          "key": "T",
-          "name": "Wildfire",
+          "key": "W",
+          "name": "Drill",
+          "type": "G",
+          "cat": "burst",
+          "note": "도구 공격 · 정비 Q와 묶어 기억",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Drill"
+        },
+        {
+          "key": "E",
+          "name": "Air Anchor",
+          "type": "G",
+          "cat": "burst",
+          "note": "도구 공격 · 습득 전에는 강렬한 사격",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Air%20Anchor"
+        },
+        {
+          "key": "R",
+          "name": "Chain Saw",
+          "type": "G",
+          "cat": "burst",
+          "note": "조건 충족 시 굴삭기로 변화 · 변화 후에도 R",
+          "aliases": [
+            "Excavator"
+          ],
+          "gt": "https://garlandtools.org/db/#search/Chain%20Saw"
+        },
+        {
+          "key": "A",
+          "name": "Barrel Stabilizer",
           "type": "o",
-          "cat": "party",
-          "note": "6 GCD 데미지 흡수 버스트 (120초)",
-          "gt": "https://garlandtools.org/db/#search/Wildfire"
+          "cat": "buff",
+          "note": "과충전 준비 · 고레벨에서는 전탄발사도 사용 가능",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Barrel%20Stabilizer"
         },
         {
           "key": "S",
-          "name": "Tactician",
+          "name": "Wildfire",
           "type": "o",
-          "cat": "survival",
-          "note": "파티 방어 버프 (90초)",
-          "gt": "https://garlandtools.org/db/#search/Tactician"
+          "cat": "burst",
+          "note": "집중 공격 준비 · 사용 후 같은 S가 기폭으로 변화. 연타 주의",
+          "aliases": [
+            "Detonator"
+          ],
+          "gt": "https://garlandtools.org/db/#search/Wildfire"
+        },
+        {
+          "key": "D",
+          "name": "Hypercharge",
+          "type": "o",
+          "cat": "buff",
+          "note": "과열 진입 → 4로 반복 공격",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Hypercharge"
+        },
+        {
+          "key": "G",
+          "name": "Automaton Queen",
+          "type": "o",
+          "cat": "burst",
+          "note": "충전지를 소비해 소환 · 습득 전에는 자동포탑 룩",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Automaton%20Queen"
+        },
+        {
+          "key": "Shift+G",
+          "name": "Full Metal Field",
+          "type": "G",
+          "cat": "burst",
+          "note": "열기 조절 후 사용 가능 · 미습득이면 비워 두기",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Full%20Metal%20Field"
+        },
+        {
+          "key": "T",
+          "name": "Sprint",
+          "type": "o",
+          "cat": "util",
+          "note": "전력 질주 · 현재 기공사 위치 유지",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Sprint"
+        },
+        {
+          "key": "Y",
+          "name": "Peloton",
+          "type": "R",
+          "cat": "util",
+          "note": "단체 질주 · 현재 위치 유지",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Peloton"
         },
         {
           "key": "F1",
           "name": "Second Wind",
           "type": "R",
           "cat": "survival",
-          "note": "셀프 힐",
+          "note": "자기 회복",
+          "aliases": [],
           "gt": "https://garlandtools.org/db/#search/Second%20Wind"
         },
         {
+          "key": "F2",
+          "name": "Dismantle",
+          "type": "o",
+          "cat": "survival",
+          "note": "적이 주는 피해 감소 · 기존 위치 유지",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Dismantle"
+        },
+        {
+          "key": "F3",
+          "name": "Tactician",
+          "type": "o",
+          "cat": "survival",
+          "note": "파티 피해 경감 · 기존 위치 유지",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Tactician"
+        },
+        {
           "key": "F4",
-          "name": "Leg Graze",
+          "name": "Arm's Length",
           "type": "R",
-          "cat": "util",
-          "note": "이동 방해",
-          "gt": "https://garlandtools.org/db/#search/Leg%20Graze"
+          "cat": "survival",
+          "note": "넉백 방지 · 기존 F11에서도 사용 가능",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Arm's%20Length"
         },
         {
           "key": "S1",
           "name": "Scattergun",
           "type": "G",
           "cat": "aoe",
-          "note": "AOE 기본 (히트 적립)",
+          "note": "기본 광역 · 습득 전에는 확산 사격",
+          "aliases": [],
           "gt": "https://garlandtools.org/db/#search/Scattergun"
         },
         {
           "key": "S2",
-          "name": "Auto Crossbow",
-          "type": "G",
+          "name": "Flamethrower",
+          "type": "o",
           "cat": "aoe",
-          "note": "과열 중 AOE 연타",
-          "gt": "https://garlandtools.org/db/#search/Auto%20Crossbow"
+          "note": "추가 광역 · 지속 중 이동에 주의",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Flamethrower"
         },
         {
           "key": "S3",
-          "name": "Chain Saw",
+          "name": "Bioblaster",
           "type": "G",
-          "cat": "burst",
-          "note": "강타 + 배터리 (60초 쿨)",
-          "gt": "https://garlandtools.org/db/#search/Chain%20Saw"
+          "cat": "aoe",
+          "note": "광역 지속 피해 · 드릴과 재사용 시간 공유",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Bioblaster"
         },
         {
           "key": "S4",
-          "name": "Barrel Stabilizer",
+          "name": "Auto Crossbow",
+          "type": "G",
+          "cat": "aoe",
+          "note": "4의 광역 대응 · 과열 중 사용",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Auto%20Crossbow"
+        },
+        {
+          "key": "S5",
+          "name": "Head Graze",
+          "type": "R",
+          "cat": "util",
+          "note": "대상 시전 중단",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Head%20Graze"
+        },
+        {
+          "key": "F5",
+          "name": "Leg Graze",
+          "type": "R",
+          "cat": "util",
+          "note": "이동 속도 감소",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Leg%20Graze"
+        },
+        {
+          "key": "F6",
+          "name": "Foot Graze",
+          "type": "R",
+          "cat": "util",
+          "note": "속박",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Foot%20Graze"
+        },
+        {
+          "key": "F7",
+          "name": "Queen Overdrive",
           "type": "o",
-          "cat": "buff",
-          "note": "히트 50 즉시 충전",
-          "gt": "https://garlandtools.org/db/#search/Barrel%20Stabilizer"
+          "cat": "util",
+          "note": "소환수 수동 마무리 · 기본 연습에서는 생략 가능",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Queen%20Overdrive"
+        },
+        {
+          "key": "Ctrl+L",
+          "name": "Limit Break",
+          "type": "o",
+          "cat": "util",
+          "note": "리미트 브레이크 · 기존 F4에서 이동",
+          "aliases": [],
+          "gt": "https://garlandtools.org/db/#search/Limit%20Break"
         }
       ],
       "rotation": [
         {
-          "phase": "개전 오프너",
+          "phase": "복귀 연습 1 · 기본",
           "steps": [
-            "R(정비) → 5(드릴) 크리 확정 강타",
-            "T(소이탄) → Q(과충전) → 4(열기 분사) × 5 소이탄 안에 포함",
-            "W(가우스탄) + E(도탄 사격) 삽입 → 6(에어앙커) → S3(회전톱)"
+            "1 → 2 → 3 콤보를 반복하며 위치부터 익히기",
+            "Q(정비) → W(드릴), E(사슬닻), R(회전톱)의 위치 익히기"
           ]
         },
         {
-          "phase": "기본 루프",
+          "phase": "복귀 연습 2 · 과열",
           "steps": [
-            "1→2→3 콤보로 히트/배터리 적립",
-            "5(드릴) / 6(사슬닻) / S3(회전톱) 쿨마다 최우선 사용",
-            "Q(과충전) → 4(열기 분사) × 5 → W/E 사이에 끼워넣기",
-            "배터리 80+ 시 오토마톤 퀸 소환"
+            "D(과충전) → 4(맹염탄) 반복. 과열 상태에서만 사용",
+            "4 사이에 5(더블 체크) 또는 6(체크메이트)를 끼워 넣는 연습",
+            "A(열기 조절)·S(소이탄)는 사용 조건과 재사용 시간을 확인. S를 연타하면 기폭할 수 있음"
           ]
         },
         {
-          "phase": "2분 버스트",
+          "phase": "복귀 연습 3 · 추가 기능",
           "steps": [
-            "T(소이탄) → 즉시 Q(과충전) → 4(열기 분사) × 5 (Wildfire 안에)",
-            "R(정비) + 5(드릴) 크리 확정",
-            "S4(열기 조절) 히트 충전"
+            "G(자동인형 퀸) 소환 / Shift+G(전탄발사) 조건부 공격",
+            "F1~F4 회복·방어 / T 전력 질주 / Y 단체 질주",
+            "위 순서는 키 위치를 익히는 연습입니다. 실제 개전 순서는 원본 오프너 도표를 참고하세요."
           ]
         }
+      ],
+      "keyRows": [
+        [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        [
+          "Q",
+          "W",
+          "E",
+          "R",
+          "T",
+          "Y"
+        ],
+        [
+          "A",
+          "S",
+          "D",
+          "G",
+          "Shift+G"
+        ],
+        [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5"
+        ],
+        [
+          "F5",
+          "F6",
+          "F7",
+          "Ctrl+L"
+        ]
       ]
     },
     {
@@ -2959,9 +3139,9 @@ const JOBS = {
 };
 
 // Local game icons. See icon-manifest.json for Action IDs and sources.
-const SKILL_ICONS = {"Leaping Opo":[{"name":"Leaping Opo","id":36945,"src":"assets/icons/2982.png"}],"Rising Raptor":[{"name":"Rising Raptor","id":36946,"src":"assets/icons/2983.png"}],"Pouncing Coeurl":[{"name":"Pouncing Coeurl","id":36947,"src":"assets/icons/2984.png"}],"Dragon Kick":[{"name":"Dragon Kick","id":74,"src":"assets/icons/2528.png"}],"Twin Snakes":[{"name":"Twin Snakes","id":61,"src":"assets/icons/213.png"}],"Masterful Blitz":[{"name":"Masterful Blitz","id":25764,"src":"assets/icons/2976.png"}],"Perfect Balance":[{"name":"Perfect Balance","id":69,"src":"assets/icons/217.png"}],"Riddle of Wind":[{"name":"Riddle of Wind","id":25766,"src":"assets/icons/2978.png"}],"The Forbidden Chakra":[{"name":"the Forbidden Chakra","id":3547,"src":"assets/icons/2535.png"}],"Riddle of Fire":[{"name":"Riddle of Fire","id":7395,"src":"assets/icons/2541.png"}],"Brotherhood":[{"name":"Brotherhood","id":7396,"src":"assets/icons/2542.png"}],"Thunderclap":[{"name":"Thunderclap","id":25762,"src":"assets/icons/2975.png"}],"Mantra":[{"name":"Mantra","id":65,"src":"assets/icons/216.png"}],"Second Wind":[{"name":"Second Wind","id":7541,"src":"assets/icons/821.png"}],"Bloodbath":[{"name":"Bloodbath","id":7542,"src":"assets/icons/823.png"}],"Feint":[{"name":"Feint","id":7549,"src":"assets/icons/828.png"}],"Shadow of the Destroyer":[{"name":"Shadow of the Destroyer","id":25767,"src":"assets/icons/2979.png"}],"Four-point Fury":[{"name":"Four-point Fury","id":16473,"src":"assets/icons/2544.png"}],"Enlightenment":[{"name":"Enlightenment","id":16474,"src":"assets/icons/2545.png"}],"Raiden Thrust":[{"name":"Raiden Thrust","id":16479,"src":"assets/icons/2592.png"}],"Disembowel":[{"name":"Disembowel","id":87,"src":"assets/icons/317.png"}],"Chaotic Spring":[{"name":"Chaotic Spring","id":25772,"src":"assets/icons/2596.png"}],"Vorpal Thrust":[{"name":"Vorpal Thrust","id":78,"src":"assets/icons/312.png"}],"Heavens' Thrust":[{"name":"Heavens' Thrust","id":25771,"src":"assets/icons/2595.png"}],"Wyrmwind Thrust":[{"name":"Wyrmwind Thrust","id":25773,"src":"assets/icons/2597.png"}],"High Jump":[{"name":"High Jump","id":16478,"src":"assets/icons/2591.png"}],"Nastrond":[{"name":"Nastrond","id":7400,"src":"assets/icons/2589.png"}],"Geirskogul":[{"name":"Geirskogul","id":3555,"src":"assets/icons/2583.png"}],"Lance Charge":[{"name":"Lance Charge","id":85,"src":"assets/icons/309.png"}],"Battle Litany":[{"name":"Battle Litany","id":3557,"src":"assets/icons/2585.png"}],"Spineshatter Dive":[],"Dragonfire Dive":[{"name":"Dragonfire Dive","id":96,"src":"assets/icons/2578.png"}],"Life Surge":[{"name":"Life Surge","id":83,"src":"assets/icons/304.png"}],"Doom Spike":[{"name":"Doom Spike","id":86,"src":"assets/icons/306.png"}],"Sonic Thrust":[{"name":"Sonic Thrust","id":7397,"src":"assets/icons/2586.png"}],"Coerthan Torment":[{"name":"Coerthan Torment","id":16477,"src":"assets/icons/2590.png"}],"Spinning Edge":[{"name":"Spinning Edge","id":2240,"src":"assets/icons/601.png"}],"Gust Slash":[{"name":"Gust Slash","id":2242,"src":"assets/icons/602.png"}],"Aeolian Edge":[{"name":"Aeolian Edge","id":2255,"src":"assets/icons/605.png"}],"Armor Crush":[{"name":"Armor Crush","id":3563,"src":"assets/icons/2915.png"}],"Raiju (프록 시)":[{"name":"Forked Raiju","id":25777,"src":"assets/icons/2931.png"},{"name":"Fleeting Raiju","id":25778,"src":"assets/icons/2932.png"}],"Bhavacakra":[{"name":"Bhavacakra","id":7402,"src":"assets/icons/2921.png"}],"Ten (무드라 1)":[{"name":"Ten","id":2259,"src":"assets/icons/2901.png"}],"Chi (무드라 2)":[{"name":"Chi","id":2261,"src":"assets/icons/2902.png"}],"Jin (무드라 3)":[{"name":"Jin","id":2263,"src":"assets/icons/2903.png"}],"Bunshin":[{"name":"Bunshin","id":16493,"src":"assets/icons/2927.png"}],"Kunai's Bane":[{"name":"Kunai's Bane","id":36958,"src":"assets/icons/620.png"}],"Shukuchi":[{"name":"Shukuchi","id":2262,"src":"assets/icons/2905.png"}],"Mug":[{"name":"Mug","id":2248,"src":"assets/icons/613.png"}],"Death Blossom":[{"name":"Death Blossom","id":2254,"src":"assets/icons/615.png"}],"Hakke Mujinsatsu":[{"name":"Hakke Mujinsatsu","id":16488,"src":"assets/icons/2923.png"}],"Gyofu":[{"name":"Gyofu","id":36963,"src":"assets/icons/3191.png"}],"Yukikaze":[{"name":"Yukikaze","id":7480,"src":"assets/icons/3166.png"}],"Jinpu":[{"name":"Jinpu","id":7478,"src":"assets/icons/3152.png"}],"Gekko":[{"name":"Gekko","id":7481,"src":"assets/icons/3158.png"}],"Shifu":[{"name":"Shifu","id":7479,"src":"assets/icons/3156.png"}],"Kasha":[{"name":"Kasha","id":7482,"src":"assets/icons/3164.png"}],"Hissatsu: Shinten":[{"name":"Hissatsu: Shinten","id":7490,"src":"assets/icons/3173.png"}],"Meikyo Shisui":[{"name":"Meikyo Shisui","id":7499,"src":"assets/icons/3167.png"}],"Ikishoten":[{"name":"Ikishoten","id":16482,"src":"assets/icons/3179.png"}],"Tsubame-gaeshi":[{"name":"Tsubame-gaeshi","id":16483,"src":"assets/icons/3180.png"}],"Ogi Namikiri":[{"name":"Ogi Namikiri","id":25781,"src":"assets/icons/3187.png"}],"Third Eye":[{"name":"Third Eye","id":7498,"src":"assets/icons/3153.png"}],"Fuko":[{"name":"Fuko","id":25780,"src":"assets/icons/3189.png"}],"Mangetsu":[{"name":"Mangetsu","id":7484,"src":"assets/icons/3163.png"}],"Tenka Goken":[{"name":"Tenka Goken","id":7488,"src":"assets/icons/3161.png"}],"Slice":[{"name":"Slice","id":24373,"src":"assets/icons/3601.png"}],"Waxing Slice":[{"name":"Waxing Slice","id":24374,"src":"assets/icons/3602.png"}],"Infernal Slice":[{"name":"Infernal Slice","id":24375,"src":"assets/icons/3603.png"}],"Gibbet":[{"name":"Gibbet","id":24382,"src":"assets/icons/3610.png"}],"Shadow of Death":[{"name":"Shadow of Death","id":24378,"src":"assets/icons/3606.png"}],"Gallows":[{"name":"Gallows","id":24383,"src":"assets/icons/3611.png"}],"Soul Slice":[{"name":"Soul Slice","id":24380,"src":"assets/icons/3608.png"}],"Gluttony":[{"name":"Gluttony","id":24393,"src":"assets/icons/3621.png"}],"Enshroud":[{"name":"Enshroud","id":24394,"src":"assets/icons/3622.png"}],"Plentiful Harvest":[{"name":"Plentiful Harvest","id":24385,"src":"assets/icons/3613.png"}],"Arcane Circle":[{"name":"Arcane Circle","id":24405,"src":"assets/icons/3633.png"}],"Hell's Ingress":[{"name":"Hell's Ingress","id":24401,"src":"assets/icons/3629.png"}],"Regress":[{"name":"Regress","id":24403,"src":"assets/icons/3631.png"}],"Arcane Crest":[{"name":"Arcane Crest","id":24404,"src":"assets/icons/3632.png"}],"Spinning Scythe":[{"name":"Spinning Scythe","id":24376,"src":"assets/icons/3604.png"}],"Nightmare Scythe":[{"name":"Nightmare Scythe","id":24377,"src":"assets/icons/3605.png"}],"Circle of Death":[{"name":"Whorl of Death","id":24379,"src":"assets/icons/3607.png"}],"Grim Reaping":[{"name":"Grim Reaping","id":24397,"src":"assets/icons/3625.png"}],"Steel Fangs":[{"name":"Steel Fangs","id":34606,"src":"assets/icons/3701.png"}],"Reaving Fangs":[{"name":"Reaving Fangs","id":34607,"src":"assets/icons/3702.png"}],"Hunter's/Swiftskin's Sting":[{"name":"Hunter's Sting","id":34608,"src":"assets/icons/3703.png"},{"name":"Swiftskin's Sting","id":34609,"src":"assets/icons/3704.png"}],"Flanksting/Hindsting Strike":[{"name":"Flanksting Strike","id":34610,"src":"assets/icons/3705.png"},{"name":"Hindsting Strike","id":34612,"src":"assets/icons/3707.png"}],"Reawaken":[{"name":"Reawaken","id":34626,"src":"assets/icons/3721.png"}],"Vicewinder":[{"name":"Vicewinder","id":34620,"src":"assets/icons/3715.png"}],"Hunter's Coil":[{"name":"Hunter's Coil","id":34621,"src":"assets/icons/3716.png"}],"Swiftskin's Coil":[{"name":"Swiftskin's Coil","id":34622,"src":"assets/icons/3717.png"}],"Serpent's Ire":[{"name":"Serpent's Ire","id":34647,"src":"assets/icons/3742.png"}],"Slither":[{"name":"Slither","id":34646,"src":"assets/icons/3741.png"}],"Steel Maw":[{"name":"Steel Maw","id":34614,"src":"assets/icons/3709.png"}],"Reaving Maw":[{"name":"Reaving Maw","id":34615,"src":"assets/icons/3710.png"}],"Hunter's/Swiftskin's Bite":[{"name":"Hunter's Bite","id":34616,"src":"assets/icons/3711.png"},{"name":"Swiftskin's Bite","id":34617,"src":"assets/icons/3712.png"}],"Burst Shot":[{"name":"Burst Shot","id":16495,"src":"assets/icons/2618.png"}],"Refulgent Arrow":[{"name":"Refulgent Arrow","id":7409,"src":"assets/icons/2616.png"}],"Iron Jaws":[{"name":"Iron Jaws","id":3560,"src":"assets/icons/2608.png"}],"Apex Arrow":[{"name":"Apex Arrow","id":16496,"src":"assets/icons/2619.png"}],"Stormbite":[{"name":"Stormbite","id":7407,"src":"assets/icons/2614.png"}],"Caustic Bite":[{"name":"Caustic Bite","id":7406,"src":"assets/icons/2613.png"}],"Pitch Perfect":[{"name":"Pitch Perfect","id":7404,"src":"assets/icons/2611.png"}],"Empyreal Arrow":[{"name":"Empyreal Arrow","id":3558,"src":"assets/icons/2606.png"}],"Sidewinder":[{"name":"Sidewinder","id":3562,"src":"assets/icons/2610.png"}],"Raging Strikes":[{"name":"Raging Strikes","id":101,"src":"assets/icons/352.png"}],"Battle Voice":[{"name":"Battle Voice","id":118,"src":"assets/icons/2601.png"}],"Troubadour":[{"name":"Troubadour","id":7405,"src":"assets/icons/2612.png"}],"Head Graze":[{"name":"Head Graze","id":7551,"src":"assets/icons/848.png"}],"The Wanderer's Minuet":[{"name":"the Wanderer's Minuet","id":3559,"src":"assets/icons/2607.png"}],"Mage's Ballad":[{"name":"Mage's Ballad","id":114,"src":"assets/icons/2602.png"}],"Army's Paeon":[{"name":"Army's Paeon","id":116,"src":"assets/icons/2603.png"}],"Radiant Finale":[{"name":"Radiant Finale","id":25785,"src":"assets/icons/2622.png"}],"Heated Split Shot":[{"name":"Heated Split Shot","id":7411,"src":"assets/icons/3031.png"}],"Heated Slug Shot":[{"name":"Heated Slug Shot","id":7412,"src":"assets/icons/3032.png"}],"Heated Clean Shot":[{"name":"Heated Clean Shot","id":7413,"src":"assets/icons/3033.png"}],"Heat Blast":[{"name":"Heat Blast","id":7410,"src":"assets/icons/3030.png"}],"Drill":[{"name":"Drill","id":16498,"src":"assets/icons/3043.png"}],"Air Anchor":[{"name":"Air Anchor","id":16500,"src":"assets/icons/3045.png"}],"Hypercharge":[{"name":"Hypercharge","id":17209,"src":"assets/icons/3041.png"}],"Gauss Round":[{"name":"Gauss Round","id":2874,"src":"assets/icons/3005.png"}],"Ricochet":[{"name":"Ricochet","id":2890,"src":"assets/icons/3017.png"}],"Reassemble":[{"name":"Reassemble","id":2876,"src":"assets/icons/3022.png"}],"Wildfire":[{"name":"Wildfire","id":2878,"src":"assets/icons/3018.png"}],"Tactician":[{"name":"Tactician","id":16889,"src":"assets/icons/3040.png"}],"Leg Graze":[{"name":"Leg Graze","id":7554,"src":"assets/icons/843.png"}],"Scattergun":[{"name":"Scattergun","id":25786,"src":"assets/icons/3046.png"}],"Auto Crossbow":[{"name":"Auto Crossbow","id":16497,"src":"assets/icons/3042.png"}],"Chain Saw":[{"name":"Chain Saw","id":25788,"src":"assets/icons/3048.png"}],"Barrel Stabilizer":[{"name":"Barrel Stabilizer","id":7414,"src":"assets/icons/3034.png"}],"Cascade":[{"name":"Cascade","id":15989,"src":"assets/icons/3451.png"}],"Fountain":[{"name":"Fountain","id":15990,"src":"assets/icons/3452.png"}],"Reverse Cascade / Fountainfall":[{"name":"Reverse Cascade","id":15991,"src":"assets/icons/3460.png"},{"name":"Fountainfall","id":15992,"src":"assets/icons/3464.png"}],"Saber Dance":[{"name":"Saber Dance","id":16005,"src":"assets/icons/3476.png"}],"Fan Dance I":[{"name":"Fan Dance","id":16007,"src":"assets/icons/3462.png"}],"Fan Dance III":[{"name":"Fan Dance III","id":16009,"src":"assets/icons/3472.png"}],"Flourish":[{"name":"Flourish","id":16013,"src":"assets/icons/3475.png"}],"Standard Step":[{"name":"Standard Step","id":15997,"src":"assets/icons/3454.png"}],"Devilment":[{"name":"Devilment","id":16011,"src":"assets/icons/3471.png"}],"En Avant":[{"name":"En Avant","id":16010,"src":"assets/icons/3467.png"}],"Shield Samba":[{"name":"Shield Samba","id":16012,"src":"assets/icons/3469.png"}],"Curing Waltz":[{"name":"Curing Waltz","id":16015,"src":"assets/icons/3468.png"}],"Foot Graze":[{"name":"Foot Graze","id":7553,"src":"assets/icons/842.png"}],"Windmill":[{"name":"Windmill","id":15993,"src":"assets/icons/3453.png"}],"Rising Windmill / Bloodshower":[{"name":"Rising Windmill","id":15995,"src":"assets/icons/3463.png"},{"name":"Bloodshower","id":15996,"src":"assets/icons/3465.png"}],"Technical Step":[{"name":"Technical Step","id":15998,"src":"assets/icons/3473.png"}],"Fan Dance IV":[{"name":"Fan Dance IV","id":25791,"src":"assets/icons/3481.png"}],"Fire IV":[{"name":"Fire IV","id":3577,"src":"assets/icons/2660.png"}],"Fire III":[{"name":"Fire III","id":152,"src":"assets/icons/453.png"}],"Blizzard III":[{"name":"Blizzard III","id":154,"src":"assets/icons/456.png"}],"Despair":[{"name":"Despair","id":16505,"src":"assets/icons/2665.png"}],"Flare Star":[{"name":"Flare Star","id":36989,"src":"assets/icons/2151.png"}],"Blizzard IV":[{"name":"Blizzard IV","id":3576,"src":"assets/icons/2659.png"}],"Xenoglossy":[{"name":"Xenoglossy","id":16507,"src":"assets/icons/2667.png"}],"Triplecast":[{"name":"Triplecast","id":7421,"src":"assets/icons/2663.png"}],"Amplifier":[{"name":"Amplifier","id":25796,"src":"assets/icons/2671.png"}],"Ley Lines":[{"name":"Ley Lines","id":3573,"src":"assets/icons/2656.png"}],"Manafont":[{"name":"Manafont","id":158,"src":"assets/icons/2651.png"}],"Aetherial Manipulation":[{"name":"Aetherial Manipulation","id":155,"src":"assets/icons/467.png"}],"Between the Lines":[{"name":"Between the Lines","id":7419,"src":"assets/icons/2661.png"}],"Transpose":[{"name":"Transpose","id":149,"src":"assets/icons/466.png"}],"Addle":[{"name":"Addle","id":7560,"src":"assets/icons/861.png"}],"Blizzard II":[{"name":"Blizzard II","id":25793,"src":"assets/icons/2668.png"}],"High Fire II":[{"name":"High Fire II","id":25794,"src":"assets/icons/2669.png"}],"Foul":[{"name":"Foul","id":7422,"src":"assets/icons/2664.png"}],"Flare":[{"name":"Flare","id":162,"src":"assets/icons/2652.png"}],"Ruin III":[{"name":"Ruin III","id":3579,"src":"assets/icons/2682.png"}],"Astral Flow":[{"name":"Astral Flow","id":25822,"src":"assets/icons/2759.png"}],"Summon Garuda II":[{"name":"Summon Garuda II","id":25840,"src":"assets/icons/2774.png"}],"Summon Ifrit II":[{"name":"Summon Ifrit II","id":25838,"src":"assets/icons/2772.png"}],"Summon Titan II":[{"name":"Summon Titan II","id":25839,"src":"assets/icons/2773.png"}],"Ruin IV":[{"name":"Ruin IV","id":7426,"src":"assets/icons/2686.png"}],"Mountain Buster":[{"name":"Mountain Buster","id":25836,"src":"assets/icons/2770.png"}],"Energie Drain":[{"name":"Energy Drain","id":167,"src":"assets/icons/514.png"}],"Enkindle Bahamut/Phoenix":[{"name":"Enkindle Bahamut","id":7429,"src":"assets/icons/2693.png"},{"name":"Enkindle Phoenix","id":16516,"src":"assets/icons/2737.png"}],"Summon Bahamut/Phoenix/Solar":[{"name":"Summon Bahamut","id":7427,"src":"assets/icons/2691.png"},{"name":"Summon Phoenix","id":25831,"src":"assets/icons/2765.png"},{"name":"Summon Solar Bahamut","id":36992,"src":"assets/icons/2782.png"}],"Searing Light":[{"name":"Searing Light","id":25801,"src":"assets/icons/2780.png"}],"Surecast":[{"name":"Surecast","id":7559,"src":"assets/icons/869.png"}],"Outburst":[{"name":"Outburst","id":16511,"src":"assets/icons/2698.png"}],"Astral Flare":[{"name":"Astral Flare","id":25821,"src":"assets/icons/2758.png"}],"Jolt III":[{"name":"Jolt III","id":37004,"src":"assets/icons/3241.png"}],"Verthunder III":[{"name":"Verthunder III","id":25855,"src":"assets/icons/3235.png"}],"Veraero III":[{"name":"Veraero III","id":25856,"src":"assets/icons/3236.png"}],"Enchanted Riposte":[{"name":"Enchanted Riposte","id":7527,"src":"assets/icons/3225.png"}],"Enchanted Zwerchhau":[{"name":"Enchanted Zwerchhau","id":7528,"src":"assets/icons/3226.png"}],"Enchanted Redoublement":[{"name":"Enchanted Redoublement","id":7529,"src":"assets/icons/3227.png"}],"Fleche":[{"name":"Fleche","id":7517,"src":"assets/icons/3212.png"}],"Contre Sixte":[{"name":"Contre Sixte","id":7519,"src":"assets/icons/3217.png"}],"Verstone / Vercure":[{"name":"Verstone","id":7511,"src":"assets/icons/3209.png"},{"name":"Vercure","id":7514,"src":"assets/icons/3216.png"}],"Manafication":[{"name":"Manafication","id":7521,"src":"assets/icons/3219.png"}],"Embolden":[{"name":"Embolden","id":7520,"src":"assets/icons/3218.png"}],"Corps-a-corps":[{"name":"Corps-a-corps","id":7506,"src":"assets/icons/3204.png"}],"Displacement / Engagement":[{"name":"Displacement","id":7515,"src":"assets/icons/3211.png"},{"name":"Engagement","id":16527,"src":"assets/icons/3231.png"}],"Magick Barrier":[{"name":"Magick Barrier","id":25857,"src":"assets/icons/3237.png"}],"Verthunder II":[{"name":"Verthunder II","id":16524,"src":"assets/icons/3229.png"}],"Veraero II":[{"name":"Veraero II","id":16525,"src":"assets/icons/3230.png"}],"Verholy / Verflare → Scorch":[{"name":"Verholy","id":7526,"src":"assets/icons/3224.png"},{"name":"Verflare","id":7525,"src":"assets/icons/3223.png"},{"name":"Scorch","id":16530,"src":"assets/icons/3234.png"}],"Resolution":[{"name":"Resolution","id":25858,"src":"assets/icons/3238.png"}],"Fire in Red":[{"name":"Fire in Red","id":34650,"src":"assets/icons/3801.png"}],"Aero in Green":[{"name":"Aero in Green","id":34651,"src":"assets/icons/3802.png"}],"Water in Blue":[{"name":"Water in Blue","id":34652,"src":"assets/icons/3803.png"}],"Holy in White":[{"name":"Holy in White","id":34662,"src":"assets/icons/3813.png"}],"Thunder in Magenta":[{"name":"Thunder in Magenta","id":34655,"src":"assets/icons/3806.png"}],"Comet in Black":[{"name":"Comet in Black","id":34663,"src":"assets/icons/3814.png"}],"Living Muse":[{"name":"Living Muse","id":35347,"src":"assets/icons/3842.png"}],"Striking Muse":[{"name":"Striking Muse","id":34674,"src":"assets/icons/3825.png"}],"Scenic Muse":[{"name":"Scenic Muse","id":35349,"src":"assets/icons/3844.png"}],"Creature Motif":[{"name":"Creature Motif","id":34689,"src":"assets/icons/3839.png"}],"Starry Muse":[{"name":"Starry Muse","id":34675,"src":"assets/icons/3826.png"}],"Smudge":[{"name":"Smudge","id":34684,"src":"assets/icons/3834.png"}],"Tempera Coat":[{"name":"Tempera Coat","id":34685,"src":"assets/icons/3835.png"}],"Fire II in Red":[{"name":"Fire II in Red","id":34656,"src":"assets/icons/3807.png"}],"Star Prism":[{"name":"Star Prism","id":34681,"src":"assets/icons/3832.png"}],"Rainbow Drip":[{"name":"Rainbow Drip","id":34688,"src":"assets/icons/3838.png"}],"Hammer Stamp":[{"name":"Hammer Stamp","id":34678,"src":"assets/icons/3829.png"}]};
+const SKILL_ICONS = {"Leaping Opo":[{"name":"Leaping Opo","id":36945,"src":"assets/icons/2982.png"}],"Rising Raptor":[{"name":"Rising Raptor","id":36946,"src":"assets/icons/2983.png"}],"Pouncing Coeurl":[{"name":"Pouncing Coeurl","id":36947,"src":"assets/icons/2984.png"}],"Dragon Kick":[{"name":"Dragon Kick","id":74,"src":"assets/icons/2528.png"}],"Twin Snakes":[{"name":"Twin Snakes","id":61,"src":"assets/icons/213.png"}],"Masterful Blitz":[{"name":"Masterful Blitz","id":25764,"src":"assets/icons/2976.png"}],"Perfect Balance":[{"name":"Perfect Balance","id":69,"src":"assets/icons/217.png"}],"Riddle of Wind":[{"name":"Riddle of Wind","id":25766,"src":"assets/icons/2978.png"}],"The Forbidden Chakra":[{"name":"the Forbidden Chakra","id":3547,"src":"assets/icons/2535.png"}],"Riddle of Fire":[{"name":"Riddle of Fire","id":7395,"src":"assets/icons/2541.png"}],"Brotherhood":[{"name":"Brotherhood","id":7396,"src":"assets/icons/2542.png"}],"Thunderclap":[{"name":"Thunderclap","id":25762,"src":"assets/icons/2975.png"}],"Mantra":[{"name":"Mantra","id":65,"src":"assets/icons/216.png"}],"Second Wind":[{"name":"Second Wind","id":7541,"src":"assets/icons/821.png"}],"Bloodbath":[{"name":"Bloodbath","id":7542,"src":"assets/icons/823.png"}],"Feint":[{"name":"Feint","id":7549,"src":"assets/icons/828.png"}],"Shadow of the Destroyer":[{"name":"Shadow of the Destroyer","id":25767,"src":"assets/icons/2979.png"}],"Four-point Fury":[{"name":"Four-point Fury","id":16473,"src":"assets/icons/2544.png"}],"Enlightenment":[{"name":"Enlightenment","id":16474,"src":"assets/icons/2545.png"}],"Raiden Thrust":[{"name":"Raiden Thrust","id":16479,"src":"assets/icons/2592.png"}],"Disembowel":[{"name":"Disembowel","id":87,"src":"assets/icons/317.png"}],"Chaotic Spring":[{"name":"Chaotic Spring","id":25772,"src":"assets/icons/2596.png"}],"Vorpal Thrust":[{"name":"Vorpal Thrust","id":78,"src":"assets/icons/312.png"}],"Heavens' Thrust":[{"name":"Heavens' Thrust","id":25771,"src":"assets/icons/2595.png"}],"Wyrmwind Thrust":[{"name":"Wyrmwind Thrust","id":25773,"src":"assets/icons/2597.png"}],"High Jump":[{"name":"High Jump","id":16478,"src":"assets/icons/2591.png"}],"Nastrond":[{"name":"Nastrond","id":7400,"src":"assets/icons/2589.png"}],"Geirskogul":[{"name":"Geirskogul","id":3555,"src":"assets/icons/2583.png"}],"Lance Charge":[{"name":"Lance Charge","id":85,"src":"assets/icons/309.png"}],"Battle Litany":[{"name":"Battle Litany","id":3557,"src":"assets/icons/2585.png"}],"Spineshatter Dive":[],"Dragonfire Dive":[{"name":"Dragonfire Dive","id":96,"src":"assets/icons/2578.png"}],"Life Surge":[{"name":"Life Surge","id":83,"src":"assets/icons/304.png"}],"Doom Spike":[{"name":"Doom Spike","id":86,"src":"assets/icons/306.png"}],"Sonic Thrust":[{"name":"Sonic Thrust","id":7397,"src":"assets/icons/2586.png"}],"Coerthan Torment":[{"name":"Coerthan Torment","id":16477,"src":"assets/icons/2590.png"}],"Spinning Edge":[{"name":"Spinning Edge","id":2240,"src":"assets/icons/601.png"}],"Gust Slash":[{"name":"Gust Slash","id":2242,"src":"assets/icons/602.png"}],"Aeolian Edge":[{"name":"Aeolian Edge","id":2255,"src":"assets/icons/605.png"}],"Armor Crush":[{"name":"Armor Crush","id":3563,"src":"assets/icons/2915.png"}],"Raiju (프록 시)":[{"name":"Forked Raiju","id":25777,"src":"assets/icons/2931.png"},{"name":"Fleeting Raiju","id":25778,"src":"assets/icons/2932.png"}],"Bhavacakra":[{"name":"Bhavacakra","id":7402,"src":"assets/icons/2921.png"}],"Ten (무드라 1)":[{"name":"Ten","id":2259,"src":"assets/icons/2901.png"}],"Chi (무드라 2)":[{"name":"Chi","id":2261,"src":"assets/icons/2902.png"}],"Jin (무드라 3)":[{"name":"Jin","id":2263,"src":"assets/icons/2903.png"}],"Bunshin":[{"name":"Bunshin","id":16493,"src":"assets/icons/2927.png"}],"Kunai's Bane":[{"name":"Kunai's Bane","id":36958,"src":"assets/icons/620.png"}],"Shukuchi":[{"name":"Shukuchi","id":2262,"src":"assets/icons/2905.png"}],"Mug":[{"name":"Mug","id":2248,"src":"assets/icons/613.png"}],"Death Blossom":[{"name":"Death Blossom","id":2254,"src":"assets/icons/615.png"}],"Hakke Mujinsatsu":[{"name":"Hakke Mujinsatsu","id":16488,"src":"assets/icons/2923.png"}],"Gyofu":[{"name":"Gyofu","id":36963,"src":"assets/icons/3191.png"}],"Yukikaze":[{"name":"Yukikaze","id":7480,"src":"assets/icons/3166.png"}],"Jinpu":[{"name":"Jinpu","id":7478,"src":"assets/icons/3152.png"}],"Gekko":[{"name":"Gekko","id":7481,"src":"assets/icons/3158.png"}],"Shifu":[{"name":"Shifu","id":7479,"src":"assets/icons/3156.png"}],"Kasha":[{"name":"Kasha","id":7482,"src":"assets/icons/3164.png"}],"Hissatsu: Shinten":[{"name":"Hissatsu: Shinten","id":7490,"src":"assets/icons/3173.png"}],"Meikyo Shisui":[{"name":"Meikyo Shisui","id":7499,"src":"assets/icons/3167.png"}],"Ikishoten":[{"name":"Ikishoten","id":16482,"src":"assets/icons/3179.png"}],"Tsubame-gaeshi":[{"name":"Tsubame-gaeshi","id":16483,"src":"assets/icons/3180.png"}],"Ogi Namikiri":[{"name":"Ogi Namikiri","id":25781,"src":"assets/icons/3187.png"}],"Third Eye":[{"name":"Third Eye","id":7498,"src":"assets/icons/3153.png"}],"Fuko":[{"name":"Fuko","id":25780,"src":"assets/icons/3189.png"}],"Mangetsu":[{"name":"Mangetsu","id":7484,"src":"assets/icons/3163.png"}],"Tenka Goken":[{"name":"Tenka Goken","id":7488,"src":"assets/icons/3161.png"}],"Slice":[{"name":"Slice","id":24373,"src":"assets/icons/3601.png"}],"Waxing Slice":[{"name":"Waxing Slice","id":24374,"src":"assets/icons/3602.png"}],"Infernal Slice":[{"name":"Infernal Slice","id":24375,"src":"assets/icons/3603.png"}],"Gibbet":[{"name":"Gibbet","id":24382,"src":"assets/icons/3610.png"}],"Shadow of Death":[{"name":"Shadow of Death","id":24378,"src":"assets/icons/3606.png"}],"Gallows":[{"name":"Gallows","id":24383,"src":"assets/icons/3611.png"}],"Soul Slice":[{"name":"Soul Slice","id":24380,"src":"assets/icons/3608.png"}],"Gluttony":[{"name":"Gluttony","id":24393,"src":"assets/icons/3621.png"}],"Enshroud":[{"name":"Enshroud","id":24394,"src":"assets/icons/3622.png"}],"Plentiful Harvest":[{"name":"Plentiful Harvest","id":24385,"src":"assets/icons/3613.png"}],"Arcane Circle":[{"name":"Arcane Circle","id":24405,"src":"assets/icons/3633.png"}],"Hell's Ingress":[{"name":"Hell's Ingress","id":24401,"src":"assets/icons/3629.png"}],"Regress":[{"name":"Regress","id":24403,"src":"assets/icons/3631.png"}],"Arcane Crest":[{"name":"Arcane Crest","id":24404,"src":"assets/icons/3632.png"}],"Spinning Scythe":[{"name":"Spinning Scythe","id":24376,"src":"assets/icons/3604.png"}],"Nightmare Scythe":[{"name":"Nightmare Scythe","id":24377,"src":"assets/icons/3605.png"}],"Circle of Death":[{"name":"Whorl of Death","id":24379,"src":"assets/icons/3607.png"}],"Grim Reaping":[{"name":"Grim Reaping","id":24397,"src":"assets/icons/3625.png"}],"Steel Fangs":[{"name":"Steel Fangs","id":34606,"src":"assets/icons/3701.png"}],"Reaving Fangs":[{"name":"Reaving Fangs","id":34607,"src":"assets/icons/3702.png"}],"Hunter's/Swiftskin's Sting":[{"name":"Hunter's Sting","id":34608,"src":"assets/icons/3703.png"},{"name":"Swiftskin's Sting","id":34609,"src":"assets/icons/3704.png"}],"Flanksting/Hindsting Strike":[{"name":"Flanksting Strike","id":34610,"src":"assets/icons/3705.png"},{"name":"Hindsting Strike","id":34612,"src":"assets/icons/3707.png"}],"Reawaken":[{"name":"Reawaken","id":34626,"src":"assets/icons/3721.png"}],"Vicewinder":[{"name":"Vicewinder","id":34620,"src":"assets/icons/3715.png"}],"Hunter's Coil":[{"name":"Hunter's Coil","id":34621,"src":"assets/icons/3716.png"}],"Swiftskin's Coil":[{"name":"Swiftskin's Coil","id":34622,"src":"assets/icons/3717.png"}],"Serpent's Ire":[{"name":"Serpent's Ire","id":34647,"src":"assets/icons/3742.png"}],"Slither":[{"name":"Slither","id":34646,"src":"assets/icons/3741.png"}],"Steel Maw":[{"name":"Steel Maw","id":34614,"src":"assets/icons/3709.png"}],"Reaving Maw":[{"name":"Reaving Maw","id":34615,"src":"assets/icons/3710.png"}],"Hunter's/Swiftskin's Bite":[{"name":"Hunter's Bite","id":34616,"src":"assets/icons/3711.png"},{"name":"Swiftskin's Bite","id":34617,"src":"assets/icons/3712.png"}],"Burst Shot":[{"name":"Burst Shot","id":16495,"src":"assets/icons/2618.png"}],"Refulgent Arrow":[{"name":"Refulgent Arrow","id":7409,"src":"assets/icons/2616.png"}],"Iron Jaws":[{"name":"Iron Jaws","id":3560,"src":"assets/icons/2608.png"}],"Apex Arrow":[{"name":"Apex Arrow","id":16496,"src":"assets/icons/2619.png"}],"Stormbite":[{"name":"Stormbite","id":7407,"src":"assets/icons/2614.png"}],"Caustic Bite":[{"name":"Caustic Bite","id":7406,"src":"assets/icons/2613.png"}],"Pitch Perfect":[{"name":"Pitch Perfect","id":7404,"src":"assets/icons/2611.png"}],"Empyreal Arrow":[{"name":"Empyreal Arrow","id":3558,"src":"assets/icons/2606.png"}],"Sidewinder":[{"name":"Sidewinder","id":3562,"src":"assets/icons/2610.png"}],"Raging Strikes":[{"name":"Raging Strikes","id":101,"src":"assets/icons/352.png"}],"Battle Voice":[{"name":"Battle Voice","id":118,"src":"assets/icons/2601.png"}],"Troubadour":[{"name":"Troubadour","id":7405,"src":"assets/icons/2612.png"}],"Head Graze":[{"name":"Head Graze","id":7551,"src":"assets/icons/848.png"}],"The Wanderer's Minuet":[{"name":"the Wanderer's Minuet","id":3559,"src":"assets/icons/2607.png"}],"Mage's Ballad":[{"name":"Mage's Ballad","id":114,"src":"assets/icons/2602.png"}],"Army's Paeon":[{"name":"Army's Paeon","id":116,"src":"assets/icons/2603.png"}],"Radiant Finale":[{"name":"Radiant Finale","id":25785,"src":"assets/icons/2622.png"}],"Heated Split Shot":[{"name":"Heated Split Shot","id":7411,"src":"assets/icons/3031.png"}],"Heated Slug Shot":[{"name":"Heated Slug Shot","id":7412,"src":"assets/icons/3032.png"}],"Heated Clean Shot":[{"name":"Heated Clean Shot","id":7413,"src":"assets/icons/3033.png"}],"Heat Blast":[{"name":"Heat Blast","id":7410,"src":"assets/icons/3030.png"}],"Drill":[{"name":"Drill","id":16498,"src":"assets/icons/3043.png"}],"Air Anchor":[{"name":"Air Anchor","id":16500,"src":"assets/icons/3045.png"}],"Hypercharge":[{"name":"Hypercharge","id":17209,"src":"assets/icons/3041.png"}],"Gauss Round":[{"name":"Gauss Round","id":2874,"src":"assets/icons/3005.png"}],"Ricochet":[{"name":"Ricochet","id":2890,"src":"assets/icons/3017.png"}],"Reassemble":[{"name":"Reassemble","id":2876,"src":"assets/icons/3022.png"}],"Wildfire":[{"name":"Wildfire","id":2878,"src":"assets/icons/3018.png"}],"Tactician":[{"name":"Tactician","id":16889,"src":"assets/icons/3040.png"}],"Leg Graze":[{"name":"Leg Graze","id":7554,"src":"assets/icons/843.png"}],"Scattergun":[{"name":"Scattergun","id":25786,"src":"assets/icons/3046.png"}],"Auto Crossbow":[{"name":"Auto Crossbow","id":16497,"src":"assets/icons/3042.png"}],"Chain Saw":[{"name":"Chain Saw","id":25788,"src":"assets/icons/3048.png"}],"Barrel Stabilizer":[{"name":"Barrel Stabilizer","id":7414,"src":"assets/icons/3034.png"}],"Cascade":[{"name":"Cascade","id":15989,"src":"assets/icons/3451.png"}],"Fountain":[{"name":"Fountain","id":15990,"src":"assets/icons/3452.png"}],"Reverse Cascade / Fountainfall":[{"name":"Reverse Cascade","id":15991,"src":"assets/icons/3460.png"},{"name":"Fountainfall","id":15992,"src":"assets/icons/3464.png"}],"Saber Dance":[{"name":"Saber Dance","id":16005,"src":"assets/icons/3476.png"}],"Fan Dance I":[{"name":"Fan Dance","id":16007,"src":"assets/icons/3462.png"}],"Fan Dance III":[{"name":"Fan Dance III","id":16009,"src":"assets/icons/3472.png"}],"Flourish":[{"name":"Flourish","id":16013,"src":"assets/icons/3475.png"}],"Standard Step":[{"name":"Standard Step","id":15997,"src":"assets/icons/3454.png"}],"Devilment":[{"name":"Devilment","id":16011,"src":"assets/icons/3471.png"}],"En Avant":[{"name":"En Avant","id":16010,"src":"assets/icons/3467.png"}],"Shield Samba":[{"name":"Shield Samba","id":16012,"src":"assets/icons/3469.png"}],"Curing Waltz":[{"name":"Curing Waltz","id":16015,"src":"assets/icons/3468.png"}],"Foot Graze":[{"name":"Foot Graze","id":7553,"src":"assets/icons/842.png"}],"Windmill":[{"name":"Windmill","id":15993,"src":"assets/icons/3453.png"}],"Rising Windmill / Bloodshower":[{"name":"Rising Windmill","id":15995,"src":"assets/icons/3463.png"},{"name":"Bloodshower","id":15996,"src":"assets/icons/3465.png"}],"Technical Step":[{"name":"Technical Step","id":15998,"src":"assets/icons/3473.png"}],"Fan Dance IV":[{"name":"Fan Dance IV","id":25791,"src":"assets/icons/3481.png"}],"Fire IV":[{"name":"Fire IV","id":3577,"src":"assets/icons/2660.png"}],"Fire III":[{"name":"Fire III","id":152,"src":"assets/icons/453.png"}],"Blizzard III":[{"name":"Blizzard III","id":154,"src":"assets/icons/456.png"}],"Despair":[{"name":"Despair","id":16505,"src":"assets/icons/2665.png"}],"Flare Star":[{"name":"Flare Star","id":36989,"src":"assets/icons/2151.png"}],"Blizzard IV":[{"name":"Blizzard IV","id":3576,"src":"assets/icons/2659.png"}],"Xenoglossy":[{"name":"Xenoglossy","id":16507,"src":"assets/icons/2667.png"}],"Triplecast":[{"name":"Triplecast","id":7421,"src":"assets/icons/2663.png"}],"Amplifier":[{"name":"Amplifier","id":25796,"src":"assets/icons/2671.png"}],"Ley Lines":[{"name":"Ley Lines","id":3573,"src":"assets/icons/2656.png"}],"Manafont":[{"name":"Manafont","id":158,"src":"assets/icons/2651.png"}],"Aetherial Manipulation":[{"name":"Aetherial Manipulation","id":155,"src":"assets/icons/467.png"}],"Between the Lines":[{"name":"Between the Lines","id":7419,"src":"assets/icons/2661.png"}],"Transpose":[{"name":"Transpose","id":149,"src":"assets/icons/466.png"}],"Addle":[{"name":"Addle","id":7560,"src":"assets/icons/861.png"}],"Blizzard II":[{"name":"Blizzard II","id":25793,"src":"assets/icons/2668.png"}],"High Fire II":[{"name":"High Fire II","id":25794,"src":"assets/icons/2669.png"}],"Foul":[{"name":"Foul","id":7422,"src":"assets/icons/2664.png"}],"Flare":[{"name":"Flare","id":162,"src":"assets/icons/2652.png"}],"Ruin III":[{"name":"Ruin III","id":3579,"src":"assets/icons/2682.png"}],"Astral Flow":[{"name":"Astral Flow","id":25822,"src":"assets/icons/2759.png"}],"Summon Garuda II":[{"name":"Summon Garuda II","id":25840,"src":"assets/icons/2774.png"}],"Summon Ifrit II":[{"name":"Summon Ifrit II","id":25838,"src":"assets/icons/2772.png"}],"Summon Titan II":[{"name":"Summon Titan II","id":25839,"src":"assets/icons/2773.png"}],"Ruin IV":[{"name":"Ruin IV","id":7426,"src":"assets/icons/2686.png"}],"Mountain Buster":[{"name":"Mountain Buster","id":25836,"src":"assets/icons/2770.png"}],"Energie Drain":[{"name":"Energy Drain","id":167,"src":"assets/icons/514.png"}],"Enkindle Bahamut/Phoenix":[{"name":"Enkindle Bahamut","id":7429,"src":"assets/icons/2693.png"},{"name":"Enkindle Phoenix","id":16516,"src":"assets/icons/2737.png"}],"Summon Bahamut/Phoenix/Solar":[{"name":"Summon Bahamut","id":7427,"src":"assets/icons/2691.png"},{"name":"Summon Phoenix","id":25831,"src":"assets/icons/2765.png"},{"name":"Summon Solar Bahamut","id":36992,"src":"assets/icons/2782.png"}],"Searing Light":[{"name":"Searing Light","id":25801,"src":"assets/icons/2780.png"}],"Surecast":[{"name":"Surecast","id":7559,"src":"assets/icons/869.png"}],"Outburst":[{"name":"Outburst","id":16511,"src":"assets/icons/2698.png"}],"Astral Flare":[{"name":"Astral Flare","id":25821,"src":"assets/icons/2758.png"}],"Jolt III":[{"name":"Jolt III","id":37004,"src":"assets/icons/3241.png"}],"Verthunder III":[{"name":"Verthunder III","id":25855,"src":"assets/icons/3235.png"}],"Veraero III":[{"name":"Veraero III","id":25856,"src":"assets/icons/3236.png"}],"Enchanted Riposte":[{"name":"Enchanted Riposte","id":7527,"src":"assets/icons/3225.png"}],"Enchanted Zwerchhau":[{"name":"Enchanted Zwerchhau","id":7528,"src":"assets/icons/3226.png"}],"Enchanted Redoublement":[{"name":"Enchanted Redoublement","id":7529,"src":"assets/icons/3227.png"}],"Fleche":[{"name":"Fleche","id":7517,"src":"assets/icons/3212.png"}],"Contre Sixte":[{"name":"Contre Sixte","id":7519,"src":"assets/icons/3217.png"}],"Verstone / Vercure":[{"name":"Verstone","id":7511,"src":"assets/icons/3209.png"},{"name":"Vercure","id":7514,"src":"assets/icons/3216.png"}],"Manafication":[{"name":"Manafication","id":7521,"src":"assets/icons/3219.png"}],"Embolden":[{"name":"Embolden","id":7520,"src":"assets/icons/3218.png"}],"Corps-a-corps":[{"name":"Corps-a-corps","id":7506,"src":"assets/icons/3204.png"}],"Displacement / Engagement":[{"name":"Displacement","id":7515,"src":"assets/icons/3211.png"},{"name":"Engagement","id":16527,"src":"assets/icons/3231.png"}],"Magick Barrier":[{"name":"Magick Barrier","id":25857,"src":"assets/icons/3237.png"}],"Verthunder II":[{"name":"Verthunder II","id":16524,"src":"assets/icons/3229.png"}],"Veraero II":[{"name":"Veraero II","id":16525,"src":"assets/icons/3230.png"}],"Verholy / Verflare → Scorch":[{"name":"Verholy","id":7526,"src":"assets/icons/3224.png"},{"name":"Verflare","id":7525,"src":"assets/icons/3223.png"},{"name":"Scorch","id":16530,"src":"assets/icons/3234.png"}],"Resolution":[{"name":"Resolution","id":25858,"src":"assets/icons/3238.png"}],"Fire in Red":[{"name":"Fire in Red","id":34650,"src":"assets/icons/3801.png"}],"Aero in Green":[{"name":"Aero in Green","id":34651,"src":"assets/icons/3802.png"}],"Water in Blue":[{"name":"Water in Blue","id":34652,"src":"assets/icons/3803.png"}],"Holy in White":[{"name":"Holy in White","id":34662,"src":"assets/icons/3813.png"}],"Thunder in Magenta":[{"name":"Thunder in Magenta","id":34655,"src":"assets/icons/3806.png"}],"Comet in Black":[{"name":"Comet in Black","id":34663,"src":"assets/icons/3814.png"}],"Living Muse":[{"name":"Living Muse","id":35347,"src":"assets/icons/3842.png"}],"Striking Muse":[{"name":"Striking Muse","id":34674,"src":"assets/icons/3825.png"}],"Scenic Muse":[{"name":"Scenic Muse","id":35349,"src":"assets/icons/3844.png"}],"Creature Motif":[{"name":"Creature Motif","id":34689,"src":"assets/icons/3839.png"}],"Starry Muse":[{"name":"Starry Muse","id":34675,"src":"assets/icons/3826.png"}],"Smudge":[{"name":"Smudge","id":34684,"src":"assets/icons/3834.png"}],"Tempera Coat":[{"name":"Tempera Coat","id":34685,"src":"assets/icons/3835.png"}],"Fire II in Red":[{"name":"Fire II in Red","id":34656,"src":"assets/icons/3807.png"}],"Star Prism":[{"name":"Star Prism","id":34681,"src":"assets/icons/3832.png"}],"Rainbow Drip":[{"name":"Rainbow Drip","id":34688,"src":"assets/icons/3838.png"}],"Hammer Stamp":[{"name":"Hammer Stamp","id":34678,"src":"assets/icons/3829.png"}],"Blazing Shot":[{"name":"Blazing Shot","id":36978,"src":"assets/icons/3506.png"}],"Double Check":[{"name":"Double Check","id":36979,"src":"assets/icons/3507.png"}],"Checkmate":[{"name":"Checkmate","id":36980,"src":"assets/icons/3508.png"}],"Excavator":[{"name":"Excavator","id":36981,"src":"assets/icons/3500.png"}],"Full Metal Field":[{"name":"Full Metal Field","id":36982,"src":"assets/icons/3049.png"}],"Automaton Queen":[{"name":"Automaton Queen","id":16501,"src":"assets/icons/3501.png"}],"Dismantle":[{"name":"Dismantle","id":2887,"src":"assets/icons/3011.png"}],"Arm's Length":[{"name":"Arm's Length","id":7548,"src":"assets/icons/822.png"}],"Flamethrower":[{"name":"Flamethrower","id":7418,"src":"assets/icons/3038.png"}],"Bioblaster":[{"name":"Bioblaster","id":16499,"src":"assets/icons/3044.png"}],"Peloton":[{"name":"Peloton","id":7557,"src":"assets/icons/844.png"}],"Sprint":[{"name":"Sprint","id":3,"src":"assets/icons/104.png"}],"Queen Overdrive":[{"name":"Queen Overdrive","id":16502,"src":"assets/icons/3502.png"}],"Limit Break":[{"name":"Limit Break","id":3,"sheet":"GeneralAction","src":"assets/icons/103.png"}]};
 
-const KOREAN_NAMES = {"Leaping Opo":"원무연격","Rising Raptor":"용함정권격","Pouncing Coeurl":"호습붕권","Dragon Kick":"쌍룡각","Twin Snakes":"쌍장타","Masterful Blitz":"필살기","Perfect Balance":"진각","Riddle of Wind":"질풍의 극의","Riddle of Fire":"홍련의 극의","Brotherhood":"도원결의","Thunderclap":"발중보법","Mantra":"만트라","Second Wind":"내단","Bloodbath":"피의 갈증","Feint":"견제","Shadow of the Destroyer":"파괴신각","Four-point Fury":"사면각","Enlightenment":"만상투기권","Raiden Thrust":"용안뇌전","Disembowel":"몸통 가르기","Chaotic Spring":"꽃잎 만발","Vorpal Thrust":"사선 찌르기","Heavens' Thrust":"하늘 찌르기","Wyrmwind Thrust":"천룡점정","High Jump":"하이 점프","Nastrond":"나스트론드","Geirskogul":"게이르스코굴","Lance Charge":"돌격하는 창","Battle Litany":"전투 기도","Dragonfire Dive":"화룡 강타","Life Surge":"생명력 쇄도","Doom Spike":"악몽의 쐐기","Sonic Thrust":"음속 찌르기","Coerthan Torment":"커르다스의 고통","Spinning Edge":"쌍검 회전베기","Gust Slash":"돌풍베기","Aeolian Edge":"칼날 선풍","Armor Crush":"강갑파점 찌르기","Forked Raiju":"월영뇌수조","Fleeting Raiju":"월영뇌수아","Bhavacakra":"육도윤회","Ten":"하늘의 인","Chi":"땅의 인","Jin":"사람의 인","Bunshin":"분신술","Kunai's Bane":"백뢰총","Shukuchi":"축지법","Mug":"약탈","Death Blossom":"피의 비","Hakke Mujinsatsu":"팔괘무인살","Gyofu":"효풍","Yukikaze":"설풍","Jinpu":"진풍","Gekko":"월광","Shifu":"사풍","Kasha":"화차","Hissatsu: Shinten":"필살검: 진천","Meikyo Shisui":"명경지수","Ikishoten":"의기충천","Tsubame-gaeshi":"제비반전","Ogi Namikiri":"오의파절","Third Eye":"심안","Fuko":"풍광","Mangetsu":"만월","Slice":"낫질","Waxing Slice":"반달 낫질","Infernal Slice":"지옥 낫질","Gibbet":"효수형","Shadow of Death":"죽음의 그림자","Gallows":"교수형","Soul Slice":"영혼 낫질","Gluttony":"탐식","Enshroud":"레무르 수의","Plentiful Harvest":"풍성한 수확","Arcane Circle":"신비의 원","Hell's Ingress":"지옥 입장","Regress":"회귀","Arcane Crest":"신비의 문장","Spinning Scythe":"회전 낫","Nightmare Scythe":"악몽의 낫","Whorl of Death":"죽음의 회오리","Circle of Death":"죽음의 회오리","Grim Reaping":"그림 리퍼","Steel Fangs":"송곳니 하나: 교상","Reaving Fangs":"송곳니 하나: 열상","Hunter's Sting":"송곳니 둘: 맹습","Swiftskin's Sting":"송곳니 둘: 질주","Flanksting Strike":"송곳니 셋: 측격","Hindsting Strike":"송곳니 셋: 후격","Reawaken":"조상령 빙의","Vicewinder":"뱀 하나: 분쇄","Hunter's Coil":"뱀 둘: 맹습","Swiftskin's Coil":"뱀 둘: 질주","Serpent's Ire":"뱀의 영기","Slither":"뱀걸음","Steel Maw":"큰송곳니 하나: 교상","Reaving Maw":"큰송곳니 하나: 열상","Hunter's Bite":"큰송곳니 둘: 맹습","Swiftskin's Bite":"큰송곳니 둘: 질주","Burst Shot":"파열 사격","Refulgent Arrow":"찬란한 화살","Iron Jaws":"굳은 결의","Apex Arrow":"정점의 화살","Stormbite":"폭풍 화살","Caustic Bite":"맹독 화살","Pitch Perfect":"절대음감","Empyreal Arrow":"천상의 화살","Sidewinder":"독사 강습","Raging Strikes":"용맹한 사격","Battle Voice":"전장의 노래","Troubadour":"방랑하는 음악가","Head Graze":"머리 쏘기","Mage's Ballad":"현인의 담시곡","Army's Paeon":"군신의 찬가","Radiant Finale":"빛신의 종곡","Heated Split Shot":"열분열탄","Heated Slug Shot":"열슬러그탄","Heated Clean Shot":"열정밀탄","Heat Blast":"열기 분사","Drill":"드릴","Air Anchor":"사슬닻","Hypercharge":"과충전","Gauss Round":"가우스탄","Ricochet":"도탄 사격","Reassemble":"정비","Wildfire":"소이탄","Tactician":"책략가","Leg Graze":"다리 쏘기","Scattergun":"산탄총","Auto Crossbow":"자동 석궁","Chain Saw":"회전톱","Barrel Stabilizer":"열기 조절","Cascade":"캐스케이드","Fountain":"파운틴","Reverse Cascade":"리버스 캐스케이드","Fountainfall":"파운틴 폴","Saber Dance":"검무","Fan Dance":"부채춤: 발단","Fan Dance I":"부채춤: 발단","Fan Dance III":"부채춤: 절정","Flourish":"플러리쉬","Standard Step":"정석 무도","Devilment":"공세의 탱고","En Avant":"앞걸음","Shield Samba":"수세의 삼바","Curing Waltz":"치유의 왈츠","Foot Graze":"발 쏘기","Windmill":"윈드밀","Rising Windmill":"라이징 윈드밀","Bloodshower":"블러드 샤워","Technical Step":"기교 무도","Fan Dance IV":"부채춤: 결말","Fire IV":"파이쟈","Fire III":"파이가","Blizzard III":"블리자가","Despair":"절망","Flare Star":"타오르는 별","Blizzard IV":"블리자쟈","Xenoglossy":"미지의 언어","Triplecast":"삼연속 마법","Amplifier":"언어 확장","Ley Lines":"흑마법 문양","Manafont":"마나샘","Aetherial Manipulation":"에테르 촉진","Between the Lines":"문양 도약","Transpose":"속성 전환","Addle":"정신 교란","Blizzard II":"블리자라","High Fire II":"하이 파이라","Foul":"금지된 언어","Flare":"플레어","Ruin III":"루인가","Astral Flow":"천상의 흐름","Summon Garuda II":"가루다 소환 2","Summon Ifrit II":"이프리트 소환 2","Summon Titan II":"타이탄 소환 2","Ruin IV":"루인쟈","Energy Drain":"생명력 흡수","Enkindle Bahamut":"바하무트 점화","Enkindle Phoenix":"피닉스 점화","Summon Bahamut":"바하무트 소환","Summon Phoenix":"피닉스 소환","Summon Solar Bahamut":"솔 바하무트 소환","Searing Light":"타오르는 빛","Surecast":"견고한 마법","Outburst":"발산","Astral Flare":"천상의 불길","Jolt III":"졸트가","Verthunder III":"버선더가","Veraero III":"버에어로가","Enchanted Riposte":"인리포스트","Enchanted Zwerchhau":"인츠베르크하우","Enchanted Redoublement":"인르두블망","Fleche":"플레슈","Contre Sixte":"콩트르 식스트","Verstone":"버스톤","Vercure":"버케알","Manafication":"마나 증량","Embolden":"성원","Corps-a-corps":"코르 아 코르","Displacement":"데플라스망","Engagement":"앙가주망","Magick Barrier":"바매직","Verthunder II":"버선더라","Veraero II":"버에어로라","Verholy":"버홀리","Verflare":"버플레어","Scorch":"작열화","Resolution":"단호한 결단","Fire in Red":"레드 파이어","Aero in Green":"그린 에어로","Water in Blue":"블루 워터","Holy in White":"화이트 홀리","Thunder in Magenta":"마젠타 선더","Comet in Black":"블랙 코멧","Living Muse":"동물 구현","Striking Muse":"망치 구현","Scenic Muse":"풍경 구현","Creature Motif":"동물 그림","Starry Muse":"하늘 구현","Smudge":"붓번짐","Tempera Coat":"템페라 밑칠","Fire II in Red":"레드 파이라","Star Prism":"별무리 프리즘","Rainbow Drip":"무지개 빛방울","Hammer Stamp":"망치 찍기","the Forbidden Chakra":"음양투기참","The Forbidden Chakra":"음양투기참","Tenka Goken":"천하오검","the Wanderer's Minuet":"여행신의 무곡","The Wanderer's Minuet":"여행신의 무곡","Mountain Buster":"산 쪼개기","Midare Setsugekka":"난설월화","Stardiver":"천체 강하","Standard Finish":"정석 마무리","Void Reaping":"보이드 리퍼","Cross Reaping":"크로스 리퍼","Suiton":"수둔술","Mirage Dive":"환영 강타","Blast Arrow":"돌풍 화살","Ouroboros":"조상령의 큰송곳니","Fuma Shuriken":"풍마의 수리검","Higanbana":"피안화","Communio":"합일","Raiton":"뇌둔술","Hammer Motif":"망치 그림","Iaijutsu":"거합술","Huton":"풍둔술","Katon":"화둔술","Hyoton":"빙둔술","Subtractive Palette":"색빼기","Technical Finish":"기교 마무리","Thunder":"선더","Spineshatter Dive":"척추 강타 (구 기술)","Forbidden Chakra":"음양투기참","Wanderer's Minuet":"여행신의 무곡","Vorpal":"사선 찌르기","Heavens'":"하늘 찌르기","Wyrmwind":"천룡점정","Tsubame":"제비반전","Shinten":"필살검: 진천","Midare":"난설월화","Flanksting":"송곳니 셋: 측격","Hindsting":"송곳니 셋: 후격","Verthunder":"버선더가","Veraero":"버에어로가","Riposte":"인리포스트","Zwerchhau":"인츠베르크하우","Redoublement":"인르두블망","Scenic Motif":"풍경 그림","Raiju (프록 시)":"월영뇌수조 / 월영뇌수아 (프록 시)","Ten (무드라 1)":"하늘의 인 (무드라 1)","Chi (무드라 2)":"땅의 인 (무드라 2)","Jin (무드라 3)":"사람의 인 (무드라 3)","Hunter's/Swiftskin's Sting":"송곳니 둘: 맹습 / 송곳니 둘: 질주","Flanksting/Hindsting Strike":"송곳니 셋: 측격 / 송곳니 셋: 후격","Hunter's/Swiftskin's Bite":"큰송곳니 둘: 맹습 / 큰송곳니 둘: 질주","Reverse Cascade / Fountainfall":"리버스 캐스케이드 / 파운틴 폴","Rising Windmill / Bloodshower":"라이징 윈드밀 / 블러드 샤워","Energie Drain":"생명력 흡수","Enkindle Bahamut/Phoenix":"바하무트 점화 / 피닉스 점화","Summon Bahamut/Phoenix/Solar":"바하무트 소환 / 피닉스 소환 / 솔 바하무트 소환","Verstone / Vercure":"버스톤 / 버케알","Displacement / Engagement":"데플라스망 / 앙가주망","Verholy / Verflare → Scorch":"버홀리 / 버플레어 → 작열화"};
+const KOREAN_NAMES = {"Leaping Opo":"원무연격","Rising Raptor":"용함정권격","Pouncing Coeurl":"호습붕권","Dragon Kick":"쌍룡각","Twin Snakes":"쌍장타","Masterful Blitz":"필살기","Perfect Balance":"진각","Riddle of Wind":"질풍의 극의","Riddle of Fire":"홍련의 극의","Brotherhood":"도원결의","Thunderclap":"발중보법","Mantra":"만트라","Second Wind":"내단","Bloodbath":"피의 갈증","Feint":"견제","Shadow of the Destroyer":"파괴신각","Four-point Fury":"사면각","Enlightenment":"만상투기권","Raiden Thrust":"용안뇌전","Disembowel":"몸통 가르기","Chaotic Spring":"꽃잎 만발","Vorpal Thrust":"사선 찌르기","Heavens' Thrust":"하늘 찌르기","Wyrmwind Thrust":"천룡점정","High Jump":"하이 점프","Nastrond":"나스트론드","Geirskogul":"게이르스코굴","Lance Charge":"돌격하는 창","Battle Litany":"전투 기도","Dragonfire Dive":"화룡 강타","Life Surge":"생명력 쇄도","Doom Spike":"악몽의 쐐기","Sonic Thrust":"음속 찌르기","Coerthan Torment":"커르다스의 고통","Spinning Edge":"쌍검 회전베기","Gust Slash":"돌풍베기","Aeolian Edge":"칼날 선풍","Armor Crush":"강갑파점 찌르기","Forked Raiju":"월영뇌수조","Fleeting Raiju":"월영뇌수아","Bhavacakra":"육도윤회","Ten":"하늘의 인","Chi":"땅의 인","Jin":"사람의 인","Bunshin":"분신술","Kunai's Bane":"백뢰총","Shukuchi":"축지법","Mug":"약탈","Death Blossom":"피의 비","Hakke Mujinsatsu":"팔괘무인살","Gyofu":"효풍","Yukikaze":"설풍","Jinpu":"진풍","Gekko":"월광","Shifu":"사풍","Kasha":"화차","Hissatsu: Shinten":"필살검: 진천","Meikyo Shisui":"명경지수","Ikishoten":"의기충천","Tsubame-gaeshi":"제비반전","Ogi Namikiri":"오의파절","Third Eye":"심안","Fuko":"풍광","Mangetsu":"만월","Slice":"낫질","Waxing Slice":"반달 낫질","Infernal Slice":"지옥 낫질","Gibbet":"효수형","Shadow of Death":"죽음의 그림자","Gallows":"교수형","Soul Slice":"영혼 낫질","Gluttony":"탐식","Enshroud":"레무르 수의","Plentiful Harvest":"풍성한 수확","Arcane Circle":"신비의 원","Hell's Ingress":"지옥 입장","Regress":"회귀","Arcane Crest":"신비의 문장","Spinning Scythe":"회전 낫","Nightmare Scythe":"악몽의 낫","Whorl of Death":"죽음의 회오리","Circle of Death":"죽음의 회오리","Grim Reaping":"그림 리퍼","Steel Fangs":"송곳니 하나: 교상","Reaving Fangs":"송곳니 하나: 열상","Hunter's Sting":"송곳니 둘: 맹습","Swiftskin's Sting":"송곳니 둘: 질주","Flanksting Strike":"송곳니 셋: 측격","Hindsting Strike":"송곳니 셋: 후격","Reawaken":"조상령 빙의","Vicewinder":"뱀 하나: 분쇄","Hunter's Coil":"뱀 둘: 맹습","Swiftskin's Coil":"뱀 둘: 질주","Serpent's Ire":"뱀의 영기","Slither":"뱀걸음","Steel Maw":"큰송곳니 하나: 교상","Reaving Maw":"큰송곳니 하나: 열상","Hunter's Bite":"큰송곳니 둘: 맹습","Swiftskin's Bite":"큰송곳니 둘: 질주","Burst Shot":"파열 사격","Refulgent Arrow":"찬란한 화살","Iron Jaws":"굳은 결의","Apex Arrow":"정점의 화살","Stormbite":"폭풍 화살","Caustic Bite":"맹독 화살","Pitch Perfect":"절대음감","Empyreal Arrow":"천상의 화살","Sidewinder":"독사 강습","Raging Strikes":"용맹한 사격","Battle Voice":"전장의 노래","Troubadour":"방랑하는 음악가","Head Graze":"머리 쏘기","Mage's Ballad":"현인의 담시곡","Army's Paeon":"군신의 찬가","Radiant Finale":"빛신의 종곡","Heated Split Shot":"열분열탄","Heated Slug Shot":"열슬러그탄","Heated Clean Shot":"열정밀탄","Heat Blast":"열기 분사","Drill":"드릴","Air Anchor":"사슬닻","Hypercharge":"과충전","Gauss Round":"가우스탄","Ricochet":"도탄 사격","Reassemble":"정비","Wildfire":"소이탄","Tactician":"책략가","Leg Graze":"다리 쏘기","Scattergun":"산탄총","Auto Crossbow":"자동 석궁","Chain Saw":"회전톱","Barrel Stabilizer":"열기 조절","Cascade":"캐스케이드","Fountain":"파운틴","Reverse Cascade":"리버스 캐스케이드","Fountainfall":"파운틴 폴","Saber Dance":"검무","Fan Dance":"부채춤: 발단","Fan Dance I":"부채춤: 발단","Fan Dance III":"부채춤: 절정","Flourish":"플러리쉬","Standard Step":"정석 무도","Devilment":"공세의 탱고","En Avant":"앞걸음","Shield Samba":"수세의 삼바","Curing Waltz":"치유의 왈츠","Foot Graze":"발 쏘기","Windmill":"윈드밀","Rising Windmill":"라이징 윈드밀","Bloodshower":"블러드 샤워","Technical Step":"기교 무도","Fan Dance IV":"부채춤: 결말","Fire IV":"파이쟈","Fire III":"파이가","Blizzard III":"블리자가","Despair":"절망","Flare Star":"타오르는 별","Blizzard IV":"블리자쟈","Xenoglossy":"미지의 언어","Triplecast":"삼연속 마법","Amplifier":"언어 확장","Ley Lines":"흑마법 문양","Manafont":"마나샘","Aetherial Manipulation":"에테르 촉진","Between the Lines":"문양 도약","Transpose":"속성 전환","Addle":"정신 교란","Blizzard II":"블리자라","High Fire II":"하이 파이라","Foul":"금지된 언어","Flare":"플레어","Ruin III":"루인가","Astral Flow":"천상의 흐름","Summon Garuda II":"가루다 소환 2","Summon Ifrit II":"이프리트 소환 2","Summon Titan II":"타이탄 소환 2","Ruin IV":"루인쟈","Energy Drain":"생명력 흡수","Enkindle Bahamut":"바하무트 점화","Enkindle Phoenix":"피닉스 점화","Summon Bahamut":"바하무트 소환","Summon Phoenix":"피닉스 소환","Summon Solar Bahamut":"솔 바하무트 소환","Searing Light":"타오르는 빛","Surecast":"견고한 마법","Outburst":"발산","Astral Flare":"천상의 불길","Jolt III":"졸트가","Verthunder III":"버선더가","Veraero III":"버에어로가","Enchanted Riposte":"인리포스트","Enchanted Zwerchhau":"인츠베르크하우","Enchanted Redoublement":"인르두블망","Fleche":"플레슈","Contre Sixte":"콩트르 식스트","Verstone":"버스톤","Vercure":"버케알","Manafication":"마나 증량","Embolden":"성원","Corps-a-corps":"코르 아 코르","Displacement":"데플라스망","Engagement":"앙가주망","Magick Barrier":"바매직","Verthunder II":"버선더라","Veraero II":"버에어로라","Verholy":"버홀리","Verflare":"버플레어","Scorch":"작열화","Resolution":"단호한 결단","Fire in Red":"레드 파이어","Aero in Green":"그린 에어로","Water in Blue":"블루 워터","Holy in White":"화이트 홀리","Thunder in Magenta":"마젠타 선더","Comet in Black":"블랙 코멧","Living Muse":"동물 구현","Striking Muse":"망치 구현","Scenic Muse":"풍경 구현","Creature Motif":"동물 그림","Starry Muse":"하늘 구현","Smudge":"붓번짐","Tempera Coat":"템페라 밑칠","Fire II in Red":"레드 파이라","Star Prism":"별무리 프리즘","Rainbow Drip":"무지개 빛방울","Hammer Stamp":"망치 찍기","the Forbidden Chakra":"음양투기참","The Forbidden Chakra":"음양투기참","Tenka Goken":"천하오검","the Wanderer's Minuet":"여행신의 무곡","The Wanderer's Minuet":"여행신의 무곡","Mountain Buster":"산 쪼개기","Midare Setsugekka":"난설월화","Stardiver":"천체 강하","Standard Finish":"정석 마무리","Void Reaping":"보이드 리퍼","Cross Reaping":"크로스 리퍼","Suiton":"수둔술","Mirage Dive":"환영 강타","Blast Arrow":"돌풍 화살","Ouroboros":"조상령의 큰송곳니","Fuma Shuriken":"풍마의 수리검","Higanbana":"피안화","Communio":"합일","Raiton":"뇌둔술","Hammer Motif":"망치 그림","Iaijutsu":"거합술","Huton":"풍둔술","Katon":"화둔술","Hyoton":"빙둔술","Subtractive Palette":"색빼기","Technical Finish":"기교 마무리","Thunder":"선더","Spineshatter Dive":"척추 강타 (구 기술)","Forbidden Chakra":"음양투기참","Wanderer's Minuet":"여행신의 무곡","Vorpal":"사선 찌르기","Heavens'":"하늘 찌르기","Wyrmwind":"천룡점정","Tsubame":"제비반전","Shinten":"필살검: 진천","Midare":"난설월화","Flanksting":"송곳니 셋: 측격","Hindsting":"송곳니 셋: 후격","Verthunder":"버선더가","Veraero":"버에어로가","Riposte":"인리포스트","Zwerchhau":"인츠베르크하우","Redoublement":"인르두블망","Scenic Motif":"풍경 그림","Raiju (프록 시)":"월영뇌수조 / 월영뇌수아 (프록 시)","Ten (무드라 1)":"하늘의 인 (무드라 1)","Chi (무드라 2)":"땅의 인 (무드라 2)","Jin (무드라 3)":"사람의 인 (무드라 3)","Hunter's/Swiftskin's Sting":"송곳니 둘: 맹습 / 송곳니 둘: 질주","Flanksting/Hindsting Strike":"송곳니 셋: 측격 / 송곳니 셋: 후격","Hunter's/Swiftskin's Bite":"큰송곳니 둘: 맹습 / 큰송곳니 둘: 질주","Reverse Cascade / Fountainfall":"리버스 캐스케이드 / 파운틴 폴","Rising Windmill / Bloodshower":"라이징 윈드밀 / 블러드 샤워","Energie Drain":"생명력 흡수","Enkindle Bahamut/Phoenix":"바하무트 점화 / 피닉스 점화","Summon Bahamut/Phoenix/Solar":"바하무트 소환 / 피닉스 소환 / 솔 바하무트 소환","Verstone / Vercure":"버스톤 / 버케알","Displacement / Engagement":"데플라스망 / 앙가주망","Verholy / Verflare → Scorch":"버홀리 / 버플레어 → 작열화","Blazing Shot":"맹염탄","Double Check":"더블 체크","Checkmate":"체크메이트","Excavator":"굴삭기","Full Metal Field":"전탄발사","Automaton Queen":"자동인형 퀸","Dismantle":"무기 파괴","Arm's Length":"거리 유지","Flamethrower":"화염 방사","Bioblaster":"생화학무기","Peloton":"단체 질주","Sprint":"전력 질주","Queen Overdrive":"급속출력: 퀸","Detonator":"기폭","Limit Break":"리미트 브레이크"};
 const KOREAN_TERMS = Object.keys(KOREAN_NAMES).sort((a,b)=>b.length-a.length);
 function koreanText(text) {
   text = String(text); let out = '', pos = 0;
@@ -3056,20 +3236,20 @@ function renderKeyboard(job) {
   job.skills.forEach(sk => { skillMap[sk.key] = sk; });
 
   let html = '<div class="kbd-wrap">';
-  KEY_ROWS.forEach(row => {
+  (job.keyRows || KEY_ROWS).forEach(row => {
     html += '<div class="kbd-row">';
     row.forEach(k => {
       if(k==='|'){html += '<div style="width:10px"></div>'; return;}
       const sk = skillMap[k];
       if(!sk){
-        html += `<div class="kbd-key empty"><div class="kbd-label">${k}</div><div class="kbd-skill"></div><div class="kbd-cat line-empty"></div></div>`;
+        html += `<div class="kbd-key empty"><div class="kbd-label">${trainLabel(k)}</div><div class="kbd-skill"></div><div class="kbd-cat line-empty"></div></div>`;
         return;
       }
       const cat = CAT[sk.cat]||CAT.util;
       const localized = koreanText(sk.name);
       const short = localized.length>17 ? localized.substring(0,16)+'…' : localized;
       html += `<div class="kbd-key has-skill" style="--skill-border:${job.color}44" title="${escIconText(koreanText(sk.name))} / ${escIconText(sk.name)} — ${escIconText(koreanText(sk.note))}">
-        <div class="kbd-label">${k}</div>
+        <div class="kbd-label">${trainLabel(k)}</div>
         <div class="kbd-skill">
           ${skillIcons(sk.name, true)}
           <span style="font-size:8px;line-height:1.2;word-break:break-word">${short}</span>
@@ -3082,6 +3262,9 @@ function renderKeyboard(job) {
   html += '</div>';
   return html;
 }
+
+
+function renderMouseLayout(job){if(job.id!=='mch')return '';return '<section class="mouse-layout"><h3>마우스 이동 · 복귀용 배치</h3><p>양쪽 마우스 버튼으로 이동합니다. <b>123 기본 콤보 · QWER 도구 · ASD 집중 공격 준비</b>로 묶어 기억하세요. 준비 기술은 사용 조건에 따라 선택합니다.</p><p>게임에 맞출 때 G는 단축바 1의 12칸, Shift+G는 1의 11칸, Ctrl+L은 3의 9칸에 두 번째 키로 추가하세요. F19·F21은 남겨도 됩니다. 홈페이지 변경이 게임 설정을 자동으로 바꾸지는 않습니다.</p><details><summary>메뉴 키 · 기존 배치에서 바꿀 점</summary><div class="skills-table-wrap"><table><thead><tr><th>기능</th><th>키</th></tr></thead><tbody>'+[['지도','M'],['소지품 / 장비함','I / Ctrl+I'],['캐릭터 / 일지','C / J'],['기술 목록 / 임무 찾기','P / U'],['대상 바라보기 / 주시 대상 선택','F / Shift+F'],['전력 질주 / 단체 질주','T / Y'],['리미트 브레이크','Ctrl+L (기존 F4에서 이동)'],['텔레포','Ctrl+M (기존 F20 유지 가능)'],['필드 마커','Ctrl+Shift+M (기존 Ctrl+M에서 이동)']].map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('')+'</tbody></table></div><p>기본 콤보 234→123, 과열 공격 Shift+5→4, 가우스탄·도탄 D/Shift+3→5/6. F4의 리미트 브레이크를 먼저 옮긴 후 거리 유지를 놓으세요. 텔레포와 필드 마커도 함께 옮겨야 합니다.</p></details></section>';}
 
 function renderJob() {
   const job = currentJob;
@@ -3110,6 +3293,7 @@ function renderJob() {
     html += `<div class="mechanic-card"><div class="mechanic-name">${escIconText(koreanText(m.name))}</div><div class="mechanic-desc">${escIconText(koreanText(m.desc))}</div></div>`;
   });
   html += `</div>`;
+  html += renderMouseLayout(job);
 
   // 닌자 무드라 섹션
   if(job.mudra){
@@ -3131,7 +3315,7 @@ function renderJob() {
   job.skills.forEach(sk => {
     const c = CAT[sk.cat]||CAT.util;
     html += `<tr>
-      <td><span class="key-chip">${sk.key}</span></td>
+      <td><span class="key-chip">${trainLabel(sk.key)}</span></td>
       <td><a class="skill-link" href="${sk.gt}" target="_blank" rel="noopener">
         ${skillIcons(sk.name)}
         <span class="skill-names"><span>${escIconText(koreanText(sk.name))}</span><small class="skill-name-en">${escIconText(sk.name)}</small></span>
@@ -3158,7 +3342,7 @@ function renderJob() {
 
 
 const OPENER_GUIDES = {"drg":{"source":"https://www.thebalanceffxiv.com/jobs/melee/dragoon/openers/","patch":"7.5","imagePatch":"7.1","notes":["꽃잎 만발 뒤 전투 기도를 사용해 파티 버프를 맞춥니다. 게이르스코굴은 다른 버프가 적용된 뒤 사용합니다.","전투 전에 근접 사거리로 들어갈 수 없는 상황이라면 꿰뚫는 발톱으로 시작하는 대안을 참고하세요."],"sequence":["True Thrust","Spiral Blow","Chaotic Spring","Wheeling Thrust","Drakesbane","Raiden Thrust","Lance Barrage","Heavens' Thrust","Fang and Claw","Drakesbane","Raiden Thrust"],"glossary":["Raiden Thrust","Disembowel","Chaotic Spring","Vorpal Thrust","Heavens' Thrust","Wyrmwind Thrust","High Jump","Nastrond","Geirskogul","Lance Charge","Battle Litany","Spineshatter Dive","Dragonfire Dive","Life Surge","Second Wind","Bloodbath","Feint","Doom Spike","Sonic Thrust","Coerthan Torment","True Thrust","Spiral Blow","Wheeling Thrust","Drakesbane","Lance Barrage","Fang and Claw","Starcross","Rise of the Dragon","Mirage Dive","Piercing Talon","Stardiver"],"images":[{"src":"assets/openers/drg-1.png","original":"https://github.com/RhyTamok/XIVdrg/blob/main/DRG/Graphics/Openers/Dragoon_Standard_Opener_-_No_PT.png?raw=true","title":"표준 오프너 · 꿰뚫는 발톱 없이 시작"},{"src":"assets/openers/drg-2.png","original":"https://github.com/RhyTamok/XIVdrg/blob/main/DRG/Graphics/Openers/Dragoon_Standard_Opener.png?raw=true","title":"대안 오프너 · 꿰뚫는 발톱으로 시작"}]},"vpr":{"source":"https://www.thebalanceffxiv.com/jobs/melee/viper/openers/","patch":"7.55","imagePatch":"7.5","notes":["원문이 제시하는 7.5 표준 오프너입니다. 조상령의 송곳니 사이에 대응하는 조상령의 뱀을 끼워 사용합니다.","그림의 첫 기술과 후반 피니셔는 두 가지 선택지가 표시되어 있습니다. 현재 콤보 상태에 맞는 기술을 선택합니다."],"sequence":["Steel Fangs / Reaving Fangs","Swiftskin's Sting","Vicewinder","Hunter's Coil","Swiftskin's Coil","Reawaken","First Generation","Second Generation","Third Generation","Fourth Generation","Ouroboros","Uncoiled Fury","Uncoiled Fury","Hindsting Strike / Hindsbane Fang","Vicewinder","Hunter's Coil","Swiftskin's Coil"],"glossary":["Steel Fangs","Reaving Fangs","Hunter's/Swiftskin's Sting","Flanksting/Hindsting Strike","Reawaken","Vicewinder","Hunter's Coil","Swiftskin's Coil","Serpent's Ire","Slither","Second Wind","Bloodbath","Feint","Steel Maw","Reaving Maw","Hunter's/Swiftskin's Bite","First Generation","Second Generation","Third Generation","Fourth Generation","First Legacy","Second Legacy","Third Legacy","Fourth Legacy","Ouroboros","Twinfang Bite","Twinblood Bite","Uncoiled Fury","Hindsbane Fang","Death Rattle","Uncoiled Twinfang","Uncoiled Twinblood","Steel Fangs / Reaving Fangs","Swiftskin's Sting","Hindsting Strike / Hindsbane Fang"],"images":[{"src":"assets/openers/vpr-1.png","original":"https://raw.githubusercontent.com/RhyTamok/XIVvpr/refs/heads/main/Opener/vpr_standard_opener.png","title":"표준 오프너 · 7.5"}]},"rpr":{"source":"https://www.thebalanceffxiv.com/jobs/melee/reaper/openers/","patch":"7.55","imagePatch":"7.0","notes":["전투 전에 영혼 심기를 준비하고, 약 1.7초 전에 갈고리낫을 시전합니다.","약물과 신비의 원은 다음 GCD를 늦추지 않는 범위에서 늦게 끼웁니다. 원본 그림과 본문은 두 번째 영혼 낫질 위치가 다릅니다. 여기서는 원본 그림을 보존했습니다."],"sequence":["Shadow of Death","Soul Slice","Executioner's Gibbet","Executioner's Gallows","Soul Slice","Plentiful Harvest","Void Reaping","Cross Reaping","Void Reaping","Cross Reaping","Communio","Perfectio","Gibbet","Shadow of Death","Slice"],"glossary":["Slice","Waxing Slice","Infernal Slice","Gibbet","Shadow of Death","Gallows","Soul Slice","Gluttony","Enshroud","Plentiful Harvest","Arcane Circle","Hell's Ingress","Regress","Arcane Crest","Second Wind","Bloodbath","Feint","Spinning Scythe","Nightmare Scythe","Circle of Death","Grim Reaping","Soulsow","Harpe","Executioner's Gibbet","Executioner's Gallows","Void Reaping","Cross Reaping","Sacrificium","Lemure's Slice","Communio","Perfectio","Unveiled Gibbet"],"images":[{"src":"assets/openers/rpr-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/rpr/second-gcd-ac.png","title":"표준 오프너 · 2번째 GCD 이후 신비의 원"}]},"dnc":{"source":"https://www.thebalanceffxiv.com/jobs/ranged/dancer/openers/","patch":"7.40","imagePatch":"7.0","notes":["전투 전에 마주서기와 정석 무도를 준비합니다. 시작과 함께 정석 마무리 뒤 기교 무도로 이어갑니다.","그림의 Step은 화면에 뜨는 무도 순서대로 입력합니다. Priority GCD는 발동 효과와 자원에 맞춰 우선순위가 높은 기술을 쓰는 구간입니다."],"sequence":["Standard Finish","Technical Step","무도 순서 입력 1","무도 순서 입력 2","무도 순서 입력 3","무도 순서 입력 4","Technical Finish","Tillana","Dance of the Dawn","Last Dance","Finishing Move","Saber Dance / Starfall Dance","우선순위 GCD","우선순위 GCD","우선순위 GCD","우선순위 GCD"],"glossary":["Cascade","Fountain","Reverse Cascade / Fountainfall","Saber Dance","Fan Dance I","Fan Dance III","Flourish","Standard Step","Devilment","En Avant","Shield Samba","Second Wind","Curing Waltz","Foot Graze","Windmill","Rising Windmill / Bloodshower","Technical Step","Fan Dance IV","Closed Position","Peloton","Standard Finish","Technical Finish","Tillana","Dance of the Dawn","Last Dance","Finishing Move","Starfall Dance","Saber Dance / Starfall Dance"],"images":[{"src":"assets/openers/dnc-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/dnc/dt_dnc_opener_full.png","title":"100레벨 표준 오프너"}]},"mch":{"source":"https://www.thebalanceffxiv.com/jobs/ranged/machinist/openers/","patch":"7.3","imagePatch":"7.0","notes":["전투 전에 정비를 사용하고 사슬닻으로 시작합니다. 두 번째 정비는 파티 버프 안의 굴삭기 또는 그 뒤의 드릴에 맞춥니다.","대안은 이후 2분 버스트와 비슷한 순서로 정리한 형태입니다. 열기와 충전 기술이 넘치지 않도록 확인합니다."],"sequence":["Air Anchor","Drill","Chain Saw","Excavator","Drill","Full Metal Field","Blazing Shot","Blazing Shot","Blazing Shot","Blazing Shot","Blazing Shot","Drill","Heated Split Shot","Heated Slug Shot","Heated Clean Shot"],"glossary":["Heated Split Shot","Heated Slug Shot","Heated Clean Shot","Heat Blast","Drill","Air Anchor","Hypercharge","Gauss Round","Ricochet","Reassemble","Wildfire","Tactician","Second Wind","Leg Graze","Scattergun","Auto Crossbow","Chain Saw","Barrel Stabilizer","Double Check","Checkmate","Automaton Queen","Excavator","Full Metal Field","Blazing Shot"],"images":[{"src":"assets/openers/mch-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/mch/machinist-standard-opener-aa-6-.png","title":"표준 오프너 · 사슬닻 시작"},{"src":"assets/openers/mch-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/mch/machinist-alternative-opener-static-to-even-minute-bursts-.png","title":"대안 오프너 · 짝수 분 버스트와 같은 흐름"}]},"brd":{"source":"https://www.thebalanceffxiv.com/jobs/ranged/bard/openers/","patch":"7.4","imagePatch":"7.0","notes":["처음에는 폭풍 화살과 맹독 화살로 두 지속 피해를 먼저 적용합니다. 직선 사격 계열 발동 여부에 따라 파열 사격과 찬란한 화살의 사용이 달라집니다.","절대음감은 가능한 한 3중첩에서 사용하고, 그림에 표시되지 않은 발동 효과도 실제 상황에 맞춰 처리합니다."],"sequence":["Stormbite","Caustic Bite","Burst Shot","Burst Shot","Refulgent Arrow","Radiant Encore","Resonant Arrow","Refulgent Arrow","Burst Shot","Iron Jaws","Burst Shot"],"glossary":["Burst Shot","Refulgent Arrow","Iron Jaws","Apex Arrow","Stormbite","Caustic Bite","Pitch Perfect","Empyreal Arrow","Sidewinder","Raging Strikes","Battle Voice","Troubadour","Second Wind","Head Graze","The Wanderer's Minuet","Mage's Ballad","Army's Paeon","Radiant Finale","Heartbreak Shot","Barrage","Radiant Encore","Resonant Arrow"],"images":[{"src":"assets/openers/brd-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/brd/adjusted-standard-opener.png","title":"조정된 표준 오프너 · GCD 2.48초 기준"},{"src":"assets/openers/brd-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/brd/standard249-opener-2.png","title":"표준 오프너 · GCD 2.49초"},{"src":"assets/openers/brd-3.png","original":"https://www.thebalanceffxiv.com/img/jobs/brd/369-opener-b.png","title":"3·6·9 오프너"}]},"rdm":{"source":"https://www.thebalanceffxiv.com/jobs/casters/red-mage/openers/","patch":"7.4","imagePatch":"7.0","notes":["표준은 버프 중 화력을 높이는 대신 이후 능력 기술의 재사용 시간 정렬이 엄격합니다.","콩트르 식스트 조기 사용형은 이동 대응에 여유를 주며, 약물 단독 사용형은 두 기술을 연달아 끼워 쓰기 어려울 때의 대안입니다."],"sequence":["Verthunder III","Verthunder III","Verthunder III","Enchanted Riposte","Enchanted Zwerchhau","Enchanted Redoublement","Verholy","Scorch","Resolution","Grand Impact","Verfire","Grand Impact","Verthunder III","Veraero III","Verfire","Verthunder III","Verstone","Veraero III","Veraero III"],"glossary":["Jolt III","Verthunder III","Veraero III","Enchanted Riposte","Enchanted Zwerchhau","Enchanted Redoublement","Fleche","Contre Sixte","Verstone / Vercure","Manafication","Embolden","Corps-a-corps","Displacement / Engagement","Magick Barrier","Second Wind","Addle","Verthunder II","Veraero II","Verholy / Verflare → Scorch","Resolution","Acceleration","Swiftcast","Grand Impact","Verfire","Vice of Thorns","Prefulgence","Verholy","Scorch","Verstone"],"images":[{"src":"assets/openers/rdm-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/rdm/rdm_dt_opener1.png","title":"표준 오프너 · 버프 안에 화력 집중"},{"src":"assets/openers/rdm-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/rdm/rdm_dt_opener2.png","title":"대안 오프너 · 콩트르 식스트를 일찍 사용"},{"src":"assets/openers/rdm-3.png","original":"https://www.thebalanceffxiv.com/img/jobs/rdm/rdm_dt_opener3.png","title":"대안 오프너 · 약물 단독 끼워넣기"}]},"nin":{"source":"https://www.thebalanceffxiv.com/jobs/melee/ninja/openers/","patch":"7.1","imagePatch":"7.0","notes":["전투 약 6초 전부터 수둔을 준비하고 약 0.9초 전에 발동합니다.","4번째 GCD 버전과 3번째 GCD 버전은 백뢰총 사용 시점이 다릅니다. 원문은 GCD 2.10초에서 3번째 GCD 버전을 대안으로 소개합니다."],"sequence":["Spinning Edge","Gust Slash","Phantom Kamaitachi","Armor Crush","Hyosho Ranryu","Raiton","Fuma Shuriken","Raiton","Suiton","Fleeting Raiju","Fleeting Raiju","Raiton","Fleeting Raiju"],"glossary":["Spinning Edge","Gust Slash","Aeolian Edge","Armor Crush","Raiju (프록 시)","Bhavacakra","Ten (무드라 1)","Chi (무드라 2)","Jin (무드라 3)","Bunshin","Kunai's Bane","Shukuchi","Mug","Second Wind","Bloodbath","Feint","Death Blossom","Hakke Mujinsatsu","Kassatsu","Dokumori","Phantom Kamaitachi","Hyosho Ranryu","Dream Within a Dream","Ten Chi Jin","Meisui","Zesho Meppo","Tenri Jindo","Suiton","Raiton","Fuma Shuriken","Fleeting Raiju"],"images":[{"src":"assets/openers/nin-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/nin/standard4th-1-.png","title":"표준 오프너 · 4번째 GCD 이후 백뢰총"},{"src":"assets/openers/nin-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/nin/standard3rd.png","title":"대안 오프너 · 3번째 GCD 이후 백뢰총"}]},"pct":{"source":"https://www.thebalanceffxiv.com/jobs/casters/pictomancer/openers/","patch":"7.4","imagePatch":"7.2","notes":["2번째 GCD 하늘 구현은 일반적인 선택입니다. 3번째 GCD 버전은 파티 버프 시점이나 지연 시간에 맞추는 대안입니다.","버스트 도표는 9회 마법 안에 필요한 기술을 배치하는 예시입니다. 망치와 색마법의 세부 순서는 이동 기믹에 맞춰 조정할 수 있습니다."],"sequence":["Wing Motif","Hammer Stamp","Blizzard in Cyan","Stone in Yellow","Thunder in Magenta","Comet in Black","Star Prism","Hammer Brush","Polishing Hammer","Rainbow Drip","Fire in Red","Aero in Green"],"glossary":["Fire in Red","Aero in Green","Water in Blue","Holy in White","Thunder in Magenta","Comet in Black","Living Muse","Striking Muse","Scenic Muse","Creature Motif","Starry Muse","Smudge","Tempera Coat","Second Wind","Addle","Fire II in Red","Star Prism","Rainbow Drip","Hammer Stamp","Wing Motif","Pom Muse","Winged Muse","Mog of the Ages","Blizzard in Cyan","Stone in Yellow","Hammer Brush","Polishing Hammer","Subtractive Palette","Swiftcast"],"images":[{"src":"assets/openers/pct-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/pct/pictomancer_2nd_gcd_starry_opener.png","title":"표준 오프너 · 2번째 GCD 하늘 구현"},{"src":"assets/openers/pct-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/pct/pictomancer_3rd_gcd_starry_opener.png","title":"대안 오프너 · 3번째 GCD 하늘 구현"},{"src":"assets/openers/pct-3.png","original":"https://www.thebalanceffxiv.com/img/jobs/pct/1000091140.png","title":"2분 버스트 · 9회 마법 / 동물 구현 1회"},{"src":"assets/openers/pct-4.png","original":"https://www.thebalanceffxiv.com/img/jobs/pct/image_2025-05-03_225335312.png","title":"2분 버스트 · 망치 2·3타 포함"},{"src":"assets/openers/pct-5.png","original":"https://www.thebalanceffxiv.com/img/jobs/pct/1000048079.png","title":"2분 버스트 · 망치 3타 포함"}]},"mnk":{"source":"https://www.thebalanceffxiv.com/jobs/melee/monk/openers/","patch":"7.4","imagePatch":"7.0","notes":["기본 선택은 쌍룡각 시작입니다. 파티 버프가 시작되는 시점에 맞춰 5초 또는 7초 버전을 고릅니다.","양·음과 음·음의 선택은 전투 종료 시점에 따라 달라집니다. 짝수 분과 홀수 분 버스트 도표도 함께 볼 수 있습니다."],"sequence":["Dragon Kick","Twin Snakes","Demolish","Leaping Opo","Rising Phoenix","Dragon Kick","Wind's Reply","Fire's Reply","Leaping Opo","Dragon Kick","Leaping Opo","Dragon Kick","Elixir Burst","Leaping Opo"],"glossary":["Leaping Opo","Rising Raptor","Pouncing Coeurl","Dragon Kick","Twin Snakes","Masterful Blitz","Perfect Balance","Riddle of Wind","The Forbidden Chakra","Riddle of Fire","Brotherhood","Thunderclap","Mantra","Second Wind","Bloodbath","Feint","Shadow of the Destroyer","Four-point Fury","Enlightenment","Demolish","Rising Phoenix","Wind's Reply","Fire's Reply","Elixir Burst"],"images":[{"src":"assets/openers/mnk-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/sl5s-dk.png","title":"양·음 오프너 · 쌍룡각 시작 / 5초 버프"},{"src":"assets/openers/mnk-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/sl7s-dk.png","title":"양·음 오프너 · 쌍룡각 시작 / 7초 버프"},{"src":"assets/openers/mnk-3.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/sl7s-de.png","title":"양·음 오프너 · 파쇄권 시작 / 7초 버프"},{"src":"assets/openers/mnk-4.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/ll5s-dk.png","title":"음·음 오프너 · 쌍룡각 시작 / 5초 버프"},{"src":"assets/openers/mnk-5.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/ll7s-dk.png","title":"음·음 오프너 · 쌍룡각 시작 / 7초 버프"},{"src":"assets/openers/mnk-6.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/ll7s-de.png","title":"음·음 오프너 · 파쇄권 시작 / 7초 버프"},{"src":"assets/openers/mnk-7.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/info-even.png","title":"짝수 분 버스트"},{"src":"assets/openers/mnk-8.png","original":"https://www.thebalanceffxiv.com/img/jobs/mnk/info-odds.png","title":"홀수 분 버스트"}]},"smn":{"source":"https://www.thebalanceffxiv.com/jobs/casters/summoner/openers/","patch":"7.55","imagePatch":"7.5","notes":["100레벨 표준은 솔 바하무트 소환 이후 첫 야만신으로 타이탄을 사용하는 흐름입니다.","전투 전 루인가 시전을 생략하고 0초에 대소환으로 시작하는 선택도 있습니다. 90레벨 표는 레벨 조율 콘텐츠용입니다."],"sequence":["Summon Solar Bahamut","Umbral Impulse","Umbral Impulse","Umbral Impulse","Umbral Impulse","Umbral Impulse","Umbral Impulse","Summon Titan II","Topaz Rite","Topaz Rite","Topaz Rite","Topaz Rite","Summon Garuda II","Slipstream"],"glossary":["Ruin III","Astral Flow","Summon Garuda II","Summon Ifrit II","Summon Titan II","Ruin IV","Mountain Buster","Energie Drain","Enkindle Bahamut/Phoenix","Summon Bahamut/Phoenix/Solar","Searing Light","Second Wind","Surecast","Addle","Outburst","Astral Flare","Umbral Impulse","Enkindle Solar Bahamut","Necrotize","Sunflare","Searing Flash","Topaz Rite","Slipstream","Swiftcast","Summon Solar Bahamut"],"images":[{"src":"assets/openers/smn-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/smn/summoner-dawntrail-general-opener.png","title":"100레벨 표준 오프너"},{"src":"assets/openers/smn-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/smn/summoner-endwalker-general-opener.png","title":"90레벨 오프너 · 레벨 조율용"}]},"sam":{"source":"https://www.thebalanceffxiv.com/jobs/melee/samurai/openers/","patch":"미표기","imagePatch":"7.05","notes":["대부분의 전투에서 쓰는 표준 오프너입니다. 보스 전환 시점에 따라 처음 두 기술의 순서를 화차→월광으로 조정할 수 있습니다.","오프너 다음 순환은 자신의 GCD에 맞는 2.14초 또는 2.07~2.08초 표를 선택하세요."],"sequence":["Gekko","Kasha","Yukikaze","Tendo Setsugekka","Tendo Kaeshi Setsugekka","Gekko","Higanbana","Ogi Namikiri","Kaeshi Namikiri","Kasha","Gekko","Gyofu","Yukikaze","Tendo Setsugekka","Tendo Kaeshi Setsugekka"],"glossary":["Gyofu","Yukikaze","Jinpu","Gekko","Shifu","Kasha","Hissatsu: Shinten","Meikyo Shisui","Ikishoten","Tsubame-gaeshi","Ogi Namikiri","Third Eye","Second Wind","Bloodbath","Feint","Fuko","Mangetsu","Tenka Goken","True North","Tendo Setsugekka","Tendo Kaeshi Setsugekka","Hissatsu: Senei","Zanshin","Shoha","Hissatsu: Gyoten","Kaeshi Namikiri","Higanbana"],"images":[{"src":"assets/openers/sam-1.jpg","original":"https://www.thebalanceffxiv.com/img/jobs/sam/samurai-opener.jpeg","title":"표준 오프너"},{"src":"assets/openers/sam-2.jpg","original":"https://www.thebalanceffxiv.com/img/jobs/sam/sam_214_sheet.jpeg","title":"기본 순환표 · GCD 2.14초"},{"src":"assets/openers/sam-3.jpg","original":"https://www.thebalanceffxiv.com/img/jobs/sam/sam_208_sheet.jpeg","title":"기본 순환표 · GCD 2.07~2.08초"}]},"blm":{"source":"https://www.thebalanceffxiv.com/jobs/casters/black-mage/openers/","patch":"7.4","imagePatch":"7.2","notes":["5+7은 마나샘 전 파이쟈 5회, 이후 7회로 총 12회를 사용한다는 뜻입니다. 플레어 스타를 두 번 넣습니다.","단일 대상 플레어 대안은 자원과 이후 이동 대응을 다르게 설계한 순서입니다. 하이 선더 갱신은 파티 버프 종료 시점에 맞춰 조정합니다."],"sequence":["Fire III","High Thunder","Fire IV","Fire IV","Fire IV","Fire IV","Fire IV","Xenoglossy","Fire IV","Flare Star","Fire IV","Fire IV","High Thunder","Fire IV","Fire IV","Fire IV","Fire IV","Flare Star","Despair","Blizzard III","Blizzard IV","Paradox","Paradox","Fire III (Firestarter)"],"glossary":["Fire IV","Fire III","Blizzard III","Despair","Flare Star","Blizzard IV","Xenoglossy","Triplecast","Amplifier","Ley Lines","Manafont","Aetherial Manipulation","Between the Lines","Transpose","Second Wind","Addle","Blizzard II","High Fire II","Foul","Flare","High Thunder","Paradox","Swiftcast","Fire","Firestarter","Fire III (Firestarter)"],"images":[{"src":"assets/openers/blm-1.png","original":"https://www.thebalanceffxiv.com/img/jobs/blm/standard-5-7-opener.png","title":"표준 5+7 오프너"},{"src":"assets/openers/blm-2.png","original":"https://www.thebalanceffxiv.com/img/jobs/blm/alternative-st-flare-opener.png","title":"대안 오프너 · 단일 대상 플레어"}]}};
-const OPENER_KR = {"Leaping Opo":"원무연격","Rising Raptor":"용함정권격","Pouncing Coeurl":"호습붕권","Dragon Kick":"쌍룡각","Twin Snakes":"쌍장타","Masterful Blitz":"필살기","Perfect Balance":"진각","Riddle of Wind":"질풍의 극의","Riddle of Fire":"홍련의 극의","Brotherhood":"도원결의","Thunderclap":"발중보법","Mantra":"만트라","Second Wind":"내단","Bloodbath":"피의 갈증","Feint":"견제","Shadow of the Destroyer":"파괴신각","Four-point Fury":"사면각","Enlightenment":"만상투기권","Raiden Thrust":"용안뇌전","Disembowel":"몸통 가르기","Chaotic Spring":"꽃잎 만발","Vorpal Thrust":"사선 찌르기","Heavens' Thrust":"하늘 찌르기","Wyrmwind Thrust":"천룡점정","High Jump":"하이 점프","Nastrond":"나스트론드","Geirskogul":"게이르스코굴","Lance Charge":"돌격하는 창","Battle Litany":"전투 기도","Dragonfire Dive":"화룡 강타","Life Surge":"생명력 쇄도","Doom Spike":"악몽의 쐐기","Sonic Thrust":"음속 찌르기","Coerthan Torment":"커르다스의 고통","Spinning Edge":"쌍검 회전베기","Gust Slash":"돌풍베기","Aeolian Edge":"칼날 선풍","Armor Crush":"강갑파점 찌르기","Forked Raiju":"월영뇌수조","Fleeting Raiju":"월영뇌수아","Bhavacakra":"육도윤회","Ten":"하늘의 인","Chi":"땅의 인","Jin":"사람의 인","Bunshin":"분신술","Kunai's Bane":"백뢰총","Shukuchi":"축지법","Mug":"약탈","Death Blossom":"피의 비","Hakke Mujinsatsu":"팔괘무인살","Gyofu":"효풍","Yukikaze":"설풍","Jinpu":"진풍","Gekko":"월광","Shifu":"사풍","Kasha":"화차","Hissatsu: Shinten":"필살검: 진천","Meikyo Shisui":"명경지수","Ikishoten":"의기충천","Tsubame-gaeshi":"제비반전","Ogi Namikiri":"오의파절","Third Eye":"심안","Fuko":"풍광","Mangetsu":"만월","Slice":"낫질","Waxing Slice":"반달 낫질","Infernal Slice":"지옥 낫질","Gibbet":"효수형","Shadow of Death":"죽음의 그림자","Gallows":"교수형","Soul Slice":"영혼 낫질","Gluttony":"탐식","Enshroud":"레무르 수의","Plentiful Harvest":"풍성한 수확","Arcane Circle":"신비의 원","Hell's Ingress":"지옥 입장","Regress":"회귀","Arcane Crest":"신비의 문장","Spinning Scythe":"회전 낫","Nightmare Scythe":"악몽의 낫","Whorl of Death":"죽음의 회오리","Circle of Death":"죽음의 회오리","Grim Reaping":"그림 리퍼","Steel Fangs":"송곳니 하나: 교상","Reaving Fangs":"송곳니 하나: 열상","Hunter's Sting":"송곳니 둘: 맹습","Swiftskin's Sting":"송곳니 둘: 질주","Flanksting Strike":"송곳니 셋: 측격","Hindsting Strike":"송곳니 셋: 후격","Reawaken":"조상령 빙의","Vicewinder":"뱀 하나: 분쇄","Hunter's Coil":"뱀 둘: 맹습","Swiftskin's Coil":"뱀 둘: 질주","Serpent's Ire":"뱀의 영기","Slither":"뱀걸음","Steel Maw":"큰송곳니 하나: 교상","Reaving Maw":"큰송곳니 하나: 열상","Hunter's Bite":"큰송곳니 둘: 맹습","Swiftskin's Bite":"큰송곳니 둘: 질주","Burst Shot":"파열 사격","Refulgent Arrow":"찬란한 화살","Iron Jaws":"굳은 결의","Apex Arrow":"정점의 화살","Stormbite":"폭풍 화살","Caustic Bite":"맹독 화살","Pitch Perfect":"절대음감","Empyreal Arrow":"천상의 화살","Sidewinder":"독사 강습","Raging Strikes":"용맹한 사격","Battle Voice":"전장의 노래","Troubadour":"방랑하는 음악가","Head Graze":"머리 쏘기","Mage's Ballad":"현인의 담시곡","Army's Paeon":"군신의 찬가","Radiant Finale":"빛신의 종곡","Heated Split Shot":"열분열탄","Heated Slug Shot":"열슬러그탄","Heated Clean Shot":"열정밀탄","Heat Blast":"열기 분사","Drill":"드릴","Air Anchor":"사슬닻","Hypercharge":"과충전","Gauss Round":"가우스탄","Ricochet":"도탄 사격","Reassemble":"정비","Wildfire":"소이탄","Tactician":"책략가","Leg Graze":"다리 쏘기","Scattergun":"산탄총","Auto Crossbow":"자동 석궁","Chain Saw":"회전톱","Barrel Stabilizer":"열기 조절","Cascade":"캐스케이드","Fountain":"파운틴","Reverse Cascade":"리버스 캐스케이드","Fountainfall":"파운틴 폴","Saber Dance":"검무","Fan Dance":"부채춤: 발단","Fan Dance I":"부채춤: 발단","Fan Dance III":"부채춤: 절정","Flourish":"플러리쉬","Standard Step":"정석 무도","Devilment":"공세의 탱고","En Avant":"앞걸음","Shield Samba":"수세의 삼바","Curing Waltz":"치유의 왈츠","Foot Graze":"발 쏘기","Windmill":"윈드밀","Rising Windmill":"라이징 윈드밀","Bloodshower":"블러드 샤워","Technical Step":"기교 무도","Fan Dance IV":"부채춤: 결말","Fire IV":"파이쟈","Fire III":"파이가","Blizzard III":"블리자가","Despair":"절망","Flare Star":"타오르는 별","Blizzard IV":"블리자쟈","Xenoglossy":"미지의 언어","Triplecast":"삼연속 마법","Amplifier":"언어 확장","Ley Lines":"흑마법 문양","Manafont":"마나샘","Aetherial Manipulation":"에테르 촉진","Between the Lines":"문양 도약","Transpose":"속성 전환","Addle":"정신 교란","Blizzard II":"블리자라","High Fire II":"하이 파이라","Foul":"금지된 언어","Flare":"플레어","Ruin III":"루인가","Astral Flow":"천상의 흐름","Summon Garuda II":"가루다 소환 2","Summon Ifrit II":"이프리트 소환 2","Summon Titan II":"타이탄 소환 2","Ruin IV":"루인쟈","Energy Drain":"생명력 흡수","Enkindle Bahamut":"바하무트 점화","Enkindle Phoenix":"피닉스 점화","Summon Bahamut":"바하무트 소환","Summon Phoenix":"피닉스 소환","Summon Solar Bahamut":"솔 바하무트 소환","Searing Light":"타오르는 빛","Surecast":"견고한 마법","Outburst":"발산","Astral Flare":"천상의 불길","Jolt III":"졸트가","Verthunder III":"버선더가","Veraero III":"버에어로가","Enchanted Riposte":"인리포스트","Enchanted Zwerchhau":"인츠베르크하우","Enchanted Redoublement":"인르두블망","Fleche":"플레슈","Contre Sixte":"콩트르 식스트","Verstone":"버스톤","Vercure":"버케알","Manafication":"마나 증량","Embolden":"성원","Corps-a-corps":"코르 아 코르","Displacement":"데플라스망","Engagement":"앙가주망","Magick Barrier":"바매직","Verthunder II":"버선더라","Veraero II":"버에어로라","Verholy":"버홀리","Verflare":"버플레어","Scorch":"작열화","Resolution":"단호한 결단","Fire in Red":"레드 파이어","Aero in Green":"그린 에어로","Water in Blue":"블루 워터","Holy in White":"화이트 홀리","Thunder in Magenta":"마젠타 선더","Comet in Black":"블랙 코멧","Living Muse":"동물 구현","Striking Muse":"망치 구현","Scenic Muse":"풍경 구현","Creature Motif":"동물 그림","Starry Muse":"하늘 구현","Smudge":"붓번짐","Tempera Coat":"템페라 밑칠","Fire II in Red":"레드 파이라","Star Prism":"별무리 프리즘","Rainbow Drip":"무지개 빛방울","Hammer Stamp":"망치 찍기","the Forbidden Chakra":"음양투기참","The Forbidden Chakra":"음양투기참","Tenka Goken":"천하오검","the Wanderer's Minuet":"여행신의 무곡","The Wanderer's Minuet":"여행신의 무곡","Mountain Buster":"산 쪼개기","Midare Setsugekka":"난설월화","Stardiver":"천체 강하","Standard Finish":"정석 마무리","Void Reaping":"보이드 리퍼","Cross Reaping":"크로스 리퍼","Suiton":"수둔술","Mirage Dive":"환영 강타","Blast Arrow":"돌풍 화살","Ouroboros":"조상령의 큰송곳니","Fuma Shuriken":"풍마의 수리검","Higanbana":"피안화","Communio":"합일","Raiton":"뇌둔술","Hammer Motif":"망치 그림","Iaijutsu":"거합술","Huton":"풍둔술","Katon":"화둔술","Hyoton":"빙둔술","Subtractive Palette":"색빼기","Technical Finish":"기교 마무리","Thunder":"선더","Spineshatter Dive":"척추 강타 (구 기술)","Forbidden Chakra":"음양투기참","Wanderer's Minuet":"여행신의 무곡","Vorpal":"사선 찌르기","Heavens'":"하늘 찌르기","Wyrmwind":"천룡점정","Tsubame":"제비반전","Shinten":"필살검: 진천","Midare":"난설월화","Flanksting":"송곳니 셋: 측격","Hindsting":"송곳니 셋: 후격","Verthunder":"버선더가","Veraero":"버에어로가","Riposte":"인리포스트","Zwerchhau":"인츠베르크하우","Redoublement":"인르두블망","Scenic Motif":"풍경 그림","Raiju (프록 시)":"월영뇌수조 / 월영뇌수아 (프록 시)","Ten (무드라 1)":"하늘의 인 (무드라 1)","Chi (무드라 2)":"땅의 인 (무드라 2)","Jin (무드라 3)":"사람의 인 (무드라 3)","Hunter's/Swiftskin's Sting":"송곳니 둘: 맹습 / 송곳니 둘: 질주","Flanksting/Hindsting Strike":"송곳니 셋: 측격 / 송곳니 셋: 후격","Hunter's/Swiftskin's Bite":"큰송곳니 둘: 맹습 / 큰송곳니 둘: 질주","Reverse Cascade / Fountainfall":"리버스 캐스케이드 / 파운틴 폴","Rising Windmill / Bloodshower":"라이징 윈드밀 / 블러드 샤워","Energie Drain":"생명력 흡수","Enkindle Bahamut/Phoenix":"바하무트 점화 / 피닉스 점화","Summon Bahamut/Phoenix/Solar":"바하무트 소환 / 피닉스 소환 / 솔 바하무트 소환","Verstone / Vercure":"버스톤 / 버케알","Displacement / Engagement":"데플라스망 / 앙가주망","Verholy / Verflare → Scorch":"버홀리 / 버플레어 → 작열화","Fire's Reply":"건곤투기탄","Elixir Burst":"진공파","Demolish":"파쇄권","Wind's Reply":"절공권","Rising Phoenix":"봉황의 춤","Spiral Blow":"나선 가르기","Wheeling Thrust":"용의 꼬리","Lance Barrage":"전진 찌르기","Drakesbane":"운증용변","True Thrust":"직선 찌르기","Starcross":"천체 관통","Rise of the Dragon":"용의 비상","Piercing Talon":"꿰뚫는 발톱","Kassatsu":"생사여탈","Fang and Claw":"용의 발톱","Dokumori":"강탈","Phantom Kamaitachi":"잔영 바람칼","Hyosho Ranryu":"빙정난류술","Dream Within a Dream":"몽환삼단","Ten Chi Jin":"천지인","Meisui":"생명의 물","Zesho Meppo":"시생멸법","True North":"진북","Tenri Jindo":"천리인도","Tendo Setsugekka":"천도설월화","Tendo Kaeshi Setsugekka":"천도반전설월화","Hissatsu: Senei":"필살검: 섬영","Zanshin":"잔심","Shoha":"조파","Hissatsu: Gyoten":"필살검: 효천","Soulsow":"영혼 심기","Harpe":"갈고리낫","Executioner's Gibbet":"효수형 집행","Executioner's Gallows":"교수형 집행","Perfectio":"완전체","Lemure's Slice":"레무르 낫질","First Generation":"조상령의 송곳니 1","Unveiled Gibbet":"효수형 손톱","Sacrificium":"제물 희생","Second Generation":"조상령의 송곳니 2","Third Generation":"조상령의 송곳니 3","Fourth Generation":"조상령의 송곳니 4","First Legacy":"조상령의 뱀 1","Second Legacy":"조상령의 뱀 2","Third Legacy":"조상령의 뱀 3","Fourth Legacy":"조상령의 뱀 4","Twinfang Bite":"쌍아연격","Twinblood Bite":"쌍아난격","Uncoiled Fury":"날뱀의 꼬리","Heartbreak Shot":"파혈 화살","Radiant Encore":"빛신의 앙코르","Barrage":"마구 쏘기","Resonant Arrow":"공명 화살","Double Check":"더블 체크","Checkmate":"체크메이트","Automaton Queen":"자동인형 퀸","Excavator":"굴삭기","Full Metal Field":"전탄발사","Blazing Shot":"맹염탄","Closed Position":"마주서기","Peloton":"단체 질주","Tillana":"틸라나","Dance of the Dawn":"새벽의 춤","Last Dance":"마지막 춤","Finishing Move":"마무리 동작","Starfall Dance":"별똥별 춤","High Thunder":"하이 선더","Paradox":"역설","Swiftcast":"신속한 마법","Umbral Impulse":"저승의 충격","Enkindle Solar Bahamut":"솔 바하무트 점화","Necrotize":"미아즈마 노바","Fire":"파이어","Searing Flash":"타오르는 불꽃","Sunflare":"솔 플레어","Acceleration":"가속화","Slipstream":"반동 기류","Topaz Rite":"토파즈의 의식","Grand Impact":"노블 임팩트","Verfire":"버파이어","Wing Motif":"날개 그림","Prefulgence":"적색 광채","Vice of Thorns":"회오리 찔레","Pom Muse":"폼폼 구현","Winged Muse":"날개 구현","Mog of the Ages":"모그리 격류","Stone in Yellow":"옐로 스톤","Blizzard in Cyan":"시안 블리자드","Hammer Brush":"망치 붓질","Polishing Hammer":"망치 다듬기","Kaeshi Namikiri":"반전파절","Firestarter":"파이가 효과 향상 발동","Death Rattle":"뱀꼬리 일격","Uncoiled Twinfang":"날뱀 연미격","Uncoiled Twinblood":"날뱀 난미격","Saber Dance / Starfall Dance":"검무 / 별똥별 춤","Hindsbane Fang":"송곳니 셋: 후열"};
+const OPENER_KR = {"Leaping Opo":"원무연격","Rising Raptor":"용함정권격","Pouncing Coeurl":"호습붕권","Dragon Kick":"쌍룡각","Twin Snakes":"쌍장타","Masterful Blitz":"필살기","Perfect Balance":"진각","Riddle of Wind":"질풍의 극의","Riddle of Fire":"홍련의 극의","Brotherhood":"도원결의","Thunderclap":"발중보법","Mantra":"만트라","Second Wind":"내단","Bloodbath":"피의 갈증","Feint":"견제","Shadow of the Destroyer":"파괴신각","Four-point Fury":"사면각","Enlightenment":"만상투기권","Raiden Thrust":"용안뇌전","Disembowel":"몸통 가르기","Chaotic Spring":"꽃잎 만발","Vorpal Thrust":"사선 찌르기","Heavens' Thrust":"하늘 찌르기","Wyrmwind Thrust":"천룡점정","High Jump":"하이 점프","Nastrond":"나스트론드","Geirskogul":"게이르스코굴","Lance Charge":"돌격하는 창","Battle Litany":"전투 기도","Dragonfire Dive":"화룡 강타","Life Surge":"생명력 쇄도","Doom Spike":"악몽의 쐐기","Sonic Thrust":"음속 찌르기","Coerthan Torment":"커르다스의 고통","Spinning Edge":"쌍검 회전베기","Gust Slash":"돌풍베기","Aeolian Edge":"칼날 선풍","Armor Crush":"강갑파점 찌르기","Forked Raiju":"월영뇌수조","Fleeting Raiju":"월영뇌수아","Bhavacakra":"육도윤회","Ten":"하늘의 인","Chi":"땅의 인","Jin":"사람의 인","Bunshin":"분신술","Kunai's Bane":"백뢰총","Shukuchi":"축지법","Mug":"약탈","Death Blossom":"피의 비","Hakke Mujinsatsu":"팔괘무인살","Gyofu":"효풍","Yukikaze":"설풍","Jinpu":"진풍","Gekko":"월광","Shifu":"사풍","Kasha":"화차","Hissatsu: Shinten":"필살검: 진천","Meikyo Shisui":"명경지수","Ikishoten":"의기충천","Tsubame-gaeshi":"제비반전","Ogi Namikiri":"오의파절","Third Eye":"심안","Fuko":"풍광","Mangetsu":"만월","Slice":"낫질","Waxing Slice":"반달 낫질","Infernal Slice":"지옥 낫질","Gibbet":"효수형","Shadow of Death":"죽음의 그림자","Gallows":"교수형","Soul Slice":"영혼 낫질","Gluttony":"탐식","Enshroud":"레무르 수의","Plentiful Harvest":"풍성한 수확","Arcane Circle":"신비의 원","Hell's Ingress":"지옥 입장","Regress":"회귀","Arcane Crest":"신비의 문장","Spinning Scythe":"회전 낫","Nightmare Scythe":"악몽의 낫","Whorl of Death":"죽음의 회오리","Circle of Death":"죽음의 회오리","Grim Reaping":"그림 리퍼","Steel Fangs":"송곳니 하나: 교상","Reaving Fangs":"송곳니 하나: 열상","Hunter's Sting":"송곳니 둘: 맹습","Swiftskin's Sting":"송곳니 둘: 질주","Flanksting Strike":"송곳니 셋: 측격","Hindsting Strike":"송곳니 셋: 후격","Reawaken":"조상령 빙의","Vicewinder":"뱀 하나: 분쇄","Hunter's Coil":"뱀 둘: 맹습","Swiftskin's Coil":"뱀 둘: 질주","Serpent's Ire":"뱀의 영기","Slither":"뱀걸음","Steel Maw":"큰송곳니 하나: 교상","Reaving Maw":"큰송곳니 하나: 열상","Hunter's Bite":"큰송곳니 둘: 맹습","Swiftskin's Bite":"큰송곳니 둘: 질주","Burst Shot":"파열 사격","Refulgent Arrow":"찬란한 화살","Iron Jaws":"굳은 결의","Apex Arrow":"정점의 화살","Stormbite":"폭풍 화살","Caustic Bite":"맹독 화살","Pitch Perfect":"절대음감","Empyreal Arrow":"천상의 화살","Sidewinder":"독사 강습","Raging Strikes":"용맹한 사격","Battle Voice":"전장의 노래","Troubadour":"방랑하는 음악가","Head Graze":"머리 쏘기","Mage's Ballad":"현인의 담시곡","Army's Paeon":"군신의 찬가","Radiant Finale":"빛신의 종곡","Heated Split Shot":"열분열탄","Heated Slug Shot":"열슬러그탄","Heated Clean Shot":"열정밀탄","Heat Blast":"열기 분사","Drill":"드릴","Air Anchor":"사슬닻","Hypercharge":"과충전","Gauss Round":"가우스탄","Ricochet":"도탄 사격","Reassemble":"정비","Wildfire":"소이탄","Tactician":"책략가","Leg Graze":"다리 쏘기","Scattergun":"산탄총","Auto Crossbow":"자동 석궁","Chain Saw":"회전톱","Barrel Stabilizer":"열기 조절","Cascade":"캐스케이드","Fountain":"파운틴","Reverse Cascade":"리버스 캐스케이드","Fountainfall":"파운틴 폴","Saber Dance":"검무","Fan Dance":"부채춤: 발단","Fan Dance I":"부채춤: 발단","Fan Dance III":"부채춤: 절정","Flourish":"플러리쉬","Standard Step":"정석 무도","Devilment":"공세의 탱고","En Avant":"앞걸음","Shield Samba":"수세의 삼바","Curing Waltz":"치유의 왈츠","Foot Graze":"발 쏘기","Windmill":"윈드밀","Rising Windmill":"라이징 윈드밀","Bloodshower":"블러드 샤워","Technical Step":"기교 무도","Fan Dance IV":"부채춤: 결말","Fire IV":"파이쟈","Fire III":"파이가","Blizzard III":"블리자가","Despair":"절망","Flare Star":"타오르는 별","Blizzard IV":"블리자쟈","Xenoglossy":"미지의 언어","Triplecast":"삼연속 마법","Amplifier":"언어 확장","Ley Lines":"흑마법 문양","Manafont":"마나샘","Aetherial Manipulation":"에테르 촉진","Between the Lines":"문양 도약","Transpose":"속성 전환","Addle":"정신 교란","Blizzard II":"블리자라","High Fire II":"하이 파이라","Foul":"금지된 언어","Flare":"플레어","Ruin III":"루인가","Astral Flow":"천상의 흐름","Summon Garuda II":"가루다 소환 2","Summon Ifrit II":"이프리트 소환 2","Summon Titan II":"타이탄 소환 2","Ruin IV":"루인쟈","Energy Drain":"생명력 흡수","Enkindle Bahamut":"바하무트 점화","Enkindle Phoenix":"피닉스 점화","Summon Bahamut":"바하무트 소환","Summon Phoenix":"피닉스 소환","Summon Solar Bahamut":"솔 바하무트 소환","Searing Light":"타오르는 빛","Surecast":"견고한 마법","Outburst":"발산","Astral Flare":"천상의 불길","Jolt III":"졸트가","Verthunder III":"버선더가","Veraero III":"버에어로가","Enchanted Riposte":"인리포스트","Enchanted Zwerchhau":"인츠베르크하우","Enchanted Redoublement":"인르두블망","Fleche":"플레슈","Contre Sixte":"콩트르 식스트","Verstone":"버스톤","Vercure":"버케알","Manafication":"마나 증량","Embolden":"성원","Corps-a-corps":"코르 아 코르","Displacement":"데플라스망","Engagement":"앙가주망","Magick Barrier":"바매직","Verthunder II":"버선더라","Veraero II":"버에어로라","Verholy":"버홀리","Verflare":"버플레어","Scorch":"작열화","Resolution":"단호한 결단","Fire in Red":"레드 파이어","Aero in Green":"그린 에어로","Water in Blue":"블루 워터","Holy in White":"화이트 홀리","Thunder in Magenta":"마젠타 선더","Comet in Black":"블랙 코멧","Living Muse":"동물 구현","Striking Muse":"망치 구현","Scenic Muse":"풍경 구현","Creature Motif":"동물 그림","Starry Muse":"하늘 구현","Smudge":"붓번짐","Tempera Coat":"템페라 밑칠","Fire II in Red":"레드 파이라","Star Prism":"별무리 프리즘","Rainbow Drip":"무지개 빛방울","Hammer Stamp":"망치 찍기","the Forbidden Chakra":"음양투기참","The Forbidden Chakra":"음양투기참","Tenka Goken":"천하오검","the Wanderer's Minuet":"여행신의 무곡","The Wanderer's Minuet":"여행신의 무곡","Mountain Buster":"산 쪼개기","Midare Setsugekka":"난설월화","Stardiver":"천체 강하","Standard Finish":"정석 마무리","Void Reaping":"보이드 리퍼","Cross Reaping":"크로스 리퍼","Suiton":"수둔술","Mirage Dive":"환영 강타","Blast Arrow":"돌풍 화살","Ouroboros":"조상령의 큰송곳니","Fuma Shuriken":"풍마의 수리검","Higanbana":"피안화","Communio":"합일","Raiton":"뇌둔술","Hammer Motif":"망치 그림","Iaijutsu":"거합술","Huton":"풍둔술","Katon":"화둔술","Hyoton":"빙둔술","Subtractive Palette":"색빼기","Technical Finish":"기교 마무리","Thunder":"선더","Spineshatter Dive":"척추 강타 (구 기술)","Forbidden Chakra":"음양투기참","Wanderer's Minuet":"여행신의 무곡","Vorpal":"사선 찌르기","Heavens'":"하늘 찌르기","Wyrmwind":"천룡점정","Tsubame":"제비반전","Shinten":"필살검: 진천","Midare":"난설월화","Flanksting":"송곳니 셋: 측격","Hindsting":"송곳니 셋: 후격","Verthunder":"버선더가","Veraero":"버에어로가","Riposte":"인리포스트","Zwerchhau":"인츠베르크하우","Redoublement":"인르두블망","Scenic Motif":"풍경 그림","Raiju (프록 시)":"월영뇌수조 / 월영뇌수아 (프록 시)","Ten (무드라 1)":"하늘의 인 (무드라 1)","Chi (무드라 2)":"땅의 인 (무드라 2)","Jin (무드라 3)":"사람의 인 (무드라 3)","Hunter's/Swiftskin's Sting":"송곳니 둘: 맹습 / 송곳니 둘: 질주","Flanksting/Hindsting Strike":"송곳니 셋: 측격 / 송곳니 셋: 후격","Hunter's/Swiftskin's Bite":"큰송곳니 둘: 맹습 / 큰송곳니 둘: 질주","Reverse Cascade / Fountainfall":"리버스 캐스케이드 / 파운틴 폴","Rising Windmill / Bloodshower":"라이징 윈드밀 / 블러드 샤워","Energie Drain":"생명력 흡수","Enkindle Bahamut/Phoenix":"바하무트 점화 / 피닉스 점화","Summon Bahamut/Phoenix/Solar":"바하무트 소환 / 피닉스 소환 / 솔 바하무트 소환","Verstone / Vercure":"버스톤 / 버케알","Displacement / Engagement":"데플라스망 / 앙가주망","Verholy / Verflare → Scorch":"버홀리 / 버플레어 → 작열화","Fire's Reply":"건곤투기탄","Elixir Burst":"진공파","Demolish":"파쇄권","Wind's Reply":"절공권","Rising Phoenix":"봉황의 춤","Spiral Blow":"나선 가르기","Wheeling Thrust":"용의 꼬리","Lance Barrage":"전진 찌르기","Drakesbane":"운증용변","True Thrust":"직선 찌르기","Starcross":"천체 관통","Rise of the Dragon":"용의 비상","Piercing Talon":"꿰뚫는 발톱","Kassatsu":"생사여탈","Fang and Claw":"용의 발톱","Dokumori":"강탈","Phantom Kamaitachi":"잔영 바람칼","Hyosho Ranryu":"빙정난류술","Dream Within a Dream":"몽환삼단","Ten Chi Jin":"천지인","Meisui":"생명의 물","Zesho Meppo":"시생멸법","True North":"진북","Tenri Jindo":"천리인도","Tendo Setsugekka":"천도설월화","Tendo Kaeshi Setsugekka":"천도반전설월화","Hissatsu: Senei":"필살검: 섬영","Zanshin":"잔심","Shoha":"조파","Hissatsu: Gyoten":"필살검: 효천","Soulsow":"영혼 심기","Harpe":"갈고리낫","Executioner's Gibbet":"효수형 집행","Executioner's Gallows":"교수형 집행","Perfectio":"완전체","Lemure's Slice":"레무르 낫질","First Generation":"조상령의 송곳니 1","Unveiled Gibbet":"효수형 손톱","Sacrificium":"제물 희생","Second Generation":"조상령의 송곳니 2","Third Generation":"조상령의 송곳니 3","Fourth Generation":"조상령의 송곳니 4","First Legacy":"조상령의 뱀 1","Second Legacy":"조상령의 뱀 2","Third Legacy":"조상령의 뱀 3","Fourth Legacy":"조상령의 뱀 4","Twinfang Bite":"쌍아연격","Twinblood Bite":"쌍아난격","Uncoiled Fury":"날뱀의 꼬리","Heartbreak Shot":"파혈 화살","Radiant Encore":"빛신의 앙코르","Barrage":"마구 쏘기","Resonant Arrow":"공명 화살","Double Check":"더블 체크","Checkmate":"체크메이트","Automaton Queen":"자동인형 퀸","Excavator":"굴삭기","Full Metal Field":"전탄발사","Blazing Shot":"맹염탄","Closed Position":"마주서기","Peloton":"단체 질주","Tillana":"틸라나","Dance of the Dawn":"새벽의 춤","Last Dance":"마지막 춤","Finishing Move":"마무리 동작","Starfall Dance":"별똥별 춤","High Thunder":"하이 선더","Paradox":"역설","Swiftcast":"신속한 마법","Umbral Impulse":"저승의 충격","Enkindle Solar Bahamut":"솔 바하무트 점화","Necrotize":"미아즈마 노바","Fire":"파이어","Searing Flash":"타오르는 불꽃","Sunflare":"솔 플레어","Acceleration":"가속화","Slipstream":"반동 기류","Topaz Rite":"토파즈의 의식","Grand Impact":"노블 임팩트","Verfire":"버파이어","Wing Motif":"날개 그림","Prefulgence":"적색 광채","Vice of Thorns":"회오리 찔레","Pom Muse":"폼폼 구현","Winged Muse":"날개 구현","Mog of the Ages":"모그리 격류","Stone in Yellow":"옐로 스톤","Blizzard in Cyan":"시안 블리자드","Hammer Brush":"망치 붓질","Polishing Hammer":"망치 다듬기","Kaeshi Namikiri":"반전파절","Firestarter":"파이가 효과 향상 발동","Death Rattle":"뱀꼬리 일격","Uncoiled Twinfang":"날뱀 연미격","Uncoiled Twinblood":"날뱀 난미격","Saber Dance / Starfall Dance":"검무 / 별똥별 춤","Hindsbane Fang":"송곳니 셋: 후열","Dismantle":"무기 파괴","Arm's Length":"거리 유지","Flamethrower":"화염 방사","Bioblaster":"생화학무기","Sprint":"전력 질주","Queen Overdrive":"급속출력: 퀸","Detonator":"기폭","Limit Break":"리미트 브레이크"};
 const openerSelection = {};
 function openerName(name) {
   if(OPENER_KR[name]) return OPENER_KR[name];
@@ -3167,7 +3351,7 @@ function openerName(name) {
 function renderOpeners(job) {
   const data=OPENER_GUIDES[job.id]; if(!data) return '';
   const index=openerSelection[job.id] || 0, item=data.images[index], e=escIconText;
-  const keyFor=name=>job.skills.filter(s=>s.name===name || (SKILL_ICONS[s.name]||[]).some(i=>i.name===name)).map(s=>s.key).join(' / ') || '—';
+  const keyFor=name=>job.skills.filter(s=>s.name===name || (s.aliases||[]).includes(name) || (SKILL_ICONS[s.name]||[]).some(i=>i.name===name)).map(s=>s.key).join(' / ') || '—';
   return '<section class="opener-section"><div class="section-title">오프너·로테이션 원본 도표</div>' +
     '<div class="opener-card"><div class="opener-toolbar"><label for="opener-choice">도표 선택</label><select id="opener-choice" onchange="openerSelection[currentJob.id]=Number(this.value);renderJob()">'+
     data.images.map((im,i)=>'<option value="'+i+'"'+(i===index?' selected':'')+'>'+e(im.title)+'</option>').join('')+
@@ -3185,16 +3369,16 @@ function filterOpenerTerms(input) {
 
 
 // Keyboard practice: local settings only; no gameplay automation.
-const TRAIN_KEYS=['1','2','3','4','5','6','Q','W','E','R','T','A','D','S','F1','F2','F3','F4','S1','S2','S3','S4'];
+const TRAIN_KEYS=["1","2","3","4","5","6","Q","W","E","R","T","Y","A","S","D","G","Shift+G","Ctrl+L","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","S1","S2","S3","S4","S5","S6"];
 const TRAIN_STORE='ffxiv-practice-v1';
 let trainSaved={};try{trainSaved=JSON.parse(localStorage.getItem(TRAIN_STORE)||'{}')||{};}catch{}
 const trainer={job:null,mode:1,status:'idle',events:[],pos:0,correct:0,wrong:0,miss:0,early:0,offsets:[],history:[],timer:null,start:0,pauseAt:0,feedback:'연습 시작을 누르면 이 영역에서 키를 입력할 수 있어요.',hide:false};
 function trainPersist(){try{localStorage.setItem(TRAIN_STORE,JSON.stringify(trainSaved));return true;}catch{return false;}}
-function trainLabel(k){return /^S[1-4]$/.test(k)?'Shift+'+k.slice(1):k;}
-function trainKey(event){if(event.ctrlKey||event.altKey||event.metaKey)return null;let k='';if(/^Digit[0-9]$/.test(event.code))k=event.code.slice(5);else if(/^Key[A-Z]$/.test(event.code))k=event.code.slice(3);else if(/^F[1-4]$/.test(event.code))k=event.code;if(event.shiftKey){if(/^[1-4]$/.test(k))return 'S'+k;return k?'Shift+'+k:null;}return k||null;}
-function trainParse(value){return value.toUpperCase().replace(/SHIFT\s*\+\s*([1-4])/g,'S$1').trim().split(/[\s,→]+/).filter(Boolean);}
+function trainLabel(k){return /^S[1-6]$/.test(k)?'Shift+'+k.slice(1):k;}
+function trainKey(event){if(event.altKey||event.metaKey)return null;let k='';if(/^Digit[0-9]$/.test(event.code))k=event.code.slice(5);else if(/^Key[A-Z]$/.test(event.code))k=event.code.slice(3);else if(/^F(?:[1-9]|1[01])$/.test(event.code))k=event.code;if(!k)return null;if(event.ctrlKey)return !event.shiftKey&&k==='L'?'Ctrl+L':null;if(event.shiftKey)return /^[1-6]$/.test(k)?'S'+k:'Shift+'+k;return k;}
+function trainParse(value){return value.toUpperCase().replace(/SHIFT\s*\+\s*([1-6])/g,'S$1').replace(/SHIFT\s*\+\s*G/g,'Shift+G').replace(/CTRL\s*\+\s*L/g,'Ctrl+L').trim().split(/[\s,→]+/).filter(Boolean);}
 function trainIcon(name){let icons=SKILL_ICONS[name];if(!icons)icons=Object.values(SKILL_ICONS).flat().filter(x=>x.name===name);return icons&&icons[0]?'<img class="train-icon" alt="" src="'+escIconText(icons[0].src)+'">':'';}
-function trainKeyFor(job,name){const exact=job.skills.find(s=>s.name===name);if(exact)return exact.key;const match=job.skills.filter(s=>(SKILL_ICONS[s.name]||[]).some(i=>i.name===name));return match.length===1?match[0].key:'';}
+function trainKeyFor(job,name){const exact=job.skills.find(s=>s.name===name);if(exact)return exact.key;const match=job.skills.filter(s=>(s.aliases||[]).includes(name)||(SKILL_ICONS[s.name]||[]).some(i=>i.name===name));return match.length===1?match[0].key:'';}
 function trainPreset(job){return (OPENER_GUIDES[job.id]?.sequence||[]).map(name=>({name,keys:trainKeyFor(job,name),kind:'G',gap:''}));}
 function trainRows(){const saved=trainSaved[trainer.job.id];return Array.isArray(saved?.rows)?saved.rows:trainPreset(trainer.job);}
 function trainOpen(){trainStop(false);trainer.job=currentJob;trainer.mode=1;trainer.status='idle';trainer.feedback='연습 시작을 누르면 이 영역에서 키를 입력할 수 있어요.';document.getElementById('train-title').textContent=trainer.job.kr+' · 키보드 연습';const modal=document.getElementById('train-dialog');modal.showModal();trainRender();}
@@ -3204,7 +3388,7 @@ function trainMode(mode){if(trainer.mode!==1)trainSaveRows();trainStop(false);tr
 function trainRender(){const t=trainer,e=escIconText;document.getElementById('train-modes').innerHTML=[['키 위치 익히기','시간 제한 없이 정확하게'],['오프너 암기','도표 순서 · 키 안내 숨기기'],['타이밍 연습','GCD 간격 · oGCD 끼워넣기']].map((a,i)=>'<button type="button" class="'+(t.mode===i+1?'active':'')+'" aria-pressed="'+(t.mode===i+1)+'" onclick="trainMode('+(i+1)+')"><b>'+(i+1)+'. '+a[0]+'</b><small>'+a[1]+'</small></button>').join('');
 const record=trainSaved[t.job.id]?.records?.[t.mode];document.getElementById('train-record').textContent=record?'최근 완료: 정확도 '+record.accuracy+'% · 정답 '+record.correct+' · 오입력 '+record.wrong+' · 놓침 '+record.miss:'아직 완료한 기록이 없어요.';
 let settings='<label><input id="train-hide" type="checkbox" '+(t.hide?'checked':'')+' onchange="trainer.hide=this.checked;trainPaint()"> 키 안내 숨기기</label>';
-if(t.mode===1)settings+='<label>출제 범위 <select id="train-scope"><option value="all">등록된 모든 키</option><option value="main">숫자 1~6</option><option value="letters">Q/W/E/R/T/A/D/S</option><option value="shift">Shift+숫자</option><option value="function">F1~F4</option></select></label><label>문제 수 <select id="train-count"><option>20</option><option>10</option><option>40</option></select></label>';
+if(t.mode===1)settings+='<label>출제 범위 <select id="train-scope"><option value="all">등록된 모든 키</option><option value="main">숫자 1~6</option><option value="letters">Q/W/E/R/T/Y/A/S/D/G</option><option value="shift">Shift 조합</option><option value="control">Ctrl 조합</option><option value="function">F1~F11</option></select></label><label>문제 수 <select id="train-count"><option>20</option><option>10</option><option>40</option></select></label>';
 if(t.mode===3)settings+='<label>연습 내용 <select id="train-source"><option value="rhythm">기본 리듬 · GCD + oGCD</option><option value="opener">편집한 오프너</option></select></label><label>GCD 간격(초) <input id="train-gcd" type="number" min="1.5" max="4" step="0.01" value="2.50"></label><label>진행 속도 <select id="train-speed"><option value="0.6">60%</option><option value="0.8">80%</option><option value="1" selected>100%</option></select></label><label>판정 여유 <select id="train-window"><option value="0.3">±0.30초</option><option value="0.15">±0.15초</option></select></label>';
 document.getElementById('train-settings').innerHTML=settings;
 document.getElementById('train-description').textContent=t.mode===1?'현재 가이드에 등록된 키를 무작위로 연습합니다. 틀려도 다음 문제로 넘어가지 않아요.':t.mode===2?'기본 목록은 원본 도표의 큰 GCD 아이콘 순서입니다. 전체 오프너를 연습하려면 준비 기술과 oGCD도 편집기에 추가하세요.':'기본 리듬은 손가락 타이밍을 위한 반복 훈련이며 실제 추천 딜사이클이 아닙니다. 시전 시간·자원·기술 쿨다운·애니메이션 잠금은 계산하지 않습니다.';
@@ -3220,10 +3404,10 @@ function trainRemove(i){trainSaveRows();trainRows().splice(i,1);trainPersist();t
 function trainAdd(){trainSaveRows();const name=document.getElementById('train-add-skill').value;const skill=trainer.job.skills.find(s=>s.name===name);trainRows().push({name,keys:trainKeyFor(trainer.job,name),kind:skill?.type==='G'?'G':'o',gap:''});trainPersist();trainEditor();}
 function trainReset(){trainSaved[trainer.job.id]??={};trainSaved[trainer.job.id].rows=trainPreset(trainer.job);trainPersist();trainEditor();document.getElementById('train-edit-message').textContent='도표의 GCD 순서로 복원했어요.';}
 function trainRhythm(){const skills=trainer.job.skills;const gcd=skills.filter(s=>s.type==='G'&&s.cat!=='aoe');const weave=skills.filter(s=>s.type==='o'&&['burst','buff','party','song'].includes(s.cat));if(!gcd.length)return [];let rows=[];for(let i=0;i<8;i++){const g=gcd[i%Math.min(3,gcd.length)];rows.push({name:g.name,keys:g.key,kind:'G',gap:''});if(weave.length&&i<7){const w=weave[i%weave.length];rows.push({name:w.name,keys:w.key,kind:'o',gap:''});}}return rows;}
-function trainValidate(rows){if(!rows.length)return '연습할 기술이 없어요. 기술을 추가하세요.';for(let i=0;i<rows.length;i++){const r=rows[i],keys=trainParse(r.keys);if(!r.name||/무도 순서 입력|우선순위 GCD/.test(r.name))return (i+1)+'번: 상황에 따라 달라지는 항목을 구체적인 기술과 키로 바꿔 주세요.';if(!keys.length||keys.some(k=>!TRAIN_KEYS.includes(k)))return (i+1)+'번 '+openerName(r.name)+': 실제 게임에서 사용하는 키를 입력하세요. 사용 가능: 1~6, Q/W/E/R/T/A/D/S, F1~F4, Shift+1~4.';if(r.gap!==''&&(!Number.isFinite(Number(r.gap))||Number(r.gap)<0.1||Number(r.gap)>30))return (i+1)+'번 간격은 0.1~30초로 입력하세요.';}return '';}
+function trainValidate(rows){if(!rows.length)return '연습할 기술이 없어요. 기술을 추가하세요.';for(let i=0;i<rows.length;i++){const r=rows[i],keys=trainParse(r.keys);if(!r.name||/무도 순서 입력|우선순위 GCD/.test(r.name))return (i+1)+'번: 상황에 따라 달라지는 항목을 구체적인 기술과 키로 바꿔 주세요.';if(!keys.length||keys.some(k=>!TRAIN_KEYS.includes(k)))return (i+1)+'번 '+openerName(r.name)+': 실제 게임에서 사용하는 키를 입력하세요. 사용 가능: 1~6, Q/W/E/R/T/Y/A/S/D/G, F1~F11, Shift+1~6, Shift+G, Ctrl+L.';if(r.gap!==''&&(!Number.isFinite(Number(r.gap))||Number(r.gap)<0.1||Number(r.gap)>30))return (i+1)+'번 간격은 0.1~30초로 입력하세요.';}return '';}
 function trainSchedule(rows,gcd){let events=[],anchor=null,last=-0.7,weaves=0;for(const row of rows){const keys=trainParse(row.keys);let at;if(row.gap!=='')at=last+Number(row.gap);else if(row.kind==='G'){at=anchor===null?Math.max(0,last+0.7):Math.max(anchor+gcd,last+0.7);anchor=at;weaves=0;}else{at=last+0.7;weaves++;}if(row.kind==='G')anchor=at;keys.forEach((key,i)=>{const time=at+i*0.5;events.push({name:row.name,key,kind:row.kind,at:time,part:i+1,parts:keys.length});last=time;});}const first=events[0]?.at||0;return events.map(e=>({...e,at:e.at-first}));}
 function trainStart(){trainStop(false);let rows=[],gcd=2.5;trainer.speed=1;trainer.window=0.3;
-if(trainer.mode===1){const scope=document.getElementById('train-scope').value;let pool=trainer.job.skills.filter(s=>TRAIN_KEYS.includes(s.key)).filter(s=>scope==='all'||scope==='main'&&/^[1-6]$/.test(s.key)||scope==='letters'&&/^[QWERTADS]$/.test(s.key)||scope==='shift'&&/^S[1-4]$/.test(s.key)||scope==='function'&&/^F[1-4]$/.test(s.key));if(!pool.length){trainer.feedback='이 범위에 등록된 키가 없어요. 다른 범위를 선택하세요.';trainPaint();return;}for(let i=0;i<Number(document.getElementById('train-count').value);i++){let choices=pool.filter(s=>s.key!==rows.at(-1)?.keys);if(!choices.length)choices=pool;const s=choices[Math.floor(Math.random()*choices.length)];rows.push({name:s.name,keys:s.key,kind:s.type==='G'?'G':'o',gap:''});}}
+if(trainer.mode===1){const scope=document.getElementById('train-scope').value;let pool=trainer.job.skills.filter(s=>TRAIN_KEYS.includes(s.key)).filter(s=>scope==='all'||scope==='main'&&/^[1-6]$/.test(s.key)||scope==='letters'&&/^[QWERTYASDG]$/.test(s.key)||scope==='shift'&&/^(S[1-6]|Shift\+G)$/.test(s.key)||scope==='control'&&s.key==='Ctrl+L'||scope==='function'&&/^F(?:[1-9]|1[01])$/.test(s.key));if(!pool.length){trainer.feedback='이 범위에 등록된 키가 없어요. 다른 범위를 선택하세요.';trainPaint();return;}for(let i=0;i<Number(document.getElementById('train-count').value);i++){let choices=pool.filter(s=>s.key!==rows.at(-1)?.keys);if(!choices.length)choices=pool;const s=choices[Math.floor(Math.random()*choices.length)];rows.push({name:s.name,keys:s.key,kind:s.type==='G'?'G':'o',gap:''});}}
 else {trainSaveRows();rows=trainer.mode===3&&document.getElementById('train-source').value==='rhythm'?trainRhythm():trainRows();if(trainer.mode===3){gcd=Number(document.getElementById('train-gcd').value);if(!Number.isFinite(gcd)||gcd<1.5||gcd>4){trainer.feedback='GCD 간격은 1.50~4.00초로 입력하세요.';trainPaint();return;}trainer.speed=Number(document.getElementById('train-speed').value);trainer.window=Number(document.getElementById('train-window').value);}}
 const invalid=trainValidate(rows);if(invalid){trainer.feedback=invalid;document.getElementById('train-editor-details').open=true;trainPaint();return;}
 trainer.events=trainSchedule(rows,gcd);trainer.correct=trainer.wrong=trainer.miss=trainer.early=trainer.pos=0;trainer.offsets=[];trainer.history=[];trainer.status='running';trainer.start=performance.now()+(trainer.mode===3?3000:0);trainer.feedback=trainer.mode===3?'3초 뒤 시작합니다. 첫 기술을 준비하세요.':'첫 기술의 키를 누르세요.';document.getElementById('train-editor-details').open=false;trainPaint();document.getElementById('train-stage').focus({preventScroll:true});if(trainer.mode===3)trainer.timer=setInterval(trainTick,40);}
@@ -3241,7 +3425,7 @@ const target=t.events[t.pos];trainSet("train-target",target&&busy?trainIcon(targ
 const next=t.events.slice(t.pos+1,t.pos+5);trainSet("train-next",busy?next.map(ev=>'<span>'+e(openerName(ev.name))+(t.hide?'':' <b>'+e(trainLabel(ev.key))+'</b>')+'</span>').join('<i>→</i>'):'');
 let remaining=0;if(t.mode===3&&busy&&target){remaining=(target.at-trainTime())/t.speed;document.getElementById('train-timing').textContent=trainTime()<0?'준비 '+Math.ceil(-trainTime()/t.speed)+'초':remaining>0?'목표까지 '+remaining.toFixed(2)+'초':'지금 입력하세요';document.getElementById('train-meter').value=Math.max(0,Math.min(1,1-Math.max(0,remaining)/2.5));}else document.getElementById('train-timing').textContent=t.mode===3&&t.offsets.length?'평균 절대 오차 '+Math.round(t.offsets.reduce((a,b)=>a+Math.abs(b),0)/t.offsets.length)+'ms':'';
 document.getElementById('train-meter').hidden=!(t.mode===3&&busy);
-trainSet('train-pad',TRAIN_KEYS.map(k=>'<button type="button" tabindex="-1" class="'+(!t.hide&&busy&&target?.key===k?'expected':'')+'" onpointerdown="event.preventDefault()" onclick="trainTap(\''+k+'\')">'+e(trainLabel(k))+'</button>').join(''));
+trainSet('train-pad',tUnique(t.job.skills.map(s=>s.key)).filter(k=>TRAIN_KEYS.includes(k)).map(k=>'<button type="button" tabindex="-1" class="'+(!t.hide&&busy&&target?.key===k?'expected':'')+'" onpointerdown="event.preventDefault()" onclick="trainTap(\''+k+'\')">'+e(trainLabel(k))+'</button>').join(''));
 trainSet("train-history",t.history.slice(-10).reverse().map(h=>'<li class="'+(h.result==='정답'?'hit':'bad')+'">'+e(h.result)+' · '+e(openerName(h.name))+' · '+e(trainLabel(h.key))+'</li>').join(''));}
 
 function trainSet(id,html){const el=document.getElementById(id);if(el._trainHtml!==html){el.innerHTML=html;el._trainHtml=html;}}
@@ -3256,11 +3440,21 @@ window.addEventListener('blur',()=>trainPause());
 document.addEventListener('visibilitychange',()=>{if(document.hidden)trainPause();});
 document.getElementById('train-dialog').addEventListener('cancel',event=>{event.preventDefault();if(trainer.status==='running')trainPause();else trainClose();});
 
+
+// Preserve earlier custom practice rows and records while updating known skill keys.
+if(trainSaved.mch && trainSaved.mch.layoutVersion!=='mouse-20260924'){
+ const saved=trainSaved.mch, job=JOBS.ranged.find(j=>j.id==='mch');
+ saved.previousLayout={rows:saved.rows,records:saved.records};
+ if(Array.isArray(saved.rows))saved.rows=saved.rows.map(r=>({...r,keys:trainKeyFor(job,r.name)||r.keys}));
+ saved.records={};saved.layoutVersion='mouse-20260924';trainPersist();
+}
+
 // Init
 document.querySelectorAll('.tab').forEach(t => {
   t.onclick = () => selectRole(t.dataset.role);
 });
-selectRole('melee');
+const linkedJob=Object.values(JOBS).flat().find(j=>j.id===location.hash.slice(1));
+if(linkedJob){currentRole=Object.keys(JOBS).find(r=>JOBS[r].includes(linkedJob));currentJob=linkedJob;renderTabs();renderJob();}else selectRole('melee');
 
 </script>
 </body>

@@ -1,6 +1,6 @@
 {
   "source": "https://v2.xivapi.com",
-  "date": "2026-09-23",
+  "date": "2026-09-24",
   "mapping": {
     "Leaping Opo": [
       {
@@ -1571,6 +1571,105 @@
         "name": "Hammer Stamp",
         "id": 34678,
         "src": "assets/icons/3829.png"
+      }
+    ],
+    "Blazing Shot": [
+      {
+        "name": "Blazing Shot",
+        "id": 36978,
+        "src": "assets/icons/3506.png"
+      }
+    ],
+    "Double Check": [
+      {
+        "name": "Double Check",
+        "id": 36979,
+        "src": "assets/icons/3507.png"
+      }
+    ],
+    "Checkmate": [
+      {
+        "name": "Checkmate",
+        "id": 36980,
+        "src": "assets/icons/3508.png"
+      }
+    ],
+    "Excavator": [
+      {
+        "name": "Excavator",
+        "id": 36981,
+        "src": "assets/icons/3500.png"
+      }
+    ],
+    "Full Metal Field": [
+      {
+        "name": "Full Metal Field",
+        "id": 36982,
+        "src": "assets/icons/3049.png"
+      }
+    ],
+    "Automaton Queen": [
+      {
+        "name": "Automaton Queen",
+        "id": 16501,
+        "src": "assets/icons/3501.png"
+      }
+    ],
+    "Dismantle": [
+      {
+        "name": "Dismantle",
+        "id": 2887,
+        "src": "assets/icons/3011.png"
+      }
+    ],
+    "Arm's Length": [
+      {
+        "name": "Arm's Length",
+        "id": 7548,
+        "src": "assets/icons/822.png"
+      }
+    ],
+    "Flamethrower": [
+      {
+        "name": "Flamethrower",
+        "id": 7418,
+        "src": "assets/icons/3038.png"
+      }
+    ],
+    "Bioblaster": [
+      {
+        "name": "Bioblaster",
+        "id": 16499,
+        "src": "assets/icons/3044.png"
+      }
+    ],
+    "Peloton": [
+      {
+        "name": "Peloton",
+        "id": 7557,
+        "src": "assets/icons/844.png"
+      }
+    ],
+    "Sprint": [
+      {
+        "name": "Sprint",
+        "id": 3,
+        "src": "assets/icons/104.png"
+      }
+    ],
+    "Queen Overdrive": [
+      {
+        "name": "Queen Overdrive",
+        "id": 16502,
+        "src": "assets/icons/3502.png"
+      }
+    ],
+    "Limit Break": [
+      {
+        "name": "Limit Break",
+        "id": 3,
+        "sheet": "GeneralAction",
+        "src": "assets/icons/103.png"
       }
     ]
   },
