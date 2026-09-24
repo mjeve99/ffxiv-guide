@@ -5,57 +5,65 @@
     "Leaping Opo": [
       {
         "name": "Leaping Opo",
-        "id": 36945,
-        "src": "assets/icons/2982.png"
+        "id": 2982,
+        "src": "assets/icons/kr-2982.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002982.png"
       }
     ],
     "Rising Raptor": [
       {
         "name": "Rising Raptor",
-        "id": 36946,
-        "src": "assets/icons/2983.png"
+        "id": 2983,
+        "src": "assets/icons/kr-2983.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002983.png"
       }
     ],
     "Pouncing Coeurl": [
       {
         "name": "Pouncing Coeurl",
-        "id": 36947,
-        "src": "assets/icons/2984.png"
+        "id": 2984,
+        "src": "assets/icons/kr-2984.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002984.png"
       }
     ],
     "Dragon Kick": [
       {
         "name": "Dragon Kick",
-        "id": 74,
-        "src": "assets/icons/2528.png"
+        "id": 2528,
+        "src": "assets/icons/kr-2528.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002528.png"
       }
     ],
     "Twin Snakes": [
       {
         "name": "Twin Snakes",
-        "id": 61,
-        "src": "assets/icons/213.png"
+        "id": 213,
+        "src": "assets/icons/kr-213.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/000213.png"
       }
     ],
     "Masterful Blitz": [
       {
         "name": "Masterful Blitz",
-        "id": 25764,
-        "src": "assets/icons/2976.png"
+        "id": 2976,
+        "src": "assets/icons/kr-2976.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002976.png"
       }
     ],
     "Perfect Balance": [
       {
         "name": "Perfect Balance",
-        "id": 69,
-        "src": "assets/icons/217.png"
+        "id": 217,
+        "src": "assets/icons/kr-217.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/000217.png"
       }
     ],
     "Riddle of Wind": [
       {
         "name": "Riddle of Wind",
-        "id": 25766,
-        "src": "assets/icons/2978.png"
+        "id": 2978,
+        "src": "assets/icons/kr-2978.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002978.png"
       }
     ],
     "The Forbidden Chakra": [
@@ -68,64 +76,73 @@
     "Riddle of Fire": [
       {
         "name": "Riddle of Fire",
-        "id": 7395,
-        "src": "assets/icons/2541.png"
+        "id": 2541,
+        "src": "assets/icons/kr-2541.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002541.png"
       }
     ],
     "Brotherhood": [
       {
         "name": "Brotherhood",
-        "id": 7396,
-        "src": "assets/icons/2542.png"
+        "id": 2542,
+        "src": "assets/icons/kr-2542.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002542.png"
       }
     ],
     "Thunderclap": [
       {
         "name": "Thunderclap",
-        "id": 25762,
-        "src": "assets/icons/2975.png"
+        "id": 2975,
+        "src": "assets/icons/kr-2975.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002975.png"
       }
     ],
     "Mantra": [
       {
         "name": "Mantra",
-        "id": 65,
-        "src": "assets/icons/216.png"
+        "id": 216,
+        "src": "assets/icons/kr-216.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/000216.png"
       }
     ],
     "Second Wind": [
       {
         "name": "Second Wind",
-        "id": 7541,
-        "src": "assets/icons/821.png"
+        "id": 821,
+        "src": "assets/icons/kr-821.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/000821.png"
       }
     ],
     "Bloodbath": [
       {
         "name": "Bloodbath",
-        "id": 7542,
-        "src": "assets/icons/823.png"
+        "id": 823,
+        "src": "assets/icons/kr-823.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/000823.png"
       }
     ],
     "Feint": [
       {
         "name": "Feint",
-        "id": 7549,
-        "src": "assets/icons/828.png"
+        "id": 828,
+        "src": "assets/icons/kr-828.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/000828.png"
       }
     ],
     "Shadow of the Destroyer": [
       {
         "name": "Shadow of the Destroyer",
-        "id": 25767,
-        "src": "assets/icons/2979.png"
+        "id": 2979,
+        "src": "assets/icons/kr-2979.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002979.png"
       }
     ],
     "Four-point Fury": [
       {
         "name": "Four-point Fury",
-        "id": 16473,
-        "src": "assets/icons/2544.png"
+        "id": 2544,
+        "src": "assets/icons/kr-2544.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002544.png"
       }
     ],
     "Enlightenment": [
@@ -152,8 +169,9 @@
     "Chaotic Spring": [
       {
         "name": "Chaotic Spring",
-        "id": 25772,
-        "src": "assets/icons/2596.png"
+        "id": 2596,
+        "src": "assets/icons/kr-2596.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002596.png"
       }
     ],
     "Vorpal Thrust": [
@@ -166,114 +184,130 @@
     "Heavens' Thrust": [
       {
         "name": "Heavens' Thrust",
-        "id": 25771,
-        "src": "assets/icons/2595.png"
+        "id": 2595,
+        "src": "assets/icons/kr-2595.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002595.png"
       }
     ],
     "Wyrmwind Thrust": [
       {
         "name": "Wyrmwind Thrust",
-        "id": 25773,
-        "src": "assets/icons/2597.png"
+        "id": 2597,
+        "src": "assets/icons/kr-2597.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002597.png"
       }
     ],
     "High Jump": [
       {
         "name": "High Jump",
-        "id": 16478,
-        "src": "assets/icons/2591.png"
+        "id": 2591,
+        "src": "assets/icons/kr-2591.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002591.png"
       }
     ],
     "Nastrond": [
       {
         "name": "Nastrond",
-        "id": 7400,
-        "src": "assets/icons/2589.png"
+        "id": 2589,
+        "src": "assets/icons/kr-2589.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002589.png"
       }
     ],
     "Geirskogul": [
       {
         "name": "Geirskogul",
-        "id": 3555,
-        "src": "assets/icons/2583.png"
+        "id": 2583,
+        "src": "assets/icons/kr-2583.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002583.png"
       }
     ],
     "Lance Charge": [
       {
         "name": "Lance Charge",
-        "id": 85,
-        "src": "assets/icons/309.png"
+        "id": 309,
+        "src": "assets/icons/kr-309.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/000309.png"
       }
     ],
     "Battle Litany": [
       {
         "name": "Battle Litany",
-        "id": 3557,
-        "src": "assets/icons/2585.png"
+        "id": 2585,
+        "src": "assets/icons/kr-2585.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002585.png"
       }
     ],
     "Spineshatter Dive": [],
     "Dragonfire Dive": [
       {
         "name": "Dragonfire Dive",
-        "id": 96,
-        "src": "assets/icons/2578.png"
+        "id": 2578,
+        "src": "assets/icons/kr-2578.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002578.png"
       }
     ],
     "Life Surge": [
       {
         "name": "Life Surge",
-        "id": 83,
-        "src": "assets/icons/304.png"
+        "id": 304,
+        "src": "assets/icons/kr-304.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/000304.png"
       }
     ],
     "Doom Spike": [
       {
         "name": "Doom Spike",
-        "id": 86,
-        "src": "assets/icons/306.png"
+        "id": 306,
+        "src": "assets/icons/kr-306.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/000306.png"
       }
     ],
     "Sonic Thrust": [
       {
         "name": "Sonic Thrust",
-        "id": 7397,
-        "src": "assets/icons/2586.png"
+        "id": 2586,
+        "src": "assets/icons/kr-2586.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002586.png"
       }
     ],
     "Coerthan Torment": [
       {
         "name": "Coerthan Torment",
-        "id": 16477,
-        "src": "assets/icons/2590.png"
+        "id": 2590,
+        "src": "assets/icons/kr-2590.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002590.png"
       }
     ],
     "Spinning Edge": [
       {
         "name": "Spinning Edge",
-        "id": 2240,
-        "src": "assets/icons/601.png"
+        "id": 601,
+        "src": "assets/icons/kr-601.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000601.png"
       }
     ],
     "Gust Slash": [
       {
         "name": "Gust Slash",
-        "id": 2242,
-        "src": "assets/icons/602.png"
+        "id": 602,
+        "src": "assets/icons/kr-602.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000602.png"
       }
     ],
     "Aeolian Edge": [
       {
         "name": "Aeolian Edge",
-        "id": 2255,
-        "src": "assets/icons/605.png"
+        "id": 605,
+        "src": "assets/icons/kr-605.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000605.png"
       }
     ],
     "Armor Crush": [
       {
         "name": "Armor Crush",
-        "id": 3563,
-        "src": "assets/icons/2915.png"
+        "id": 2915,
+        "src": "assets/icons/kr-2915.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002915.png"
       }
     ],
     "Raiju (프록 시)": [
@@ -291,8 +325,9 @@
     "Bhavacakra": [
       {
         "name": "Bhavacakra",
-        "id": 7402,
-        "src": "assets/icons/2921.png"
+        "id": 2921,
+        "src": "assets/icons/kr-2921.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002921.png"
       }
     ],
     "Ten (무드라 1)": [
@@ -319,22 +354,25 @@
     "Bunshin": [
       {
         "name": "Bunshin",
-        "id": 16493,
-        "src": "assets/icons/2927.png"
+        "id": 2927,
+        "src": "assets/icons/kr-2927.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002927.png"
       }
     ],
     "Kunai's Bane": [
       {
         "name": "Kunai's Bane",
-        "id": 36958,
-        "src": "assets/icons/620.png"
+        "id": 620,
+        "src": "assets/icons/kr-620.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000620.png"
       }
     ],
     "Shukuchi": [
       {
         "name": "Shukuchi",
-        "id": 2262,
-        "src": "assets/icons/2905.png"
+        "id": 2905,
+        "src": "assets/icons/kr-2905.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002905.png"
       }
     ],
     "Mug": [
@@ -347,92 +385,105 @@
     "Death Blossom": [
       {
         "name": "Death Blossom",
-        "id": 2254,
-        "src": "assets/icons/615.png"
+        "id": 615,
+        "src": "assets/icons/kr-615.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000615.png"
       }
     ],
     "Hakke Mujinsatsu": [
       {
         "name": "Hakke Mujinsatsu",
-        "id": 16488,
-        "src": "assets/icons/2923.png"
+        "id": 2923,
+        "src": "assets/icons/kr-2923.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002923.png"
       }
     ],
     "Gyofu": [
       {
         "name": "Gyofu",
-        "id": 36963,
-        "src": "assets/icons/3191.png"
+        "id": 3191,
+        "src": "assets/icons/kr-3191.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003191.png"
       }
     ],
     "Yukikaze": [
       {
         "name": "Yukikaze",
-        "id": 7480,
-        "src": "assets/icons/3166.png"
+        "id": 3166,
+        "src": "assets/icons/kr-3166.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003166.png"
       }
     ],
     "Jinpu": [
       {
         "name": "Jinpu",
-        "id": 7478,
-        "src": "assets/icons/3152.png"
+        "id": 3152,
+        "src": "assets/icons/kr-3152.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003152.png"
       }
     ],
     "Gekko": [
       {
         "name": "Gekko",
-        "id": 7481,
-        "src": "assets/icons/3158.png"
+        "id": 3158,
+        "src": "assets/icons/kr-3158.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003158.png"
       }
     ],
     "Shifu": [
       {
         "name": "Shifu",
-        "id": 7479,
-        "src": "assets/icons/3156.png"
+        "id": 3156,
+        "src": "assets/icons/kr-3156.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003156.png"
       }
     ],
     "Kasha": [
       {
         "name": "Kasha",
-        "id": 7482,
-        "src": "assets/icons/3164.png"
+        "id": 3164,
+        "src": "assets/icons/kr-3164.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003164.png"
       }
     ],
     "Hissatsu: Shinten": [
       {
         "name": "Hissatsu: Shinten",
-        "id": 7490,
-        "src": "assets/icons/3173.png"
+        "id": 3173,
+        "src": "assets/icons/kr-3173.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003173.png"
       }
     ],
     "Meikyo Shisui": [
       {
         "name": "Meikyo Shisui",
-        "id": 7499,
-        "src": "assets/icons/3167.png"
+        "id": 3167,
+        "src": "assets/icons/kr-3167.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003167.png"
       }
     ],
     "Ikishoten": [
       {
         "name": "Ikishoten",
-        "id": 16482,
-        "src": "assets/icons/3179.png"
+        "id": 3179,
+        "src": "assets/icons/kr-3179.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003179.png"
       }
     ],
     "Tsubame-gaeshi": [
       {
         "name": "Tsubame-gaeshi",
-        "id": 16483,
-        "src": "assets/icons/3180.png"
+        "id": 3180,
+        "src": "assets/icons/kr-3180.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003180.png"
       }
     ],
     "Ogi Namikiri": [
       {
         "name": "Ogi Namikiri",
-        "id": 25781,
-        "src": "assets/icons/3187.png"
+        "id": 3187,
+        "src": "assets/icons/kr-3187.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003187.png"
       }
     ],
     "Third Eye": [
@@ -445,15 +496,17 @@
     "Fuko": [
       {
         "name": "Fuko",
-        "id": 25780,
-        "src": "assets/icons/3189.png"
+        "id": 3189,
+        "src": "assets/icons/kr-3189.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003189.png"
       }
     ],
     "Mangetsu": [
       {
         "name": "Mangetsu",
-        "id": 7484,
-        "src": "assets/icons/3163.png"
+        "id": 3163,
+        "src": "assets/icons/kr-3163.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003163.png"
       }
     ],
     "Tenka Goken": [
@@ -466,85 +519,97 @@
     "Slice": [
       {
         "name": "Slice",
-        "id": 24373,
-        "src": "assets/icons/3601.png"
+        "id": 3601,
+        "src": "assets/icons/kr-3601.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003601.png"
       }
     ],
     "Waxing Slice": [
       {
         "name": "Waxing Slice",
-        "id": 24374,
-        "src": "assets/icons/3602.png"
+        "id": 3602,
+        "src": "assets/icons/kr-3602.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003602.png"
       }
     ],
     "Infernal Slice": [
       {
         "name": "Infernal Slice",
-        "id": 24375,
-        "src": "assets/icons/3603.png"
+        "id": 3603,
+        "src": "assets/icons/kr-3603.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003603.png"
       }
     ],
     "Gibbet": [
       {
         "name": "Gibbet",
-        "id": 24382,
-        "src": "assets/icons/3610.png"
+        "id": 3610,
+        "src": "assets/icons/kr-3610.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003610.png"
       }
     ],
     "Shadow of Death": [
       {
         "name": "Shadow of Death",
-        "id": 24378,
-        "src": "assets/icons/3606.png"
+        "id": 3606,
+        "src": "assets/icons/kr-3606.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003606.png"
       }
     ],
     "Gallows": [
       {
         "name": "Gallows",
-        "id": 24383,
-        "src": "assets/icons/3611.png"
+        "id": 3611,
+        "src": "assets/icons/kr-3611.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003611.png"
       }
     ],
     "Soul Slice": [
       {
         "name": "Soul Slice",
-        "id": 24380,
-        "src": "assets/icons/3608.png"
+        "id": 3608,
+        "src": "assets/icons/kr-3608.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003608.png"
       }
     ],
     "Gluttony": [
       {
         "name": "Gluttony",
-        "id": 24393,
-        "src": "assets/icons/3621.png"
+        "id": 3621,
+        "src": "assets/icons/kr-3621.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003621.png"
       }
     ],
     "Enshroud": [
       {
         "name": "Enshroud",
-        "id": 24394,
-        "src": "assets/icons/3622.png"
+        "id": 3622,
+        "src": "assets/icons/kr-3622.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003622.png"
       }
     ],
     "Plentiful Harvest": [
       {
         "name": "Plentiful Harvest",
-        "id": 24385,
-        "src": "assets/icons/3613.png"
+        "id": 3613,
+        "src": "assets/icons/kr-3613.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003613.png"
       }
     ],
     "Arcane Circle": [
       {
         "name": "Arcane Circle",
-        "id": 24405,
-        "src": "assets/icons/3633.png"
+        "id": 3633,
+        "src": "assets/icons/kr-3633.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003633.png"
       }
     ],
     "Hell's Ingress": [
       {
         "name": "Hell's Ingress",
-        "id": 24401,
-        "src": "assets/icons/3629.png"
+        "id": 3629,
+        "src": "assets/icons/kr-3629.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003629.png"
       }
     ],
     "Regress": [
@@ -557,22 +622,25 @@
     "Arcane Crest": [
       {
         "name": "Arcane Crest",
-        "id": 24404,
-        "src": "assets/icons/3632.png"
+        "id": 3632,
+        "src": "assets/icons/kr-3632.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003632.png"
       }
     ],
     "Spinning Scythe": [
       {
         "name": "Spinning Scythe",
-        "id": 24376,
-        "src": "assets/icons/3604.png"
+        "id": 3604,
+        "src": "assets/icons/kr-3604.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003604.png"
       }
     ],
     "Nightmare Scythe": [
       {
         "name": "Nightmare Scythe",
-        "id": 24377,
-        "src": "assets/icons/3605.png"
+        "id": 3605,
+        "src": "assets/icons/kr-3605.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003605.png"
       }
     ],
     "Circle of Death": [
@@ -592,15 +660,17 @@
     "Steel Fangs": [
       {
         "name": "Steel Fangs",
-        "id": 34606,
-        "src": "assets/icons/3701.png"
+        "id": 3701,
+        "src": "assets/icons/kr-3701.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003701.png"
       }
     ],
     "Reaving Fangs": [
       {
         "name": "Reaving Fangs",
-        "id": 34607,
-        "src": "assets/icons/3702.png"
+        "id": 3702,
+        "src": "assets/icons/kr-3702.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003702.png"
       }
     ],
     "Hunter's/Swiftskin's Sting": [
@@ -630,57 +700,65 @@
     "Reawaken": [
       {
         "name": "Reawaken",
-        "id": 34626,
-        "src": "assets/icons/3721.png"
+        "id": 3721,
+        "src": "assets/icons/kr-3721.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003721.png"
       }
     ],
     "Vicewinder": [
       {
         "name": "Vicewinder",
-        "id": 34620,
-        "src": "assets/icons/3715.png"
+        "id": 3715,
+        "src": "assets/icons/kr-3715.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003715.png"
       }
     ],
     "Hunter's Coil": [
       {
         "name": "Hunter's Coil",
-        "id": 34621,
-        "src": "assets/icons/3716.png"
+        "id": 3716,
+        "src": "assets/icons/kr-3716.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003716.png"
       }
     ],
     "Swiftskin's Coil": [
       {
         "name": "Swiftskin's Coil",
-        "id": 34622,
-        "src": "assets/icons/3717.png"
+        "id": 3717,
+        "src": "assets/icons/kr-3717.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003717.png"
       }
     ],
     "Serpent's Ire": [
       {
         "name": "Serpent's Ire",
-        "id": 34647,
-        "src": "assets/icons/3742.png"
+        "id": 3742,
+        "src": "assets/icons/kr-3742.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003742.png"
       }
     ],
     "Slither": [
       {
         "name": "Slither",
-        "id": 34646,
-        "src": "assets/icons/3741.png"
+        "id": 3741,
+        "src": "assets/icons/kr-3741.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003741.png"
       }
     ],
     "Steel Maw": [
       {
         "name": "Steel Maw",
-        "id": 34614,
-        "src": "assets/icons/3709.png"
+        "id": 3709,
+        "src": "assets/icons/kr-3709.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003709.png"
       }
     ],
     "Reaving Maw": [
       {
         "name": "Reaving Maw",
-        "id": 34615,
-        "src": "assets/icons/3710.png"
+        "id": 3710,
+        "src": "assets/icons/kr-3710.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003710.png"
       }
     ],
     "Hunter's/Swiftskin's Bite": [
@@ -698,92 +776,105 @@
     "Burst Shot": [
       {
         "name": "Burst Shot",
-        "id": 16495,
-        "src": "assets/icons/2618.png"
+        "id": 2618,
+        "src": "assets/icons/kr-2618.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002618.png"
       }
     ],
     "Refulgent Arrow": [
       {
         "name": "Refulgent Arrow",
-        "id": 7409,
-        "src": "assets/icons/2616.png"
+        "id": 2616,
+        "src": "assets/icons/kr-2616.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002616.png"
       }
     ],
     "Iron Jaws": [
       {
         "name": "Iron Jaws",
-        "id": 3560,
-        "src": "assets/icons/2608.png"
+        "id": 2608,
+        "src": "assets/icons/kr-2608.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002608.png"
       }
     ],
     "Apex Arrow": [
       {
         "name": "Apex Arrow",
-        "id": 16496,
-        "src": "assets/icons/2619.png"
+        "id": 2619,
+        "src": "assets/icons/kr-2619.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002619.png"
       }
     ],
     "Stormbite": [
       {
         "name": "Stormbite",
-        "id": 7407,
-        "src": "assets/icons/2614.png"
+        "id": 2614,
+        "src": "assets/icons/kr-2614.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002614.png"
       }
     ],
     "Caustic Bite": [
       {
         "name": "Caustic Bite",
-        "id": 7406,
-        "src": "assets/icons/2613.png"
+        "id": 2613,
+        "src": "assets/icons/kr-2613.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002613.png"
       }
     ],
     "Pitch Perfect": [
       {
         "name": "Pitch Perfect",
-        "id": 7404,
-        "src": "assets/icons/2611.png"
+        "id": 2611,
+        "src": "assets/icons/kr-2611.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002611.png"
       }
     ],
     "Empyreal Arrow": [
       {
         "name": "Empyreal Arrow",
-        "id": 3558,
-        "src": "assets/icons/2606.png"
+        "id": 2606,
+        "src": "assets/icons/kr-2606.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002606.png"
       }
     ],
     "Sidewinder": [
       {
         "name": "Sidewinder",
-        "id": 3562,
-        "src": "assets/icons/2610.png"
+        "id": 2610,
+        "src": "assets/icons/kr-2610.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002610.png"
       }
     ],
     "Raging Strikes": [
       {
         "name": "Raging Strikes",
-        "id": 101,
-        "src": "assets/icons/352.png"
+        "id": 352,
+        "src": "assets/icons/kr-352.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/000352.png"
       }
     ],
     "Battle Voice": [
       {
         "name": "Battle Voice",
-        "id": 118,
-        "src": "assets/icons/2601.png"
+        "id": 2601,
+        "src": "assets/icons/kr-2601.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002601.png"
       }
     ],
     "Troubadour": [
       {
         "name": "Troubadour",
-        "id": 7405,
-        "src": "assets/icons/2612.png"
+        "id": 2612,
+        "src": "assets/icons/kr-2612.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002612.png"
       }
     ],
     "Head Graze": [
       {
         "name": "Head Graze",
-        "id": 7551,
-        "src": "assets/icons/848.png"
+        "id": 848,
+        "src": "assets/icons/kr-848.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/000848.png"
       }
     ],
     "The Wanderer's Minuet": [
@@ -796,22 +887,25 @@
     "Mage's Ballad": [
       {
         "name": "Mage's Ballad",
-        "id": 114,
-        "src": "assets/icons/2602.png"
+        "id": 2602,
+        "src": "assets/icons/kr-2602.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002602.png"
       }
     ],
     "Army's Paeon": [
       {
         "name": "Army's Paeon",
-        "id": 116,
-        "src": "assets/icons/2603.png"
+        "id": 2603,
+        "src": "assets/icons/kr-2603.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002603.png"
       }
     ],
     "Radiant Finale": [
       {
         "name": "Radiant Finale",
-        "id": 25785,
-        "src": "assets/icons/2622.png"
+        "id": 2622,
+        "src": "assets/icons/kr-2622.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002622.png"
       }
     ],
     "Heated Split Shot": [
@@ -901,8 +995,9 @@
     "Leg Graze": [
       {
         "name": "Leg Graze",
-        "id": 7554,
-        "src": "assets/icons/843.png"
+        "id": 843,
+        "src": "assets/icons/kr-843.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/000843.png"
       }
     ],
     "Scattergun": [
@@ -936,15 +1031,17 @@
     "Cascade": [
       {
         "name": "Cascade",
-        "id": 15989,
-        "src": "assets/icons/3451.png"
+        "id": 3451,
+        "src": "assets/icons/kr-3451.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003451.png"
       }
     ],
     "Fountain": [
       {
         "name": "Fountain",
-        "id": 15990,
-        "src": "assets/icons/3452.png"
+        "id": 3452,
+        "src": "assets/icons/kr-3452.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003452.png"
       }
     ],
     "Reverse Cascade / Fountainfall": [
@@ -962,8 +1059,9 @@
     "Saber Dance": [
       {
         "name": "Saber Dance",
-        "id": 16005,
-        "src": "assets/icons/3476.png"
+        "id": 3476,
+        "src": "assets/icons/kr-3476.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003476.png"
       }
     ],
     "Fan Dance I": [
@@ -976,64 +1074,73 @@
     "Fan Dance III": [
       {
         "name": "Fan Dance III",
-        "id": 16009,
-        "src": "assets/icons/3472.png"
+        "id": 3472,
+        "src": "assets/icons/kr-3472.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003472.png"
       }
     ],
     "Flourish": [
       {
         "name": "Flourish",
-        "id": 16013,
-        "src": "assets/icons/3475.png"
+        "id": 3475,
+        "src": "assets/icons/kr-3475.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003475.png"
       }
     ],
     "Standard Step": [
       {
         "name": "Standard Step",
-        "id": 15997,
-        "src": "assets/icons/3454.png"
+        "id": 3454,
+        "src": "assets/icons/kr-3454.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003454.png"
       }
     ],
     "Devilment": [
       {
         "name": "Devilment",
-        "id": 16011,
-        "src": "assets/icons/3471.png"
+        "id": 3471,
+        "src": "assets/icons/kr-3471.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003471.png"
       }
     ],
     "En Avant": [
       {
         "name": "En Avant",
-        "id": 16010,
-        "src": "assets/icons/3467.png"
+        "id": 3467,
+        "src": "assets/icons/kr-3467.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003467.png"
       }
     ],
     "Shield Samba": [
       {
         "name": "Shield Samba",
-        "id": 16012,
-        "src": "assets/icons/3469.png"
+        "id": 3469,
+        "src": "assets/icons/kr-3469.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003469.png"
       }
     ],
     "Curing Waltz": [
       {
         "name": "Curing Waltz",
-        "id": 16015,
-        "src": "assets/icons/3468.png"
+        "id": 3468,
+        "src": "assets/icons/kr-3468.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003468.png"
       }
     ],
     "Foot Graze": [
       {
         "name": "Foot Graze",
-        "id": 7553,
-        "src": "assets/icons/842.png"
+        "id": 842,
+        "src": "assets/icons/kr-842.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/000842.png"
       }
     ],
     "Windmill": [
       {
         "name": "Windmill",
-        "id": 15993,
-        "src": "assets/icons/3453.png"
+        "id": 3453,
+        "src": "assets/icons/kr-3453.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003453.png"
       }
     ],
     "Rising Windmill / Bloodshower": [
@@ -1051,120 +1158,137 @@
     "Technical Step": [
       {
         "name": "Technical Step",
-        "id": 15998,
-        "src": "assets/icons/3473.png"
+        "id": 3473,
+        "src": "assets/icons/kr-3473.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003473.png"
       }
     ],
     "Fan Dance IV": [
       {
         "name": "Fan Dance IV",
-        "id": 25791,
-        "src": "assets/icons/3481.png"
+        "id": 3481,
+        "src": "assets/icons/kr-3481.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003481.png"
       }
     ],
     "Fire IV": [
       {
         "name": "Fire IV",
-        "id": 3577,
-        "src": "assets/icons/2660.png"
+        "id": 2660,
+        "src": "assets/icons/kr-2660.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002660.png"
       }
     ],
     "Fire III": [
       {
         "name": "Fire III",
-        "id": 152,
-        "src": "assets/icons/453.png"
+        "id": 453,
+        "src": "assets/icons/kr-453.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/000453.png"
       }
     ],
     "Blizzard III": [
       {
         "name": "Blizzard III",
-        "id": 154,
-        "src": "assets/icons/456.png"
+        "id": 456,
+        "src": "assets/icons/kr-456.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/000456.png"
       }
     ],
     "Despair": [
       {
         "name": "Despair",
-        "id": 16505,
-        "src": "assets/icons/2665.png"
+        "id": 2665,
+        "src": "assets/icons/kr-2665.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002665.png"
       }
     ],
     "Flare Star": [
       {
         "name": "Flare Star",
-        "id": 36989,
-        "src": "assets/icons/2151.png"
+        "id": 2151,
+        "src": "assets/icons/kr-2151.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002151.png"
       }
     ],
     "Blizzard IV": [
       {
         "name": "Blizzard IV",
-        "id": 3576,
-        "src": "assets/icons/2659.png"
+        "id": 2659,
+        "src": "assets/icons/kr-2659.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002659.png"
       }
     ],
     "Xenoglossy": [
       {
         "name": "Xenoglossy",
-        "id": 16507,
-        "src": "assets/icons/2667.png"
+        "id": 2667,
+        "src": "assets/icons/kr-2667.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002667.png"
       }
     ],
     "Triplecast": [
       {
         "name": "Triplecast",
-        "id": 7421,
-        "src": "assets/icons/2663.png"
+        "id": 2663,
+        "src": "assets/icons/kr-2663.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002663.png"
       }
     ],
     "Amplifier": [
       {
         "name": "Amplifier",
-        "id": 25796,
-        "src": "assets/icons/2671.png"
+        "id": 2671,
+        "src": "assets/icons/kr-2671.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002671.png"
       }
     ],
     "Ley Lines": [
       {
         "name": "Ley Lines",
-        "id": 3573,
-        "src": "assets/icons/2656.png"
+        "id": 2656,
+        "src": "assets/icons/kr-2656.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002656.png"
       }
     ],
     "Manafont": [
       {
         "name": "Manafont",
-        "id": 158,
-        "src": "assets/icons/2651.png"
+        "id": 2651,
+        "src": "assets/icons/kr-2651.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002651.png"
       }
     ],
     "Aetherial Manipulation": [
       {
         "name": "Aetherial Manipulation",
-        "id": 155,
-        "src": "assets/icons/467.png"
+        "id": 467,
+        "src": "assets/icons/kr-467.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/000467.png"
       }
     ],
     "Between the Lines": [
       {
         "name": "Between the Lines",
-        "id": 7419,
-        "src": "assets/icons/2661.png"
+        "id": 2661,
+        "src": "assets/icons/kr-2661.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002661.png"
       }
     ],
     "Transpose": [
       {
         "name": "Transpose",
-        "id": 149,
-        "src": "assets/icons/466.png"
+        "id": 466,
+        "src": "assets/icons/kr-466.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/000466.png"
       }
     ],
     "Addle": [
       {
         "name": "Addle",
-        "id": 7560,
-        "src": "assets/icons/861.png"
+        "id": 861,
+        "src": "assets/icons/kr-861.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/000861.png"
       }
     ],
     "Blizzard II": [
@@ -1177,64 +1301,73 @@
     "High Fire II": [
       {
         "name": "High Fire II",
-        "id": 25794,
-        "src": "assets/icons/2669.png"
+        "id": 2669,
+        "src": "assets/icons/kr-2669.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002669.png"
       }
     ],
     "Foul": [
       {
         "name": "Foul",
-        "id": 7422,
-        "src": "assets/icons/2664.png"
+        "id": 2664,
+        "src": "assets/icons/kr-2664.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002664.png"
       }
     ],
     "Flare": [
       {
         "name": "Flare",
-        "id": 162,
-        "src": "assets/icons/2652.png"
+        "id": 2652,
+        "src": "assets/icons/kr-2652.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002652.png"
       }
     ],
     "Ruin III": [
       {
         "name": "Ruin III",
-        "id": 3579,
-        "src": "assets/icons/2682.png"
+        "id": 2682,
+        "src": "assets/icons/kr-2682.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002682.png"
       }
     ],
     "Astral Flow": [
       {
         "name": "Astral Flow",
-        "id": 25822,
-        "src": "assets/icons/2759.png"
+        "id": 2759,
+        "src": "assets/icons/kr-2759.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002759.png"
       }
     ],
     "Summon Garuda II": [
       {
         "name": "Summon Garuda II",
-        "id": 25840,
-        "src": "assets/icons/2774.png"
+        "id": 2774,
+        "src": "assets/icons/kr-2774.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002774.png"
       }
     ],
     "Summon Ifrit II": [
       {
         "name": "Summon Ifrit II",
-        "id": 25838,
-        "src": "assets/icons/2772.png"
+        "id": 2772,
+        "src": "assets/icons/kr-2772.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002772.png"
       }
     ],
     "Summon Titan II": [
       {
         "name": "Summon Titan II",
-        "id": 25839,
-        "src": "assets/icons/2773.png"
+        "id": 2773,
+        "src": "assets/icons/kr-2773.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002773.png"
       }
     ],
     "Ruin IV": [
       {
         "name": "Ruin IV",
-        "id": 7426,
-        "src": "assets/icons/2686.png"
+        "id": 2686,
+        "src": "assets/icons/kr-2686.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002686.png"
       }
     ],
     "Mountain Buster": [
@@ -1283,15 +1416,17 @@
     "Searing Light": [
       {
         "name": "Searing Light",
-        "id": 25801,
-        "src": "assets/icons/2780.png"
+        "id": 2780,
+        "src": "assets/icons/kr-2780.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002780.png"
       }
     ],
     "Surecast": [
       {
         "name": "Surecast",
-        "id": 7559,
-        "src": "assets/icons/869.png"
+        "id": 869,
+        "src": "assets/icons/kr-869.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/000869.png"
       }
     ],
     "Outburst": [
@@ -1311,22 +1446,25 @@
     "Jolt III": [
       {
         "name": "Jolt III",
-        "id": 37004,
-        "src": "assets/icons/3241.png"
+        "id": 3241,
+        "src": "assets/icons/kr-3241.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003241.png"
       }
     ],
     "Verthunder III": [
       {
         "name": "Verthunder III",
-        "id": 25855,
-        "src": "assets/icons/3235.png"
+        "id": 3235,
+        "src": "assets/icons/kr-3235.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003235.png"
       }
     ],
     "Veraero III": [
       {
         "name": "Veraero III",
-        "id": 25856,
-        "src": "assets/icons/3236.png"
+        "id": 3236,
+        "src": "assets/icons/kr-3236.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003236.png"
       }
     ],
     "Enchanted Riposte": [
@@ -1353,15 +1491,17 @@
     "Fleche": [
       {
         "name": "Fleche",
-        "id": 7517,
-        "src": "assets/icons/3212.png"
+        "id": 3212,
+        "src": "assets/icons/kr-3212.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003212.png"
       }
     ],
     "Contre Sixte": [
       {
         "name": "Contre Sixte",
-        "id": 7519,
-        "src": "assets/icons/3217.png"
+        "id": 3217,
+        "src": "assets/icons/kr-3217.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003217.png"
       }
     ],
     "Verstone / Vercure": [
@@ -1379,22 +1519,25 @@
     "Manafication": [
       {
         "name": "Manafication",
-        "id": 7521,
-        "src": "assets/icons/3219.png"
+        "id": 3219,
+        "src": "assets/icons/kr-3219.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003219.png"
       }
     ],
     "Embolden": [
       {
         "name": "Embolden",
-        "id": 7520,
-        "src": "assets/icons/3218.png"
+        "id": 3218,
+        "src": "assets/icons/kr-3218.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003218.png"
       }
     ],
     "Corps-a-corps": [
       {
         "name": "Corps-a-corps",
-        "id": 7506,
-        "src": "assets/icons/3204.png"
+        "id": 3204,
+        "src": "assets/icons/kr-3204.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003204.png"
       }
     ],
     "Displacement / Engagement": [
@@ -1412,22 +1555,25 @@
     "Magick Barrier": [
       {
         "name": "Magick Barrier",
-        "id": 25857,
-        "src": "assets/icons/3237.png"
+        "id": 3237,
+        "src": "assets/icons/kr-3237.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003237.png"
       }
     ],
     "Verthunder II": [
       {
         "name": "Verthunder II",
-        "id": 16524,
-        "src": "assets/icons/3229.png"
+        "id": 3229,
+        "src": "assets/icons/kr-3229.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003229.png"
       }
     ],
     "Veraero II": [
       {
         "name": "Veraero II",
-        "id": 16525,
-        "src": "assets/icons/3230.png"
+        "id": 3230,
+        "src": "assets/icons/kr-3230.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003230.png"
       }
     ],
     "Verholy / Verflare → Scorch": [
@@ -1457,8 +1603,9 @@
     "Fire in Red": [
       {
         "name": "Fire in Red",
-        "id": 34650,
-        "src": "assets/icons/3801.png"
+        "id": 3801,
+        "src": "assets/icons/kr-3801.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003801.png"
       }
     ],
     "Aero in Green": [
@@ -1478,8 +1625,9 @@
     "Holy in White": [
       {
         "name": "Holy in White",
-        "id": 34662,
-        "src": "assets/icons/3813.png"
+        "id": 3813,
+        "src": "assets/icons/kr-3813.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003813.png"
       }
     ],
     "Thunder in Magenta": [
@@ -1492,15 +1640,17 @@
     "Comet in Black": [
       {
         "name": "Comet in Black",
-        "id": 34663,
-        "src": "assets/icons/3814.png"
+        "id": 3814,
+        "src": "assets/icons/kr-3814.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003814.png"
       }
     ],
     "Living Muse": [
       {
         "name": "Living Muse",
-        "id": 35347,
-        "src": "assets/icons/3842.png"
+        "id": 3842,
+        "src": "assets/icons/kr-3842.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003842.png"
       }
     ],
     "Striking Muse": [
@@ -1513,15 +1663,17 @@
     "Scenic Muse": [
       {
         "name": "Scenic Muse",
-        "id": 35349,
-        "src": "assets/icons/3844.png"
+        "id": 3844,
+        "src": "assets/icons/kr-3844.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003844.png"
       }
     ],
     "Creature Motif": [
       {
         "name": "Creature Motif",
-        "id": 34689,
-        "src": "assets/icons/3839.png"
+        "id": 3839,
+        "src": "assets/icons/kr-3839.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003839.png"
       }
     ],
     "Starry Muse": [
@@ -1534,43 +1686,49 @@
     "Smudge": [
       {
         "name": "Smudge",
-        "id": 34684,
-        "src": "assets/icons/3834.png"
+        "id": 3834,
+        "src": "assets/icons/kr-3834.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003834.png"
       }
     ],
     "Tempera Coat": [
       {
         "name": "Tempera Coat",
-        "id": 34685,
-        "src": "assets/icons/3835.png"
+        "id": 3835,
+        "src": "assets/icons/kr-3835.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003835.png"
       }
     ],
     "Fire II in Red": [
       {
         "name": "Fire II in Red",
-        "id": 34656,
-        "src": "assets/icons/3807.png"
+        "id": 3807,
+        "src": "assets/icons/kr-3807.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003807.png"
       }
     ],
     "Star Prism": [
       {
         "name": "Star Prism",
-        "id": 34681,
-        "src": "assets/icons/3832.png"
+        "id": 3832,
+        "src": "assets/icons/kr-3832.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003832.png"
       }
     ],
     "Rainbow Drip": [
       {
         "name": "Rainbow Drip",
-        "id": 34688,
-        "src": "assets/icons/3838.png"
+        "id": 3838,
+        "src": "assets/icons/kr-3838.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003838.png"
       }
     ],
     "Hammer Stamp": [
       {
         "name": "Hammer Stamp",
-        "id": 34678,
-        "src": "assets/icons/3829.png"
+        "id": 3829,
+        "src": "assets/icons/kr-3829.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003829.png"
       }
     ],
     "Blazing Shot": [
@@ -1625,8 +1783,9 @@
     "Arm's Length": [
       {
         "name": "Arm's Length",
-        "id": 7548,
-        "src": "assets/icons/822.png"
+        "id": 822,
+        "src": "assets/icons/kr-822.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/000822.png"
       }
     ],
     "Flamethrower": [
@@ -1646,8 +1805,9 @@
     "Peloton": [
       {
         "name": "Peloton",
-        "id": 7557,
-        "src": "assets/icons/844.png"
+        "id": 844,
+        "src": "assets/icons/kr-844.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/000844.png"
       }
     ],
     "Sprint": [
@@ -1671,10 +1831,2182 @@
         "sheet": "GeneralAction",
         "src": "assets/icons/103.png"
       }
+    ],
+    "Demolish": [
+      {
+        "name": "Demolish",
+        "id": 204,
+        "src": "assets/icons/kr-204.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/000204.png"
+      }
+    ],
+    "Forbidden Meditation": [
+      {
+        "name": "Forbidden Meditation",
+        "id": 218,
+        "src": "assets/icons/kr-218.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/000218.png"
+      }
+    ],
+    "Enlightened Meditation": [
+      {
+        "name": "Enlightened Meditation",
+        "id": 219,
+        "src": "assets/icons/kr-219.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/000219.png"
+      }
+    ],
+    "Six-sided Star": [
+      {
+        "name": "Six-sided Star",
+        "id": 2547,
+        "src": "assets/icons/kr-2547.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002547.png"
+      }
+    ],
+    "지열참": [
+      {
+        "name": "지열참",
+        "id": 2529,
+        "src": "assets/icons/kr-2529.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002529.png"
+      }
+    ],
+    "Form Shift": [
+      {
+        "name": "Form Shift",
+        "id": 2536,
+        "src": "assets/icons/kr-2536.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002536.png"
+      }
+    ],
+    "Earth's Reply": [
+      {
+        "name": "Earth's Reply",
+        "id": 2549,
+        "src": "assets/icons/kr-2549.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002549.png"
+      }
+    ],
+    "Wind's Reply": [
+      {
+        "name": "Wind's Reply",
+        "id": 2986,
+        "src": "assets/icons/kr-2986.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002986.png"
+      }
+    ],
+    "Fire's Reply": [
+      {
+        "name": "Fire's Reply",
+        "id": 2987,
+        "src": "assets/icons/kr-2987.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002987.png"
+      }
+    ],
+    "Riddle of Earth": [
+      {
+        "name": "Riddle of Earth",
+        "id": 2537,
+        "src": "assets/icons/kr-2537.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002537.png"
+      }
+    ],
+    "True North": [
+      {
+        "name": "True North",
+        "id": 830,
+        "src": "assets/icons/kr-830.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/000830.png"
+      }
+    ],
+    "Leg Sweep": [
+      {
+        "name": "Leg Sweep",
+        "id": 824,
+        "src": "assets/icons/kr-824.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/000824.png"
+      }
+    ],
+    "True Thrust": [
+      {
+        "name": "True Thrust",
+        "id": 310,
+        "src": "assets/icons/kr-310.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/000310.png"
+      }
+    ],
+    "Spiral Blow": [
+      {
+        "name": "Spiral Blow",
+        "id": 2077,
+        "src": "assets/icons/kr-2077.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002077.png"
+      }
+    ],
+    "Wheeling Thrust": [
+      {
+        "name": "Wheeling Thrust",
+        "id": 2584,
+        "src": "assets/icons/kr-2584.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002584.png"
+      }
+    ],
+    "Lance Barrage": [
+      {
+        "name": "Lance Barrage",
+        "id": 2076,
+        "src": "assets/icons/kr-2076.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002076.png"
+      }
+    ],
+    "Mirage Dive": [
+      {
+        "name": "Mirage Dive",
+        "id": 2588,
+        "src": "assets/icons/kr-2588.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002588.png"
+      }
+    ],
+    "Winged Glide": [
+      {
+        "name": "Winged Glide",
+        "id": 2598,
+        "src": "assets/icons/kr-2598.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002598.png"
+      }
+    ],
+    "Elusive Jump": [
+      {
+        "name": "Elusive Jump",
+        "id": 2577,
+        "src": "assets/icons/kr-2577.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002577.png"
+      }
+    ],
+    "Fang and Claw": [
+      {
+        "name": "Fang and Claw",
+        "id": 2582,
+        "src": "assets/icons/kr-2582.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002582.png"
+      }
+    ],
+    "Piercing Talon": [
+      {
+        "name": "Piercing Talon",
+        "id": 315,
+        "src": "assets/icons/kr-315.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/000315.png"
+      }
+    ],
+    "Stardiver": [
+      {
+        "name": "Stardiver",
+        "id": 2593,
+        "src": "assets/icons/kr-2593.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002593.png"
+      }
+    ],
+    "Rise of the Dragon": [
+      {
+        "name": "Rise of the Dragon",
+        "id": 2075,
+        "src": "assets/icons/kr-2075.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002075.png"
+      }
+    ],
+    "Starcross": [
+      {
+        "name": "Starcross",
+        "id": 2078,
+        "src": "assets/icons/kr-2078.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002078.png"
+      }
+    ],
+    "Fleeting Raiju": [
+      {
+        "name": "Fleeting Raiju",
+        "id": 2932,
+        "src": "assets/icons/kr-2932.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002932.png"
+      }
+    ],
+    "Forked Raiju": [
+      {
+        "name": "Forked Raiju",
+        "id": 2931,
+        "src": "assets/icons/kr-2931.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002931.png"
+      }
+    ],
+    "Ten": [
+      {
+        "name": "Ten",
+        "id": 2901,
+        "src": "assets/icons/kr-2901.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002901.png"
+      }
+    ],
+    "Chi": [
+      {
+        "name": "Chi",
+        "id": 2902,
+        "src": "assets/icons/kr-2902.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002902.png"
+      }
+    ],
+    "Jin": [
+      {
+        "name": "Jin",
+        "id": 2903,
+        "src": "assets/icons/kr-2903.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002903.png"
+      }
+    ],
+    "Ninjutsu": [
+      {
+        "name": "Ninjutsu",
+        "id": 2904,
+        "src": "assets/icons/kr-2904.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002904.png"
+      }
+    ],
+    "Kassatsu": [
+      {
+        "name": "Kassatsu",
+        "id": 2906,
+        "src": "assets/icons/kr-2906.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002906.png"
+      }
+    ],
+    "Dokumori": [
+      {
+        "name": "Dokumori",
+        "id": 619,
+        "src": "assets/icons/kr-619.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000619.png"
+      }
+    ],
+    "Dream Within a Dream": [
+      {
+        "name": "Dream Within a Dream",
+        "id": 2918,
+        "src": "assets/icons/kr-2918.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002918.png"
+      }
+    ],
+    "Ten Chi Jin": [
+      {
+        "name": "Ten Chi Jin",
+        "id": 2922,
+        "src": "assets/icons/kr-2922.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002922.png"
+      }
+    ],
+    "Meisui": [
+      {
+        "name": "Meisui",
+        "id": 2924,
+        "src": "assets/icons/kr-2924.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002924.png"
+      }
+    ],
+    "두꺼비 소환술": [
+      {
+        "name": "두꺼비 소환술",
+        "id": 2920,
+        "src": "assets/icons/kr-2920.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002920.png"
+      }
+    ],
+    "칼 던지기": [
+      {
+        "name": "칼 던지기",
+        "id": 614,
+        "src": "assets/icons/kr-614.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000614.png"
+      }
+    ],
+    "은신술": [
+      {
+        "name": "은신술",
+        "id": 609,
+        "src": "assets/icons/kr-609.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000609.png"
+      }
+    ],
+    "Phantom Kamaitachi": [
+      {
+        "name": "Phantom Kamaitachi",
+        "id": 2929,
+        "src": "assets/icons/kr-2929.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002929.png"
+      }
+    ],
+    "Shade Shift": [
+      {
+        "name": "Shade Shift",
+        "id": 607,
+        "src": "assets/icons/kr-607.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/000607.png"
+      }
+    ],
+    "Iaijutsu": [
+      {
+        "name": "Iaijutsu",
+        "id": 3159,
+        "src": "assets/icons/kr-3159.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003159.png"
+      }
+    ],
+    "Shoha": [
+      {
+        "name": "Shoha",
+        "id": 3184,
+        "src": "assets/icons/kr-3184.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003184.png"
+      }
+    ],
+    "Zanshin": [
+      {
+        "name": "Zanshin",
+        "id": 3192,
+        "src": "assets/icons/kr-3192.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003192.png"
+      }
+    ],
+    "Hissatsu: Gyoten": [
+      {
+        "name": "Hissatsu: Gyoten",
+        "id": 3169,
+        "src": "assets/icons/kr-3169.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003169.png"
+      }
+    ],
+    "필살검: 야천": [
+      {
+        "name": "필살검: 야천",
+        "id": 3170,
+        "src": "assets/icons/kr-3170.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003170.png"
+      }
+    ],
+    "Hissatsu: Senei": [
+      {
+        "name": "Hissatsu: Senei",
+        "id": 3178,
+        "src": "assets/icons/kr-3178.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003178.png"
+      }
+    ],
+    "Hagakure": [
+      {
+        "name": "Hagakure",
+        "id": 3176,
+        "src": "assets/icons/kr-3176.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003176.png"
+      }
+    ],
+    "Meditate": [
+      {
+        "name": "Meditate",
+        "id": 3172,
+        "src": "assets/icons/kr-3172.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003172.png"
+      }
+    ],
+    "Oka": [
+      {
+        "name": "Oka",
+        "id": 3165,
+        "src": "assets/icons/kr-3165.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003165.png"
+      }
+    ],
+    "제비오름": [
+      {
+        "name": "제비오름",
+        "id": 3155,
+        "src": "assets/icons/kr-3155.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003155.png"
+      }
+    ],
+    "필살검: 구천": [
+      {
+        "name": "필살검: 구천",
+        "id": 3174,
+        "src": "assets/icons/kr-3174.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003174.png"
+      }
+    ],
+    "필살검: 홍련": [
+      {
+        "name": "필살검: 홍련",
+        "id": 3177,
+        "src": "assets/icons/kr-3177.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003177.png"
+      }
+    ],
+    "Tengentsu": [
+      {
+        "name": "Tengentsu",
+        "id": 3190,
+        "src": "assets/icons/kr-3190.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003190.png"
+      }
+    ],
+    "핏빛 할퀴기": [
+      {
+        "name": "핏빛 할퀴기",
+        "id": 3617,
+        "src": "assets/icons/kr-3617.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003617.png"
+      }
+    ],
+    "Communio": [
+      {
+        "name": "Communio",
+        "id": 3626,
+        "src": "assets/icons/kr-3626.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003626.png"
+      }
+    ],
+    "지옥 퇴장": [
+      {
+        "name": "지옥 퇴장",
+        "id": 3630,
+        "src": "assets/icons/kr-3630.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003630.png"
+      }
+    ],
+    "Soulsow": [
+      {
+        "name": "Soulsow",
+        "id": 3615,
+        "src": "assets/icons/kr-3615.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003615.png"
+      }
+    ],
+    "Whorl of Death": [
+      {
+        "name": "Whorl of Death",
+        "id": 3607,
+        "src": "assets/icons/kr-3607.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003607.png"
+      }
+    ],
+    "Harpe": [
+      {
+        "name": "Harpe",
+        "id": 3614,
+        "src": "assets/icons/kr-3614.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003614.png"
+      }
+    ],
+    "영혼의 낫": [
+      {
+        "name": "영혼의 낫",
+        "id": 3609,
+        "src": "assets/icons/kr-3609.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003609.png"
+      }
+    ],
+    "참수형": [
+      {
+        "name": "참수형",
+        "id": 3612,
+        "src": "assets/icons/kr-3612.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003612.png"
+      }
+    ],
+    "음산한 할퀴기": [
+      {
+        "name": "음산한 할퀴기",
+        "id": 3620,
+        "src": "assets/icons/kr-3620.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003620.png"
+      }
+    ],
+    "Serpent’s Tail": [
+      {
+        "name": "Serpent’s Tail",
+        "id": 3743,
+        "src": "assets/icons/kr-3743.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003743.png"
+      }
+    ],
+    "Uncoiled Fury": [
+      {
+        "name": "Uncoiled Fury",
+        "id": 3728,
+        "src": "assets/icons/kr-3728.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003728.png"
+      }
+    ],
+    "Twinfang": [
+      {
+        "name": "Twinfang",
+        "id": 3744,
+        "src": "assets/icons/kr-3744.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003744.png"
+      }
+    ],
+    "Twinblood": [
+      {
+        "name": "Twinblood",
+        "id": 3745,
+        "src": "assets/icons/kr-3745.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003745.png"
+      }
+    ],
+    "Vicepit": [
+      {
+        "name": "Vicepit",
+        "id": 3718,
+        "src": "assets/icons/kr-3718.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003718.png"
+      }
+    ],
+    "Writhing Snap": [
+      {
+        "name": "Writhing Snap",
+        "id": 3727,
+        "src": "assets/icons/kr-3727.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003727.png"
+      }
+    ],
+    "Hunter's Den": [
+      {
+        "name": "Hunter's Den",
+        "id": 3719,
+        "src": "assets/icons/kr-3719.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003719.png"
+      }
+    ],
+    "Swiftskin's Den": [
+      {
+        "name": "Swiftskin's Den",
+        "id": 3720,
+        "src": "assets/icons/kr-3720.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003720.png"
+      }
+    ],
+    "Heartbreak Shot": [
+      {
+        "name": "Heartbreak Shot",
+        "id": 2623,
+        "src": "assets/icons/kr-2623.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002623.png"
+      }
+    ],
+    "the Wanderer's Minuet": [
+      {
+        "name": "the Wanderer's Minuet",
+        "id": 2607,
+        "src": "assets/icons/kr-2607.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002607.png"
+      }
+    ],
+    "후퇴 사격": [
+      {
+        "name": "후퇴 사격",
+        "id": 366,
+        "src": "assets/icons/kr-366.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/000366.png"
+      }
+    ],
+    "Barrage": [
+      {
+        "name": "Barrage",
+        "id": 353,
+        "src": "assets/icons/kr-353.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/000353.png"
+      }
+    ],
+    "Nature's Minne": [
+      {
+        "name": "Nature's Minne",
+        "id": 2615,
+        "src": "assets/icons/kr-2615.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002615.png"
+      }
+    ],
+    "라돈 화살": [
+      {
+        "name": "라돈 화살",
+        "id": 2620,
+        "src": "assets/icons/kr-2620.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002620.png"
+      }
+    ],
+    "그림자 화살": [
+      {
+        "name": "그림자 화살",
+        "id": 2617,
+        "src": "assets/icons/kr-2617.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002617.png"
+      }
+    ],
+    "죽음의 화살비": [
+      {
+        "name": "죽음의 화살비",
+        "id": 2605,
+        "src": "assets/icons/kr-2605.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002605.png"
+      }
+    ],
+    "Wide Volley": [
+      {
+        "name": "Wide Volley",
+        "id": 357,
+        "src": "assets/icons/kr-357.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/000357.png"
+      }
+    ],
+    "Resonant Arrow": [
+      {
+        "name": "Resonant Arrow",
+        "id": 2624,
+        "src": "assets/icons/kr-2624.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002624.png"
+      }
+    ],
+    "Radiant Encore": [
+      {
+        "name": "Radiant Encore",
+        "id": 2100,
+        "src": "assets/icons/kr-2100.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002100.png"
+      }
+    ],
+    "The Warden's Paean": [
+      {
+        "name": "The Warden's Paean",
+        "id": 2609,
+        "src": "assets/icons/kr-2609.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002609.png"
+      }
+    ],
+    "Reverse Cascade": [
+      {
+        "name": "Reverse Cascade",
+        "id": 3460,
+        "src": "assets/icons/kr-3460.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003460.png"
+      }
+    ],
+    "Fountainfall": [
+      {
+        "name": "Fountainfall",
+        "id": 3464,
+        "src": "assets/icons/kr-3464.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003464.png"
+      }
+    ],
+    "Starfall Dance": [
+      {
+        "name": "Starfall Dance",
+        "id": 3482,
+        "src": "assets/icons/kr-3482.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003482.png"
+      }
+    ],
+    "Fan Dance": [
+      {
+        "name": "Fan Dance",
+        "id": 3462,
+        "src": "assets/icons/kr-3462.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003462.png"
+      }
+    ],
+    "Last Dance": [
+      {
+        "name": "Last Dance",
+        "id": 3483,
+        "src": "assets/icons/kr-3483.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003483.png"
+      }
+    ],
+    "Improvisation": [
+      {
+        "name": "Improvisation",
+        "id": 3477,
+        "src": "assets/icons/kr-3477.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003477.png"
+      }
+    ],
+    "Bladeshower": [
+      {
+        "name": "Bladeshower",
+        "id": 3461,
+        "src": "assets/icons/kr-3461.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003461.png"
+      }
+    ],
+    "Rising Windmill": [
+      {
+        "name": "Rising Windmill",
+        "id": 3463,
+        "src": "assets/icons/kr-3463.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003463.png"
+      }
+    ],
+    "Bloodshower": [
+      {
+        "name": "Bloodshower",
+        "id": 3465,
+        "src": "assets/icons/kr-3465.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003465.png"
+      }
+    ],
+    "부채춤: 전개": [
+      {
+        "name": "부채춤: 전개",
+        "id": 3466,
+        "src": "assets/icons/kr-3466.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003466.png"
+      }
+    ],
+    "Closed Position": [
+      {
+        "name": "Closed Position",
+        "id": 3470,
+        "src": "assets/icons/kr-3470.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003470.png"
+      }
+    ],
+    "Fire": [
+      {
+        "name": "Fire",
+        "id": 451,
+        "src": "assets/icons/kr-451.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/000451.png"
+      }
+    ],
+    "High Thunder": [
+      {
+        "name": "High Thunder",
+        "id": 2673,
+        "src": "assets/icons/kr-2673.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002673.png"
+      }
+    ],
+    "컬랩스": [
+      {
+        "name": "컬랩스",
+        "id": 462,
+        "src": "assets/icons/kr-462.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/000462.png"
+      }
+    ],
+    "Umbral Soul": [
+      {
+        "name": "Umbral Soul",
+        "id": 2666,
+        "src": "assets/icons/kr-2666.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002666.png"
+      }
+    ],
+    "Retrace": [
+      {
+        "name": "Retrace",
+        "id": 2150,
+        "src": "assets/icons/kr-2150.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002150.png"
+      }
+    ],
+    "하이 블리자라": [
+      {
+        "name": "하이 블리자라",
+        "id": 2670,
+        "src": "assets/icons/kr-2670.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002670.png"
+      }
+    ],
+    "프리즈": [
+      {
+        "name": "프리즈",
+        "id": 2653,
+        "src": "assets/icons/kr-2653.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002653.png"
+      }
+    ],
+    "High Thunder II": [
+      {
+        "name": "High Thunder II",
+        "id": 2674,
+        "src": "assets/icons/kr-2674.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002674.png"
+      }
+    ],
+    "Manaward": [
+      {
+        "name": "Manaward",
+        "id": 463,
+        "src": "assets/icons/kr-463.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/000463.png"
+      }
+    ],
+    "Lucid Dreaming": [
+      {
+        "name": "Lucid Dreaming",
+        "id": 865,
+        "src": "assets/icons/kr-865.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/000865.png"
+      }
+    ],
+    "Swiftcast": [
+      {
+        "name": "Swiftcast",
+        "id": 866,
+        "src": "assets/icons/kr-866.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/000866.png"
+      }
+    ],
+    "Sleep": [
+      {
+        "name": "Sleep",
+        "id": 871,
+        "src": "assets/icons/kr-871.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/000871.png"
+      }
+    ],
+    "Gemshine": [
+      {
+        "name": "Gemshine",
+        "id": 2777,
+        "src": "assets/icons/kr-2777.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002777.png"
+      }
+    ],
+    "Energy Drain": [
+      {
+        "name": "Energy Drain",
+        "id": 514,
+        "src": "assets/icons/kr-514.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/000514.png"
+      }
+    ],
+    "Necrotize": [
+      {
+        "name": "Necrotize",
+        "id": 2699,
+        "src": "assets/icons/kr-2699.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002699.png"
+      }
+    ],
+    "Summon Bahamut": [
+      {
+        "name": "Summon Bahamut",
+        "id": 2691,
+        "src": "assets/icons/kr-2691.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002691.png"
+      }
+    ],
+    "Enkindle Bahamut": [
+      {
+        "name": "Enkindle Bahamut",
+        "id": 2693,
+        "src": "assets/icons/kr-2693.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002693.png"
+      }
+    ],
+    "Searing Flash": [
+      {
+        "name": "Searing Flash",
+        "id": 2781,
+        "src": "assets/icons/kr-2781.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002781.png"
+      }
+    ],
+    "카벙클 소환": [
+      {
+        "name": "카벙클 소환",
+        "id": 516,
+        "src": "assets/icons/kr-516.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/000516.png"
+      }
+    ],
+    "Resurrection": [
+      {
+        "name": "Resurrection",
+        "id": 511,
+        "src": "assets/icons/kr-511.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/000511.png"
+      }
+    ],
+    "Tri-disaster": [
+      {
+        "name": "Tri-disaster",
+        "id": 2763,
+        "src": "assets/icons/kr-2763.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002763.png"
+      }
+    ],
+    "Precious Brilliance": [
+      {
+        "name": "Precious Brilliance",
+        "id": 2778,
+        "src": "assets/icons/kr-2778.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002778.png"
+      }
+    ],
+    "생명력 흡입": [
+      {
+        "name": "생명력 흡입",
+        "id": 2697,
+        "src": "assets/icons/kr-2697.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002697.png"
+      }
+    ],
+    "고통의 불길": [
+      {
+        "name": "고통의 불길",
+        "id": 2681,
+        "src": "assets/icons/kr-2681.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002681.png"
+      }
+    ],
+    "Lux Solaris": [
+      {
+        "name": "Lux Solaris",
+        "id": 2787,
+        "src": "assets/icons/kr-2787.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002787.png"
+      }
+    ],
+    "Radiant Aegis": [
+      {
+        "name": "Radiant Aegis",
+        "id": 2750,
+        "src": "assets/icons/kr-2750.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002750.png"
+      }
+    ],
+    "Physick": [
+      {
+        "name": "Physick",
+        "id": 518,
+        "src": "assets/icons/kr-518.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/000518.png"
+      }
+    ],
+    "Verstone": [
+      {
+        "name": "Verstone",
+        "id": 3209,
+        "src": "assets/icons/kr-3209.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003209.png"
+      }
+    ],
+    "Verfire": [
+      {
+        "name": "Verfire",
+        "id": 3208,
+        "src": "assets/icons/kr-3208.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003208.png"
+      }
+    ],
+    "Reprise": [
+      {
+        "name": "Reprise",
+        "id": 3233,
+        "src": "assets/icons/kr-3233.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003233.png"
+      }
+    ],
+    "Acceleration": [
+      {
+        "name": "Acceleration",
+        "id": 3214,
+        "src": "assets/icons/kr-3214.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003214.png"
+      }
+    ],
+    "Engagement": [
+      {
+        "name": "Engagement",
+        "id": 3231,
+        "src": "assets/icons/kr-3231.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003231.png"
+      }
+    ],
+    "Riposte": [
+      {
+        "name": "Riposte",
+        "id": 3201,
+        "src": "assets/icons/kr-3201.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003201.png"
+      }
+    ],
+    "Zwerchhau": [
+      {
+        "name": "Zwerchhau",
+        "id": 3210,
+        "src": "assets/icons/kr-3210.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003210.png"
+      }
+    ],
+    "Redoublement": [
+      {
+        "name": "Redoublement",
+        "id": 3213,
+        "src": "assets/icons/kr-3213.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003213.png"
+      }
+    ],
+    "Displacement": [
+      {
+        "name": "Displacement",
+        "id": 3211,
+        "src": "assets/icons/kr-3211.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003211.png"
+      }
+    ],
+    "Vice of Thorns": [
+      {
+        "name": "Vice of Thorns",
+        "id": 3242,
+        "src": "assets/icons/kr-3242.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003242.png"
+      }
+    ],
+    "Prefulgence": [
+      {
+        "name": "Prefulgence",
+        "id": 3244,
+        "src": "assets/icons/kr-3244.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003244.png"
+      }
+    ],
+    "임팩트": [
+      {
+        "name": "임팩트",
+        "id": 3222,
+        "src": "assets/icons/kr-3222.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003222.png"
+      }
+    ],
+    "Moulinet": [
+      {
+        "name": "Moulinet",
+        "id": 3215,
+        "src": "assets/icons/kr-3215.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003215.png"
+      }
+    ],
+    "버레이즈": [
+      {
+        "name": "버레이즈",
+        "id": 3221,
+        "src": "assets/icons/kr-3221.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003221.png"
+      }
+    ],
+    "Vercure": [
+      {
+        "name": "Vercure",
+        "id": 3216,
+        "src": "assets/icons/kr-3216.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003216.png"
+      }
+    ],
+    "Blizzard in Cyan": [
+      {
+        "name": "Blizzard in Cyan",
+        "id": 3804,
+        "src": "assets/icons/kr-3804.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003804.png"
+      }
+    ],
+    "Mog of the Ages": [
+      {
+        "name": "Mog of the Ages",
+        "id": 3827,
+        "src": "assets/icons/kr-3827.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003827.png"
+      }
+    ],
+    "Weapon Motif": [
+      {
+        "name": "Weapon Motif",
+        "id": 3840,
+        "src": "assets/icons/kr-3840.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003840.png"
+      }
+    ],
+    "Steel Muse": [
+      {
+        "name": "Steel Muse",
+        "id": 3843,
+        "src": "assets/icons/kr-3843.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003843.png"
+      }
+    ],
+    "Subtractive Palette": [
+      {
+        "name": "Subtractive Palette",
+        "id": 3833,
+        "src": "assets/icons/kr-3833.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003833.png"
+      }
+    ],
+    "Landscape Motif": [
+      {
+        "name": "Landscape Motif",
+        "id": 3841,
+        "src": "assets/icons/kr-3841.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003841.png"
+      }
+    ],
+    "시안 블리자라": [
+      {
+        "name": "시안 블리자라",
+        "id": 3810,
+        "src": "assets/icons/kr-3810.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003810.png"
+      }
+    ],
+    "Tempera Grassa": [
+      {
+        "name": "Tempera Grassa",
+        "id": 3836,
+        "src": "assets/icons/kr-3836.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003836.png"
+      }
+    ],
+    "Scorch": [
+      {
+        "name": "Scorch",
+        "id": 3234,
+        "src": "assets/icons/kr-3234.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003234.png"
+      }
+    ],
+    "Grand Impact": [
+      {
+        "name": "Grand Impact",
+        "id": 3243,
+        "src": "assets/icons/kr-3243.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003243.png"
+      }
+    ],
+    "Verholy": [
+      {
+        "name": "Verholy",
+        "id": 3224,
+        "src": "assets/icons/kr-3224.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003224.png"
+      }
+    ],
+    "Verflare": [
+      {
+        "name": "Verflare",
+        "id": 3223,
+        "src": "assets/icons/kr-3223.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003223.png"
+      }
+    ],
+    "인르프리즈": [
+      {
+        "name": "인르프리즈",
+        "id": 3232,
+        "src": "assets/icons/kr-3232.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003232.png"
+      }
+    ],
+    "인물리네 1": [
+      {
+        "name": "인물리네 1",
+        "id": 3228,
+        "src": "assets/icons/kr-3228.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003228.png"
+      }
+    ],
+    "인물리네 2": [
+      {
+        "name": "인물리네 2",
+        "id": 3239,
+        "src": "assets/icons/kr-3239.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003239.png"
+      }
+    ],
+    "인물리네 3": [
+      {
+        "name": "인물리네 3",
+        "id": 3240,
+        "src": "assets/icons/kr-3240.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/redmage/pve/003240.png"
+      }
+    ],
+    "Drakesbane": [
+      {
+        "name": "Drakesbane",
+        "id": 2599,
+        "src": "assets/icons/kr-2599.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002599.png"
+      }
+    ],
+    "용안창궁": [
+      {
+        "name": "용안창궁",
+        "id": 2594,
+        "src": "assets/icons/kr-2594.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dragoon/pve/002594.png"
+      }
+    ],
+    "천상의 충격": [
+      {
+        "name": "천상의 충격",
+        "id": 2757,
+        "src": "assets/icons/kr-2757.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002757.png"
+      }
+    ],
+    "영검의 불꽃": [
+      {
+        "name": "영검의 불꽃",
+        "id": 2735,
+        "src": "assets/icons/kr-2735.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002735.png"
+      }
+    ],
+    "Umbral Impulse": [
+      {
+        "name": "Umbral Impulse",
+        "id": 2784,
+        "src": "assets/icons/kr-2784.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002784.png"
+      }
+    ],
+    "루비의 의식": [
+      {
+        "name": "루비의 의식",
+        "id": 2760,
+        "src": "assets/icons/kr-2760.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002760.png"
+      }
+    ],
+    "Topaz Rite": [
+      {
+        "name": "Topaz Rite",
+        "id": 2761,
+        "src": "assets/icons/kr-2761.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002761.png"
+      }
+    ],
+    "에메랄드의 의식": [
+      {
+        "name": "에메랄드의 의식",
+        "id": 2762,
+        "src": "assets/icons/kr-2762.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002762.png"
+      }
+    ],
+    "데스플레어": [
+      {
+        "name": "데스플레어",
+        "id": 2685,
+        "src": "assets/icons/kr-2685.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002685.png"
+      }
+    ],
+    "재생의 불꽃": [
+      {
+        "name": "재생의 불꽃",
+        "id": 2764,
+        "src": "assets/icons/kr-2764.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002764.png"
+      }
+    ],
+    "진홍 회오리": [
+      {
+        "name": "진홍 회오리",
+        "id": 2769,
+        "src": "assets/icons/kr-2769.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002769.png"
+      }
+    ],
+    "Slipstream": [
+      {
+        "name": "Slipstream",
+        "id": 2771,
+        "src": "assets/icons/kr-2771.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002771.png"
+      }
+    ],
+    "Sunflare": [
+      {
+        "name": "Sunflare",
+        "id": 2786,
+        "src": "assets/icons/kr-2786.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002786.png"
+      }
+    ],
+    "진홍빛 일격": [
+      {
+        "name": "진홍빛 일격",
+        "id": 2779,
+        "src": "assets/icons/kr-2779.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002779.png"
+      }
+    ],
+    "Summon Phoenix": [
+      {
+        "name": "Summon Phoenix",
+        "id": 2765,
+        "src": "assets/icons/kr-2765.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002765.png"
+      }
+    ],
+    "Summon Solar Bahamut": [
+      {
+        "name": "Summon Solar Bahamut",
+        "id": 2782,
+        "src": "assets/icons/kr-2782.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002782.png"
+      }
+    ],
+    "Enkindle Phoenix": [
+      {
+        "name": "Enkindle Phoenix",
+        "id": 2737,
+        "src": "assets/icons/kr-2737.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002737.png"
+      }
+    ],
+    "Enkindle Solar Bahamut": [
+      {
+        "name": "Enkindle Solar Bahamut",
+        "id": 2788,
+        "src": "assets/icons/kr-2788.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002788.png"
+      }
+    ],
+    "연옥의 불꽃": [
+      {
+        "name": "연옥의 불꽃",
+        "id": 2736,
+        "src": "assets/icons/kr-2736.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002736.png"
+      }
+    ],
+    "저승의 불길": [
+      {
+        "name": "저승의 불길",
+        "id": 2785,
+        "src": "assets/icons/kr-2785.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002785.png"
+      }
+    ],
+    "루비의 재앙": [
+      {
+        "name": "루비의 재앙",
+        "id": 2766,
+        "src": "assets/icons/kr-2766.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002766.png"
+      }
+    ],
+    "토파즈의 재앙": [
+      {
+        "name": "토파즈의 재앙",
+        "id": 2767,
+        "src": "assets/icons/kr-2767.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002767.png"
+      }
+    ],
+    "에메랄드의 재앙": [
+      {
+        "name": "에메랄드의 재앙",
+        "id": 2768,
+        "src": "assets/icons/kr-2768.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/summoner/pve/002768.png"
+      }
+    ],
+    "Higanbana": [
+      {
+        "name": "Higanbana",
+        "id": 3160,
+        "src": "assets/icons/kr-3160.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003160.png"
+      }
+    ],
+    "Midare Setsugekka": [
+      {
+        "name": "Midare Setsugekka",
+        "id": 3162,
+        "src": "assets/icons/kr-3162.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003162.png"
+      }
+    ],
+    "천도오검": [
+      {
+        "name": "천도오검",
+        "id": 3193,
+        "src": "assets/icons/kr-3193.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003193.png"
+      }
+    ],
+    "Tendo Setsugekka": [
+      {
+        "name": "Tendo Setsugekka",
+        "id": 3194,
+        "src": "assets/icons/kr-3194.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003194.png"
+      }
+    ],
+    "반전오검": [
+      {
+        "name": "반전오검",
+        "id": 3182,
+        "src": "assets/icons/kr-3182.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003182.png"
+      }
+    ],
+    "반전설월화": [
+      {
+        "name": "반전설월화",
+        "id": 3183,
+        "src": "assets/icons/kr-3183.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003183.png"
+      }
+    ],
+    "천도반전오검": [
+      {
+        "name": "천도반전오검",
+        "id": 3195,
+        "src": "assets/icons/kr-3195.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003195.png"
+      }
+    ],
+    "Tendo Kaeshi Setsugekka": [
+      {
+        "name": "Tendo Kaeshi Setsugekka",
+        "id": 3196,
+        "src": "assets/icons/kr-3196.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003196.png"
+      }
+    ],
+    "Kaeshi Namikiri": [
+      {
+        "name": "Kaeshi Namikiri",
+        "id": 3188,
+        "src": "assets/icons/kr-3188.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/samurai/pve/003188.png"
+      }
+    ],
+    "Hunter's Sting": [
+      {
+        "name": "Hunter's Sting",
+        "id": 3703,
+        "src": "assets/icons/kr-3703.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003703.png"
+      }
+    ],
+    "Hunter's Bite": [
+      {
+        "name": "Hunter's Bite",
+        "id": 3711,
+        "src": "assets/icons/kr-3711.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003711.png"
+      }
+    ],
+    "First Generation": [
+      {
+        "name": "First Generation",
+        "id": 3722,
+        "src": "assets/icons/kr-3722.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003722.png"
+      }
+    ],
+    "Flanksting Strike": [
+      {
+        "name": "Flanksting Strike",
+        "id": 3705,
+        "src": "assets/icons/kr-3705.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003705.png"
+      }
+    ],
+    "Hindsting Strike": [
+      {
+        "name": "Hindsting Strike",
+        "id": 3707,
+        "src": "assets/icons/kr-3707.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003707.png"
+      }
+    ],
+    "큰송곳니 셋: 난격": [
+      {
+        "name": "큰송곳니 셋: 난격",
+        "id": 3713,
+        "src": "assets/icons/kr-3713.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003713.png"
+      }
+    ],
+    "Swiftskin's Sting": [
+      {
+        "name": "Swiftskin's Sting",
+        "id": 3704,
+        "src": "assets/icons/kr-3704.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003704.png"
+      }
+    ],
+    "Swiftskin's Bite": [
+      {
+        "name": "Swiftskin's Bite",
+        "id": 3712,
+        "src": "assets/icons/kr-3712.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003712.png"
+      }
+    ],
+    "Second Generation": [
+      {
+        "name": "Second Generation",
+        "id": 3723,
+        "src": "assets/icons/kr-3723.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003723.png"
+      }
+    ],
+    "송곳니 셋: 측열": [
+      {
+        "name": "송곳니 셋: 측열",
+        "id": 3706,
+        "src": "assets/icons/kr-3706.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003706.png"
+      }
+    ],
+    "Hindsbane Fang": [
+      {
+        "name": "Hindsbane Fang",
+        "id": 3708,
+        "src": "assets/icons/kr-3708.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003708.png"
+      }
+    ],
+    "큰송곳니 셋: 난열": [
+      {
+        "name": "큰송곳니 셋: 난열",
+        "id": 3714,
+        "src": "assets/icons/kr-3714.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003714.png"
+      }
+    ],
+    "Death Rattle": [
+      {
+        "name": "Death Rattle",
+        "id": 3729,
+        "src": "assets/icons/kr-3729.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003729.png"
+      }
+    ],
+    "뱀꼬리 섬격": [
+      {
+        "name": "뱀꼬리 섬격",
+        "id": 3730,
+        "src": "assets/icons/kr-3730.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003730.png"
+      }
+    ],
+    "First Legacy": [
+      {
+        "name": "First Legacy",
+        "id": 3735,
+        "src": "assets/icons/kr-3735.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003735.png"
+      }
+    ],
+    "Second Legacy": [
+      {
+        "name": "Second Legacy",
+        "id": 3736,
+        "src": "assets/icons/kr-3736.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003736.png"
+      }
+    ],
+    "Third Legacy": [
+      {
+        "name": "Third Legacy",
+        "id": 3737,
+        "src": "assets/icons/kr-3737.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003737.png"
+      }
+    ],
+    "Fourth Legacy": [
+      {
+        "name": "Fourth Legacy",
+        "id": 3738,
+        "src": "assets/icons/kr-3738.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003738.png"
+      }
+    ],
+    "Twinfang Bite": [
+      {
+        "name": "Twinfang Bite",
+        "id": 3731,
+        "src": "assets/icons/kr-3731.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003731.png"
+      }
+    ],
+    "쌍아연섬": [
+      {
+        "name": "쌍아연섬",
+        "id": 3733,
+        "src": "assets/icons/kr-3733.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003733.png"
+      }
+    ],
+    "Uncoiled Twinfang": [
+      {
+        "name": "Uncoiled Twinfang",
+        "id": 3739,
+        "src": "assets/icons/kr-3739.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003739.png"
+      }
+    ],
+    "Twinblood Bite": [
+      {
+        "name": "Twinblood Bite",
+        "id": 3732,
+        "src": "assets/icons/kr-3732.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003732.png"
+      }
+    ],
+    "쌍아난섬": [
+      {
+        "name": "쌍아난섬",
+        "id": 3734,
+        "src": "assets/icons/kr-3734.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003734.png"
+      }
+    ],
+    "Uncoiled Twinblood": [
+      {
+        "name": "Uncoiled Twinblood",
+        "id": 3740,
+        "src": "assets/icons/kr-3740.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003740.png"
+      }
+    ],
+    "Third Generation": [
+      {
+        "name": "Third Generation",
+        "id": 3724,
+        "src": "assets/icons/kr-3724.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003724.png"
+      }
+    ],
+    "Fourth Generation": [
+      {
+        "name": "Fourth Generation",
+        "id": 3725,
+        "src": "assets/icons/kr-3725.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003725.png"
+      }
+    ],
+    "Ouroboros": [
+      {
+        "name": "Ouroboros",
+        "id": 3726,
+        "src": "assets/icons/kr-3726.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/viper/pve/003726.png"
+      }
+    ],
+    "파랑새의 앙트르샤": [
+      {
+        "name": "파랑새의 앙트르샤",
+        "id": 3456,
+        "src": "assets/icons/kr-3456.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003456.png"
+      }
+    ],
+    "금관의 피루엣": [
+      {
+        "name": "금관의 피루엣",
+        "id": 3458,
+        "src": "assets/icons/kr-3458.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003458.png"
+      }
+    ],
+    "Dance of the Dawn": [
+      {
+        "name": "Dance of the Dawn",
+        "id": 3485,
+        "src": "assets/icons/kr-3485.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003485.png"
+      }
+    ],
+    "Standard Finish": [
+      {
+        "name": "Standard Finish",
+        "id": 3459,
+        "src": "assets/icons/kr-3459.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003459.png"
+      }
+    ],
+    "Finishing Move": [
+      {
+        "name": "Finishing Move",
+        "id": 3484,
+        "src": "assets/icons/kr-3484.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003484.png"
+      }
+    ],
+    "Technical Finish": [
+      {
+        "name": "Technical Finish",
+        "id": 3474,
+        "src": "assets/icons/kr-3474.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003474.png"
+      }
+    ],
+    "Tillana": [
+      {
+        "name": "Tillana",
+        "id": 3480,
+        "src": "assets/icons/kr-3480.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003480.png"
+      }
+    ],
+    "즉흥 연기 마무리": [
+      {
+        "name": "즉흥 연기 마무리",
+        "id": 3479,
+        "src": "assets/icons/kr-3479.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003479.png"
+      }
+    ],
+    "장미의 앙부아떼": [
+      {
+        "name": "장미의 앙부아떼",
+        "id": 3455,
+        "src": "assets/icons/kr-3455.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003455.png"
+      }
+    ],
+    "신록의 쥬떼": [
+      {
+        "name": "신록의 쥬떼",
+        "id": 3457,
+        "src": "assets/icons/kr-3457.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/dancer/pve/003457.png"
+      }
+    ],
+    "Fuma Shuriken": [
+      {
+        "name": "Fuma Shuriken",
+        "id": 2907,
+        "src": "assets/icons/kr-2907.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002907.png"
+      }
+    ],
+    "Katon": [
+      {
+        "name": "Katon",
+        "id": 2908,
+        "src": "assets/icons/kr-2908.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002908.png"
+      }
+    ],
+    "Raiton": [
+      {
+        "name": "Raiton",
+        "id": 2912,
+        "src": "assets/icons/kr-2912.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002912.png"
+      }
+    ],
+    "Hyoton": [
+      {
+        "name": "Hyoton",
+        "id": 2909,
+        "src": "assets/icons/kr-2909.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002909.png"
+      }
+    ],
+    "Huton": [
+      {
+        "name": "Huton",
+        "id": 2910,
+        "src": "assets/icons/kr-2910.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002910.png"
+      }
+    ],
+    "토둔술": [
+      {
+        "name": "토둔술",
+        "id": 2911,
+        "src": "assets/icons/kr-2911.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002911.png"
+      }
+    ],
+    "Suiton": [
+      {
+        "name": "Suiton",
+        "id": 2913,
+        "src": "assets/icons/kr-2913.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002913.png"
+      }
+    ],
+    "겁화멸각술": [
+      {
+        "name": "겁화멸각술",
+        "id": 2925,
+        "src": "assets/icons/kr-2925.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002925.png"
+      }
+    ],
+    "Hyosho Ranryu": [
+      {
+        "name": "Hyosho Ranryu",
+        "id": 2926,
+        "src": "assets/icons/kr-2926.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002926.png"
+      }
+    ],
+    "Zesho Meppo": [
+      {
+        "name": "Zesho Meppo",
+        "id": 2933,
+        "src": "assets/icons/kr-2933.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002933.png"
+      }
+    ],
+    "Tenri Jindo": [
+      {
+        "name": "Tenri Jindo",
+        "id": 2935,
+        "src": "assets/icons/kr-2935.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002935.png"
+      }
+    ],
+    "신선두꺼비 소환술": [
+      {
+        "name": "신선두꺼비 소환술",
+        "id": 2934,
+        "src": "assets/icons/kr-2934.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/ninja/pve/002934.png"
+      }
+    ],
+    "투혼선풍각": [
+      {
+        "name": "투혼선풍각",
+        "id": 2531,
+        "src": "assets/icons/kr-2531.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002531.png"
+      }
+    ],
+    "창기포": [
+      {
+        "name": "창기포",
+        "id": 2533,
+        "src": "assets/icons/kr-2533.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002533.png"
+      }
+    ],
+    "천주각": [
+      {
+        "name": "천주각",
+        "id": 2977,
+        "src": "assets/icons/kr-2977.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002977.png"
+      }
+    ],
+    "폭렬각": [
+      {
+        "name": "폭렬각",
+        "id": 2548,
+        "src": "assets/icons/kr-2548.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002548.png"
+      }
+    ],
+    "Rising Phoenix": [
+      {
+        "name": "Rising Phoenix",
+        "id": 2980,
+        "src": "assets/icons/kr-2980.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002980.png"
+      }
+    ],
+    "몽환투무": [
+      {
+        "name": "몽환투무",
+        "id": 2981,
+        "src": "assets/icons/kr-2981.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002981.png"
+      }
+    ],
+    "Elixir Burst": [
+      {
+        "name": "Elixir Burst",
+        "id": 2985,
+        "src": "assets/icons/kr-2985.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/monk/pve/002985.png"
+      }
+    ],
+    "Stone in Yellow": [
+      {
+        "name": "Stone in Yellow",
+        "id": 3805,
+        "src": "assets/icons/kr-3805.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003805.png"
+      }
+    ],
+    "Hammer Brush": [
+      {
+        "name": "Hammer Brush",
+        "id": 3830,
+        "src": "assets/icons/kr-3830.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003830.png"
+      }
+    ],
+    "Polishing Hammer": [
+      {
+        "name": "Polishing Hammer",
+        "id": 3831,
+        "src": "assets/icons/kr-3831.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003831.png"
+      }
+    ],
+    "폼폼 그림": [
+      {
+        "name": "폼폼 그림",
+        "id": 3815,
+        "src": "assets/icons/kr-3815.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003815.png"
+      }
+    ],
+    "Wing Motif": [
+      {
+        "name": "Wing Motif",
+        "id": 3816,
+        "src": "assets/icons/kr-3816.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003816.png"
+      }
+    ],
+    "발톱 그림": [
+      {
+        "name": "발톱 그림",
+        "id": 3817,
+        "src": "assets/icons/kr-3817.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003817.png"
+      }
+    ],
+    "송곳니 그림": [
+      {
+        "name": "송곳니 그림",
+        "id": 3818,
+        "src": "assets/icons/kr-3818.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003818.png"
+      }
+    ],
+    "Pom Muse": [
+      {
+        "name": "Pom Muse",
+        "id": 3821,
+        "src": "assets/icons/kr-3821.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003821.png"
+      }
+    ],
+    "Winged Muse": [
+      {
+        "name": "Winged Muse",
+        "id": 3822,
+        "src": "assets/icons/kr-3822.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003822.png"
+      }
+    ],
+    "발톱 구현": [
+      {
+        "name": "발톱 구현",
+        "id": 3823,
+        "src": "assets/icons/kr-3823.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003823.png"
+      }
+    ],
+    "송곳니 구현": [
+      {
+        "name": "송곳니 구현",
+        "id": 3824,
+        "src": "assets/icons/kr-3824.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003824.png"
+      }
+    ],
+    "마딘의 응징": [
+      {
+        "name": "마딘의 응징",
+        "id": 3828,
+        "src": "assets/icons/kr-3828.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003828.png"
+      }
+    ],
+    "Hammer Motif": [
+      {
+        "name": "Hammer Motif",
+        "id": 3819,
+        "src": "assets/icons/kr-3819.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003819.png"
+      }
+    ],
+    "하늘 그림": [
+      {
+        "name": "하늘 그림",
+        "id": 3820,
+        "src": "assets/icons/kr-3820.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003820.png"
+      }
+    ],
+    "그린 에어로라": [
+      {
+        "name": "그린 에어로라",
+        "id": 3808,
+        "src": "assets/icons/kr-3808.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003808.png"
+      }
+    ],
+    "블루 워터라": [
+      {
+        "name": "블루 워터라",
+        "id": 3809,
+        "src": "assets/icons/kr-3809.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003809.png"
+      }
+    ],
+    "옐로 스톤라": [
+      {
+        "name": "옐로 스톤라",
+        "id": 3811,
+        "src": "assets/icons/kr-3811.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003811.png"
+      }
+    ],
+    "마젠타 선더라": [
+      {
+        "name": "마젠타 선더라",
+        "id": 3812,
+        "src": "assets/icons/kr-3812.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/pictomancer/pve/003812.png"
+      }
+    ],
+    "Void Reaping": [
+      {
+        "name": "Void Reaping",
+        "id": 3623,
+        "src": "assets/icons/kr-3623.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003623.png"
+      }
+    ],
+    "Executioner's Gibbet": [
+      {
+        "name": "Executioner's Gibbet",
+        "id": 3635,
+        "src": "assets/icons/kr-3635.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003635.png"
+      }
+    ],
+    "Cross Reaping": [
+      {
+        "name": "Cross Reaping",
+        "id": 3624,
+        "src": "assets/icons/kr-3624.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003624.png"
+      }
+    ],
+    "Executioner's Gallows": [
+      {
+        "name": "Executioner's Gallows",
+        "id": 3636,
+        "src": "assets/icons/kr-3636.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003636.png"
+      }
+    ],
+    "Unveiled Gibbet": [
+      {
+        "name": "Unveiled Gibbet",
+        "id": 3618,
+        "src": "assets/icons/kr-3618.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003618.png"
+      }
+    ],
+    "교수형 손톱": [
+      {
+        "name": "교수형 손톱",
+        "id": 3619,
+        "src": "assets/icons/kr-3619.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003619.png"
+      }
+    ],
+    "Lemure's Slice": [
+      {
+        "name": "Lemure's Slice",
+        "id": 3627,
+        "src": "assets/icons/kr-3627.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003627.png"
+      }
+    ],
+    "Sacrificium": [
+      {
+        "name": "Sacrificium",
+        "id": 3634,
+        "src": "assets/icons/kr-3634.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003634.png"
+      }
+    ],
+    "Perfectio": [
+      {
+        "name": "Perfectio",
+        "id": 3638,
+        "src": "assets/icons/kr-3638.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003638.png"
+      }
+    ],
+    "수확의 달": [
+      {
+        "name": "수확의 달",
+        "id": 3616,
+        "src": "assets/icons/kr-3616.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003616.png"
+      }
+    ],
+    "참수형 집행": [
+      {
+        "name": "참수형 집행",
+        "id": 3637,
+        "src": "assets/icons/kr-3637.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003637.png"
+      }
+    ],
+    "레무르의 낫": [
+      {
+        "name": "레무르의 낫",
+        "id": 3628,
+        "src": "assets/icons/kr-3628.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/reaper/pve/003628.png"
+      }
+    ],
+    "Paradox": [
+      {
+        "name": "Paradox",
+        "id": 2672,
+        "src": "assets/icons/kr-2672.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/blackmage/pve/002672.png"
+      }
+    ],
+    "Blast Arrow": [
+      {
+        "name": "Blast Arrow",
+        "id": 2621,
+        "src": "assets/icons/kr-2621.png",
+        "source": "https://image.ff14.co.kr/guide/resources/images/jobicon/bard/pve/002621.png"
+      }
     ]
   },
   "notes": [
     "Spineshatter Dive is a legacy entry; misleading generic icon removed",
     "Korean names from Korean official job guides; original English names retained"
+  ],
+  "sources": [
+    "https://v2.xivapi.com",
+    "https://guide.ff14.co.kr/job"
   ]
 }
